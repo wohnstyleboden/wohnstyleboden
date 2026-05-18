@@ -10,9 +10,14 @@ const translations = {
     'mobile.cta': 'Contact ↗',
     'sticky.btn': 'Neem contact op ↗',
 
-    'hero.title': 'Uw partner voor verkoop van nieuwe en gebruikte machines en overtollige voorraad.',
+    'hero.title': 'Uw partner voor machine demontage en industriële diensten',
     'hero.sub': 'Directe offerte, snelle afhandeling en een betrouwbare samenwerking',
     'hero.btn': 'Contact ↗',
+    'hero.secondary': 'Bekijk diensten',
+    'hero.stat': 'Projecten voltooid',
+    'hero.years': 'Jaar ervaring',
+    'hero.projects': 'Projecten voltooid',
+    'hero.certified': 'VCA gecertificeerd',
 
     'services.heading': 'Onze diensten',
     'services.tab1': 'Machine demontage',
@@ -118,9 +123,14 @@ const translations = {
     'mobile.cta': 'Contact us ↗',
     'sticky.btn': 'Contact us ↗',
 
-    'hero.title': 'Your partner for the sale of new and used machines and surplus inventory.',
+    'hero.title': 'Your partner for machine dismantling and industrial services',
     'hero.sub': 'Direct quote, fast processing and a reliable partnership',
     'hero.btn': 'Contact ↗',
+    'hero.secondary': 'View services',
+    'hero.stat': 'Projects completed',
+    'hero.years': 'Years experience',
+    'hero.projects': 'Projects completed',
+    'hero.certified': 'VCA certified',
 
     'services.heading': 'Our services',
     'services.tab1': 'Machine dismantling',
