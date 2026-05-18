@@ -1107,21 +1107,16 @@ body {
   .section-title { font-size: 24px; }
 
   .tabs {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
     padding-bottom: 16px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    gap: 8px;
   }
 
-  .tabs::-webkit-scrollbar { display: none; }
-
   .tab {
-    white-space: nowrap;
-    flex-shrink: 0;
-    font-size: 13px;
-    padding: 9px 18px;
+    text-align: center;
+    font-size: 14px;
+    padding: 12px 18px;
   }
 
   .service-content {
