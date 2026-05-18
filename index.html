@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USTA Automation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="USTA Automation">
+    </a>
+    <ul class="nav-links">
+      <li class="dropdown">
+        <a href="#"><span data-i18n="nav.services">Onze diensten</span> ▾</a>
+        <div class="dropdown-menu">
+          <a href="demontage.html" data-i18n="footer.demont">Machine demontage</a>
+          <a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; machine onderdelen</a>
+          <a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a>
+        </div>
+      </li>
+      <li><a href="#" data-i18n="nav.about">Over Ons</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-trigger" onclick="toggleLangMenu()">
+          <svg class="flag-icon" id="activeFlagSvg" viewBox="0 0 28 20" width="22" height="16"><rect width="28" height="7" fill="#AE1C28"/><rect y="7" width="28" height="6" fill="white"/><rect y="13" width="28" height="7" fill="#21468B"/></svg>
+          <span id="activeLangLabel">NL</span>
+          <span class="chevron">▾</span>
+        </button>
+        <div class="lang-menu">
+          <button class="lang-option active" id="opt-nl" onclick="setLang('nl'); closeLangMenu()">
+            <svg viewBox="0 0 28 20" width="22" height="16" style="border-radius:3px"><rect width="28" height="7" fill="#AE1C28"/><rect y="7" width="28" height="6" fill="white"/><rect y="13" width="28" height="7" fill="#21468B"/></svg>
+            Nederlands
+          </button>
+          <button class="lang-option" id="opt-en" onclick="setLang('en'); closeLangMenu()">
+            <svg viewBox="0 0 28 20" width="22" height="16" style="border-radius:3px"><rect width="28" height="20" fill="#012169"/><path d="M0,0 L28,20 M28,0 L0,20" stroke="white" stroke-width="3"/><path d="M0,0 L28,20 M28,0 L0,20" stroke="#C8102E" stroke-width="1.5"/><path d="M14,0 V20 M0,10 H28" stroke="white" stroke-width="5"/><path d="M14,0 V20 M0,10 H28" stroke="#C8102E" stroke-width="3"/></svg>
+            English
+          </button>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-nav" data-i18n="nav.contact">Contact ↗</a>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="demontage.html" data-i18n="mobile.link1">Machine demontage</a>
+    <a href="#" data-i18n="mobile.link2">Inkoop machines &amp; machine onderdelen</a>
+    <a href="#" data-i18n="mobile.link3">Sloopwerk</a>
+    <a href="#" data-i18n="mobile.link4">Over Ons</a>
+    <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact ↗</a>
+  </div>
+
+  <div class="mobile-sticky-btn">
+    <a href="contact.html" data-i18n="sticky.btn">Neem contact op ↗</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-geo"></div>
+    <div class="hero-inner">
+      <div class="hero-logo-wrap">
+        <img src="images/logo.png" alt="USTA">
+        <p class="hero-logo-sub">AUTOMATION</p>
+      </div>
+      <h1 data-i18n="hero.title">Uw partner voor verkoop van nieuwe en gebruikte machines en overtollige voorraad.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Directe offerte, snelle afhandeling en een betrouwbare samenwerking</p>
+      <a href="contact.html" class="btn-primary" data-i18n="hero.btn">Contact ↗</a>
+    </div>
+  </section>
+
+  <section class="services">
+    <h2 class="section-title" data-i18n="services.heading">Onze diensten</h2>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab(this,'demontage')" data-i18n="services.tab1">Machine demontage</button>
+      <button class="tab" onclick="showTab(this,'inkoop')" data-i18n="services.tab2">Inkoop machines &amp; machine onderdelen</button>
+      <button class="tab" onclick="showTab(this,'sloopwerk')" data-i18n="services.tab3">Sloopwerk</button>
+    </div>
+
+    <div class="tab-content active" id="tab-demontage">
+      <div class="service-content">
+        <div class="service-text">
+          <p class="service-tag" data-i18n="services.t1.tag">Efficiënt en veilig ontmantelen</p>
+          <h2 data-i18n="services.t1.title">Professionele machine demontage</h2>
+          <p data-i18n="services.t1.text">Wij demonteren industriële machines van A tot Z: veilig met minimale afstand, met volledige verantwoordelijkheid tot transport en oplevering.</p>
+          <ul class="checklist">
+            <li data-i18n="services.t1.check1">Volledige productiestilstand en snelle planningsopzet</li>
+            <li data-i18n="services.t1.check2">Veilig, gecertificeerd en volgens planning uitgevoerd</li>
+            <li data-i18n="services.t1.check3">Inclusief transport, opslag of doorverkoop mogelijk</li>
+          </ul>
+          <a href="demontage.html" class="btn-primary" data-i18n="services.t1.btn">Bekijk werkwijze ↗</a>
+        </div>
+        <div class="service-image">
+          <img src="images/worker.png" alt="Machine demontage">
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-inkoop">
+      <div class="service-content">
+        <div class="service-text">
+          <p class="service-tag" data-i18n="services.t2.tag">Machines &amp; onderdelen</p>
+          <h2 data-i18n="services.t2.title">Inkoop machines &amp; machine onderdelen</h2>
+          <p data-i18n="services.t2.text">Wij kopen gebruikte machines en onderdelen in. Direct aanbod, eerlijke prijs en snelle afhandeling — wij regelen de rest.</p>
+          <ul class="checklist">
+            <li data-i18n="services.t2.check1">Snelle beoordeling en directe offerte</li>
+            <li data-i18n="services.t2.check2">Eerlijke marktprijs voor uw machines</li>
+            <li data-i18n="services.t2.check3">Wij regelen transport en ophaling</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" data-i18n="services.t2.btn">Neem contact op ↗</a>
+        </div>
+        <div class="service-image">
+          <img src="images/worker.png" alt="Inkoop machines">
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-sloopwerk">
+      <div class="service-content">
+        <div class="service-text">
+          <p class="service-tag" data-i18n="services.t3.tag">Veilig en verantwoord</p>
+          <h2 data-i18n="services.t3.title">Sloopwerk</h2>
+          <p data-i18n="services.t3.text">Professioneel sloopwerk van industriële installaties, uitgevoerd door gecertificeerde specialisten met minimale stilstand.</p>
+          <ul class="checklist">
+            <li data-i18n="services.t3.check1">Veilig en gecertificeerd uitgevoerd</li>
+            <li data-i18n="services.t3.check2">Verantwoorde verwerking en recycling</li>
+            <li data-i18n="services.t3.check3">Minimale overlast en maximale snelheid</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" data-i18n="services.t3.btn">Neem contact op ↗</a>
+        </div>
+        <div class="service-image">
+          <img src="images/worker.png" alt="Sloopwerk">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="usp-section">
+    <p class="usp-eyebrow" data-i18n="usp.eyebrow">Efficiënt, snel en met maximale waarde in elke stap</p>
+    <h2 class="section-title" data-i18n="usp.title">De kracht van USTA Automation</h2>
+    <div class="usp-grid">
+      <div class="usp-card">
+        <div class="usp-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+          </svg>
+        </div>
+        <h3 data-i18n="usp.card1.title">Alles onder één dak</h3>
+        <p data-i18n="usp.card1.text">Uw demontage en transport en inkoop en verkoop en doorplaatsing gaan altijd hand in hand. Geen gedoe met meerdere partijen.</p>
+      </div>
+      <div class="usp-card">
+        <div class="usp-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 006 0v-1a10 10 0 10-3.92 7.94"/>
+          </svg>
+        </div>
+        <h3 data-i18n="usp.card2.title">Snel schakelen, direct resultaat</h3>
+        <p data-i18n="usp.card2.text">Korte lijnen, snelle offertes en efficiënte uitvoering zorgen voor minimale stilstand en een snelle afhandeling.</p>
+      </div>
+      <div class="usp-card">
+        <div class="usp-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 data-i18n="usp.card3.title">Maximale waarde uit uw machines</h3>
+        <p data-i18n="usp.card3.text">Wij denken mee over hergebruik, doorverkoop en recycling zodat u de maximale waarde uit uw installaties haalt.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="USTA Automation">
+        <p class="footer-brand-sub">AUTOMATION</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon" title="LinkedIn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-icon" title="WhatsApp">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.services">Onze diensten</h4>
+        <ul>
+          <li><a href="demontage.html" data-i18n="footer.demont">Machine demontage</a></li>
+          <li><a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; machine onderdelen</a></li>
+          <li><a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.company">Company</h4>
+        <ul>
+          <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="#" data-i18n="footer.about">Over Ons</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.legal">Legal</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.privacy">Privacy policy</a></li>
+          <li><a href="#" data-i18n="footer.terms">Terms and conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-lang-dropdown" id="footerLangDropdown">
+        <button class="footer-lang-trigger" onclick="toggleFooterLang()">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <span id="footerLangLabel">Nederlands</span> ▾
+        </button>
+        <div class="footer-lang-menu">
+          <button class="footer-lang-option" id="footer-opt-nl" onclick="setLang('nl'); closeFooterLang()">🇳🇱 Nederlands</button>
+          <button class="footer-lang-option" id="footer-opt-en" onclick="setLang('en'); closeFooterLang()">🇬🇧 English</button>
+        </div>
+      </div>
+      <p data-i18n="footer.copyright">© 2026 – All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/lang.js"></script>
+  <script>
+    function showTab(btn, id) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + id).classList.add('active');
+    }
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

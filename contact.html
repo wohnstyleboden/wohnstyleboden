@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – USTA Automation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="USTA Automation">
+    </a>
+    <ul class="nav-links">
+      <li class="dropdown">
+        <a href="#"><span data-i18n="nav.services">Onze diensten</span> ▾</a>
+        <div class="dropdown-menu">
+          <a href="demontage.html" data-i18n="footer.demont">Machine demontage</a>
+          <a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; machine onderdelen</a>
+          <a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a>
+        </div>
+      </li>
+      <li><a href="#" data-i18n="nav.about">Over Ons</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-trigger" onclick="toggleLangMenu()">
+          <svg class="flag-icon" id="activeFlagSvg" viewBox="0 0 28 20" width="22" height="16"><rect width="28" height="7" fill="#AE1C28"/><rect y="7" width="28" height="6" fill="white"/><rect y="13" width="28" height="7" fill="#21468B"/></svg>
+          <span id="activeLangLabel">NL</span>
+          <span class="chevron">▾</span>
+        </button>
+        <div class="lang-menu">
+          <button class="lang-option active" id="opt-nl" onclick="setLang('nl'); closeLangMenu()">
+            <svg viewBox="0 0 28 20" width="22" height="16" style="border-radius:3px"><rect width="28" height="7" fill="#AE1C28"/><rect y="7" width="28" height="6" fill="white"/><rect y="13" width="28" height="7" fill="#21468B"/></svg>
+            Nederlands
+          </button>
+          <button class="lang-option" id="opt-en" onclick="setLang('en'); closeLangMenu()">
+            <svg viewBox="0 0 28 20" width="22" height="16" style="border-radius:3px"><rect width="28" height="20" fill="#012169"/><path d="M0,0 L28,20 M28,0 L0,20" stroke="white" stroke-width="3"/><path d="M0,0 L28,20 M28,0 L0,20" stroke="#C8102E" stroke-width="1.5"/><path d="M14,0 V20 M0,10 H28" stroke="white" stroke-width="5"/><path d="M14,0 V20 M0,10 H28" stroke="#C8102E" stroke-width="3"/></svg>
+            English
+          </button>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-nav" data-i18n="nav.contact">Contact ↗</a>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="demontage.html" data-i18n="mobile.link1">Machine demontage</a>
+    <a href="#" data-i18n="mobile.link2">Inkoop machines &amp; machine onderdelen</a>
+    <a href="#" data-i18n="mobile.link3">Sloopwerk</a>
+    <a href="#" data-i18n="mobile.link4">Over Ons</a>
+    <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact ↗</a>
+  </div>
+
+  <div class="mobile-sticky-btn">
+    <a href="contact.html" data-i18n="sticky.btn">Neem contact op ↗</a>
+  </div>
+
+  <div style="padding: 80px; max-width: 1200px; margin: 0 auto;">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h1 data-i18n="contact.title">Neem contact op</h1>
+        <p data-i18n="contact.sub">Neem gerust contact met ons op via e-mail of maak gebruik van het contactformulier. Wij helpen u graag verder.</p>
+        <div class="contact-info">
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#0043A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <span>info@usta-automation.com</span>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#0043A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <span>+31614522453</span>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#0043A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span>Breevaartstraat 56B, 3044 AH<br>Rotterdam</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <h2 data-i18n="contact.form.title">Hoe kunnen we helpen?</h2>
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="contact.form.firstname">Voornaam</label>
+              <input type="text" data-i18n-ph="contact.ph.firstname" placeholder="John...">
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.lastname">Achternaam</label>
+              <input type="text" data-i18n-ph="contact.ph.lastname" placeholder="Smith...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="contact.form.email">E-mail</label>
+            <input type="email" data-i18n-ph="contact.ph.email" placeholder="Smith@mail.com...">
+          </div>
+          <div class="form-group">
+            <label data-i18n="contact.form.subject">Onderwerp</label>
+            <select>
+              <option data-i18n="contact.form.subject">Anders</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="contact.form.message">Bericht</label>
+            <textarea data-i18n-ph="contact.ph.message" placeholder="Schrijf uw bericht..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-i18n="contact.form.submit">Stuur bericht</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="USTA Automation">
+        <p class="footer-brand-sub">AUTOMATION</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="social-icon"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.services">Onze diensten</h4>
+        <ul>
+          <li><a href="demontage.html" data-i18n="footer.demont">Machine demontage</a></li>
+          <li><a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; machine onderdelen</a></li>
+          <li><a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.company">Company</h4>
+        <ul>
+          <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="#" data-i18n="footer.about">Over Ons</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.legal">Legal</h4>
+        <ul>
+          <li><a href="#" data-i18n="footer.privacy">Privacy policy</a></li>
+          <li><a href="#" data-i18n="footer.terms">Terms and conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-lang-dropdown" id="footerLangDropdown">
+        <button class="footer-lang-trigger" onclick="toggleFooterLang()">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <span id="footerLangLabel">Nederlands</span> ▾
+        </button>
+        <div class="footer-lang-menu">
+          <button class="footer-lang-option" id="footer-opt-nl" onclick="setLang('nl'); closeFooterLang()">🇳🇱 Nederlands</button>
+          <button class="footer-lang-option" id="footer-opt-en" onclick="setLang('en'); closeFooterLang()">🇬🇧 English</button>
+        </div>
+      </div>
+      <p data-i18n="footer.copyright">© 2026 – All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/lang.js"></script>
+  <script>
+    function handleSubmit(e) { e.preventDefault(); alert(document.documentElement.lang === 'en' ? 'Thank you! We will contact you as soon as possible.' : 'Bedankt! Wij nemen zo snel mogelijk contact met u op.'); }
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  </script>
+</body>
+</html>
