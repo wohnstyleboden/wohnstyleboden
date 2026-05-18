@@ -1119,6 +1119,10 @@ body {
     padding: 12px 18px;
   }
 
+  /* On mobile: show all tab-content stacked, scrollspy handles active tab */
+  .tab-content { display: block !important; }
+  .tab-content + .tab-content { margin-top: 56px; }
+
   .service-content {
     grid-template-columns: 1fr;
     gap: 28px;
