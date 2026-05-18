@@ -106,11 +106,13 @@
   </section>
 
   <section class="services" id="diensten">
-    <h2 class="section-title" data-i18n="services.heading">Onze diensten</h2>
-    <div class="tabs">
-      <button class="tab active" onclick="showTab(this,'demontage')" data-i18n="services.tab1">Machine demontage</button>
-      <button class="tab" onclick="showTab(this,'inkoop')" data-i18n="services.tab2">Inkoop machines &amp; machine onderdelen</button>
-      <button class="tab" onclick="showTab(this,'sloopwerk')" data-i18n="services.tab3">Sloopwerk</button>
+    <div class="services-sticky-header">
+      <h2 class="section-title" data-i18n="services.heading">Onze diensten</h2>
+      <div class="tabs">
+        <button class="tab active" onclick="showTab(this,'demontage')" data-i18n="services.tab1">Machine demontage</button>
+        <button class="tab" onclick="showTab(this,'inkoop')" data-i18n="services.tab2">Inkoop machines &amp; machine onderdelen</button>
+        <button class="tab" onclick="showTab(this,'sloopwerk')" data-i18n="services.tab3">Sloopwerk</button>
+      </div>
     </div>
 
     <div class="tab-content active" id="tab-demontage">
@@ -268,6 +270,13 @@
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
     }
+
+    const stickyHeader = document.querySelector('.services-sticky-header');
+    const observer = new IntersectionObserver(
+      ([e]) => stickyHeader.classList.toggle('stuck', e.intersectionRatio < 1),
+      { threshold: [1], rootMargin: '-69px 0px 0px 0px' }
+    );
+    observer.observe(stickyHeader);
   </script>
 </body>
 </html>
