@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600&display=swap');
 
 :root {
   --blue: #0043A6;
@@ -500,7 +500,6 @@ body {
   width: 48px;
   height: 48px;
   background: white;
-  border: 1.5px solid var(--gray-200);
   border-radius: 12px;
   margin-bottom: 18px;
   display: flex;
@@ -509,8 +508,10 @@ body {
 }
 
 .usp-card h3 {
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.04em;
   margin-bottom: 10px;
 }
 

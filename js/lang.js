@@ -227,8 +227,16 @@ const translations = {
 };
 
 const flags = {
-  nl: { label: 'NL', svg: `<rect width="28" height="7" fill="#AE1C28"/><rect y="7" width="28" height="6" fill="white"/><rect y="13" width="28" height="7" fill="#21468B"/>` },
-  en: { label: 'EN', svg: `<rect width="28" height="20" fill="#012169"/><path d="M0,0 L28,20 M28,0 L0,20" stroke="white" stroke-width="3"/><path d="M0,0 L28,20 M28,0 L0,20" stroke="#C8102E" stroke-width="1.5"/><path d="M14,0 V20 M0,10 H28" stroke="white" stroke-width="5"/><path d="M14,0 V20 M0,10 H28" stroke="#C8102E" stroke-width="3"/>` }
+  nl: {
+    label: 'NL',
+    viewBox: '13 13 22 22', w: '22', h: '22',
+    svg: `<mask id="fl-nl" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="13" y="13" width="22" height="22"><path d="M23.8939 34.4995C21.1139 34.4714 18.4586 33.3419 16.5101 31.3588C14.5617 29.3757 13.4793 26.7008 13.5003 23.9208C13.5213 21.1407 14.6439 18.4825 16.6221 16.529C18.6002 14.5755 21.2723 13.4863 24.0524 13.5001C26.8325 13.514 29.4936 14.6299 31.4522 16.603C33.4107 18.5762 34.5067 21.2455 34.5 24.0256C34.4932 26.8057 33.3841 29.4697 31.416 31.4332C29.4479 33.3968 26.7813 34.4997 24.0012 34.5" fill="white"/></mask><g mask="url(#fl-nl)"><path d="M34.7229 14.6951C34.7229 13.9129 34.0923 13.2837 33.3101 13.2837H14.6914C13.9092 13.2837 13.28 13.9129 13.28 14.6951V33.3138C13.28 34.096 13.9092 34.7266 14.6914 34.7266H33.3101C34.0923 34.7266 34.7229 34.096 34.7229 33.3138V14.6951Z" fill="white"/><path d="M14.6912 13.285C13.909 13.285 13.2798 13.9299 13.2798 14.7299V20.4326H34.7227V14.7299C34.7227 13.9299 34.0921 13.285 33.3099 13.285H14.6912Z" fill="#C0392B"/><path d="M33.3115 34.7266C34.0937 34.7266 34.7229 34.0816 34.7229 33.2816V27.5789H13.28V33.2816C13.28 34.0816 13.9106 34.7266 14.6928 34.7266H33.3115Z" fill="#0043A6"/></g>`
+  },
+  en: {
+    label: 'EN',
+    viewBox: '0 0 28 20', w: '22', h: '16',
+    svg: `<rect width="28" height="20" fill="#012169"/><path d="M0,0 L28,20 M28,0 L0,20" stroke="white" stroke-width="3"/><path d="M0,0 L28,20 M28,0 L0,20" stroke="#C8102E" stroke-width="1.5"/><path d="M14,0 V20 M0,10 H28" stroke="white" stroke-width="5"/><path d="M14,0 V20 M0,10 H28" stroke="#C8102E" stroke-width="3"/>`
+  }
 };
 
 function setLang(lang) {
@@ -248,7 +256,12 @@ function setLang(lang) {
   // Update navbar dropdown
   const flagEl = document.getElementById('activeFlagSvg');
   const labelEl = document.getElementById('activeLangLabel');
-  if (flagEl) flagEl.innerHTML = flags[lang].svg;
+  if (flagEl) {
+    flagEl.innerHTML = flags[lang].svg;
+    flagEl.setAttribute('viewBox', flags[lang].viewBox);
+    flagEl.setAttribute('width', flags[lang].w);
+    flagEl.setAttribute('height', flags[lang].h);
+  }
   if (labelEl) labelEl.textContent = flags[lang].label;
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.toggle('active', opt.id === 'opt-' + lang);
