@@ -400,12 +400,12 @@ body {
 
 .tab {
   position: relative;
-  padding: 12px 22px 12px;
+  padding: 12px 22px 16px;
   border-radius: 0;
   border: none;
   border-bottom: 5px solid transparent;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   background: transparent;
   color: var(--gray-500);
@@ -1142,7 +1142,7 @@ body {
   }
 
   .tab {
-    font-size: 13px;
+    font-size: 15px;
     padding: 10px 14px 16px;
   }
 
