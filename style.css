@@ -364,7 +364,7 @@ body {
 /* Title that scrolls with the page — NOT sticky */
 .services-heading {
   padding: 48px 48px 0;
-  text-align: center;
+  text-align: left !important;
 }
 
 .services-sticky-header {
@@ -372,7 +372,7 @@ body {
   top: 68px;
   z-index: 90;
   background: white;
-  padding: 0;
+  padding: 20px 0 0;
   margin-bottom: 0;
   transition: box-shadow 0.2s;
 }
@@ -504,8 +504,10 @@ body {
 .usp-section {
   background: var(--gray-50);
   padding: 48px;
-  text-align: center;
+  text-align: left;
 }
+
+.usp-section .section-title { text-align: left; }
 
 .usp-eyebrow {
   color: var(--gray-500);
@@ -1061,7 +1063,7 @@ body {
   .hero-stats-inner { padding: 24px; }
   .hero h1 { font-size: 36px; }
   .services { padding: 0 24px 48px; }
-  .services-sticky-header { top: 68px; padding: 0; }
+  .services-sticky-header { top: 68px; padding: 20px 0 0; }
   .service-content { gap: 48px; }
   .usp-section { padding: 48px 24px; }
   .usp-grid { gap: 32px; }
@@ -1131,11 +1133,12 @@ body {
 
   .services-heading {
     padding: 48px 24px 0;
+    text-align: left !important;
   }
 
   .services-sticky-header {
     top: 64px;
-    padding: 0;
+    padding: 20px 0 0;
     margin-bottom: 0;
   }
 
