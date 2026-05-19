@@ -356,16 +356,13 @@ body {
   padding: 0 80px 80px;
 }
 
-/* Title inside sticky header hidden — tabs speak for themselves */
-.services-sticky-header .section-title { display: none; }
-
 .services-sticky-header {
   position: sticky;
   top: 68px;
   z-index: 90;
   background: white;
-  padding: 0;
-  margin-bottom: 48px;
+  padding: 24px 0 0;
+  margin-bottom: 0;
   transition: box-shadow 0.2s;
 }
 
@@ -377,7 +374,7 @@ body {
   font-size: 32px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   letter-spacing: -0.3px;
 }
 
@@ -392,8 +389,10 @@ body {
 }
 .tabs::-webkit-scrollbar { display: none; }
 
+/* ── PER-TAB PROGRESS BAR ───────────────────────── */
 .tab {
-  padding: 14px 22px;
+  position: relative;
+  padding: 12px 22px 18px;   /* bottom space for the bar */
   border-radius: 0;
   border: none;
   cursor: pointer;
@@ -407,6 +406,18 @@ body {
   flex-shrink: 0;
 }
 
+/* Gray track under every tab */
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gray-200);
+  border-radius: 2px;
+}
+
 .tab:hover { color: var(--dark); }
 
 .tab.active {
@@ -415,30 +426,28 @@ body {
   background: none;
 }
 
-/* ── PROGRESS BAR ──────────────────────────────── */
-.tabs-progress {
-  display: flex;
-  height: 3px;
-}
-
-.tab-progress-seg {
-  flex: 1;
-  background: var(--gray-200);
-  overflow: hidden;
-}
-
-.tab-progress-fill {
-  height: 100%;
+/* Blue fill — sits on top of the gray track */
+.tab-prog {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 0%;
+  height: 3px;
   background: var(--blue);
+  border-radius: 2px;
   transition: width 0.08s linear;
+  z-index: 1;
 }
 
 /* All service sections always visible — scroll-based navigation */
-.tab-content { display: block; }
+.tab-content {
+  display: block;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 .tab-content + .tab-content {
-  margin-top: 80px;
-  padding-top: 60px;
   border-top: 1px solid var(--gray-100);
 }
 
@@ -1135,8 +1144,11 @@ body {
   .services-sticky-header {
     top: 64px;
     padding: 0;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
+
+  /* Hide "Onze diensten" title on mobile — tabs convey context */
+  .services-sticky-header .section-title { display: none; }
 
   .tabs {
     padding: 0 24px;
@@ -1145,10 +1157,15 @@ body {
 
   .tab {
     font-size: 13px;
-    padding: 12px 16px;
+    padding: 10px 14px 16px;
   }
 
-  .tab-content + .tab-content { margin-top: 40px; padding-top: 40px; }
+  .tab-content {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .tab-content + .tab-content { margin-top: 0; }
 
   .tab-content .service-content {
     padding: 0 24px;
