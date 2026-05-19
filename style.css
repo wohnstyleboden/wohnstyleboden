@@ -16,7 +16,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 210px; /* keeps anchor targets visible below full sticky header */
+  scroll-padding-top: 68px; /* navbar height — for #diensten anchor */
 }
 
 body {
@@ -449,15 +449,23 @@ body {
   background: none;
 }
 
-/* All service sections always visible — scroll-based navigation */
+/* Inner scroll container — prevents any content from ever going behind the sticky tabs */
+.services-body {
+  position: relative; /* makes .tab-content offsetTop relative to this container */
+  overflow-y: auto;
+  /* Fills exactly the viewport space below navbar (68px) + tabs (~52px) */
+  height: calc(100svh - 120px);
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y mandatory;
+}
+
 .tab-content {
   display: block;
-  padding-top: 40px;
+  padding-top: 24px;
   padding-bottom: 60px;
-  /* Ensure section starts below the full sticky area when scrolled to */
-  scroll-margin-top: 210px; /* navbar 68 + title + tabs ≈ 210px */
-  /* Each section at least fills the visible viewport → no content "under" header */
-  min-height: calc(100svh - 200px);
+  scroll-snap-align: start;
+  /* Each section fills at least the full scroll-container height → snap works cleanly */
+  min-height: 100%;
 }
 
 .tab-content + .tab-content {
@@ -1100,7 +1108,7 @@ body {
 
 /* ── MOBILE (max 768px) ─────────────────────────── */
 @media (max-width: 768px) {
-  html { scroll-padding-top: 110px; }
+  html { scroll-padding-top: 68px; }
 
   /* Navbar */
   .navbar {
@@ -1175,12 +1183,15 @@ body {
     padding: 10px 14px 16px;
   }
 
+  .services-body {
+    /* mobile navbar ~64px + tabs ~43px = ~107px */
+    height: calc(100svh - 110px);
+  }
+
   .tab-content {
     padding-top: 24px;
     padding-bottom: 40px;
-    /* navbar ~64px + tabs ~40px */
-    scroll-margin-top: 110px;
-    min-height: calc(100svh - 110px);
+    min-height: 100%;
   }
 
   .tab-content + .tab-content { margin-top: 0; }
