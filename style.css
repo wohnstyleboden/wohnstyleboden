@@ -16,7 +16,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 68px; /* navbar height — for #diensten anchor */
+  scroll-padding-top: 130px; /* navbar + sticky tabs */
 }
 
 body {
@@ -398,47 +398,21 @@ body {
 }
 .tabs::-webkit-scrollbar { display: none; }
 
-/* ── PER-TAB PROGRESS BAR (via CSS custom property, lang.js safe) ── */
 .tab {
   position: relative;
-  padding: 12px 22px 18px;
+  padding: 12px 22px 12px;
   border-radius: 0;
   border: none;
+  border-bottom: 3px solid transparent;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
   background: transparent;
   color: var(--gray-500);
-  transition: color 0.2s;
+  transition: color 0.2s, border-color 0.2s;
   font-family: 'Inter', sans-serif;
   white-space: nowrap;
   flex-shrink: 0;
-}
-
-/* Progress bar: only on the active tab, fills blue as you scroll */
-.tab.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: var(--prog, 0%);
-  height: 3px;
-  background: var(--blue);
-  border-radius: 2px;
-  z-index: 1;
-  transition: width 0.1s linear;
-}
-
-/* Subtle gray track only on active tab (full width background) */
-.tab.active::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gray-200);
-  border-radius: 2px;
 }
 
 .tab:hover { color: var(--dark); }
@@ -447,27 +421,14 @@ body {
   color: var(--dark);
   font-weight: 700;
   background: none;
-}
-
-/* Inner scroll container — prevents any content from ever going behind the sticky tabs */
-.services-body {
-  position: relative; /* makes .tab-content offsetTop relative to this container */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* smooth momentum scroll on iOS */
-  /* Fills exactly the viewport space below navbar (68px) + tabs (~52px) */
-  height: calc(100svh - 120px);
-  overscroll-behavior-y: contain;
-  /* proximity snap: settles into a section if you stop near one, but allows free scrolling */
-  scroll-snap-type: y proximity;
+  border-bottom-color: var(--blue);
 }
 
 .tab-content {
   display: block;
-  padding-top: 24px;
-  padding-bottom: 60px;
-  scroll-snap-align: start;
-  /* Each section fills at least the full scroll-container → heading always starts at top */
-  min-height: 100%;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  scroll-margin-top: 130px;
 }
 
 .tab-content + .tab-content {
@@ -1110,7 +1071,7 @@ body {
 
 /* ── MOBILE (max 768px) ─────────────────────────── */
 @media (max-width: 768px) {
-  html { scroll-padding-top: 68px; }
+  html { scroll-padding-top: 110px; }
 
   /* Navbar */
   .navbar {
@@ -1185,15 +1146,10 @@ body {
     padding: 10px 14px 16px;
   }
 
-  .services-body {
-    /* mobile navbar ~64px + tabs ~43px = ~107px */
-    height: calc(100svh - 110px);
-  }
-
   .tab-content {
     padding-top: 24px;
-    padding-bottom: 40px;
-    min-height: 100%;
+    padding-bottom: 48px;
+    scroll-margin-top: 110px;
   }
 
   .tab-content + .tab-content { margin-top: 0; }
