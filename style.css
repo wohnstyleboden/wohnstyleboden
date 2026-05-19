@@ -359,12 +359,18 @@ body {
   padding: 0 80px 80px;
 }
 
+/* Title that scrolls with the page — NOT sticky */
+.services-heading {
+  padding: 40px 80px 24px;
+  text-align: center;
+}
+
 .services-sticky-header {
   position: sticky;
   top: 68px;
   z-index: 90;
   background: white;
-  padding: 24px 0 0;
+  padding: 0;
   margin-bottom: 0;
   transition: box-shadow 0.2s;
 }
@@ -409,20 +415,8 @@ body {
   flex-shrink: 0;
 }
 
-/* Gray track under every tab */
-.tab::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gray-200);
-  border-radius: 2px;
-}
-
-/* Blue fill — driven by --prog CSS variable set from JS */
-.tab::after {
+/* Progress bar: only on the active tab, fills blue as you scroll */
+.tab.active::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -432,7 +426,19 @@ body {
   background: var(--blue);
   border-radius: 2px;
   z-index: 1;
-  transition: width 0.08s linear;
+  transition: width 0.1s linear;
+}
+
+/* Subtle gray track only on active tab (full width background) */
+.tab.active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gray-200);
+  border-radius: 2px;
 }
 
 .tab:hover { color: var(--dark); }
@@ -1094,7 +1100,7 @@ body {
 
 /* ── MOBILE (max 768px) ─────────────────────────── */
 @media (max-width: 768px) {
-  html { scroll-padding-top: 175px; }
+  html { scroll-padding-top: 110px; }
 
   /* Navbar */
   .navbar {
@@ -1149,9 +1155,13 @@ body {
     background: white;
   }
 
+  .services-heading {
+    padding: 32px 24px 20px;
+  }
+
   .services-sticky-header {
     top: 64px;
-    padding: 16px 0 0;
+    padding: 0;
     margin-bottom: 0;
   }
 
@@ -1168,9 +1178,9 @@ body {
   .tab-content {
     padding-top: 24px;
     padding-bottom: 40px;
-    /* navbar ~64px + title ~54px + tabs ~36px + padding 16px ≈ 170px */
-    scroll-margin-top: 175px;
-    min-height: calc(100svh - 175px);
+    /* navbar ~64px + tabs ~40px */
+    scroll-margin-top: 110px;
+    min-height: calc(100svh - 110px);
   }
 
   .tab-content + .tab-content { margin-top: 0; }
