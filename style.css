@@ -453,10 +453,12 @@ body {
 .services-body {
   position: relative; /* makes .tab-content offsetTop relative to this container */
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* smooth momentum scroll on iOS */
   /* Fills exactly the viewport space below navbar (68px) + tabs (~52px) */
   height: calc(100svh - 120px);
   overscroll-behavior-y: contain;
-  scroll-snap-type: y mandatory;
+  /* proximity snap: settles into a section if you stop near one, but allows free scrolling */
+  scroll-snap-type: y proximity;
 }
 
 .tab-content {
@@ -464,7 +466,7 @@ body {
   padding-top: 24px;
   padding-bottom: 60px;
   scroll-snap-align: start;
-  /* Each section fills at least the full scroll-container height → snap works cleanly */
+  /* Each section fills at least the full scroll-container → heading always starts at top */
   min-height: 100%;
 }
 

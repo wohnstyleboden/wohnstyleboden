@@ -324,14 +324,15 @@
       });
 
       // Update --prog CSS variable on each tab button
+      // Progress = how far scrollTop has moved through each section's "viewport-width" range
       tabIds.forEach((id) => {
         const section = document.getElementById('tab-' + id);
         const tabBtn  = document.getElementById('tab-btn-' + id);
         if (!section || !tabBtn) return;
 
-        const scrollable  = Math.max(1, section.offsetHeight - clientHeight);
+        // Each section occupies one clientHeight of scroll distance (min-height: 100%)
         const scrolledPast = scrollTop - section.offsetTop;
-        const progress    = Math.max(0, Math.min(1, scrolledPast / scrollable));
+        const progress = Math.max(0, Math.min(1, scrolledPast / clientHeight));
         tabBtn.style.setProperty('--prog', (progress * 100) + '%');
       });
 
