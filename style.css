@@ -14,7 +14,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 210px; /* keeps anchor targets visible below full sticky header */
+}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -443,8 +446,12 @@ body {
 /* All service sections always visible — scroll-based navigation */
 .tab-content {
   display: block;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  /* Ensure section starts below the full sticky area when scrolled to */
+  scroll-margin-top: 210px; /* navbar 68 + title + tabs ≈ 210px */
+  /* Each section at least fills the visible viewport → no content "under" header */
+  min-height: calc(100svh - 200px);
 }
 
 .tab-content + .tab-content {
@@ -1087,6 +1094,7 @@ body {
 
 /* ── MOBILE (max 768px) ─────────────────────────── */
 @media (max-width: 768px) {
+  html { scroll-padding-top: 105px; }
 
   /* Navbar */
   .navbar {
@@ -1162,7 +1170,9 @@ body {
 
   .tab-content {
     padding-top: 24px;
-    padding-bottom: 24px;
+    padding-bottom: 40px;
+    scroll-margin-top: 105px; /* navbar ~64px + tabs ~41px */
+    min-height: calc(100svh - 105px);
   }
 
   .tab-content + .tab-content { margin-top: 0; }
