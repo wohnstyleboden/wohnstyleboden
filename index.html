@@ -109,9 +109,9 @@
     <div class="services-sticky-header">
       <h2 class="section-title" data-i18n="services.heading">Onze diensten</h2>
       <div class="tabs">
-        <button class="tab active" onclick="showTab(this,'demontage')" data-i18n="services.tab1">Machine demontage<span class="tab-prog" id="prog-demontage"></span></button>
-        <button class="tab" onclick="showTab(this,'inkoop')" data-i18n="services.tab2">Inkoop machines &amp; machine onderdelen<span class="tab-prog" id="prog-inkoop"></span></button>
-        <button class="tab" onclick="showTab(this,'sloopwerk')" data-i18n="services.tab3">Sloopwerk<span class="tab-prog" id="prog-sloopwerk"></span></button>
+        <button class="tab active" id="tab-btn-demontage" onclick="showTab(this,'demontage')" data-i18n="services.tab1">Machine demontage</button>
+        <button class="tab" id="tab-btn-inkoop" onclick="showTab(this,'inkoop')" data-i18n="services.tab2">Inkoop machines &amp; machine onderdelen</button>
+        <button class="tab" id="tab-btn-sloopwerk" onclick="showTab(this,'sloopwerk')" data-i18n="services.tab3">Sloopwerk</button>
       </div>
     </div>
 
@@ -313,11 +313,11 @@
         if (el && el.getBoundingClientRect().top <= focal) activeIdx = idx;
       });
 
-      // Update progress fills
+      // Update progress fills via CSS custom property --prog on each tab button
       tabIds.forEach((id, idx) => {
         const section = document.getElementById('tab-' + id);
-        const fill    = document.getElementById('prog-' + id);
-        if (!section || !fill) return;
+        const tabBtn  = document.getElementById('tab-btn-' + id);
+        if (!section || !tabBtn) return;
 
         const rect = section.getBoundingClientRect();
         // Scrollable height = section height minus visible viewport area below header
@@ -326,7 +326,7 @@
         const scrolledPast = stickyH - rect.top;
         const progress = Math.max(0, Math.min(1, scrolledPast / scrollable));
 
-        fill.style.width = (progress * 100) + '%';
+        tabBtn.style.setProperty('--prog', (progress * 100) + '%');
       });
 
       // Update active tab indicator only when it changes

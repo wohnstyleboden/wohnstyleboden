@@ -392,10 +392,10 @@ body {
 }
 .tabs::-webkit-scrollbar { display: none; }
 
-/* ── PER-TAB PROGRESS BAR ───────────────────────── */
+/* ── PER-TAB PROGRESS BAR (via CSS custom property, lang.js safe) ── */
 .tab {
   position: relative;
-  padding: 12px 22px 18px;   /* bottom space for the bar */
+  padding: 12px 22px 18px;
   border-radius: 0;
   border: none;
   cursor: pointer;
@@ -410,7 +410,7 @@ body {
 }
 
 /* Gray track under every tab */
-.tab::after {
+.tab::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -421,26 +421,26 @@ body {
   border-radius: 2px;
 }
 
+/* Blue fill — driven by --prog CSS variable set from JS */
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: var(--prog, 0%);
+  height: 3px;
+  background: var(--blue);
+  border-radius: 2px;
+  z-index: 1;
+  transition: width 0.08s linear;
+}
+
 .tab:hover { color: var(--dark); }
 
 .tab.active {
   color: var(--dark);
   font-weight: 700;
   background: none;
-}
-
-/* Blue fill — sits on top of the gray track */
-.tab-prog {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  background: var(--blue);
-  border-radius: 2px;
-  transition: width 0.08s linear;
-  z-index: 1;
 }
 
 /* All service sections always visible — scroll-based navigation */
@@ -1094,7 +1094,7 @@ body {
 
 /* ── MOBILE (max 768px) ─────────────────────────── */
 @media (max-width: 768px) {
-  html { scroll-padding-top: 105px; }
+  html { scroll-padding-top: 175px; }
 
   /* Navbar */
   .navbar {
@@ -1151,12 +1151,9 @@ body {
 
   .services-sticky-header {
     top: 64px;
-    padding: 0;
+    padding: 16px 0 0;
     margin-bottom: 0;
   }
-
-  /* Hide "Onze diensten" title on mobile — tabs convey context */
-  .services-sticky-header .section-title { display: none; }
 
   .tabs {
     padding: 0 24px;
@@ -1171,8 +1168,9 @@ body {
   .tab-content {
     padding-top: 24px;
     padding-bottom: 40px;
-    scroll-margin-top: 105px; /* navbar ~64px + tabs ~41px */
-    min-height: calc(100svh - 105px);
+    /* navbar ~64px + title ~54px + tabs ~36px + padding 16px ≈ 170px */
+    scroll-margin-top: 175px;
+    min-height: calc(100svh - 175px);
   }
 
   .tab-content + .tab-content { margin-top: 0; }
