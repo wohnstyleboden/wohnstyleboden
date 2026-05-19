@@ -370,7 +370,7 @@ body {
   top: 68px;
   z-index: 90;
   background: white;
-  padding: 16px 0 0;
+  padding: 24px 0 0;
   margin-bottom: 0;
   transition: box-shadow 0.2s;
 }
@@ -403,7 +403,7 @@ body {
   padding: 12px 22px 12px;
   border-radius: 0;
   border: none;
-  border-bottom: 3px solid transparent;
+  border-bottom: 5px solid transparent;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
@@ -1058,7 +1058,7 @@ body {
   .hero-stats-inner { padding: 24px 40px; }
   .hero h1 { font-size: 36px; }
   .services { padding: 0 40px 60px; }
-  .services-sticky-header { top: 68px; padding: 16px 0 0; }
+  .services-sticky-header { top: 68px; padding: 24px 0 0; }
   .service-content { gap: 48px; }
   .usp-section { padding: 60px 40px; }
   .usp-grid { gap: 32px; }
@@ -1132,7 +1132,7 @@ body {
 
   .services-sticky-header {
     top: 64px;
-    padding: 12px 0 0;
+    padding: 20px 0 0;
     margin-bottom: 0;
   }
 
