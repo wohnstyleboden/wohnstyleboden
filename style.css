@@ -154,7 +154,7 @@ body {
 .lang-option.active { color: var(--blue); font-weight: 600; }
 
 .btn-nav {
-  background: var(--navy);
+  background: var(--blue);
   color: white;
   border: none;
   padding: 9px 20px;
@@ -169,7 +169,7 @@ body {
   transition: background 0.2s;
 }
 
-.btn-nav:hover { background: var(--blue); }
+.btn-nav:hover { background: #0036a3; }
 
 /* ── HERO ─────────────────────────────── */
 .hero {
@@ -356,14 +356,16 @@ body {
   padding: 0 80px 80px;
 }
 
+/* Title inside sticky header hidden — tabs speak for themselves */
+.services-sticky-header .section-title { display: none; }
+
 .services-sticky-header {
   position: sticky;
   top: 68px;
   z-index: 90;
   background: white;
-  padding: 32px 0 0;
-  margin-bottom: 52px;
-  border-bottom: 1px solid var(--gray-200);
+  padding: 0;
+  margin-bottom: 48px;
   transition: box-shadow 0.2s;
 }
 
@@ -381,35 +383,64 @@ body {
 
 .tabs {
   display: flex;
-  gap: 8px;
-  justify-content: center;
-  padding-bottom: 20px;
-  flex-wrap: wrap;
+  gap: 0;
+  justify-content: flex-start;
+  padding: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+.tabs::-webkit-scrollbar { display: none; }
 
 .tab {
-  padding: 10px 22px;
-  border-radius: 100px;
-  border: 1.5px solid var(--gray-200);
+  padding: 14px 22px;
+  border-radius: 0;
+  border: none;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
   background: transparent;
   color: var(--gray-500);
-  transition: all 0.2s;
+  transition: color 0.2s;
   font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.tab:hover { border-color: var(--blue); color: var(--blue); }
+.tab:hover { color: var(--dark); }
 
 .tab.active {
-  background: var(--navy);
-  color: white;
-  border-color: var(--navy);
+  color: var(--dark);
+  font-weight: 700;
+  background: none;
 }
 
-.tab-content { display: none; }
-.tab-content.active { display: block; }
+/* ── PROGRESS BAR ──────────────────────────────── */
+.tabs-progress {
+  display: flex;
+  height: 3px;
+}
+
+.tab-progress-seg {
+  flex: 1;
+  background: var(--gray-200);
+  overflow: hidden;
+}
+
+.tab-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--blue);
+  transition: width 0.08s linear;
+}
+
+/* All service sections always visible — scroll-based navigation */
+.tab-content { display: block; }
+.tab-content + .tab-content {
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 1px solid var(--gray-100);
+}
 
 .service-content {
   display: grid;
@@ -526,7 +557,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--navy);
+  background: var(--blue);
   color: white;
   padding: 13px 28px;
   border-radius: 100px;
@@ -539,7 +570,7 @@ body {
   transition: background 0.2s;
 }
 
-.btn-primary:hover { background: var(--blue); }
+.btn-primary:hover { background: #0036a3; }
 
 /* ── FOOTER ─────────────────────────────── */
 .footer {
@@ -788,7 +819,7 @@ body {
 .btn-submit {
   width: 100%;
   padding: 15px;
-  background: var(--navy);
+  background: var(--blue);
   color: white;
   border: none;
   border-radius: 100px;
@@ -800,7 +831,7 @@ body {
   transition: background 0.2s;
 }
 
-.btn-submit:hover { background: var(--blue); }
+.btn-submit:hover { background: #0036a3; }
 
 /* ── DEMONTAGE PAGE ─────────────────────────────── */
 .page-hero {
@@ -997,7 +1028,7 @@ body {
   margin-top: 16px;
   display: block;
   text-align: center;
-  background: var(--navy);
+  background: var(--blue);
   color: white;
   padding: 14px;
   border-radius: 100px;
@@ -1018,7 +1049,7 @@ body {
 .mobile-sticky-btn a {
   display: block;
   text-align: center;
-  background: var(--navy);
+  background: var(--blue);
   color: white;
   padding: 15px;
   border-radius: 100px;
@@ -1034,7 +1065,7 @@ body {
   .hero-stats-inner { padding: 24px 40px; }
   .hero h1 { font-size: 36px; }
   .services { padding: 0 40px 60px; }
-  .services-sticky-header { top: 68px; padding: 24px 0 0; }
+  .services-sticky-header { top: 68px; padding: 0; }
   .service-content { gap: 48px; }
   .usp-section { padding: 60px 40px; }
   .usp-grid { gap: 32px; }
@@ -1104,35 +1135,20 @@ body {
   .services-sticky-header {
     top: 64px;
     padding: 0;
-    margin-bottom: 0;
+    margin-bottom: 24px;
   }
 
-  /* Hide title on mobile */
-  .services-sticky-header .section-title { display: none; }
-
   .tabs {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 12px 24px;
-    gap: 8px;
-    scrollbar-width: none;
+    padding: 0 24px;
     -webkit-overflow-scrolling: touch;
   }
 
-  .tabs::-webkit-scrollbar { display: none; }
-
   .tab {
-    white-space: nowrap;
-    flex-shrink: 0;
     font-size: 13px;
-    padding: 8px 16px;
+    padding: 12px 16px;
   }
 
-  /* On mobile: show all tab-content stacked, scrollspy handles active tab */
-  .tab-content { display: block !important; }
-  .tab-content + .tab-content { margin-top: 40px; }
+  .tab-content + .tab-content { margin-top: 40px; padding-top: 40px; }
 
   .tab-content .service-content {
     padding: 0 24px;
