@@ -499,7 +499,8 @@ body {
 .usp-icon {
   width: 48px;
   height: 48px;
-  background: var(--navy);
+  background: white;
+  border: 1.5px solid var(--gray-200);
   border-radius: 12px;
   margin-bottom: 18px;
   display: flex;
