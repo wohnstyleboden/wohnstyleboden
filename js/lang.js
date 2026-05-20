@@ -78,6 +78,8 @@ const translations = {
     'contact.ph.firstname': 'John...',
     'contact.ph.lastname': 'Smith...',
     'contact.ph.email': 'Smith@mail.com...',
+    'contact.ph.subject': 'Selecteer een onderwerp...',
+    'contact.opt.anders': 'Anders',
     'contact.ph.message': 'Schrijf uw bericht...',
 
     'demont.title': 'Professionele machine demontage',
@@ -191,6 +193,8 @@ const translations = {
     'contact.ph.firstname': 'John...',
     'contact.ph.lastname': 'Smith...',
     'contact.ph.email': 'Smith@mail.com...',
+    'contact.ph.subject': 'Select a subject...',
+    'contact.opt.anders': 'Other',
     'contact.ph.message': 'Write your message...',
 
     'demont.title': 'Professional machine dismantling',
