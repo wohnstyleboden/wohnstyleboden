@@ -1287,7 +1287,7 @@ body {
   .service-image { order: -1; }
 
   .service-image img {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     border-radius: 16px;
   }
 
