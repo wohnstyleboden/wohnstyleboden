@@ -9,20 +9,23 @@
 <body>
 
   <nav class="navbar">
+    <div class="container navbar-inner">
+    <div class="nav-left">
     <a href="index.html" class="nav-logo">
       <img src="images/logo.png" alt="USTA Automation">
     </a>
     <ul class="nav-links">
       <li class="dropdown">
-        <a href="#"><span data-i18n="nav.services">Onze diensten</span> ▾</a>
+        <a href="#"><span data-i18n="nav.services">Onze diensten</span><svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 0.999999" stroke="#4B4B4B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="dropdown-menu">
           <a href="demontage.html" data-i18n="footer.demont">Machine demontage</a>
-          <a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; machine onderdelen</a>
+          <a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; onderdelen</a>
           <a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a>
         </div>
       </li>
       <li><a href="#" data-i18n="nav.about">Over Ons</a></li>
     </ul>
+    </div>
     <div class="nav-right">
       <div class="lang-dropdown" id="langDropdown">
         <button class="lang-trigger" onclick="toggleLangMenu()">
@@ -43,15 +46,24 @@
       </div>
       <a href="contact.html" class="btn-nav" data-i18n="nav.contact">Contact ↗</a>
       <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
+        <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.29065 18.5581H19.7093" stroke="#242E30" stroke-width="2" stroke-linecap="round"/><path d="M4.29065 24H19.7093" stroke="#242E30" stroke-width="2" stroke-linecap="round"/><path d="M4.29065 29.4419H19.7093" stroke="#242E30" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
+    </div>
     </div>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="demontage.html" data-i18n="mobile.link1">Machine demontage</a>
-    <a href="#" data-i18n="mobile.link2">Inkoop machines &amp; machine onderdelen</a>
-    <a href="#" data-i18n="mobile.link3">Sloopwerk</a>
+    <div class="mobile-accordion">
+      <button class="mobile-accordion-trigger" onclick="toggleMobileAccordion(this)">
+        <span data-i18n="nav.services">Onze diensten</span>
+        <span class="mobile-chevron"><svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 0.999999" stroke="#4B4B4B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="mobile-accordion-body">
+        <a href="demontage.html" data-i18n="mobile.link1">Machine demontage</a>
+        <a href="#" data-i18n="mobile.link2">Inkoop machines &amp; onderdelen</a>
+        <a href="#" data-i18n="mobile.link3">Sloopwerk</a>
+      </div>
+    </div>
     <a href="#" data-i18n="mobile.link4">Over Ons</a>
     <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact ↗</a>
   </div>
@@ -142,6 +154,7 @@
   </section>
 
   <footer class="footer">
+    <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
         <img src="images/logo.png" alt="USTA Automation">
@@ -155,7 +168,7 @@
         <h4 data-i18n="footer.services">Onze diensten</h4>
         <ul>
           <li><a href="demontage.html" data-i18n="footer.demont">Machine demontage</a></li>
-          <li><a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; machine onderdelen</a></li>
+          <li><a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; onderdelen</a></li>
           <li><a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a></li>
         </ul>
       </div>
@@ -187,11 +200,15 @@
       </div>
       <p data-i18n="footer.copyright">© 2026 – All rights reserved</p>
     </div>
+    </div>
   </footer>
 
   <script src="js/lang.js"></script>
   <script>
     function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function toggleMobileAccordion(btn) { btn.classList.toggle('open'); btn.nextElementSibling.classList.toggle('open'); }
+    // No hero on this page — show sticky button immediately
+    document.querySelector('.mobile-sticky-btn')?.classList.add('visible');
   </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600&display=swap');
 
 :root {
   --blue: #0043A6;
@@ -13,6 +13,14 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── INNER CONTAINER ────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 48px;
+}
 
 html {
   scroll-behavior: smooth;
@@ -30,10 +38,6 @@ body {
 
 /* ── NAVBAR ─────────────────────────────── */
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 48px;
   height: 68px;
   background: white;
   border-bottom: 1px solid var(--gray-200);
@@ -42,11 +46,27 @@ body {
   z-index: 100;
 }
 
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Logo + nav-links grouped left */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+}
+
 .nav-logo img { height: 36px; display: block; border-radius: 6px; }
 
 .nav-links {
   display: flex;
   align-items: center;
+  align-self: stretch;
   gap: 36px;
   list-style: none;
 }
@@ -58,7 +78,20 @@ body {
   font-weight: 500;
 }
 
-.nav-links .dropdown { position: relative; }
+/* Dropdown: full navbar height so no gap between trigger and menu */
+.nav-links .dropdown {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links .dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+}
 
 .dropdown-menu {
   display: none;
@@ -71,7 +104,7 @@ body {
   padding: 8px 0;
   min-width: 240px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  margin-top: 8px;
+  margin-top: 0;
 }
 
 .dropdown:hover .dropdown-menu { display: block; }
@@ -358,12 +391,12 @@ body {
 
 /* ── SERVICES ─────────────────────────────── */
 .services {
-  padding: 0 48px 48px;
+  padding: 0 0 48px;
 }
 
 /* Title that scrolls with the page — NOT sticky */
 .services-heading {
-  padding: 48px 48px 0;
+  padding: 48px 0 0;
   text-align: left !important;
 }
 
@@ -372,7 +405,7 @@ body {
   top: 68px;
   z-index: 90;
   background: white;
-  padding: 20px 0 0;
+  padding: 12px 0 0;
   margin-bottom: 0;
   transition: box-shadow 0.2s;
 }
@@ -439,20 +472,20 @@ body {
 
 .service-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 480px;
   gap: 80px;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 48px;
 }
 
 .service-tag {
   color: var(--blue);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
 }
 
 .service-text h2 {
@@ -495,15 +528,16 @@ body {
 
 .service-image img {
   width: 100%;
+  aspect-ratio: 3 / 4;
   border-radius: 20px;
   object-fit: cover;
-  height: 380px;
+  display: block;
 }
 
 /* ── USP SECTION ─────────────────────────────── */
 .usp-section {
   background: var(--gray-50);
-  padding: 48px;
+  padding: 48px 0;
   text-align: left;
 }
 
@@ -519,8 +553,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
-  max-width: 1100px;
-  margin: 24px auto 0;
+  margin-top: 24px;
   text-align: left;
 }
 
@@ -550,6 +583,32 @@ body {
 }
 
 /* ── BUTTONS ─────────────────────────────── */
+.btn-meer-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 100px;
+  border: 1.5px solid var(--dark);
+  background: white;
+  color: var(--dark);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-meer-info:hover {
+  background: var(--dark);
+  color: white;
+}
+
+.btn-meer-info:hover svg path {
+  fill: white;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -573,7 +632,7 @@ body {
 .footer {
   background: var(--dark);
   color: white;
-  padding: 48px 48px 24px;
+  padding: 48px 0 24px;
 }
 
 .footer-top {
@@ -986,6 +1045,12 @@ body {
   border: none;
 }
 
+.hamburger svg {
+  width: 24px;
+  height: 48px;
+  display: block;
+}
+
 .hamburger span {
   display: block;
   width: 22px;
@@ -998,7 +1063,7 @@ body {
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 68px;
+  top: 64px;
   left: 0;
   right: 0;
   background: white;
@@ -1021,6 +1086,57 @@ body {
 }
 
 .mobile-menu a:last-child { border-bottom: none; }
+
+/* ── MOBILE ACCORDION (diensten dropdown) ──────────── */
+.mobile-accordion {
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.mobile-accordion-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 13px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.mobile-chevron {
+  font-size: 11px;
+  color: var(--gray-500);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.mobile-accordion-trigger.open .mobile-chevron {
+  transform: rotate(180deg);
+}
+
+.mobile-accordion-body {
+  display: none;
+  padding-bottom: 8px;
+}
+
+.mobile-accordion-body.open { display: block; }
+
+.mobile-accordion-body a {
+  display: block;
+  padding: 9px 0 9px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: none !important;
+}
+
+.mobile-accordion-body a:hover { color: var(--text); }
 
 .mobile-menu .mobile-cta {
   margin-top: 16px;
@@ -1058,16 +1174,16 @@ body {
 
 /* ── TABLET (max 1024px) ─────────────────────────── */
 @media (max-width: 1024px) {
-  .navbar { padding: 0 24px; }
+  .container { padding: 0 24px; }
   .hero-inner { padding: 48px 24px; gap: 48px; }
   .hero-stats-inner { padding: 24px; }
   .hero h1 { font-size: 36px; }
-  .services { padding: 0 24px 48px; }
-  .services-sticky-header { top: 68px; padding: 20px 0 0; }
-  .service-content { gap: 48px; }
-  .usp-section { padding: 48px 24px; }
+  .services { padding: 0 0 48px; }
+  .services-sticky-header { top: 68px; padding: 12px 0 0; }
+  .service-content { gap: 48px; padding: 0 24px; }
+  .usp-section { padding: 48px 0; }
   .usp-grid { gap: 32px; }
-  .footer { padding: 48px 24px 24px; }
+  .footer { padding: 48px 0 24px; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
   .page-hero { padding: 48px 24px; }
   .page-hero-grid { gap: 48px; }
@@ -1080,15 +1196,15 @@ body {
 
   /* Navbar */
   .navbar {
-    padding: 24px;
-    height: auto;
+    height: 64px;
   }
 
   .nav-links { display: none; }
   .nav-right .btn-nav { display: none; }
   .nav-right .flag { display: none; }
   .hamburger { display: flex; }
-  .mobile-sticky-btn { display: block; }
+  .mobile-sticky-btn { display: block; opacity: 0; transform: translateY(12px); transition: opacity 0.3s, transform 0.3s; pointer-events: none; }
+  .mobile-sticky-btn.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
   /* Hero */
   .hero-inner {
@@ -1132,18 +1248,17 @@ body {
   }
 
   .services-heading {
-    padding: 48px 24px 0;
+    padding: 48px 0 0;
     text-align: left !important;
   }
 
   .services-sticky-header {
     top: 64px;
-    padding: 20px 0 0;
+    padding: 12px 0 0;
     margin-bottom: 0;
   }
 
   .tabs {
-    padding: 0 24px;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -1172,14 +1287,14 @@ body {
   .service-image { order: -1; }
 
   .service-image img {
-    height: 240px;
+    aspect-ratio: 4 / 3;
     border-radius: 16px;
   }
 
   .service-text h2 { font-size: 24px; letter-spacing: -0.04em; }
 
   /* USP */
-  .usp-section { padding: 48px 24px; background: white; }
+  .usp-section { padding: 48px 0; background: white; }
   .usp-eyebrow { font-size: 13px; }
 
   .usp-grid {
@@ -1189,7 +1304,7 @@ body {
   }
 
   /* Footer */
-  .footer { padding: 48px 24px 100px; }
+  .footer { padding: 48px 0 100px; }
 
   .footer-top {
     grid-template-columns: 1fr;
@@ -1208,8 +1323,8 @@ body {
     gap: 24px;
   }
 
-  div[style*="padding: 80px"] {
-    padding: 40px 24px !important;
+  .page-body {
+    padding: 40px 24px;
   }
 
   .form-row {

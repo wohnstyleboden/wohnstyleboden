@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "usta-website",
-      "runtimeExecutable": "powershell",
-      "runtimeArgs": ["-NonInteractive", "-File", "C:\\Users\\pc\\usta-website\\server.ps1"],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "3000", "C:\\Users\\pc\\usta-website"],
       "port": 3000
     }
   ]
