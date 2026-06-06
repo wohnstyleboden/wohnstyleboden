@@ -1,42 +1,34 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact – USTA Automation</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="images/favicon-wohnstyle.svg">
+  <title>WohnStyle Bodem — Kontakt</title>
+  <link rel="stylesheet" href="https://use.typekit.net/uag0nqp.css">
+  <link rel="stylesheet" href="https://use.typekit.net/vha7kpr.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
   <nav class="navbar">
     <div class="container navbar-inner">
     <div class="nav-left">
-    <a href="index.html" class="nav-logo">
-      <img src="images/logo.svg" alt="USTA Automation">
-    </a>
-    <ul class="nav-links">
-      <li class="dropdown">
-        <a href="#"><span data-i18n="nav.services">Onze diensten</span><svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 0.999999" stroke="#4B4B4B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="dropdown-menu">
-          <a href="demontage.html" data-i18n="footer.demont">Machine demontage</a>
-          <a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; onderdelen</a>
-          <a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a>
-        </div>
-      </li>
-      <li><a href="#" data-i18n="nav.about">Over Ons</a></li>
-    </ul>
+      <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Startseite</a></li>
+      </ul>
     </div>
     <div class="nav-right">
       <div class="lang-dropdown" id="langDropdown">
         <button class="lang-trigger" onclick="toggleLangMenu()">
-          <svg class="flag-icon" id="activeFlagSvg" viewBox="13 13 22 22" width="22" height="22" fill="none"><mask id="fl-nl" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="13" y="13" width="22" height="22"><path d="M23.8939 34.4995C21.1139 34.4714 18.4586 33.3419 16.5101 31.3588C14.5617 29.3757 13.4793 26.7008 13.5003 23.9208C13.5213 21.1407 14.6439 18.4825 16.6221 16.529C18.6002 14.5755 21.2723 13.4863 24.0524 13.5001C26.8325 13.514 29.4936 14.6299 31.4522 16.603C33.4107 18.5762 34.5067 21.2455 34.5 24.0256C34.4932 26.8057 33.3841 29.4697 31.416 31.4332C29.4479 33.3968 26.7813 34.4997 24.0012 34.5" fill="white"/></mask><g mask="url(#fl-nl)"><path d="M34.7229 14.6951C34.7229 13.9129 34.0923 13.2837 33.3101 13.2837H14.6914C13.9092 13.2837 13.28 13.9129 13.28 14.6951V33.3138C13.28 34.096 13.9092 34.7266 14.6914 34.7266H33.3101C34.0923 34.7266 34.7229 34.096 34.7229 33.3138V14.6951Z" fill="white"/><path d="M14.6912 13.285C13.909 13.285 13.2798 13.9299 13.2798 14.7299V20.4326H34.7227V14.7299C34.7227 13.9299 34.0921 13.285 33.3099 13.285H14.6912Z" fill="#C0392B"/><path d="M33.3115 34.7266C34.0937 34.7266 34.7229 34.0816 34.7229 33.2816V27.5789H13.28V33.2816C13.28 34.0816 13.9106 34.7266 14.6928 34.7266H33.3115Z" fill="#0043A6"/></g></svg>
-          <span id="activeLangLabel">NL</span>
-          <span class="chevron">▾</span>
+          <svg class="flag-icon" id="activeFlagSvg" viewBox="0 0 752 752" width="22" height="22" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
+          <svg class="lang-chevron" width="9" height="5" viewBox="0 0 9 5" fill="none"><path d="M0.999999 1L4.25 4L7.5 1" stroke="#4B4B4B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="lang-menu">
-          <button class="lang-option active" id="opt-nl" onclick="setLang('nl'); closeLangMenu()">
-            <svg viewBox="13 13 22 22" width="22" height="22" fill="none"><mask id="m-nl-opt" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="13" y="13" width="22" height="22"><path d="M23.8939 34.4995C21.1139 34.4714 18.4586 33.3419 16.5101 31.3588C14.5617 29.3757 13.4793 26.7008 13.5003 23.9208C13.5213 21.1407 14.6439 18.4825 16.6221 16.529C18.6002 14.5755 21.2723 13.4863 24.0524 13.5001C26.8325 13.514 29.4936 14.6299 31.4522 16.603C33.4107 18.5762 34.5067 21.2455 34.5 24.0256C34.4932 26.8057 33.3841 29.4697 31.416 31.4332C29.4479 33.3968 26.7813 34.4997 24.0012 34.5" fill="white"/></mask><g mask="url(#m-nl-opt)"><path d="M34.7229 14.6951C34.7229 13.9129 34.0923 13.2837 33.3101 13.2837H14.6914C13.9092 13.2837 13.28 13.9129 13.28 14.6951V33.3138C13.28 34.096 13.9092 34.7266 14.6914 34.7266H33.3101C34.0923 34.7266 34.7229 34.096 34.7229 33.3138V14.6951Z" fill="white"/><path d="M14.6912 13.285C13.909 13.285 13.2798 13.9299 13.2798 14.7299V20.4326H34.7227V14.7299C34.7227 13.9299 34.0921 13.285 33.3099 13.285H14.6912Z" fill="#C0392B"/><path d="M33.3115 34.7266C34.0937 34.7266 34.7229 34.0816 34.7229 33.2816V27.5789H13.28V33.2816C13.28 34.0816 13.9106 34.7266 14.6928 34.7266H33.3115Z" fill="#0043A6"/></g></svg>
-            Nederlands
+          <button class="lang-option active" id="opt-de" onclick="setLang('de'); closeLangMenu()">
+            <svg viewBox="0 0 752 752" width="22" height="22" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
+            Deutsch
           </button>
           <button class="lang-option" id="opt-en" onclick="setLang('en'); closeLangMenu()">
             <svg viewBox="12 12 24 24" width="22" height="22"><defs><clipPath id="opt-en-clip"><rect width="23" height="23" fill="white" transform="translate(12.5 12.5)"/></clipPath></defs><g clip-path="url(#opt-en-clip)"><mask id="opt-en-m0" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m0)"><path d="M6.61597 11.062H41.3839V36.9096H6.61597V11.062Z" fill="#00247D"/></g><mask id="opt-en-m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m1)"><path d="M37.4917 36.9095L23.9999 26.8755L10.4985 36.9095H6.61597V34.0128L20.1128 23.9858L6.61597 13.9452V11.062H10.4986L23.9999 21.0959L37.492 11.062H41.3839V13.9447L27.8871 23.9858L41.3839 34.0122V36.9095H37.4917Z" fill="white"/></g><mask id="opt-en-m2" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m2)"><path d="M9.20282 36.9095H6.61597L22.7138 24.8697L6.61597 12.9886V11.062L22.7544 22.9852L38.7924 11.062H41.3839L25.2416 22.9886L41.3839 34.983V36.9095L25.3453 24.9121L9.20282 36.9095Z" fill="#CF142B"/></g><mask id="opt-en-m3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m3)"><path d="M27.1558 37.6849H20.8443V27.1414H5.06555V20.8299H20.8443V10.5449H27.1558V20.8299H42.9346V27.1414H27.1558V37.6849Z" fill="white"/></g><mask id="opt-en-m4" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m4)"><path d="M25.8935 37.6849H22.1066V25.8792H5.06555V22.0923H22.1066V10.5449H25.8935V22.0923H42.9346V25.8792H25.8935V37.6849Z" fill="#CF142B"/></g></g></svg>
@@ -44,177 +36,236 @@
           </button>
         </div>
       </div>
-      <a href="contact.html" class="btn-nav" data-i18n="nav.contact">Contact ↗</a>
+      <a href="contact.html" class="btn-nav" data-i18n="nav.contact">Kontakt</a>
       <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.29065 18.5581H19.7093" stroke="#242E30" stroke-width="2" stroke-linecap="round"/><path d="M4.29065 24H19.7093" stroke="#242E30" stroke-width="2" stroke-linecap="round"/><path d="M4.29065 29.4419H19.7093" stroke="#242E30" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg width="24" height="48" viewBox="0 0 24 48" fill="none"><path d="M4.29053 18.5581H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/><path d="M4.29053 24H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/><path d="M4.29053 29.4419H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/><path d="M18.5 17.5L5.5 30.5" stroke="#242E30" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 17.5L18.5 30.5" stroke="#242E30" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
     </div>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-accordion">
-      <button class="mobile-accordion-trigger" onclick="toggleMobileAccordion(this)">
-        <span data-i18n="nav.services">Onze diensten</span>
-        <span class="mobile-chevron"><svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 0.999999" stroke="#4B4B4B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="mobile-accordion-body">
-        <a href="demontage.html" data-i18n="mobile.link1">Machine demontage</a>
-        <a href="#" data-i18n="mobile.link2">Inkoop machines &amp; onderdelen</a>
-        <a href="#" data-i18n="mobile.link3">Sloopwerk</a>
-      </div>
+    <div class="mobile-nav-group">
+      <a href="index.html">Startseite</a>
     </div>
-    <a href="#" data-i18n="mobile.link4">Over Ons</a>
-    <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact ↗</a>
+    <a href="contact.html" class="mobile-cta">Kontakt</a>
   </div>
 
+<div class="page-wrapper">
 
-  <div class="page-body">
+  <section class="contact-hero">
+    <div class="contact-hero-inner">
+      <span class="svc-badge svc-badge--blue"><span data-i18n="contact.badge">Kontakt</span></span>
+      <h1 class="hero-anth-title contact-hero-title" data-i18n="contact.title">Kontakt aufnehmen</h1>
+      <p class="svc-desc" data-i18n="contact.sub">Kontaktieren Sie uns gerne per E-Mail oder nutzen Sie das Kontaktformular. Wir helfen Ihnen gerne weiter.</p>
+    </div>
+  </section>
+
+  <section class="divider-band">
+    <span class="divider-band-text" data-i18n="divider.text">Von Experten ausgewählt — Qualität, die man spürt</span>
+  </section>
+
+  <section class="contact-section">
     <div class="contact-grid">
+
       <div class="contact-left">
-        <h1 data-i18n="contact.title">Neem contact op</h1>
-        <p data-i18n="contact.sub">Neem gerust contact met ons op via e-mail of maak gebruik van het contactformulier. Wij helpen u graag verder.</p>
+        <h2 class="contact-left-title" data-i18n="contact.info.title">Unsere Kontaktdaten</h2>
+        <p class="contact-left-sub" data-i18n="contact.info.sub">Nutzen Sie eine unserer Kontaktmöglichkeiten</p>
         <div class="contact-info">
           <div class="contact-row">
             <div class="contact-icon">
-              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#0043A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <svg width="22" height="22" viewBox="12 12 24 24" fill="none"><path d="M34 28.4217C34 29.3985 33.2411 30.1904 32.3051 30.1904H15.6949C14.7589 30.1904 14 29.3985 14 28.4217V19.5782C14 18.6014 14.7589 17.8095 15.6949 17.8095H32.3051C33.2411 17.8095 34 18.6014 34 19.5782V28.4217Z" stroke="#D7AA67" stroke-width="2" stroke-miterlimit="10"/><path d="M14.5428 18.2814L21.8302 24.766C23.0873 25.8592 24.9134 25.8592 26.1705 24.766L33.4579 18.2814" stroke="#D7AA67" stroke-width="2" stroke-miterlimit="10"/></svg>
             </div>
-            <span>info@usta-automation.com</span>
+            <div class="contact-row-text">
+              <span class="contact-row-label" data-i18n="contact.label.email">E-Mail</span>
+              <span>info@wohnstyle.de</span>
+            </div>
           </div>
           <div class="contact-row">
             <div class="contact-icon">
-              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#0043A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <svg width="20" height="22" viewBox="85 12 22 24" fill="none"><path d="M104.999 28.4765V31.1862C105 31.4377 104.949 31.6867 104.848 31.9172C104.747 32.1477 104.599 32.3546 104.413 32.5247C104.227 32.6947 104.008 32.8242 103.769 32.9048C103.531 32.9854 103.277 33.0153 103.026 32.9927C100.242 32.6907 97.5664 31.7409 95.216 30.2197C93.0293 28.8329 91.1753 26.9827 89.7858 24.8003C88.2563 22.4439 87.3044 19.7611 87.0073 16.9692C86.9847 16.7194 87.0145 16.4676 87.0947 16.23C87.1749 15.9923 87.3038 15.7739 87.4732 15.5887C87.6426 15.4034 87.8489 15.2554 88.0787 15.1541C88.3086 15.0528 88.5571 15.0003 88.8084 15.0001H91.5235C91.9627 14.9958 92.3885 15.151 92.7215 15.4368C93.0545 15.7227 93.2721 16.1196 93.3335 16.5537C93.4481 17.4208 93.6607 18.2723 93.9671 19.0918C94.0888 19.4151 94.1152 19.7664 94.043 20.1042C93.9708 20.442 93.8031 20.752 93.5598 20.9976L92.4104 22.1447C93.6988 24.406 95.5748 26.2784 97.8406 27.5642L98.99 26.4171C99.2361 26.1742 99.5467 26.0069 99.8852 25.9348C100.224 25.8628 100.576 25.8891 100.9 26.0106C101.721 26.3164 102.574 26.5285 103.443 26.6429C103.882 26.7048 104.284 26.9258 104.571 27.2639C104.858 27.6019 105.01 28.0335 104.999 28.4765Z" stroke="#D7AA67" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <span>+31614522453</span>
+            <div class="contact-row-text">
+              <span class="contact-row-label" data-i18n="contact.label.phone">Telefon</span>
+              <span><a href="tel:+4915112345678" style="color:inherit;text-decoration:none;">+49 151 12345678</a></span>
+            </div>
           </div>
           <div class="contact-row">
             <div class="contact-icon">
-              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#0043A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#D7AA67" stroke-width="2"/><circle cx="12" cy="9" r="2.5" stroke="#D7AA67" stroke-width="2"/></svg>
             </div>
-            <span>Breevaartstraat 56B, 3044 AH<br>Rotterdam</span>
+            <div class="contact-row-text">
+              <span class="contact-row-label" data-i18n="contact.label.address">Unser Standort</span>
+              <span>Musterstraße 12<br>80331 München</span>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#D7AA67" stroke-width="2"/><path d="M8 4V2M16 4V2M3 9h18" stroke="#D7AA67" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="contact-row-text">
+              <span class="contact-row-label" data-i18n="contact.hours.days">Mo – Fr</span>
+              <span>08:00 – 18:00 Uhr</span>
+            </div>
           </div>
         </div>
       </div>
 
+      <div class="contact-divider"><span data-i18n="contact.divider">oder</span></div>
+
       <div class="contact-right">
-        <h2 data-i18n="contact.form.title">Hoe kunnen we helpen?</h2>
-        <form onsubmit="handleSubmit(event)">
+        <h2 class="contact-form-title" data-i18n="contact.form.title">Nutzen Sie unser Formular</h2>
+        <form name="contact" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="form-name" value="contact">
           <div class="form-row">
             <div class="form-group">
-              <label data-i18n="contact.form.firstname">Voornaam</label>
-              <input type="text" data-i18n-ph="contact.ph.firstname" placeholder="John...">
+              <label data-i18n="contact.form.firstname">Vorname</label>
+              <input type="text" name="vorname" placeholder="Max...">
             </div>
             <div class="form-group">
-              <label data-i18n="contact.form.lastname">Achternaam</label>
-              <input type="text" data-i18n-ph="contact.ph.lastname" placeholder="Smith...">
+              <label data-i18n="contact.form.lastname">Nachname</label>
+              <input type="text" name="nachname" placeholder="Mustermann...">
             </div>
           </div>
           <div class="form-group">
-            <label data-i18n="contact.form.email">E-mail</label>
-            <input type="email" data-i18n-ph="contact.ph.email" placeholder="Smith@mail.com...">
+            <label data-i18n="contact.form.email">E-Mail</label>
+            <input type="email" name="email" placeholder="max@mail.de...">
           </div>
           <div class="form-group">
-            <label data-i18n="contact.form.subject">Onderwerp</label>
+            <label data-i18n="contact.form.subject">Betreff</label>
             <div class="custom-select" id="subjectSelect">
               <button type="button" class="custom-select-trigger" onclick="toggleSubjectSelect()">
-                <span class="select-display" data-i18n="contact.ph.subject">Selecteer een onderwerp...</span>
-                <svg class="select-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="#868686" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="select-display" data-i18n="contact.ph.subject">Betreff auswählen...</span>
+                <svg class="select-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#868686" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
               <ul class="custom-select-menu">
-                <li class="custom-select-option" data-value="demontage" onclick="pickSubject(this)">
-                  <span class="option-icon"><svg width="20" height="14" viewBox="12 15 24 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M34 28.4217C34 29.3985 33.2411 30.1904 32.3051 30.1904H15.6949C14.7589 30.1904 14 29.3985 14 28.4217V19.5782C14 18.6014 14.7589 17.8095 15.6949 17.8095H32.3051C33.2411 17.8095 34 18.6014 34 19.5782V28.4217Z" stroke="#0043A6" stroke-width="2" stroke-miterlimit="10"/><path d="M14.5428 18.2814L21.8302 24.766C23.0873 25.8592 24.9134 25.8592 26.1705 24.766L33.4579 18.2814" stroke="#0043A6" stroke-width="2" stroke-miterlimit="10"/></svg></span>
-                  <span data-i18n="services.tab1">Machine demontage</span>
-                </li>
-                <li class="custom-select-option" data-value="inkoop" onclick="pickSubject(this)">
-                  <span class="option-icon"><svg width="18" height="18" viewBox="85 13 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M104.999 28.4765V31.1862C105 31.4377 104.949 31.6867 104.848 31.9172C104.747 32.1477 104.599 32.3546 104.413 32.5247C104.227 32.6947 104.008 32.8242 103.769 32.9048C103.531 32.9854 103.277 33.0153 103.026 32.9927C100.242 32.6907 97.5664 31.7409 95.216 30.2197C93.0293 28.8329 91.1753 26.9827 89.7858 24.8003C88.2563 22.4439 87.3044 19.7611 87.0073 16.9692C86.9847 16.7194 87.0145 16.4676 87.0947 16.23C87.1749 15.9923 87.3038 15.7739 87.4732 15.5887C87.6426 15.4034 87.8489 15.2554 88.0787 15.1541C88.3086 15.0528 88.5571 15.0003 88.8084 15.0001H91.5235C91.9627 14.9958 92.3885 15.151 92.7215 15.4368C93.0545 15.7227 93.2721 16.1196 93.3335 16.5537C93.4481 17.4208 93.6607 18.2723 93.9671 19.0918C94.0888 19.4151 94.1152 19.7664 94.043 20.1042C93.9708 20.442 93.8031 20.752 93.5598 20.9976L92.4104 22.1447C93.6988 24.406 95.5748 26.2784 97.8406 27.5642L98.99 26.4171C99.2361 26.1742 99.5467 26.0069 99.8852 25.9348C100.224 25.8628 100.576 25.8891 100.9 26.0106C101.721 26.3164 102.574 26.5285 103.443 26.6429C103.882 26.7048 104.284 26.9258 104.571 27.2639C104.858 27.6019 105.01 28.0335 104.999 28.4765Z" stroke="#0043A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                  <span data-i18n="services.tab2">Inkoop machines &amp; onderdelen</span>
-                </li>
-                <li class="custom-select-option" data-value="sloopwerk" onclick="pickSubject(this)">
-                  <span class="option-icon"><svg width="18" height="18" viewBox="155 12 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M170 14.3579C170.455 14.3117 170.915 14.3093 171.371 14.3501L171.618 14.3716C172.049 14.4102 172.476 14.4867 172.893 14.6001L172.94 14.6128C173.427 14.745 173.898 14.9301 174.344 15.1646C174.706 15.3543 175.049 15.5763 175.372 15.8267L175.534 15.9517C175.842 16.1913 176.131 16.456 176.396 16.7427L176.475 16.8276C176.691 17.0603 176.886 17.3107 177.06 17.5757C177.298 17.9366 177.494 18.3233 177.644 18.728L177.711 18.9048L177.913 19.7261L178 20.355V20.9233L177.908 21.7632C177.845 22.0573 177.766 22.3477 177.672 22.6333L177.568 22.9312L177.323 23.646L177.092 24.1548L176.681 24.8813L176.155 25.6323L175.149 26.7944L174.038 27.9067L171.16 30.1831L170.853 30.4116L168.743 28.8296L167.025 27.2729L165.976 26.2202L165.383 25.4351C165.096 25.0566 164.84 24.6477 164.623 24.2241C164.364 23.7194 164.156 23.1823 164.01 22.6362L163.975 22.5122C163.875 22.1377 163.808 21.755 163.774 21.3687L163.763 21.2437C163.709 20.6107 163.757 19.9722 163.908 19.355C164.027 18.8668 164.209 18.3961 164.449 17.9546L164.486 17.8853C164.769 17.364 165.124 16.8847 165.539 16.4604L165.575 16.4224C165.929 16.0603 166.323 15.7393 166.748 15.4644L166.995 15.3032L167.487 15.0698C167.849 14.898 168.223 14.7538 168.606 14.6392L168.662 14.6226C169.098 14.4921 169.546 14.4039 170 14.3579Z" stroke="#0043A6" stroke-width="2"/><path d="M170.835 19.3877C171.973 19.3877 172.897 20.3107 172.897 21.4492C172.897 22.5879 171.973 23.5117 170.835 23.5117C169.696 23.5115 168.773 22.5878 168.773 21.4492C168.773 20.3108 169.696 19.3879 170.835 19.3877Z" stroke="#0043A6" stroke-width="2"/><path d="M170.268 34.7163H162.554C161.742 34.7163 161.268 33.8001 161.738 33.1379L163.118 31.1917C163.588 30.5295 163.114 29.6133 162.302 29.6133H157" stroke="#0043A6" stroke-width="2" stroke-linecap="round"/></svg></span>
-                  <span data-i18n="services.tab3">Sloopwerk</span>
-                </li>
-                <li class="custom-select-option no-icon" data-value="anders" onclick="pickSubject(this)">
-                  <span data-i18n="contact.opt.anders">Anders</span>
-                </li>
+                <li class="custom-select-option" data-value="laminat" onclick="pickSubject(this)"><span>Laminat</span></li>
+                <li class="custom-select-option" data-value="parkett" onclick="pickSubject(this)"><span>Parkett</span></li>
+                <li class="custom-select-option" data-value="vinyl" onclick="pickSubject(this)"><span>Vinyl</span></li>
+                <li class="custom-select-option" data-value="sonstiges" onclick="pickSubject(this)"><span data-i18n="contact.opt.anders">Sonstiges</span></li>
               </ul>
               <input type="hidden" name="subject" id="subjectHidden">
             </div>
           </div>
           <div class="form-group">
-            <label data-i18n="contact.form.message">Bericht</label>
-            <textarea data-i18n-ph="contact.ph.message" placeholder="Schrijf uw bericht..."></textarea>
+            <label data-i18n="contact.form.message">Nachricht</label>
+            <textarea name="nachricht" placeholder="Schreiben Sie Ihre Nachricht..."></textarea>
           </div>
-          <button type="submit" class="btn-submit" data-i18n="contact.form.submit">Stuur bericht</button>
+          <button type="submit" class="btn-submit" data-i18n="contact.form.submit">Nachricht senden</button>
         </form>
       </div>
+
     </div>
-  </div>
+  </section>
+
+  <section class="cta-gold">
+    <span class="cta-gold-logo">WohnStyle</span>
+    <p class="cta-gold-text" data-i18n="cta.text">Bereit für Ihren neuen Traumboden? Lassen Sie sich unverbindlich beraten und erhalten Sie Ihr persönliches Angebot.</p>
+    <a href="contact.html" class="cta-gold-btn" data-i18n="cta.btn">Angebot anfragen</a>
+  </section>
 
   <footer class="footer">
     <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="images/logo.svg" alt="USTA Automation">
+        <span class="logo-text footer-logo-text">WohnStyle</span>
         <div class="footer-socials">
-          <a href="#" class="social-icon" title="LinkedIn"><svg width="21" height="21" viewBox="13.5 13.5 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32.8313 13.9795H15.1715C14.247 13.9795 13.5 14.7258 13.5 15.6489V32.3519C13.5 33.2722 14.247 34.0206 15.1715 34.0206H32.8313C33.7509 34.0206 34.5 33.2729 34.5 32.3519V15.6489C34.5 14.7258 33.7509 13.9795 32.8313 13.9795ZM19.4334 32.3625H16.3857V22.3952H19.4334V32.3625ZM19.4334 20.6248L16.3857 19.9234V18.0218H19.4334V20.6248ZM31.615 32.3625H28.5673V26.4305C28.5673 25.5642 28.432 24.9168 28.1612 24.4904C27.8898 24.0639 27.4366 23.8507 26.7457 23.8507C25.9601 23.8507 25.3906 24.0842 25.0392 24.5514C24.6863 25.0185 24.619 25.7873 24.619 26.857V32.3625H21.5987V21.914H24.2325V22.7347L24.2928 22.9325C25.1135 22.2872 25.2685 22.2696 25.8507 21.9919C26.4336 21.7141 27.1659 21.5212 27.7747 21.5212C28.547 21.5212 29.1797 21.6812 29.6742 21.8902C30.1687 22.1006 30.558 22.3917 30.8421 22.7642C31.1261 23.1366 31.326 23.5897 31.4411 24.1249C31.5561 24.6601 31.6136 25.2521 31.6136 25.9023V32.3625H31.615Z" fill="white"/></svg></a>
-          <a href="#" class="social-icon" title="WhatsApp"><svg width="21" height="21" viewBox="85.5 13.5 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#wa-clip)"><path d="M100.819 26.0184L100.811 26.084C98.8866 25.125 98.6854 24.9973 98.4369 25.37C98.2645 25.6282 97.7622 26.2135 97.6109 26.3868C97.4577 26.5574 97.3055 26.5705 97.0456 26.4524C96.7831 26.3212 95.9405 26.0455 94.943 25.153C94.166 24.4574 93.6445 23.6043 93.4905 23.3418C93.2341 22.899 93.7705 22.836 94.2587 21.912C94.3462 21.7283 94.3016 21.5839 94.2369 21.4535C94.1712 21.3223 93.6489 20.036 93.4301 19.5233C93.2201 19.0123 93.004 19.077 92.8421 19.077C92.3381 19.0333 91.9697 19.0403 91.6451 19.378C90.2329 20.9303 90.589 22.5315 91.7974 24.2343C94.1721 27.3423 95.4374 27.9145 97.7509 28.709C98.3756 28.9077 98.9452 28.8797 99.3959 28.8149C99.8981 28.7353 100.942 28.184 101.16 27.5672C101.383 26.9503 101.383 26.4384 101.317 26.3203C101.253 26.2022 101.081 26.1365 100.819 26.0184Z" fill="white"/><path d="M103.455 16.5178C96.7271 10.0139 85.5928 14.731 85.5884 23.9063C85.5884 25.7403 86.0687 27.5288 86.984 29.1081L85.5 34.4999L91.0431 33.0544C97.96 36.7906 106.497 31.8294 106.5 23.9115C106.5 21.1325 105.415 18.5171 103.442 16.5519L103.455 16.5178ZM104.752 23.8826C104.747 30.5615 97.4149 34.7326 91.6163 31.3236L91.3012 31.1364L88.02 31.9895L88.8994 28.8001L88.6902 28.472C85.0817 22.7276 89.2275 15.2201 96.063 15.2201C98.3853 15.2201 100.565 16.1258 102.206 17.7664C103.847 19.393 104.752 21.5726 104.752 23.8826Z" fill="white"/></g><defs><clipPath id="wa-clip"><rect width="21" height="21" fill="white" transform="translate(85.5 13.5)"/></clipPath></defs></svg></a>
+          <a href="https://www.linkedin.com" class="social-icon" title="LinkedIn" target="_blank" rel="noopener"><svg width="21" height="21" viewBox="13.5 13.5 21 21" fill="none"><path d="M32.8313 13.9795H15.1715C14.247 13.9795 13.5 14.7258 13.5 15.6489V32.3519C13.5 33.2722 14.247 34.0206 15.1715 34.0206H32.8313C33.7509 34.0206 34.5 33.2729 34.5 32.3519V15.6489C34.5 14.7258 33.7509 13.9795 32.8313 13.9795ZM19.4334 32.3625H16.3857V22.3952H19.4334V32.3625ZM19.4334 20.6248L16.3857 19.9234V18.0218H19.4334V20.6248ZM31.615 32.3625H28.5673V26.4305C28.5673 25.5642 28.432 24.9168 28.1612 24.4904C27.8898 24.0639 27.4366 23.8507 26.7457 23.8507C25.9601 23.8507 25.3906 24.0842 25.0392 24.5514C24.6863 25.0185 24.619 25.7873 24.619 26.857V32.3625H21.5987V21.914H24.2325V22.7347L24.2928 22.9325C25.1135 22.2872 25.2685 22.2696 25.8507 21.9919C26.4336 21.7141 27.1659 21.5212 27.7747 21.5212C28.547 21.5212 29.1797 21.6812 29.6742 21.8902C30.1687 22.1006 30.558 22.3917 30.8421 22.7642C31.1261 23.1366 31.326 23.5897 31.4411 24.1249C31.5561 24.6601 31.6136 25.2521 31.6136 25.9023V32.3625H31.615Z" fill="#111"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.services">Onze diensten</h4>
+        <h4 data-i18n="footer.services">Kollektion</h4>
         <ul>
-          <li><a href="demontage.html" data-i18n="footer.demont">Machine demontage</a></li>
-          <li><a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; onderdelen</a></li>
-          <li><a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a></li>
+          <li><a href="#" data-i18n="footer.demont">Laminat</a></li>
+          <li><a href="#" data-i18n="footer.inkoop">Parkett</a></li>
+          <li><a href="#" data-i18n="footer.sloopwerk">Vinyl</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.company">Company</h4>
+        <h4 data-i18n="footer.company">Unternehmen</h4>
         <ul>
-          <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
-          <li><a href="#" data-i18n="footer.about">Over Ons</a></li>
+          <li><a href="contact.html" data-i18n="footer.contact">Kontakt</a></li>
+          <li><a href="index.html" data-i18n="footer.about">Über uns</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.legal">Legal</h4>
+        <h4 data-i18n="footer.legal">Rechtliches</h4>
         <ul>
-          <li><a href="#" data-i18n="footer.privacy">Privacy policy</a></li>
-          <li><a href="#" data-i18n="footer.terms">Terms and conditions</a></li>
+          <li><a href="privacy.html" data-i18n="footer.privacy">Datenschutz</a></li>
+          <li><a href="voorwaarden.html" data-i18n="footer.terms">AGB</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-lang-dropdown" id="footerLangDropdown">
-        <button class="footer-lang-trigger" onclick="toggleFooterLang()">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-          <span id="footerLangLabel">Nederlands</span> ▾
-        </button>
-        <div class="footer-lang-menu">
-          <button class="footer-lang-option" id="footer-opt-nl" onclick="setLang('nl'); closeFooterLang()">🇳🇱 Nederlands</button>
-          <button class="footer-lang-option" id="footer-opt-en" onclick="setLang('en'); closeFooterLang()">🇬🇧 English</button>
-        </div>
-      </div>
-      <p data-i18n="footer.copyright">© 2026 – All rights reserved</p>
+      <p data-i18n="footer.copyright">© 2026 – Alle Rechte vorbehalten</p>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span id="theme-label">Dark-Modus</span>
+        <div class="theme-toggle-track"><div class="theme-toggle-thumb"></div></div>
+      </button>
     </div>
     </div>
   </footer>
 
+</div><!-- end page-wrapper -->
+
+  <!-- SUCCESS MODAL -->
+  <div id="success-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:9999; align-items:center; justify-content:center; padding:24px;">
+    <div style="background:white; border-radius:8px; padding:36px 32px; max-width:380px; width:100%; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+      <button onclick="closeSuccessModal()" style="position:absolute; top:16px; right:16px; background:none; border:none; cursor:pointer; color:#888;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      <p id="success-title" style="margin:0 0 8px; font-family:'anth',Georgia,serif; font-size:22px; font-weight:700; color:#111;">Nachricht gesendet!</p>
+      <p id="success-sub" style="margin:0 0 24px; font-size:15px; color:#555; line-height:1.6;">Wir melden uns so schnell wie möglich bei Ihnen.</p>
+      <button onclick="closeSuccessModal()" id="success-btn" style="width:100%; height:48px; background:#111; color:white; border:none; border-radius:4px; font-family:'anth',Georgia,serif; font-size:15px; font-weight:700; cursor:pointer;">Verstanden</button>
+    </div>
+  </div>
+
   <script src="js/lang.js"></script>
   <script>
-    function handleSubmit(e) { e.preventDefault(); alert(document.documentElement.lang === 'en' ? 'Thank you! We will contact you as soon as possible.' : 'Bedankt! Wij nemen zo snel mogelijk contact met u op.'); }
-    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-    function toggleMobileAccordion(btn) { btn.classList.toggle('open'); btn.nextElementSibling.classList.toggle('open'); }
-    // No hero on this page — show sticky button immediately
-    document.querySelector('.mobile-sticky-btn')?.classList.add('visible');
-    // Custom subject select
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.querySelector('.hamburger').classList.toggle('open');
+    }
+    function toggleTheme() {
+      const isDark = document.body.classList.toggle('dark-mode');
+      const lang = localStorage.getItem('lang') || 'de';
+      const lbl = document.getElementById('theme-label');
+      if (lbl) lbl.textContent = isDark ? (lang==='en'?'Light mode':'Light-Modus') : (lang==='en'?'Dark mode':'Dark-Modus');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    (function() {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        const lbl = document.getElementById('theme-label');
+        if (lbl) lbl.textContent = 'Light-Modus';
+      }
+    })();
+    function handleSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      fetch('/', { method: 'POST', body: new FormData(form) })
+        .then(function() {
+          var isEn = document.documentElement.lang === 'en';
+          document.getElementById('success-title').textContent = isEn ? 'Message sent!' : 'Nachricht gesendet!';
+          document.getElementById('success-sub').textContent = isEn ? 'We will get back to you as soon as possible.' : 'Wir melden uns so schnell wie möglich bei Ihnen.';
+          document.getElementById('success-btn').textContent = isEn ? 'Got it' : 'Verstanden';
+          form.reset();
+          document.getElementById('success-overlay').style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }).catch(function() {
+          document.getElementById('success-overlay').style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+    }
+    function closeSuccessModal() {
+      document.getElementById('success-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
     function toggleSubjectSelect() {
       document.getElementById('subjectSelect').classList.toggle('open');
     }
     function pickSubject(opt) {
       var sel = opt.closest('.custom-select');
-      var trigger = sel.querySelector('.custom-select-trigger');
-      sel.querySelector('.select-display').textContent = opt.querySelector('span:last-child').textContent;
-      trigger.classList.add('has-value');
+      sel.querySelector('.select-display').textContent = opt.querySelector('span').textContent;
+      sel.querySelector('.custom-select-trigger').classList.add('has-value');
       document.getElementById('subjectHidden').value = opt.dataset.value;
       sel.querySelectorAll('.custom-select-option').forEach(function(o) { o.classList.remove('selected'); });
       opt.classList.add('selected');

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#ffffff"/>
+  <!-- Outer diamond (full tile boundary) -->
+  <path d="M100,0 L200,100 L100,200 L0,100 Z" fill="none" stroke="#D7AA67" stroke-width="2.2"/>
+  <!-- Large inner diamond (~3/4, left-anchored) -->
+  <path d="M67,25 L148,100 L75,175 L0,100 Z" fill="none" stroke="#D7AA67" stroke-width="2.2"/>
+  <!-- Medium inner diamond (~1/2, left-anchored) -->
+  <path d="M50,50 L100,100 L50,150 L0,100 Z" fill="none" stroke="#D7AA67" stroke-width="2.2"/>
+  <!-- Small inner diamond (~1/4, left-anchored) -->
+  <path d="M25,74 L51,100 L26,126 L0,100 Z" fill="none" stroke="#D7AA67" stroke-width="2.2"/>
+  <!-- Diagonal line: right point of outer to right point of small diamond -->
+  <line x1="200" y1="100" x2="51" y2="100" stroke="#D7AA67" stroke-width="2.2"/>
+</svg>

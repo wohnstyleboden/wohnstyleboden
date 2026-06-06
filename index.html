@@ -1,42 +1,36 @@
-<!DOCTYPE html>
-<html lang="nl">
+﻿<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>USTA Automation</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="images/favicon-wohnstyle.svg">
+  <title>WohnStyle Bodem</title>
+  <link rel="stylesheet" href="https://use.typekit.net/uag0nqp.css">
+  <link rel="stylesheet" href="https://use.typekit.net/vha7kpr.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
   <nav class="navbar">
     <div class="container navbar-inner">
     <div class="nav-left">
-    <a href="index.html" class="nav-logo">
-      <img src="images/logo.svg" alt="USTA Automation">
-    </a>
+    <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span></a>
     <ul class="nav-links">
-      <li class="dropdown">
-        <a href="#"><span data-i18n="nav.services">Onze diensten</span><svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 0.999999" stroke="#4B4B4B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="dropdown-menu">
-          <a href="demontage.html" data-i18n="footer.demont">Machine demontage</a>
-          <a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; onderdelen</a>
-          <a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a>
-        </div>
-      </li>
-      <li><a href="#" data-i18n="nav.about">Over Ons</a></li>
+      
+      <li><a href="over-ons.html" data-i18n="nav.about">Over Ons</a></li>
     </ul>
     </div>
     <div class="nav-right">
       <div class="lang-dropdown" id="langDropdown">
         <button class="lang-trigger" onclick="toggleLangMenu()">
-          <svg class="flag-icon" id="activeFlagSvg" viewBox="13 13 22 22" width="22" height="22" fill="none"><mask id="fl-nl" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="13" y="13" width="22" height="22"><path d="M23.8939 34.4995C21.1139 34.4714 18.4586 33.3419 16.5101 31.3588C14.5617 29.3757 13.4793 26.7008 13.5003 23.9208C13.5213 21.1407 14.6439 18.4825 16.6221 16.529C18.6002 14.5755 21.2723 13.4863 24.0524 13.5001C26.8325 13.514 29.4936 14.6299 31.4522 16.603C33.4107 18.5762 34.5067 21.2455 34.5 24.0256C34.4932 26.8057 33.3841 29.4697 31.416 31.4332C29.4479 33.3968 26.7813 34.4997 24.0012 34.5" fill="white"/></mask><g mask="url(#fl-nl)"><path d="M34.7229 14.6951C34.7229 13.9129 34.0923 13.2837 33.3101 13.2837H14.6914C13.9092 13.2837 13.28 13.9129 13.28 14.6951V33.3138C13.28 34.096 13.9092 34.7266 14.6914 34.7266H33.3101C34.0923 34.7266 34.7229 34.096 34.7229 33.3138V14.6951Z" fill="white"/><path d="M14.6912 13.285C13.909 13.285 13.2798 13.9299 13.2798 14.7299V20.4326H34.7227V14.7299C34.7227 13.9299 34.0921 13.285 33.3099 13.285H14.6912Z" fill="#C0392B"/><path d="M33.3115 34.7266C34.0937 34.7266 34.7229 34.0816 34.7229 33.2816V27.5789H13.28V33.2816C13.28 34.0816 13.9106 34.7266 14.6928 34.7266H33.3115Z" fill="#0043A6"/></g></svg>
-          <span id="activeLangLabel">NL</span>
-          <span class="chevron">▾</span>
+          <svg class="flag-icon" id="activeFlagSvg" viewBox="0 0 752 752" width="22" height="22" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
+          
+          <svg class="lang-chevron" width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999999 1L4.25 4L7.5 1" stroke="#4B4B4B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="lang-menu">
-          <button class="lang-option active" id="opt-nl" onclick="setLang('nl'); closeLangMenu()">
-            <svg viewBox="13 13 22 22" width="22" height="22" fill="none"><mask id="m-nl-opt" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="13" y="13" width="22" height="22"><path d="M23.8939 34.4995C21.1139 34.4714 18.4586 33.3419 16.5101 31.3588C14.5617 29.3757 13.4793 26.7008 13.5003 23.9208C13.5213 21.1407 14.6439 18.4825 16.6221 16.529C18.6002 14.5755 21.2723 13.4863 24.0524 13.5001C26.8325 13.514 29.4936 14.6299 31.4522 16.603C33.4107 18.5762 34.5067 21.2455 34.5 24.0256C34.4932 26.8057 33.3841 29.4697 31.416 31.4332C29.4479 33.3968 26.7813 34.4997 24.0012 34.5" fill="white"/></mask><g mask="url(#m-nl-opt)"><path d="M34.7229 14.6951C34.7229 13.9129 34.0923 13.2837 33.3101 13.2837H14.6914C13.9092 13.2837 13.28 13.9129 13.28 14.6951V33.3138C13.28 34.096 13.9092 34.7266 14.6914 34.7266H33.3101C34.0923 34.7266 34.7229 34.096 34.7229 33.3138V14.6951Z" fill="white"/><path d="M14.6912 13.285C13.909 13.285 13.2798 13.9299 13.2798 14.7299V20.4326H34.7227V14.7299C34.7227 13.9299 34.0921 13.285 33.3099 13.285H14.6912Z" fill="#C0392B"/><path d="M33.3115 34.7266C34.0937 34.7266 34.7229 34.0816 34.7229 33.2816V27.5789H13.28V33.2816C13.28 34.0816 13.9106 34.7266 14.6928 34.7266H33.3115Z" fill="#0043A6"/></g></svg>
-            Nederlands
+          <button class="lang-option active" id="opt-de" onclick="setLang('de'); closeLangMenu()">
+            <svg viewBox="0 0 752 752" width="22" height="22" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
+            Deutsch
           </button>
           <button class="lang-option" id="opt-en" onclick="setLang('en'); closeLangMenu()">
             <svg viewBox="12 12 24 24" width="22" height="22"><defs><clipPath id="opt-en-clip"><rect width="23" height="23" fill="white" transform="translate(12.5 12.5)"/></clipPath></defs><g clip-path="url(#opt-en-clip)"><mask id="opt-en-m0" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m0)"><path d="M6.61597 11.062H41.3839V36.9096H6.61597V11.062Z" fill="#00247D"/></g><mask id="opt-en-m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m1)"><path d="M37.4917 36.9095L23.9999 26.8755L10.4985 36.9095H6.61597V34.0128L20.1128 23.9858L6.61597 13.9452V11.062H10.4986L23.9999 21.0959L37.492 11.062H41.3839V13.9447L27.8871 23.9858L41.3839 34.0122V36.9095H37.4917Z" fill="white"/></g><mask id="opt-en-m2" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m2)"><path d="M9.20282 36.9095H6.61597L22.7138 24.8697L6.61597 12.9886V11.062L22.7544 22.9852L38.7924 11.062H41.3839L25.2416 22.9886L41.3839 34.983V36.9095L25.3453 24.9121L9.20282 36.9095Z" fill="#CF142B"/></g><mask id="opt-en-m3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m3)"><path d="M27.1558 37.6849H20.8443V27.1414H5.06555V20.8299H20.8443V10.5449H27.1558V20.8299H42.9346V27.1414H27.1558V37.6849Z" fill="white"/></g><mask id="opt-en-m4" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m4)"><path d="M25.8935 37.6849H22.1066V25.8792H5.06555V22.0923H22.1066V10.5449H25.8935V22.0923H42.9346V25.8792H25.8935V37.6849Z" fill="#CF142B"/></g></g></svg>
@@ -44,249 +38,228 @@
           </button>
         </div>
       </div>
-      <a href="contact.html" class="btn-nav" data-i18n="nav.contact">Contact ↗</a>
+      <a href="contact.html" class="btn-nav" data-i18n="nav.contact">Contact â†—</a>
       <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.29065 18.5581H19.7093" stroke="#242E30" stroke-width="2" stroke-linecap="round"/><path d="M4.29065 24H19.7093" stroke="#242E30" stroke-width="2" stroke-linecap="round"/><path d="M4.29065 29.4419H19.7093" stroke="#242E30" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.29053 18.5581H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4.29053 24H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4.29053 29.4419H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
+          <path d="M18.5 17.5L5.5 30.5" stroke="#242E30" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5.5 17.5L18.5 30.5" stroke="#242E30" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </button>
     </div>
     </div>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-accordion">
-      <button class="mobile-accordion-trigger" onclick="toggleMobileAccordion(this)">
-        <span data-i18n="nav.services">Onze diensten</span>
-        <span class="mobile-chevron"><svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 0.999999" stroke="#4B4B4B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="mobile-accordion-body">
-        <a href="demontage.html" data-i18n="mobile.link1">Machine demontage</a>
-        <a href="#" data-i18n="mobile.link2">Inkoop machines &amp; onderdelen</a>
-        <a href="#" data-i18n="mobile.link3">Sloopwerk</a>
-      </div>
+    <div class="mobile-nav-group">
+    
+    <a href="over-ons.html" data-i18n="mobile.link4">Over Ons</a>
     </div>
-    <a href="#" data-i18n="mobile.link4">Over Ons</a>
-    <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact ↗</a>
+    <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact â†—</a>
   </div>
 
   <div class="mobile-sticky-btn">
-    <a href="contact.html" data-i18n="sticky.btn">Neem contact op ↗</a>
+    <a href="contact.html" data-i18n="sticky.btn">Neem contact op â†—</a>
   </div>
 
-  <section class="hero">
-    <div class="hero-bg-dots"></div>
-    <div class="hero-inner">
-      <div class="hero-text">
-        <div class="hero-badge">
-          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          VCA Gecertificeerd
-        </div>
-        <h1 data-i18n="hero.title">Uw partner voor <span class="hero-highlight">machine demontage</span> en industriële diensten</h1>
-        <p class="hero-sub" data-i18n="hero.sub">Directe offerte, snelle afhandeling en een betrouwbare samenwerking</p>
+<div class="page-wrapper">
+
+  <section class="svc-hero">
+    <div class="hero-layout">
+      <div class="svc-hero-inner">
+        <span class="svc-badge svc-badge--blue">
+          <span data-i18n="hero.badge">Premium Laminat & Parkett</span>
+        </span>
+        <h1 class="svc-title hero-anth-title" data-i18n="hero.title">Böden, die Ihren Wohnraum zum Leben erwecken</h1>
+        <p class="svc-desc" data-i18n="hero.sub">Entdecken Sie unsere exklusive Kollektion – langlebig, schön und für jeden Wohnraum.</p>
         <div class="hero-actions">
-          <a href="contact.html" class="btn-primary" data-i18n="hero.btn">Contact ↗</a>
-          <a href="#diensten" class="btn-ghost" data-i18n="hero.secondary">Bekijk diensten</a>
+          <a href="contact.html" class="btn-primary btn-hero" data-i18n="hero.btn">Angebot anfragen</a>
+          <a href="#diensten" class="btn-ghost-dark btn-hero" data-i18n="hero.secondary">Kollektion ansehen</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-img-wrap">
-          <img src="images/worker.png" alt="Machine demontage">
-          <div class="hero-float-card">
-            <span class="hero-float-num">500+</span>
-            <span class="hero-float-label" data-i18n="hero.stat">Projecten voltooid</span>
-          </div>
-        </div>
+      <div class="hero-img-side">
+        <img src="images/hero-image.png" alt="Laminaat vloer">
+        <div class="hero-img-caption">WohnStyle</div>
       </div>
     </div>
-    <div class="hero-stats-bar">
-      <div class="hero-stats-inner">
-        <div class="hero-stat-item">
-          <strong>10+</strong>
-          <span data-i18n="hero.years">Jaar ervaring</span>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat-item">
-          <strong>500+</strong>
-          <span data-i18n="hero.projects">Projecten voltooid</span>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat-item">
-          <strong>100%</strong>
-          <span data-i18n="hero.certified">VCA gecertificeerd</span>
+  </section>
+
+  <section class="divider-band">
+    <span class="divider-band-text" data-i18n="divider.text">Von Experten ausgewählt — Qualität, die man spürt</span>
+  </section>
+
+  <section class="section2-image-block">
+    <img src="images/section2-index.png" alt="WohnStyle Laminaat" class="section2-img">
+    <div class="section2-card">
+      <span class="section2-card-tag" data-i18n="section2.tag">Unsere Kollektion</span>
+      <h2 class="section2-card-title" data-i18n="section2.title">Böden für jeden Raum und jeden Stil</h2>
+      <p class="section2-card-text" data-i18n="section2.text">Von klassischem Eichendekor bis hin zu modernen Grautönen — entdecken Sie unsere handverlesene Auswahl an Premium-Laminat und Parkett für Ihr Zuhause.</p>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="gallery-header">
+      <div class="gallery-header-left">
+        <h2 class="gallery-title" data-i18n="gallery.title">Unsere aktuellen Projekte</h2>
+        <p class="gallery-sub" data-i18n="gallery.sub">Entdecken Sie unsere abgeschlossenen Projekte — echte Böden in echten Zuhausen.</p>
+      </div>
+    </div>
+    <div class="gallery-accordion" id="galleryAccordion">
+      <div class="gallery-panel active" onclick="openPanel(this)">
+        <img src="images/6855 1.png" alt="Project 1">
+      </div>
+      <div class="gallery-panel" onclick="openPanel(this)">
+        <img src="images/2505 1.png" alt="Project 2">
+      </div>
+      <div class="gallery-panel" onclick="openPanel(this)">
+        <img src="images/2240 1.png" alt="Project 3">
+      </div>
+      <div class="gallery-panel" onclick="openPanel(this)">
+        <img src="images/1638 1.png" alt="Project 4">
+      </div>
+      <div class="gallery-panel" onclick="openPanel(this)">
+        <img src="images/793 1.png" alt="Project 5">
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial-section">
+    <div class="testimonial-inner">
+      <p class="testimonial-quote" data-i18n="testimonial.quote">"Wir haben unseren kompletten Wohnraum mit dem Laminat von WohnStyle ausgestattet. Die Qualität ist hervorragend und der Service war von Anfang bis Ende erstklassig."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar"></div>
+        <div>
+          <strong class="testimonial-name" data-i18n="testimonial.name">Maria &amp; Thomas Becker</strong>
+          <span class="testimonial-role" data-i18n="testimonial.role">Kunden aus München</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="services" id="diensten">
-    <div class="container">
-      <h2 class="section-title services-heading" data-i18n="services.heading">Onze diensten</h2>
-    </div>
-    <div class="services-sticky-header">
-      <div class="container">
-      <div class="tabs">
-        <button class="tab active" id="tab-btn-demontage" onclick="showTab(this,'demontage')" data-i18n="services.tab1">Machine demontage</button>
-        <button class="tab" id="tab-btn-inkoop" onclick="showTab(this,'inkoop')" data-i18n="services.tab2">Inkoop machines &amp; onderdelen</button>
-        <button class="tab" id="tab-btn-sloopwerk" onclick="showTab(this,'sloopwerk')" data-i18n="services.tab3">Sloopwerk</button>
-      </div>
-      </div>
-    </div>
 
-    <div class="tab-content" id="tab-demontage">
-      <div class="service-content">
-        <div class="service-text">
-          <p class="service-tag" data-i18n="services.t1.tag">Efficiënt en veilig ontmantelen</p>
-          <h2 data-i18n="services.t1.title">Professionele machine demontage</h2>
-          <p data-i18n="services.t1.text">Wij demonteren industriële machines van A tot Z: veilig met minimale afstand, met volledige verantwoordelijkheid tot transport en oplevering.</p>
-          <ul class="checklist">
-            <li data-i18n="services.t1.check1">Volledige productiestilstand en snelle planningsopzet</li>
-            <li data-i18n="services.t1.check2">Veilig, gecertificeerd en volgens planning uitgevoerd</li>
-            <li data-i18n="services.t1.check3">Inclusief transport, opslag of doorverkoop mogelijk</li>
-          </ul>
-          <a href="demontage.html" class="btn-meer-info"><span data-i18n="services.t1.btn">Meer info</span><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0001 1.00001C11.0001 0.447724 10.5523 9.03753e-06 10.0001 9.45899e-06L1.00005 9.24826e-06C0.447767 9.24826e-06 5.19105e-05 0.447724 5.19105e-05 1.00001C5.19105e-05 1.55229 0.447767 2.00001 1.00005 2.00001L9.00005 2.00001L9.00005 10C9.00005 10.5523 9.44777 11 10.0001 11C10.5523 11 11.0001 10.5523 11.0001 10L11.0001 1.00001ZM1.51477 9.48529L2.22188 10.1924L10.7072 1.70712L10.0001 1.00001L9.29294 0.292903L0.807664 8.77818L1.51477 9.48529Z" fill="#868686"/></svg></a>
-        </div>
-        <div class="service-image">
-          <img src="images/demontage-service.jpg" alt="Machine demontage">
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-content" id="tab-inkoop">
-      <div class="service-content">
-        <div class="service-text">
-          <p class="service-tag" data-i18n="services.t2.tag">Machines &amp; onderdelen</p>
-          <h2 data-i18n="services.t2.title">Inkoop machines &amp; onderdelen</h2>
-          <p data-i18n="services.t2.text">Wij kopen gebruikte machines en onderdelen in. Direct aanbod, eerlijke prijs en snelle afhandeling — wij regelen de rest.</p>
-          <ul class="checklist">
-            <li data-i18n="services.t2.check1">Snelle beoordeling en directe offerte</li>
-            <li data-i18n="services.t2.check2">Eerlijke marktprijs voor uw machines</li>
-            <li data-i18n="services.t2.check3">Wij regelen transport en ophaling</li>
-          </ul>
-          <a href="contact.html" class="btn-meer-info"><span data-i18n="services.t2.btn">Meer info</span><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0001 1.00001C11.0001 0.447724 10.5523 9.03753e-06 10.0001 9.45899e-06L1.00005 9.24826e-06C0.447767 9.24826e-06 5.19105e-05 0.447724 5.19105e-05 1.00001C5.19105e-05 1.55229 0.447767 2.00001 1.00005 2.00001L9.00005 2.00001L9.00005 10C9.00005 10.5523 9.44777 11 10.0001 11C10.5523 11 11.0001 10.5523 11.0001 10L11.0001 1.00001ZM1.51477 9.48529L2.22188 10.1924L10.7072 1.70712L10.0001 1.00001L9.29294 0.292903L0.807664 8.77818L1.51477 9.48529Z" fill="#868686"/></svg></a>
-        </div>
-        <div class="service-image">
-          <img src="images/inkoop-machines.jpg" alt="Inkoop machines">
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-content" id="tab-sloopwerk">
-      <div class="service-content">
-        <div class="service-text">
-          <p class="service-tag" data-i18n="services.t3.tag">Veilig en verantwoord</p>
-          <h2 data-i18n="services.t3.title">Sloopwerk</h2>
-          <p data-i18n="services.t3.text">Professioneel sloopwerk van industriële installaties, uitgevoerd door gecertificeerde specialisten met minimale stilstand.</p>
-          <ul class="checklist">
-            <li data-i18n="services.t3.check1">Veilig en gecertificeerd uitgevoerd</li>
-            <li data-i18n="services.t3.check2">Verantwoorde verwerking en recycling</li>
-            <li data-i18n="services.t3.check3">Minimale overlast en maximale snelheid</li>
-          </ul>
-          <a href="contact.html" class="btn-meer-info"><span data-i18n="services.t3.btn">Meer info</span><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0001 1.00001C11.0001 0.447724 10.5523 9.03753e-06 10.0001 9.45899e-06L1.00005 9.24826e-06C0.447767 9.24826e-06 5.19105e-05 0.447724 5.19105e-05 1.00001C5.19105e-05 1.55229 0.447767 2.00001 1.00005 2.00001L9.00005 2.00001L9.00005 10C9.00005 10.5523 9.44777 11 10.0001 11C10.5523 11 11.0001 10.5523 11.0001 10L11.0001 1.00001ZM1.51477 9.48529L2.22188 10.1924L10.7072 1.70712L10.0001 1.00001L9.29294 0.292903L0.807664 8.77818L1.51477 9.48529Z" fill="#868686"/></svg></a>
-        </div>
-        <div class="service-image">
-          <img src="images/sloopwerk.jpg" alt="Sloopwerk">
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="usp-section">
     <div class="container">
-    <p class="usp-eyebrow" data-i18n="usp.eyebrow">Efficiënt, snel en met maximale waarde in elke stap</p>
-    <h2 class="section-title" data-i18n="usp.title">De kracht van USTA Automation</h2>
+    <h2 class="section-title" data-i18n="usp.title">Warum WohnStyle?</h2>
     <div class="usp-grid">
       <div class="usp-card">
         <div class="usp-icon">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M33.0558 26.7354L24.849 30.5823C24.3112 30.8345 23.6891 30.8345 23.1513 30.5823L14.9444 26.7354" stroke="#0043A6" stroke-width="2" stroke-linecap="round"/>
-            <path d="M33.0558 30.9444L24.849 34.7913C24.3112 35.0434 23.6891 35.0434 23.1513 34.7913L14.9444 30.9444" stroke="#0043A6" stroke-width="2" stroke-linecap="round"/>
-            <path d="M33.1801 20.5622C33.9472 20.922 33.9472 22.013 33.1801 22.3728L24.4248 26.4766C24.1559 26.6027 23.8444 26.6027 23.5754 26.4766L14.8202 22.3728C14.0531 22.013 14.0531 20.922 14.8202 20.5622L23.5754 16.4583C23.8444 16.3323 24.1559 16.3323 24.4248 16.4583L33.1801 20.5622Z" stroke="#0043A6" stroke-width="2"/>
+            <rect x="10" y="20" width="28" height="6" rx="1" stroke="#D7AA67" stroke-width="2"/>
+            <rect x="10" y="28" width="28" height="6" rx="1" stroke="#D7AA67" stroke-width="2"/>
+            <rect x="10" y="36" width="28" height="6" rx="1" stroke="#D7AA67" stroke-width="2"/>
+            <path d="M14 20V14a2 2 0 012-2h16a2 2 0 012 2v6" stroke="#D7AA67" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 data-i18n="usp.card1.title">Alles onder één dak</h3>
-        <p data-i18n="usp.card1.text">Uw demontage en transport en inkoop en verkoop en doorplaatsing gaan altijd hand in hand. Geen gedoe met meerdere partijen.</p>
+        <h3 data-i18n="usp.card1.title">Große Auswahl an Dekoren</h3>
+        <p data-i18n="usp.card1.text">Von Eiche über Beton bis hin zu Marmor — wir bieten über 200 Designs für jeden Geschmack und jeden Einrichtungsstil.</p>
       </div>
       <div class="usp-card">
         <div class="usp-icon">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="24" r="9.5" stroke="#0043A6" stroke-width="2"/>
-            <circle cx="24.0024" cy="23.9996" r="3.97368" stroke="#0043A6" stroke-width="2"/>
-            <path d="M26.7632 31.1842L24 24L31.1842 26.2105L26.7632 31.1842Z" fill="#0043A6" stroke="#FCF3E6" stroke-width="4.6" stroke-linejoin="round"/>
-            <path d="M27.3132 32.8424L24.55 25.6582L31.7343 27.8687L27.3132 32.8424Z" fill="#0043A6" stroke="#FCF3E6" stroke-width="4.6" stroke-linejoin="round"/>
-            <path d="M28.4206 31.7369L25.6575 24.5527L32.8417 26.7633L28.4206 31.7369Z" fill="#0043A6" stroke="#FCF3E6" stroke-width="4.6" stroke-linejoin="round"/>
-            <path d="M32.85 32.6751C33.2918 33.0065 33.9186 32.9169 34.25 32.4751C34.5814 32.0333 34.4918 31.4065 34.05 31.0751L33.45 31.8751L32.85 32.6751ZM29.25 28.7251L28.65 29.5251L32.85 32.6751L33.45 31.8751L34.05 31.0751L29.85 27.9251L29.25 28.7251Z" fill="#0043A6"/>
-            <path d="M27.5258 32.2896L24.55 24.5527L32.2869 26.9333L27.5258 32.2896Z" fill="#FCF3E6" stroke="#0043A6" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="24" cy="24" r="11" stroke="#D7AA67" stroke-width="2"/>
+            <path d="M24 17v7l4 4" stroke="#D7AA67" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 36l-4 4M36 36l4 4" stroke="#D7AA67" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 data-i18n="usp.card2.title">Snel schakelen, direct resultaat</h3>
-        <p data-i18n="usp.card2.text">Korte lijnen, snelle offertes en efficiënte uitvoering zorgen voor minimale stilstand en een snelle afhandeling.</p>
+        <h3 data-i18n="usp.card2.title">Schnelle Lieferung & Verlegung</h3>
+        <p data-i18n="usp.card2.text">Bestellung heute, Lieferung morgen. Unser professionelles Team verlegt Ihren neuen Boden schnell, sauber und termingerecht.</p>
       </div>
       <div class="usp-card">
         <div class="usp-icon">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24.0001 33.5C19.1002 32.1 15.722 27.5821 15.722 22.4862V16.9046L24.0001 14.5L32.2781 16.9046V22.4862C32.2781 27.5821 28.8999 32.1 24.0001 33.5Z" stroke="#0043A6" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M20.9513 23.1497L22.9842 25.1826L27.05 21.1168" stroke="#0043A6" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 12l3.09 6.26L34 19.27l-5 4.87 1.18 6.86L24 27.77l-6.18 3.23L19 24.14 14 19.27l6.91-1.01L24 12z" stroke="#D7AA67" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M15 38h18M18 34h12" stroke="#D7AA67" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 data-i18n="usp.card3.title">Maximale waarde uit uw machines</h3>
-        <p data-i18n="usp.card3.text">Wij denken mee over hergebruik, doorverkoop en recycling zodat u de maximale waarde uit uw installaties haalt.</p>
+        <h3 data-i18n="usp.card3.title">Premium Qualität zum fairen Preis</h3>
+        <p data-i18n="usp.card3.text">Langlebige AC4- und AC5-Laminatböden mit 10 Jahren Garantie — für ein schönes Zuhause ohne Kompromisse beim Preis.</p>
       </div>
     </div>
     </div>
+  </section>
+
+  <section class="cta-gold">
+    <span class="cta-gold-logo">WohnStyle</span>
+    <p class="cta-gold-text" data-i18n="cta.text">Bereit für Ihren neuen Traumboden? Lassen Sie sich unverbindlich beraten und erhalten Sie Ihr persönliches Angebot.</p>
+    <a href="contact.html" class="cta-gold-btn" data-i18n="cta.btn">Angebot anfragen</a>
   </section>
 
   <footer class="footer">
     <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="images/logo.svg" alt="USTA Automation">
+        <span class="logo-text footer-logo-text">WohnStyle</span>
         <div class="footer-socials">
-          <a href="#" class="social-icon" title="LinkedIn"><svg width="21" height="21" viewBox="13.5 13.5 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32.8313 13.9795H15.1715C14.247 13.9795 13.5 14.7258 13.5 15.6489V32.3519C13.5 33.2722 14.247 34.0206 15.1715 34.0206H32.8313C33.7509 34.0206 34.5 33.2729 34.5 32.3519V15.6489C34.5 14.7258 33.7509 13.9795 32.8313 13.9795ZM19.4334 32.3625H16.3857V22.3952H19.4334V32.3625ZM19.4334 20.6248L16.3857 19.9234V18.0218H19.4334V20.6248ZM31.615 32.3625H28.5673V26.4305C28.5673 25.5642 28.432 24.9168 28.1612 24.4904C27.8898 24.0639 27.4366 23.8507 26.7457 23.8507C25.9601 23.8507 25.3906 24.0842 25.0392 24.5514C24.6863 25.0185 24.619 25.7873 24.619 26.857V32.3625H21.5987V21.914H24.2325V22.7347L24.2928 22.9325C25.1135 22.2872 25.2685 22.2696 25.8507 21.9919C26.4336 21.7141 27.1659 21.5212 27.7747 21.5212C28.547 21.5212 29.1797 21.6812 29.6742 21.8902C30.1687 22.1006 30.558 22.3917 30.8421 22.7642C31.1261 23.1366 31.326 23.5897 31.4411 24.1249C31.5561 24.6601 31.6136 25.2521 31.6136 25.9023V32.3625H31.615Z" fill="white"/></svg></a>
-          <a href="#" class="social-icon" title="WhatsApp"><svg width="21" height="21" viewBox="85.5 13.5 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#wa-clip)"><path d="M100.819 26.0184L100.811 26.084C98.8866 25.125 98.6854 24.9973 98.4369 25.37C98.2645 25.6282 97.7622 26.2135 97.6109 26.3868C97.4577 26.5574 97.3055 26.5705 97.0456 26.4524C96.7831 26.3212 95.9405 26.0455 94.943 25.153C94.166 24.4574 93.6445 23.6043 93.4905 23.3418C93.2341 22.899 93.7705 22.836 94.2587 21.912C94.3462 21.7283 94.3016 21.5839 94.2369 21.4535C94.1712 21.3223 93.6489 20.036 93.4301 19.5233C93.2201 19.0123 93.004 19.077 92.8421 19.077C92.3381 19.0333 91.9697 19.0403 91.6451 19.378C90.2329 20.9303 90.589 22.5315 91.7974 24.2343C94.1721 27.3423 95.4374 27.9145 97.7509 28.709C98.3756 28.9077 98.9452 28.8797 99.3959 28.8149C99.8981 28.7353 100.942 28.184 101.16 27.5672C101.383 26.9503 101.383 26.4384 101.317 26.3203C101.253 26.2022 101.081 26.1365 100.819 26.0184Z" fill="white"/><path d="M103.455 16.5178C96.7271 10.0139 85.5928 14.731 85.5884 23.9063C85.5884 25.7403 86.0687 27.5288 86.984 29.1081L85.5 34.4999L91.0431 33.0544C97.96 36.7906 106.497 31.8294 106.5 23.9115C106.5 21.1325 105.415 18.5171 103.442 16.5519L103.455 16.5178ZM104.752 23.8826C104.747 30.5615 97.4149 34.7326 91.6163 31.3236L91.3012 31.1364L88.02 31.9895L88.8994 28.8001L88.6902 28.472C85.0817 22.7276 89.2275 15.2201 96.063 15.2201C98.3853 15.2201 100.565 16.1258 102.206 17.7664C103.847 19.393 104.752 21.5726 104.752 23.8826Z" fill="white"/></g><defs><clipPath id="wa-clip"><rect width="21" height="21" fill="white" transform="translate(85.5 13.5)"/></clipPath></defs></svg></a>
+          <a href="https://www.linkedin.com" class="social-icon" title="LinkedIn" target="_blank" rel="noopener"><svg width="21" height="21" viewBox="13.5 13.5 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32.8313 13.9795H15.1715C14.247 13.9795 13.5 14.7258 13.5 15.6489V32.3519C13.5 33.2722 14.247 34.0206 15.1715 34.0206H32.8313C33.7509 34.0206 34.5 33.2729 34.5 32.3519V15.6489C34.5 14.7258 33.7509 13.9795 32.8313 13.9795ZM19.4334 32.3625H16.3857V22.3952H19.4334V32.3625ZM19.4334 20.6248L16.3857 19.9234V18.0218H19.4334V20.6248ZM31.615 32.3625H28.5673V26.4305C28.5673 25.5642 28.432 24.9168 28.1612 24.4904C27.8898 24.0639 27.4366 23.8507 26.7457 23.8507C25.9601 23.8507 25.3906 24.0842 25.0392 24.5514C24.6863 25.0185 24.619 25.7873 24.619 26.857V32.3625H21.5987V21.914H24.2325V22.7347L24.2928 22.9325C25.1135 22.2872 25.2685 22.2696 25.8507 21.9919C26.4336 21.7141 27.1659 21.5212 27.7747 21.5212C28.547 21.5212 29.1797 21.6812 29.6742 21.8902C30.1687 22.1006 30.558 22.3917 30.8421 22.7642C31.1261 23.1366 31.326 23.5897 31.4411 24.1249C31.5561 24.6601 31.6136 25.2521 31.6136 25.9023V32.3625H31.615Z" fill="white"/></svg></a>
+          <a href="https://wa.me/31611094571" class="social-icon" title="WhatsApp" target="_blank" rel="noopener"><svg width="21" height="21" viewBox="85.5 13.5 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#wa-clip)"><path d="M100.819 26.0184L100.811 26.084C98.8866 25.125 98.6854 24.9973 98.4369 25.37C98.2645 25.6282 97.7622 26.2135 97.6109 26.3868C97.4577 26.5574 97.3055 26.5705 97.0456 26.4524C96.7831 26.3212 95.9405 26.0455 94.943 25.153C94.166 24.4574 93.6445 23.6043 93.4905 23.3418C93.2341 22.899 93.7705 22.836 94.2587 21.912C94.3462 21.7283 94.3016 21.5839 94.2369 21.4535C94.1712 21.3223 93.6489 20.036 93.4301 19.5233C93.2201 19.0123 93.004 19.077 92.8421 19.077C92.3381 19.0333 91.9697 19.0403 91.6451 19.378C90.2329 20.9303 90.589 22.5315 91.7974 24.2343C94.1721 27.3423 95.4374 27.9145 97.7509 28.709C98.3756 28.9077 98.9452 28.8797 99.3959 28.8149C99.8981 28.7353 100.942 28.184 101.16 27.5672C101.383 26.9503 101.383 26.4384 101.317 26.3203C101.253 26.2022 101.081 26.1365 100.819 26.0184Z" fill="white"/><path d="M103.455 16.5178C96.7271 10.0139 85.5928 14.731 85.5884 23.9063C85.5884 25.7403 86.0687 27.5288 86.984 29.1081L85.5 34.4999L91.0431 33.0544C97.96 36.7906 106.497 31.8294 106.5 23.9115C106.5 21.1325 105.415 18.5171 103.442 16.5519L103.455 16.5178ZM104.752 23.8826C104.747 30.5615 97.4149 34.7326 91.6163 31.3236L91.3012 31.1364L88.02 31.9895L88.8994 28.8001L88.6902 28.472C85.0817 22.7276 89.2275 15.2201 96.063 15.2201C98.3853 15.2201 100.565 16.1258 102.206 17.7664C103.847 19.393 104.752 21.5726 104.752 23.8826Z" fill="white"/></g><defs><clipPath id="wa-clip"><rect width="21" height="21" fill="white" transform="translate(85.5 13.5)"/></clipPath></defs></svg></a>
         </div>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer.services">Onze diensten</h4>
         <ul>
           <li><a href="demontage.html" data-i18n="footer.demont">Machine demontage</a></li>
-          <li><a href="#" data-i18n="footer.inkoop">Inkoop machines &amp; onderdelen</a></li>
-          <li><a href="#" data-i18n="footer.sloopwerk">Sloopwerk</a></li>
+          <li><a href="inkoop.html" data-i18n="footer.inkoop">Inkoop machines &amp; onderdelen</a></li>
+          <li><a href="sloopwerk.html" data-i18n="footer.sloopwerk">Sloopwerk</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer.company">Company</h4>
         <ul>
           <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
-          <li><a href="#" data-i18n="footer.about">Over Ons</a></li>
+          <li><a href="over-ons.html" data-i18n="footer.about">Over Ons</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer.legal">Legal</h4>
         <ul>
-          <li><a href="#" data-i18n="footer.privacy">Privacy policy</a></li>
-          <li><a href="#" data-i18n="footer.terms">Terms and conditions</a></li>
+          <li><a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a></li>
+          <li><a href="voorwaarden.html" data-i18n="footer.terms">Terms and conditions</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-lang-dropdown" id="footerLangDropdown">
-        <button class="footer-lang-trigger" onclick="toggleFooterLang()">
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-          <span id="footerLangLabel">Nederlands</span> ▾
-        </button>
-        <div class="footer-lang-menu">
-          <button class="footer-lang-option" id="footer-opt-nl" onclick="setLang('nl'); closeFooterLang()">🇳🇱 Nederlands</button>
-          <button class="footer-lang-option" id="footer-opt-en" onclick="setLang('en'); closeFooterLang()">🇬🇧 English</button>
-        </div>
-      </div>
       <p data-i18n="footer.copyright">© 2026 – All rights reserved</p>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span id="theme-label">Dark mode</span>
+        <div class="theme-toggle-track">
+          <div class="theme-toggle-thumb"></div>
+        </div>
+      </button>
     </div>
     </div>
   </footer>
 
   <script src="js/lang.js"></script>
   <script>
+    // ── Gallery accordion ────────────────────────
+    function openPanel(el) {
+      document.querySelectorAll('.gallery-panel').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function toggleTheme() {
+      const isDark = document.body.classList.toggle('dark-mode');
+      const lang = localStorage.getItem('lang') || 'de';
+      const lbl = document.getElementById('theme-label');
+      if (lbl) lbl.textContent = isDark
+        ? (lang === 'en' ? 'Light mode' : 'Light-Modus')
+        : (lang === 'en' ? 'Dark mode' : 'Dark-Modus');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    (function() {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        const lbl = document.getElementById('theme-label');
+        if (lbl) lbl.textContent = 'Light-Modus';
+      }
+    })();
+
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
+      document.querySelector('.hamburger').classList.toggle('open');
     }
 
     function toggleMobileAccordion(btn) {
@@ -294,7 +267,7 @@
       btn.nextElementSibling.classList.toggle('open');
     }
 
-    // ── Tab click → scroll page to section ───────────────────────────────
+    // â"€â"€ Tab click â†' scroll page to section â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
     function showTab(btn, id) {
       const target = document.getElementById('tab-' + id);
       if (!target) return;
@@ -304,7 +277,7 @@
       window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
     }
 
-    // ── Sticky header shadow when stuck ──────────────────────────────────
+    // â"€â"€ Sticky header shadow when stuck â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
     const stickyHeader = document.querySelector('.services-sticky-header');
     const stickyObserver = new IntersectionObserver(
       ([e]) => stickyHeader.classList.toggle('stuck', e.intersectionRatio < 1),
@@ -312,7 +285,7 @@
     );
     stickyObserver.observe(stickyHeader);
 
-    // ── Scrollspy: update active tab as user scrolls ──────────────────────
+    // â"€â"€ Scrollspy: update active tab as user scrolls â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
     const tabIds = ['demontage', 'inkoop', 'sloopwerk'];
     let prevActiveIdx = -1;
 
@@ -346,9 +319,9 @@
     window.addEventListener('scroll', updateActiveTab, { passive: true });
     updateActiveTab();
 
-    // ── Sticky mobile button: show after hero leaves viewport ─────────────
+    // â"€â"€ Sticky mobile button: show after hero leaves viewport â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
     const stickyBtn = document.querySelector('.mobile-sticky-btn');
-    const heroSection = document.querySelector('.hero');
+    const heroSection = document.querySelector('.svc-hero');
     if (stickyBtn && heroSection) {
       const heroObserver = new IntersectionObserver(
         ([entry]) => stickyBtn.classList.toggle('visible', !entry.isIntersecting),
@@ -357,5 +330,25 @@
       heroObserver.observe(heroSection);
     }
   </script>
+  </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
