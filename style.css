@@ -1375,7 +1375,7 @@ body.dark-mode .contact-row-label { color: #D7AA67; }
 /* Mobile: hero stacked */
 @media (max-width: 768px) {
   .page-wrapper {
-    margin: 0 24px;
+    margin: 0 16px;
   }
 
   .hero-layout {
@@ -2658,7 +2658,7 @@ body.dark-mode .btn-nav:hover {
   .hero-stat-divider { display: none; }
 
   /* Service hero */
-  .svc-hero { padding: 64px 24px 56px; }
+  .svc-hero { padding: 64px 16px 56px; }
   .svc-title { font-size: 30px; letter-spacing: -0.06em; }
   .svc-desc { font-size: 16px; }
   .svc-hero .hero-actions { flex-direction: column; width: 100%; }
@@ -2817,6 +2817,21 @@ body.dark-mode .btn-nav:hover {
 
   /* Extra bottom padding for sticky button */
   body { padding-bottom: 80px; }
+
+  /* ── 16px side padding everywhere on mobile ── */
+  .gallery-section { padding-left: 16px; padding-right: 16px; }
+  .gallery-header, .gallery-accordion { margin-left: -16px; margin-right: -16px; }
+  .gallery-header { padding-left: 16px; padding-right: 16px; }
+  .usp-section .container { padding-left: 16px; padding-right: 16px; }
+  .cta-wrap { padding: 16px; }
+  .cta-gold { padding: 64px 16px; }
+  .mini-usp-item { padding: 20px 16px; }
+  .contact-hero { padding-left: 16px; padding-right: 16px; }
+  .contact-section { padding-left: 16px; padding-right: 16px; }
+  .about-intro-section { padding-left: 16px; padding-right: 16px; }
+  .divider-band { padding-left: 16px; padding-right: 16px; }
+  .testimonial-section { padding-left: 16px; padding-right: 16px; }
+  .footer-logo-wrap { padding-left: 16px; padding-right: 16px; }
 }
 
 
