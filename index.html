@@ -16,29 +16,24 @@
     <div class="nav-left">
     <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span></a>
     <ul class="nav-links">
-      
       <li><a href="over-ons.html" data-i18n="nav.about">Over Ons</a></li>
     </ul>
     </div>
     <div class="nav-right">
-      <div class="lang-dropdown" id="langDropdown">
-        <button class="lang-trigger" onclick="toggleLangMenu()">
-          <svg class="flag-icon" id="activeFlagSvg" viewBox="0 0 752 752" width="22" height="22" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
-          
-          <svg class="lang-chevron" width="9" height="5" viewBox="0 0 9 5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.999999 1L4.25 4L7.5 1" stroke="#4B4B4B" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="nav-lang-sel" id="navLangSel">
+        <button class="nav-lang-btn" aria-label="Language">
+          <svg class="lang-flag-svg" id="activeFlagSvg" viewBox="0 0 752 752" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
         </button>
-        <div class="lang-menu">
-          <button class="lang-option active" id="opt-de" onclick="setLang('de'); closeLangMenu()">
-            <svg viewBox="0 0 752 752" width="22" height="22" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
-            Deutsch
+        <div class="nav-lang-menu" id="navLangMenu">
+          <button class="lang-menu-item--icon active" id="opt-de" onclick="setLang('de')" title="Deutsch">
+            <svg class="lang-flag-svg" viewBox="0 0 752 752" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
           </button>
-          <button class="lang-option" id="opt-en" onclick="setLang('en'); closeLangMenu()">
-            <svg viewBox="12 12 24 24" width="22" height="22"><defs><clipPath id="opt-en-clip"><rect width="23" height="23" fill="white" transform="translate(12.5 12.5)"/></clipPath></defs><g clip-path="url(#opt-en-clip)"><mask id="opt-en-m0" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m0)"><path d="M6.61597 11.062H41.3839V36.9096H6.61597V11.062Z" fill="#00247D"/></g><mask id="opt-en-m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m1)"><path d="M37.4917 36.9095L23.9999 26.8755L10.4985 36.9095H6.61597V34.0128L20.1128 23.9858L6.61597 13.9452V11.062H10.4986L23.9999 21.0959L37.492 11.062H41.3839V13.9447L27.8871 23.9858L41.3839 34.0122V36.9095H37.4917Z" fill="white"/></g><mask id="opt-en-m2" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m2)"><path d="M9.20282 36.9095H6.61597L22.7138 24.8697L6.61597 12.9886V11.062L22.7544 22.9852L38.7924 11.062H41.3839L25.2416 22.9886L41.3839 34.983V36.9095L25.3453 24.9121L9.20282 36.9095Z" fill="#CF142B"/></g><mask id="opt-en-m3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m3)"><path d="M27.1558 37.6849H20.8443V27.1414H5.06555V20.8299H20.8443V10.5449H27.1558V20.8299H42.9346V27.1414H27.1558V37.6849Z" fill="white"/></g><mask id="opt-en-m4" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m4)"><path d="M25.8935 37.6849H22.1066V25.8792H5.06555V22.0923H22.1066V10.5449H25.8935V22.0923H42.9346V25.8792H25.8935V37.6849Z" fill="#CF142B"/></g></g></svg>
-            English
+          <button class="lang-menu-item--icon" id="opt-en" onclick="setLang('en')" title="English">
+            <svg class="lang-flag-svg" viewBox="12 12 24 24"><defs><clipPath id="opt-en-clip"><rect width="23" height="23" fill="white" transform="translate(12.5 12.5)"/></clipPath></defs><g clip-path="url(#opt-en-clip)"><mask id="opt-en-m0" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m0)"><path d="M6.61597 11.062H41.3839V36.9096H6.61597V11.062Z" fill="#00247D"/></g><mask id="opt-en-m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m1)"><path d="M37.4917 36.9095L23.9999 26.8755L10.4985 36.9095H6.61597V34.0128L20.1128 23.9858L6.61597 13.9452V11.062H10.4986L23.9999 21.0959L37.492 11.062H41.3839V13.9447L27.8871 23.9858L41.3839 34.0122V36.9095H37.4917Z" fill="white"/></g><mask id="opt-en-m2" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m2)"><path d="M9.20282 36.9095H6.61597L22.7138 24.8697L6.61597 12.9886V11.062L22.7544 22.9852L38.7924 11.062H41.3839L25.2416 22.9886L41.3839 34.983V36.9095L25.3453 24.9121L9.20282 36.9095Z" fill="#CF142B"/></g><mask id="opt-en-m3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m3)"><path d="M27.1558 37.6849H20.8443V27.1414H5.06555V20.8299H20.8443V10.5449H27.1558V20.8299H42.9346V27.1414H27.1558V37.6849Z" fill="white"/></g><mask id="opt-en-m4" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#opt-en-m4)"><path d="M25.8935 37.6849H22.1066V25.8792H5.06555V22.0923H22.1066V10.5449H25.8935V22.0923H42.9346V25.8792H25.8935V37.6849Z" fill="#CF142B"/></g></g></svg>
           </button>
         </div>
       </div>
-      <a href="contact.html" class="btn-nav" data-i18n="nav.contact">Contact â†—</a>
+      <a href="contact.html" class="btn-nav" data-i18n="nav.contact">Contact ↗</a>
       <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.29053 18.5581H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
@@ -54,19 +49,22 @@
 
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-nav-group">
-    
     <a href="over-ons.html" data-i18n="mobile.link4">Over Ons</a>
     </div>
-    <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact â†—</a>
+    <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact ↗</a>
   </div>
 
   <div class="mobile-sticky-btn">
-    <a href="contact.html" data-i18n="sticky.btn">Neem contact op â†—</a>
+    <a href="contact.html" data-i18n="sticky.btn">Neem contact op ↗</a>
   </div>
 
 <div class="page-wrapper">
 
   <section class="svc-hero">
+    <span class="corner-bracket corner-bracket--tl"></span>
+    <span class="corner-bracket corner-bracket--tr"></span>
+    <span class="corner-bracket corner-bracket--bl"></span>
+    <span class="corner-bracket corner-bracket--br"></span>
     <div class="hero-layout">
       <div class="svc-hero-inner">
         <span class="svc-badge svc-badge--blue">
@@ -87,11 +85,21 @@
   </section>
 
   <section class="divider-band">
+    <span class="corner-bracket corner-bracket--tl"></span>
+    <span class="corner-bracket corner-bracket--tr"></span>
+    <span class="corner-bracket corner-bracket--bl"></span>
+    <span class="corner-bracket corner-bracket--br"></span>
     <span class="divider-band-text" data-i18n="divider.text">Von Experten ausgewählt — Qualität, die man spürt</span>
   </section>
 
   <section class="section2-image-block">
-    <img src="images/section2-index.png" alt="WohnStyle Laminaat" class="section2-img">
+    <span class="corner-bracket corner-bracket--tl"></span>
+    <span class="corner-bracket corner-bracket--tr"></span>
+    <span class="corner-bracket corner-bracket--bl"></span>
+    <span class="corner-bracket corner-bracket--br"></span>
+    <div class="section2-img-wrap">
+      <img src="images/section-2.png.jpg" alt="WohnStyle Laminaat" class="section2-img">
+    </div>
     <div class="section2-card">
       <span class="section2-card-tag" data-i18n="section2.tag">Unsere Kollektion</span>
       <h2 class="section2-card-title" data-i18n="section2.title">Böden für jeden Raum und jeden Stil</h2>
@@ -100,6 +108,10 @@
   </section>
 
   <section class="gallery-section">
+    <span class="corner-bracket corner-bracket--tl"></span>
+    <span class="corner-bracket corner-bracket--tr"></span>
+    <span class="corner-bracket corner-bracket--bl"></span>
+    <span class="corner-bracket corner-bracket--br"></span>
     <div class="gallery-header">
       <div class="gallery-header-left">
         <h2 class="gallery-title" data-i18n="gallery.title">Unsere aktuellen Projekte</h2>
@@ -126,14 +138,16 @@
   </section>
 
   <section class="testimonial-section">
+    <span class="corner-bracket corner-bracket--tl"></span>
+    <span class="corner-bracket corner-bracket--tr"></span>
+    <span class="corner-bracket corner-bracket--bl"></span>
+    <span class="corner-bracket corner-bracket--br"></span>
     <div class="testimonial-inner">
-      <p class="testimonial-quote" data-i18n="testimonial.quote">"Wir haben unseren kompletten Wohnraum mit dem Laminat von WohnStyle ausgestattet. Die Qualität ist hervorragend und der Service war von Anfang bis Ende erstklassig."</p>
+      <img src="images/opining-logo.svg" alt="Opining" class="testimonial-logo">
+      <p class="testimonial-quote" data-i18n="testimonial.quote">'Wij hebben onze volledige woonkamer laten bekleden met laminaat van WohnStyle. De kwaliteit is uitstekend en de service was van begin tot eind van topniveau.'</p>
       <div class="testimonial-author">
-        <div class="testimonial-avatar"></div>
-        <div>
-          <strong class="testimonial-name" data-i18n="testimonial.name">Maria &amp; Thomas Becker</strong>
-          <span class="testimonial-role" data-i18n="testimonial.role">Kunden aus München</span>
-        </div>
+        <strong class="testimonial-name" data-i18n="testimonial.name">Serdar Orman,</strong>
+        <span class="testimonial-role" data-i18n="testimonial.role">De Eigenaar</span>
       </div>
     </div>
   </section>
@@ -141,94 +155,89 @@
 
 
   <section class="usp-section">
+    <span class="corner-bracket corner-bracket--tl"></span>
+    <span class="corner-bracket corner-bracket--tr"></span>
+    <span class="corner-bracket corner-bracket--bl"></span>
+    <span class="corner-bracket corner-bracket--br"></span>
     <div class="container">
-    <h2 class="section-title" data-i18n="usp.title">Warum WohnStyle?</h2>
-    <div class="usp-grid">
-      <div class="usp-card">
-        <div class="usp-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="20" width="28" height="6" rx="1" stroke="#D7AA67" stroke-width="2"/>
-            <rect x="10" y="28" width="28" height="6" rx="1" stroke="#D7AA67" stroke-width="2"/>
-            <rect x="10" y="36" width="28" height="6" rx="1" stroke="#D7AA67" stroke-width="2"/>
-            <path d="M14 20V14a2 2 0 012-2h16a2 2 0 012 2v6" stroke="#D7AA67" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      <h2 class="section-title" data-i18n="usp.title">Warum WohnStyle?</h2>
+      <div class="usp-principles-grid">
+
+        <div class="usp-principle-card">
+          <span class="corner-bracket corner-bracket--tr"></span>
+          <div class="usp-principle-icon">01</div>
+          <h3 data-i18n="usp.card1.title">Große Auswahl an Dekoren</h3>
+          <p data-i18n="usp.card1.text">Von Eiche bis Marmor — über 200 Dekore für jeden Geschmack und Einrichtungsstil. Finden Sie Ihren perfekten Boden.</p>
         </div>
-        <h3 data-i18n="usp.card1.title">Große Auswahl an Dekoren</h3>
-        <p data-i18n="usp.card1.text">Von Eiche über Beton bis hin zu Marmor — wir bieten über 200 Designs für jeden Geschmack und jeden Einrichtungsstil.</p>
-      </div>
-      <div class="usp-card">
-        <div class="usp-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="24" r="11" stroke="#D7AA67" stroke-width="2"/>
-            <path d="M24 17v7l4 4" stroke="#D7AA67" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 36l-4 4M36 36l4 4" stroke="#D7AA67" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+
+        <div class="usp-principle-card">
+          <span class="corner-bracket corner-bracket--tl"></span>
+          <div class="usp-principle-icon">02</div>
+          <h3 data-i18n="usp.card2.title">Schnelle Lieferung & Verlegung</h3>
+          <p data-i18n="usp.card2.text">Heute bestellt, morgen geliefert. Unser Team verlegt Ihren Boden schnell, sauber und termingerecht.</p>
         </div>
-        <h3 data-i18n="usp.card2.title">Schnelle Lieferung & Verlegung</h3>
-        <p data-i18n="usp.card2.text">Bestellung heute, Lieferung morgen. Unser professionelles Team verlegt Ihren neuen Boden schnell, sauber und termingerecht.</p>
-      </div>
-      <div class="usp-card">
-        <div class="usp-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 12l3.09 6.26L34 19.27l-5 4.87 1.18 6.86L24 27.77l-6.18 3.23L19 24.14 14 19.27l6.91-1.01L24 12z" stroke="#D7AA67" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M15 38h18M18 34h12" stroke="#D7AA67" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+
+        <div class="usp-principle-card">
+          <div class="usp-principle-icon">03</div>
+          <h3 data-i18n="usp.card3.title">Premium Qualität zum fairen Preis</h3>
+          <p data-i18n="usp.card3.text">AC4- und AC5-Böden mit 10 Jahren Garantie — langlebig, schön und ohne Kompromisse beim Preis.</p>
         </div>
-        <h3 data-i18n="usp.card3.title">Premium Qualität zum fairen Preis</h3>
-        <p data-i18n="usp.card3.text">Langlebige AC4- und AC5-Laminatböden mit 10 Jahren Garantie — für ein schönes Zuhause ohne Kompromisse beim Preis.</p>
+
+        <div class="usp-principle-card">
+          <div class="usp-principle-icon">04</div>
+          <h3 data-i18n="usp.card4.title">10 Jahre Garantie</h3>
+          <p data-i18n="usp.card4.text">Alle Böden mit Herstellergarantie. Kaufen Sie mit Vertrauen — wir stehen hinter jedem Produkt.</p>
+        </div>
+
+        <div class="usp-principle-card">
+          <span class="corner-bracket corner-bracket--br"></span>
+          <div class="usp-principle-icon">05</div>
+          <h3 data-i18n="usp.card5.title">Persönliche Beratung</h3>
+          <p data-i18n="usp.card5.text">Von der Auswahl bis zur Verlegung begleiten Sie unsere Experten und finden gemeinsam den richtigen Boden.</p>
+        </div>
+
+        <div class="usp-principle-card">
+          <span class="corner-bracket corner-bracket--bl"></span>
+          <div class="usp-principle-icon">06</div>
+          <h3 data-i18n="usp.card6.title">Langlebigkeit & Robustheit</h3>
+          <p data-i18n="usp.card6.text">Kratzfest, feuchtigkeitsbeständig und für den Alltag gemacht — unsere Böden sind schön und funktional.</p>
+        </div>
+
       </div>
-    </div>
     </div>
   </section>
 
-  <section class="cta-gold">
-    <span class="cta-gold-logo">WohnStyle</span>
-    <p class="cta-gold-text" data-i18n="cta.text">Bereit für Ihren neuen Traumboden? Lassen Sie sich unverbindlich beraten und erhalten Sie Ihr persönliches Angebot.</p>
-    <a href="contact.html" class="cta-gold-btn" data-i18n="cta.btn">Angebot anfragen</a>
+  <section class="cta-wrap">
+    <span class="corner-bracket corner-bracket--tl"></span>
+    <span class="corner-bracket corner-bracket--tr"></span>
+    <div class="cta-gold">
+      <span class="cta-gold-logo">WohnStyle</span>
+      <p class="cta-gold-text" data-i18n="cta.text">Bereit für Ihren neuen Traumboden? Lassen Sie sich unverbindlich beraten und erhalten Sie Ihr persönliches Angebot.</p>
+      <a href="contact.html" class="cta-gold-btn" data-i18n="cta.btn">Angebot anfragen</a>
+    </div>
+  </section>
+
+  <section class="mini-usp-bar">
+    <span class="corner-bracket corner-bracket--bl"></span>
+    <span class="corner-bracket corner-bracket--br"></span>
+    <div class="mini-usp-item">
+      <span data-i18n="miniusp.1">Premium kwaliteit vloeren</span>
+    </div>
+    <div class="mini-usp-divider"></div>
+    <div class="mini-usp-item">
+      <span data-i18n="miniusp.2">Transparante prijzen</span>
+    </div>
+    <div class="mini-usp-divider"></div>
+    <div class="mini-usp-item">
+      <span data-i18n="miniusp.3">Tevredenheid gegarandeerd</span>
+    </div>
   </section>
 
   <footer class="footer">
-    <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="logo-text footer-logo-text">WohnStyle</span>
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com" class="social-icon" title="LinkedIn" target="_blank" rel="noopener"><svg width="21" height="21" viewBox="13.5 13.5 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32.8313 13.9795H15.1715C14.247 13.9795 13.5 14.7258 13.5 15.6489V32.3519C13.5 33.2722 14.247 34.0206 15.1715 34.0206H32.8313C33.7509 34.0206 34.5 33.2729 34.5 32.3519V15.6489C34.5 14.7258 33.7509 13.9795 32.8313 13.9795ZM19.4334 32.3625H16.3857V22.3952H19.4334V32.3625ZM19.4334 20.6248L16.3857 19.9234V18.0218H19.4334V20.6248ZM31.615 32.3625H28.5673V26.4305C28.5673 25.5642 28.432 24.9168 28.1612 24.4904C27.8898 24.0639 27.4366 23.8507 26.7457 23.8507C25.9601 23.8507 25.3906 24.0842 25.0392 24.5514C24.6863 25.0185 24.619 25.7873 24.619 26.857V32.3625H21.5987V21.914H24.2325V22.7347L24.2928 22.9325C25.1135 22.2872 25.2685 22.2696 25.8507 21.9919C26.4336 21.7141 27.1659 21.5212 27.7747 21.5212C28.547 21.5212 29.1797 21.6812 29.6742 21.8902C30.1687 22.1006 30.558 22.3917 30.8421 22.7642C31.1261 23.1366 31.326 23.5897 31.4411 24.1249C31.5561 24.6601 31.6136 25.2521 31.6136 25.9023V32.3625H31.615Z" fill="white"/></svg></a>
-          <a href="https://wa.me/31611094571" class="social-icon" title="WhatsApp" target="_blank" rel="noopener"><svg width="21" height="21" viewBox="85.5 13.5 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#wa-clip)"><path d="M100.819 26.0184L100.811 26.084C98.8866 25.125 98.6854 24.9973 98.4369 25.37C98.2645 25.6282 97.7622 26.2135 97.6109 26.3868C97.4577 26.5574 97.3055 26.5705 97.0456 26.4524C96.7831 26.3212 95.9405 26.0455 94.943 25.153C94.166 24.4574 93.6445 23.6043 93.4905 23.3418C93.2341 22.899 93.7705 22.836 94.2587 21.912C94.3462 21.7283 94.3016 21.5839 94.2369 21.4535C94.1712 21.3223 93.6489 20.036 93.4301 19.5233C93.2201 19.0123 93.004 19.077 92.8421 19.077C92.3381 19.0333 91.9697 19.0403 91.6451 19.378C90.2329 20.9303 90.589 22.5315 91.7974 24.2343C94.1721 27.3423 95.4374 27.9145 97.7509 28.709C98.3756 28.9077 98.9452 28.8797 99.3959 28.8149C99.8981 28.7353 100.942 28.184 101.16 27.5672C101.383 26.9503 101.383 26.4384 101.317 26.3203C101.253 26.2022 101.081 26.1365 100.819 26.0184Z" fill="white"/><path d="M103.455 16.5178C96.7271 10.0139 85.5928 14.731 85.5884 23.9063C85.5884 25.7403 86.0687 27.5288 86.984 29.1081L85.5 34.4999L91.0431 33.0544C97.96 36.7906 106.497 31.8294 106.5 23.9115C106.5 21.1325 105.415 18.5171 103.442 16.5519L103.455 16.5178ZM104.752 23.8826C104.747 30.5615 97.4149 34.7326 91.6163 31.3236L91.3012 31.1364L88.02 31.9895L88.8994 28.8001L88.6902 28.472C85.0817 22.7276 89.2275 15.2201 96.063 15.2201C98.3853 15.2201 100.565 16.1258 102.206 17.7664C103.847 19.393 104.752 21.5726 104.752 23.8826Z" fill="white"/></g><defs><clipPath id="wa-clip"><rect width="21" height="21" fill="white" transform="translate(85.5 13.5)"/></clipPath></defs></svg></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.services">Onze diensten</h4>
-        <ul>
-          <li><a href="demontage.html" data-i18n="footer.demont">Machine demontage</a></li>
-          <li><a href="inkoop.html" data-i18n="footer.inkoop">Inkoop machines &amp; onderdelen</a></li>
-          <li><a href="sloopwerk.html" data-i18n="footer.sloopwerk">Sloopwerk</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.company">Company</h4>
-        <ul>
-          <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
-          <li><a href="over-ons.html" data-i18n="footer.about">Over Ons</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.legal">Legal</h4>
-        <ul>
-          <li><a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a></li>
-          <li><a href="voorwaarden.html" data-i18n="footer.terms">Terms and conditions</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p data-i18n="footer.copyright">© 2026 – All rights reserved</p>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-        <span id="theme-label">Dark mode</span>
-        <div class="theme-toggle-track">
-          <div class="theme-toggle-thumb"></div>
-        </div>
-      </button>
-    </div>
+    <span class="corner-bracket corner-bracket--tl"></span>
+    <span class="corner-bracket corner-bracket--tr"></span>
+    <div class="footer-logo-wrap">
+      <img src="images/logo-footer.png" alt="WohnStyle" class="footer-big-logo-img">
     </div>
   </footer>
 

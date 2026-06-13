@@ -62,11 +62,17 @@ const translations = {
     'usp.eyebrow': 'Qualität, Auswahl und Service aus einer Hand',
     'usp.title': 'Warum WohnStyle?',
     'usp.card1.title': 'Große Auswahl an Dekoren',
-    'usp.card1.text': 'Von Eiche über Beton bis hin zu Marmor — wir bieten über 200 Designs für jeden Geschmack und jeden Einrichtungsstil.',
+    'usp.card1.text': 'Von Eiche bis Marmor — über 200 Dekore für jeden Geschmack und Einrichtungsstil. Finden Sie Ihren perfekten Boden.',
     'usp.card2.title': 'Schnelle Lieferung & Verlegung',
-    'usp.card2.text': 'Bestellung heute, Lieferung morgen. Unser professionelles Team verlegt Ihren neuen Boden schnell, sauber und termingerecht.',
+    'usp.card2.text': 'Heute bestellt, morgen geliefert. Unser Team verlegt Ihren Boden schnell, sauber und termingerecht.',
     'usp.card3.title': 'Premium Qualität zum fairen Preis',
-    'usp.card3.text': 'Langlebige AC4- und AC5-Laminatböden mit 10 Jahren Garantie — für ein schönes Zuhause ohne Kompromisse beim Preis.',
+    'usp.card3.text': 'AC4- und AC5-Böden mit 10 Jahren Garantie — langlebig, schön und ohne Kompromisse beim Preis.',
+    'usp.card4.title': '10 Jahre Garantie',
+    'usp.card4.text': 'Alle Böden mit Herstellergarantie. Kaufen Sie mit Vertrauen — wir stehen hinter jedem Produkt.',
+    'usp.card5.title': 'Persönliche Beratung',
+    'usp.card5.text': 'Von der Auswahl bis zur Verlegung begleiten Sie unsere Experten und finden gemeinsam den richtigen Boden.',
+    'usp.card6.title': 'Langlebigkeit & Robustheit',
+    'usp.card6.text': 'Kratzfest, feuchtigkeitsbeständig und für den Alltag gemacht — unsere Böden sind schön und funktional.',
 
     'svc.usp.title': 'Was wir anders machen',
 
@@ -91,12 +97,8 @@ const translations = {
     'sloop.usp3.title': 'Nachhaltige Verarbeitung',
     'sloop.usp3.text': 'Materialien werden verantwortungsvoll getrennt, recycelt oder weiterverkauft für maximale Wiederverwendung.',
 
-    'footer.services': 'Unsere Leistungen',
-    'footer.company': 'Unternehmen',
-    'footer.legal': 'Rechtliches',
-    'footer.demont': 'Maschinendemontage',
-    'footer.inkoop': 'Ankauf von Maschinen & Teilen',
-    'footer.sloopwerk': 'Abbrucharbeiten',
+    'footer.left': 'Laminat & Parkett',
+    'footer.copy': '© 2026 WohnStyle',
     'footer.contact': 'Kontakt',
     'footer.about': 'Über uns',
     'footer.privacy': 'Datenschutzrichtlinie',
@@ -326,12 +328,16 @@ const translations = {
     'section2.title': 'Böden für jeden Raum und jeden Stil',
     'section2.text': 'Von klassischem Eichendekor bis hin zu modernen Grautönen — entdecken Sie unsere handverlesene Auswahl an Premium-Laminat und Parkett für Ihr Zuhause.',
 
-    'testimonial.quote': '"Wir haben unseren kompletten Wohnraum mit dem Laminat von WohnStyle ausgestattet. Die Qualität ist hervorragend und der Service war von Anfang bis Ende erstklassig."',
-    'testimonial.name': 'Maria & Thomas Becker',
-    'testimonial.role': 'Kunden aus München',
+    'testimonial.quote': '\'Wir haben unseren gesamten Wohnraum mit Laminat von WohnStyle ausgestattet. Die Qualität ist ausgezeichnet und der Service war von Anfang bis Ende erstklassig.\'',
+    'testimonial.name': 'Serdar Orman,',
+    'testimonial.role': 'Der Inhaber',
 
     'cta.text': 'Bereit für Ihren neuen Traumboden? Lassen Sie sich unverbindlich beraten und erhalten Sie Ihr persönliches Angebot.',
     'cta.btn': 'Angebot anfragen',
+
+    'miniusp.1': 'Premium kwaliteit vloeren',
+    'miniusp.2': 'Transparante prijzen',
+    'miniusp.3': 'Tevredenheid gegarandeerd',
 
     'gallery.title': 'Unsere aktuellen Projekte',
     'gallery.sub': 'Entdecken Sie unsere abgeschlossenen Projekte — echte Böden in echten Zuhausen.',
@@ -417,11 +423,17 @@ const translations = {
     'usp.eyebrow': 'Quality, choice and service from one source',
     'usp.title': 'Why WohnStyle?',
     'usp.card1.title': 'Wide Range of Designs',
-    'usp.card1.text': 'From oak to concrete to marble — we offer over 200 designs to suit every taste and interior style.',
+    'usp.card1.text': 'From oak to marble — over 200 designs for every taste and style. Find your perfect floor with us.',
     'usp.card2.title': 'Fast Delivery & Installation',
-    'usp.card2.text': 'Order today, delivered tomorrow. Our professional team installs your new floor quickly, cleanly and on time.',
+    'usp.card2.text': 'Order today, delivered tomorrow. Our team installs your floor quickly, cleanly and on schedule.',
     'usp.card3.title': 'Premium Quality at a Fair Price',
-    'usp.card3.text': 'Durable AC4 and AC5 laminate floors with a 10-year guarantee — for a beautiful home without compromise on price.',
+    'usp.card3.text': 'AC4 and AC5 floors with a 10-year guarantee — durable, beautiful and without compromise on price.',
+    'usp.card4.title': '10-Year Guarantee',
+    'usp.card4.text': 'Every floor comes with a manufacturer\'s warranty. Buy with confidence — we stand behind every product.',
+    'usp.card5.title': 'Personal Advice',
+    'usp.card5.text': 'From selection to installation, our experts guide you and help find the right floor together.',
+    'usp.card6.title': 'Durability & Robustness',
+    'usp.card6.text': 'Scratch-resistant, moisture-resistant and built for daily life — our floors are beautiful and functional.',
 
     'svc.usp.title': 'What we do differently',
 
@@ -446,17 +458,9 @@ const translations = {
     'sloop.usp3.title': 'Sustainable processing',
     'sloop.usp3.text': 'Materials are responsibly separated, recycled or resold for maximum reuse.',
 
-    'footer.services': 'Our services',
-    'footer.company': 'Company',
-    'footer.legal': 'Legal',
-    'footer.demont': 'Machine dismantling',
-    'footer.inkoop': 'Purchase of machines & parts',
-    'footer.sloopwerk': 'Demolition work',
-    'footer.contact': 'Contact',
-    'footer.about': 'About Us',
-    'footer.privacy': 'Privacy policy',
-    'footer.terms': 'Terms and conditions',
-    'footer.copyright': '© 2026 – All rights reserved',
+    'footer.left': 'Laminate & Parquet',
+    'footer.copy': '© 2026 WohnStyle',
+    'footer.contact': 'hello@wohnstyle.de',
 
     'privacy.title': 'Privacy Policy',
     'privacy.updated': 'Last updated: May 2026',
@@ -681,12 +685,16 @@ const translations = {
     'section2.title': 'Floors for every room and every style',
     'section2.text': 'From classic oak to modern grey tones — discover our hand-picked selection of premium laminate and parquet for your home.',
 
-    'testimonial.quote': '"We renovated our entire home with WohnStyle laminate. The quality is outstanding and the service was first-class from start to finish."',
-    'testimonial.name': 'Maria & Thomas Becker',
-    'testimonial.role': 'Customers from Munich',
+    'testimonial.quote': '\'We furnished our entire living space with laminate from WohnStyle. The quality is outstanding and the service was first-class from start to finish.\'',
+    'testimonial.name': 'Serdar Orman,',
+    'testimonial.role': 'The Owner',
 
     'cta.text': 'Ready for your new dream floor? Get a free, no-obligation consultation and receive your personal quote.',
     'cta.btn': 'Request a quote',
+
+    'miniusp.1': 'Premium quality floors',
+    'miniusp.2': 'Transparent pricing',
+    'miniusp.3': 'Satisfaction guaranteed',
 
     'gallery.title': 'See recent projects',
     'gallery.sub': 'Discover our completed projects — real floors in real homes.',
@@ -744,62 +752,53 @@ function setLang(lang) {
     if (translations[lang] && translations[lang][key]) el.placeholder = translations[lang][key];
   });
 
-  // Update navbar dropdown
-  const flagEl = document.getElementById('activeFlagSvg');
-  const labelEl = document.getElementById('activeLangLabel');
-  if (flagEl) {
-    flagEl.innerHTML = flags[lang].svg;
-    flagEl.setAttribute('viewBox', flags[lang].viewBox);
-    flagEl.setAttribute('width', flags[lang].w);
-    flagEl.setAttribute('height', flags[lang].h);
+  // Update active flag SVG
+  const activeFlag = document.getElementById('activeFlagSvg');
+  if (activeFlag) {
+    activeFlag.innerHTML = flags[lang].svg;
+    activeFlag.setAttribute('viewBox', flags[lang].viewBox);
   }
-  if (labelEl) labelEl.textContent = flags[lang].label;
-  document.querySelectorAll('.lang-option').forEach(opt => {
-    opt.classList.toggle('active', opt.id === 'opt-' + lang);
+
+  // Mark active/inactive in dropdown
+  document.querySelectorAll('.lang-menu-item--icon').forEach(btn => {
+    btn.classList.toggle('active', btn.id === 'opt-' + lang);
   });
 
-  // Update footer language label and flag
-  const footerLabel = document.getElementById('footerLangLabel');
-  if (footerLabel) footerLabel.textContent = lang === 'de' ? 'Deutsch' : 'English';
-  const footerFlagEl = document.getElementById('footerActiveFlagSvg');
-  if (footerFlagEl) {
-    footerFlagEl.innerHTML = flags[lang].svg;
-    footerFlagEl.setAttribute('viewBox', flags[lang].viewBox);
-    footerFlagEl.setAttribute('width', flags[lang].w);
-    footerFlagEl.setAttribute('height', flags[lang].h);
-  }
-  document.querySelectorAll('.footer-lang-option').forEach(opt => {
-    opt.classList.toggle('active', opt.id === 'footer-opt-' + lang);
-  });
+  // Close dropdown
+  const menu = document.getElementById('navLangMenu');
+  if (menu) menu.classList.remove('open');
 }
-
-function toggleLangMenu() {
-  document.getElementById('langDropdown').classList.toggle('open');
-}
-
-function closeLangMenu() {
-  document.getElementById('langDropdown').classList.remove('open');
-}
-
-function toggleFooterLang() {
-  document.getElementById('footerLangDropdown').classList.toggle('open');
-}
-
-function closeFooterLang() {
-  document.getElementById('footerLangDropdown').classList.remove('open');
-}
-
-// Close dropdowns on outside click
-document.addEventListener('click', e => {
-  const dd = document.getElementById('langDropdown');
-  if (dd && !dd.contains(e.target)) dd.classList.remove('open');
-  const fdd = document.getElementById('footerLangDropdown');
-  if (fdd && !fdd.contains(e.target)) fdd.classList.remove('open');
-});
 
 function initLang() {
   const saved = localStorage.getItem('lang') || 'de';
   setLang(saved);
+
+  const sel = document.getElementById('navLangSel');
+  const menu = document.getElementById('navLangMenu');
+  if (sel && menu) {
+    let closeTimer;
+    sel.addEventListener('mouseenter', () => {
+      clearTimeout(closeTimer);
+      menu.classList.add('open');
+    });
+    sel.addEventListener('mouseleave', () => {
+      closeTimer = setTimeout(() => menu.classList.remove('open'), 100);
+    });
+    menu.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+    menu.addEventListener('mouseleave', () => {
+      closeTimer = setTimeout(() => menu.classList.remove('open'), 100);
+    });
+    sel.querySelector('.nav-lang-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('open');
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', initLang);
+
+// Sluit bij klik buiten
+document.addEventListener('click', () => {
+  const m = document.getElementById('navLangMenu');
+  if (m) m.classList.remove('open');
+});
