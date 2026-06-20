@@ -234,7 +234,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  gap: 14px;
+  gap: 7px;
 }
 
 .logo-text {
@@ -1397,9 +1397,11 @@ body.dark-mode .theme-toggle-thumb { transform: translateX(18px); background: #f
 }
 
 .team-photo-img {
-  width: 100%;
-  height: auto;
+  max-height: 480px;
+  width: auto;
+  max-width: 100%;
   display: block;
+  margin: 0 auto;
 }
 
 .about-intro-section {
@@ -2750,30 +2752,39 @@ body.dark-mode .btn-nav:hover {
 }
 
 .mob-accordion-panel.open {
-  max-height: 800px;
-  padding: 12px 0 20px;
+  max-height: 2400px;
+  padding: 12px 0 32px;
 }
 
 .mob-accordion-section {}
 
 .mob-accordion-num {
   font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
-  font-size: 11px;
-  color: #aaaaaa;
-  letter-spacing: 0.06em;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.mob-accordion-heading {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: #1a1a1a;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  display: block;
+  display: inline;
+}
+
+.mob-accordion-heading {
+  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline;
+  margin-bottom: 0;
+}
+
+.mob-accordion-section {
   margin-bottom: 8px;
+}
+
+.mob-accordion-section > .mob-accordion-list {
+  margin-top: 8px;
 }
 
 .mob-accordion-list {
@@ -3088,7 +3099,7 @@ body.dark-mode .btn-nav:hover {
   .hero-stat-divider { display: none; }
 
   /* Service hero */
-  .svc-hero { padding: 64px 16px 56px; }
+  .svc-hero { padding: 64px 24px 56px; }
   .svc-title { font-size: 30px; letter-spacing: -0.06em; }
   .svc-desc { font-size: 16px; }
   .svc-hero .hero-actions { flex-direction: column; width: 100%; }

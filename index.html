@@ -50,7 +50,9 @@
       <div class="subnav-item--dropdown" id="laminaatDrop">
         <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.laminaat">Laminaat</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <a href="#"><span data-i18n="subnav.pvc">PVC vloeren</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="subnav-item--dropdown" id="pvcDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.pvc">PVC vloeren</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
       <a href="#"><span data-i18n="subnav.visgraat">Visgraat vloeren</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#"><span data-i18n="subnav.parket">Parket</span></a>
       <a href="#"><span data-i18n="subnav.accessoires">Accessoires</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -110,6 +112,69 @@
           <ul class="subnav-mega-list">
             <li><a href="#">Laminaat aanbieding</a></li>
             <li><a href="#">Restpartijen laminaat</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="subnav-mega" id="pvcMega">
+      <div class="subnav-mega-inner">
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">01</span>
+          <strong class="subnav-mega-heading">Soorten</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">PVC vloeren</a></li>
+            <li><a href="#">Visgraat PVC</a></li>
+            <li><a href="#">Klik PVC</a></li>
+            <li><a href="#">Plak PVC</a></li>
+            <li><a href="#">PVC tegels</a></li>
+            <li><a href="#">Visgraat klik PVC</a></li>
+            <li><a href="#">Visgraat Plak PVC</a></li>
+            <li><a href="#">Hongaarse punt PVC</a></li>
+          </ul>
+        </div>
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">02</span>
+          <strong class="subnav-mega-heading">Stijlen</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">Wit PVC</a></li>
+            <li><a href="#">Zwart PVC</a></li>
+            <li><a href="#">Bruin PVC</a></li>
+            <li><a href="#">Betonlook PVC</a></li>
+            <li><a href="#">Tegellook klik PVC</a></li>
+            <li><a href="#">Licht eiken PVC</a></li>
+            <li><a href="#">Donker eiken PVC</a></li>
+            <li><a href="#">PVC vloer marmerlook</a></li>
+            <li><a href="#">PVC vloer grijs eiken</a></li>
+            <li><a href="#">PVC vloer walnoot</a></li>
+          </ul>
+        </div>
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">03</span>
+          <strong class="subnav-mega-heading">Merken</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">Moduleo PVC</a></li>
+            <li><a href="#">mFLOR PVC</a></li>
+            <li><a href="#">Quick-Step PVC</a></li>
+            <li><a href="#">Vtwonen PVC</a></li>
+            <li><a href="#">Belakos PVC</a></li>
+            <li><a href="#">Saffier PVC</a></li>
+            <li><a href="#">TFD PVC</a></li>
+            <li><a href="#">Meer merken →</a></li>
+          </ul>
+        </div>
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">04</span>
+          <strong class="subnav-mega-heading">Accessoires</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">Plinten</a></li>
+          </ul>
+        </div>
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">05</span>
+          <strong class="subnav-mega-heading">Aanbiedingen</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">PVC aanbieding</a></li>
+            <li><a href="#">Restpartijen PVC</a></li>
           </ul>
         </div>
       </div>
@@ -180,7 +245,19 @@
           </div>
         </div>
       </div>
-      <a href="#"><span data-i18n="subnav.pvc">PVC vloeren</span><svg class="mob-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="mob-accordion-item">
+        <button class="mob-accordion-trigger" onclick="toggleMobAccordion(this)">
+          <span data-i18n="subnav.pvc">PVC vloeren</span>
+          <svg class="mob-chevron mob-chevron--rotate" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mob-accordion-panel">
+          <div class="mob-accordion-section"><span class="mob-accordion-num">01</span><strong class="mob-accordion-heading">Soorten</strong><ul class="mob-accordion-list"><li><a href="#">PVC vloeren</a></li><li><a href="#">Visgraat PVC</a></li><li><a href="#">Klik PVC</a></li><li><a href="#">Plak PVC</a></li><li><a href="#">PVC tegels</a></li><li><a href="#">Visgraat klik PVC</a></li><li><a href="#">Visgraat Plak PVC</a></li><li><a href="#">Hongaarse punt PVC</a></li></ul></div>
+          <div class="mob-accordion-section"><span class="mob-accordion-num">02</span><strong class="mob-accordion-heading">Stijlen</strong><ul class="mob-accordion-list"><li><a href="#">Wit PVC</a></li><li><a href="#">Zwart PVC</a></li><li><a href="#">Bruin PVC</a></li><li><a href="#">Betonlook PVC</a></li><li><a href="#">Tegellook klik PVC</a></li><li><a href="#">Licht eiken PVC</a></li><li><a href="#">Donker eiken PVC</a></li><li><a href="#">PVC vloer marmerlook</a></li><li><a href="#">PVC vloer grijs eiken</a></li><li><a href="#">PVC vloer walnoot</a></li></ul></div>
+          <div class="mob-accordion-section"><span class="mob-accordion-num">03</span><strong class="mob-accordion-heading">Merken</strong><ul class="mob-accordion-list"><li><a href="#">Moduleo PVC</a></li><li><a href="#">mFLOR PVC</a></li><li><a href="#">Quick-Step PVC</a></li><li><a href="#">Vtwonen PVC</a></li><li><a href="#">Belakos PVC</a></li><li><a href="#">Saffier PVC</a></li><li><a href="#">TFD PVC</a></li><li><a href="#">Meer merken →</a></li></ul></div>
+          <div class="mob-accordion-section"><span class="mob-accordion-num">04</span><strong class="mob-accordion-heading">Accessoires</strong><ul class="mob-accordion-list"><li><a href="#">Plinten</a></li></ul></div>
+          <div class="mob-accordion-section"><span class="mob-accordion-num">05</span><strong class="mob-accordion-heading">Aanbiedingen</strong><ul class="mob-accordion-list"><li><a href="#">PVC aanbieding</a></li><li><a href="#">Restpartijen PVC</a></li></ul></div>
+        </div>
+      </div>
       <a href="#"><span data-i18n="subnav.visgraat">Visgraat vloeren</span><svg class="mob-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#"><span data-i18n="subnav.parket">Parket</span></a>
       <a href="#"><span data-i18n="subnav.accessoires">Accessoires</span><svg class="mob-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -434,10 +511,10 @@
       panel.classList.toggle('open', !isOpen);
     }
 
-    // Laminaat mega dropdown
-    (function() {
-      const drop = document.getElementById('laminaatDrop');
-      const mega = document.getElementById('laminaatMega');
+    // Mega dropdown factory
+    function initMegaDrop(dropId, megaId) {
+      const drop = document.getElementById(dropId);
+      const mega = document.getElementById(megaId);
       if (!drop || !mega) return;
       let timer;
       function open() { clearTimeout(timer); drop.classList.add('open'); mega.classList.add('open'); }
@@ -453,7 +530,9 @@
       document.addEventListener('click', function(e) {
         if (!drop.contains(e.target) && !mega.contains(e.target)) close();
       });
-    })();
+    }
+    initMegaDrop('laminaatDrop', 'laminaatMega');
+    initMegaDrop('pvcDrop', 'pvcMega');
 
     function toggleMobileAccordion(btn) {
       btn.classList.toggle('open');
