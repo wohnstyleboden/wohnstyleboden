@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
   --blue: #0043A6;
@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  font-family: 'anth', 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--text);
   line-height: 1.6;
   font-size: 16px;
@@ -44,6 +44,14 @@ body {
 }
 
 /* â”€â”€ PAGE WRAPPER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
 .page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -73,7 +81,7 @@ body {
 }
 
 .subnav-inner a {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #1a1a1a;
@@ -109,7 +117,7 @@ body {
 }
 
 .subnav-drop-trigger {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #1a1a1a;
@@ -155,7 +163,7 @@ body {
 }
 
 .subnav-mega-num {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 11px;
   color: #aaaaaa;
   letter-spacing: 0.06em;
@@ -164,7 +172,7 @@ body {
 }
 
 .subnav-mega-heading {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 13px;
   font-weight: 700;
   color: #1a1a1a;
@@ -184,7 +192,7 @@ body {
 }
 
 .subnav-mega-list a {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #444444;
@@ -238,12 +246,12 @@ body {
 }
 
 .logo-text {
-  font-family: 'didot-lt-pro', 'Didot', Georgia, serif;
-  font-size: 28px;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-size: 36px;
   font-weight: 400;
   font-style: normal;
   color: #1a1a1a;
-  letter-spacing: -6px;
+  letter-spacing: -7px;
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
@@ -251,12 +259,12 @@ body {
 }
 
 .logo-sub {
-  font-family: 'didot-lt-pro', 'Didot', Georgia, serif;
-  font-size: 28px;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-size: 36px;
   font-weight: 400;
   font-style: normal;
   color: #1a1a1a;
-  letter-spacing: -6px;
+  letter-spacing: -7px;
   line-height: 1;
   text-transform: uppercase;
   display: block;
@@ -275,7 +283,7 @@ body {
   color: var(--text);
   font-size: 16px;
   font-weight: 500;
-  font-family: 'anth', 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -382,8 +390,9 @@ body {
   padding: 9px 24px;
   border-radius: 4px;
   font-size: 16px;
-  font-weight: 500;
-  font-family: 'anth', 'Inter', sans-serif;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
   cursor: pointer;
   text-decoration: none;
   display: flex;
@@ -443,7 +452,7 @@ body {
 }
 
 .hero h1 {
-  font-family: 'didot-lt-pro', 'Didot', Georgia, serif;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-size: 48px;
   font-weight: 400;
   font-style: normal;
@@ -460,7 +469,7 @@ body {
 }
 
 .hero .hero-sub {
-  font-family: 'didot-lt-pro', 'Didot', Georgia, serif;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -486,7 +495,8 @@ body {
   border-radius: 100px;
   color: white;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 400;
+  text-transform: uppercase;
   text-decoration: none;
   transition: all 0.2s;
 }
@@ -602,13 +612,23 @@ body {
   position: absolute;
   bottom: 48px;
   left: 24px;
-  font-family: 'anth', Georgia, serif;
-  font-size: 28px;
-  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 12px;
   color: #ffffff;
   line-height: 1;
-  letter-spacing: 0.01em;
   text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+}
+.hero-cap-main,
+.hero-cap-sub {
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: -7px;
+  color: #ffffff;
 }
 
 .hero-img-side img {
@@ -631,7 +651,7 @@ body {
 
 /* Anth font voor hero titel */
 .hero-anth-title {
-  font-family: 'didot-lt-pro', 'Didot', Georgia, serif !important;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif !important;
   font-weight: 400 !important;
   font-style: normal !important;
   font-size: 52px !important;
@@ -660,28 +680,30 @@ body {
   gap: 8px;
   padding: 0;
   border-radius: 0;
-  font-size: 11px;
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
-  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   color: #222222;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   background: none;
 }
 .svc-badge--blue  { background: none; }
 .svc-badge--green { background: none; }
 .svc-badge--amber { background: none; }
 .svc-title {
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-size: 48px;
-  font-weight: 600;
-  letter-spacing: -0.06em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -1px;
   line-height: 1.1;
   color: var(--dark);
   margin: 0;
 }
 .svc-desc {
   font-size: 20px;
-  font-family: 'didot-lt-pro', 'Didot', Georgia, serif;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-weight: 400;
   font-style: normal;
   color: var(--gray-500);
@@ -699,7 +721,8 @@ body {
   border-radius: 100px;
   color: var(--dark);
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 400;
+  text-transform: uppercase;
   text-decoration: none;
   transition: all 0.2s;
 }
@@ -721,7 +744,7 @@ body {
 }
 
 .divider-band-text {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -791,7 +814,7 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 }
 
 .testimonial-quote {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 24px;
   font-weight: 400;
   color: #1a1a1a;
@@ -815,7 +838,7 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 
 .testimonial-name {
   display: inline;
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: #1a1a1a;
@@ -823,7 +846,7 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 
 .testimonial-role {
   display: inline;
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: #888888;
@@ -869,9 +892,9 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 }
 
 .section2-card-title {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 400;
   color: #ffffff;
   line-height: 1.2;
   margin-bottom: 14px;
@@ -879,7 +902,7 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 }
 
 .section2-card-text {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: rgba(255,255,255,0.85);
@@ -895,9 +918,11 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 }
 
 .stats-band-title {
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.06em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -1px;
   color: var(--dark);
   margin-bottom: 48px;
   text-align: center;
@@ -919,7 +944,7 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 14px;
-  letter-spacing: -0.06em;
+  letter-spacing: -1px;
 }
 
 .stats-band-line {
@@ -929,7 +954,7 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 .stats-band-num {
   font-size: 48px;
   font-weight: 700;
-  letter-spacing: -0.06em;
+  letter-spacing: -1px;
   line-height: 1;
   margin-bottom: 10px;
   display: block;
@@ -988,11 +1013,13 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 }
 
 .section-title {
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 400;
+  text-transform: uppercase;
   text-align: center;
   margin-bottom: 24px;
-  letter-spacing: -0.06em;
+  letter-spacing: -1px;
 }
 
 .tabs {
@@ -1017,7 +1044,7 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
   background: transparent;
   color: var(--gray-500);
   transition: color 0.2s, background 0.2s;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -1077,9 +1104,9 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 
 .service-text h2 {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 12px;
-  letter-spacing: -0.06em;
+  letter-spacing: -1px;
   line-height: 1.2;
 }
 
@@ -1185,8 +1212,9 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 
 .usp-card h3 {
   font-size: 20px;
-  font-weight: 700;
-  font-family: 'anth', Georgia, serif;
+  font-weight: 400;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  text-transform: uppercase;
   letter-spacing: 0;
   margin-bottom: 8px;
 }
@@ -1216,7 +1244,7 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 }
 
 .usp-principle-icon {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 13px;
   font-weight: 700;
   color: #aaaaaa;
@@ -1224,9 +1252,11 @@ body.dark-mode .corner-bracket--br { border-color: #f0f0f0; }
 }
 
 .usp-principle-card h3 {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -1px;
   color: #111111;
   margin: 0;
 }
@@ -1266,8 +1296,9 @@ body.dark-mode .usp-principle-card p { color: #999; }
   background: white;
   color: var(--blue);
   font-size: 15px;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
@@ -1294,11 +1325,12 @@ body.dark-mode .usp-principle-card p { color: #999; }
   padding: 0 28px;
   border-radius: 100px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 15px;
+  text-transform: uppercase;
   border: none;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition: background 0.2s;
 }
 
@@ -1320,7 +1352,7 @@ body.dark-mode .usp-principle-card p { color: #999; }
   justify-content: center;
   text-align: center;
   padding: 28px 32px;
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 15px;
   color: #111111;
 }
@@ -1354,8 +1386,21 @@ body.dark-mode .usp-principle-card p { color: #999; }
   gap: 0;
 }
 
+.logo-footer2,
+.logo-footer3 {
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(48px, 10vw, 120px);
+  color: #111111;
+  line-height: 1;
+  letter-spacing: -7px;
+  text-transform: uppercase;
+  display: block;
+}
+
 .footer-logo-wordmark {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: clamp(48px, 10vw, 120px);
   color: #111111;
@@ -1364,7 +1409,7 @@ body.dark-mode .usp-principle-card p { color: #999; }
 }
 
 .footer-logo-sub {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: clamp(14px, 2.5vw, 28px);
   color: #888888;
@@ -1432,7 +1477,7 @@ body.dark-mode .theme-toggle-thumb { transform: translateX(18px); background: #f
 }
 
 .about-intro-text {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #444444;
@@ -1467,7 +1512,7 @@ body.dark-mode .theme-toggle-thumb { transform: translateX(18px); background: #f
 }
 
 .contact-form-title {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 22px;
   font-weight: 700;
   color: #1a1a1a;
@@ -1506,16 +1551,18 @@ body.dark-mode .contact-row-label { color: #D7AA67; }
 }
 
 .gallery-title {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -1px;
   color: #1a1a1a;
   margin-bottom: 8px;
   line-height: 1.2;
 }
 
 .gallery-sub {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   color: #888888;
   margin: 0;
@@ -1653,15 +1700,26 @@ body.dark-mode .contact-row-label { color: #D7AA67; }
 }
 
 .cta-gold-logo {
-  font-family: 'anth', Georgia, serif;
-  font-size: 42px;
-  font-weight: 700;
-  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 16px;
   line-height: 1;
+}
+.cta-logo-main,
+.cta-logo-sub {
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-style: normal;
+  color: #ffffff;
+  letter-spacing: -7px;
+  text-transform: uppercase;
+  display: block;
 }
 
 .cta-gold-text {
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #ffffff;
@@ -1674,9 +1732,10 @@ body.dark-mode .contact-row-label { color: #D7AA67; }
   align-items: center;
   background: #ffffff;
   color: #111111;
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
+  text-transform: uppercase;
   padding: 14px 36px;
   border-radius: 4px;
   text-decoration: none;
@@ -1793,7 +1852,7 @@ body.dark-mode .btn-nav:hover {
   color: rgba(255,255,255,0.85);
   font-size: 15px;
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -1832,7 +1891,7 @@ body.dark-mode .btn-nav:hover {
   font-weight: 500;
   color: var(--text);
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: left;
   transition: background 0.15s;
 }
@@ -1887,14 +1946,14 @@ body.dark-mode .btn-nav:hover {
 }
 
 .contact-option-num {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 12px;
   color: #aaaaaa;
   letter-spacing: 0.04em;
 }
 
 .contact-option-title {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: #1a1a1a;
@@ -1988,7 +2047,7 @@ body.dark-mode .btn-nav:hover {
 
 .contact-right h2 {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.04em;
   color: var(--dark);
   margin-bottom: 28px;
@@ -2020,7 +2079,7 @@ body.dark-mode .btn-nav:hover {
   border: 1.5px solid var(--gray-200);
   border-radius: 0;
   font-size: 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--text);
   background: white;
   transition: border-color 0.2s;
@@ -2058,7 +2117,7 @@ body.dark-mode .btn-nav:hover {
   gap: 8px;
   cursor: pointer;
   font-size: 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--gray-500);
   transition: border-color 0.2s;
   text-align: left;
@@ -2099,7 +2158,7 @@ body.dark-mode .btn-nav:hover {
   border-radius: 7px;
   cursor: pointer;
   font-size: 14px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--text);
   transition: background 0.15s;
 }
@@ -2127,8 +2186,9 @@ body.dark-mode .btn-nav:hover {
   border: none;
   border-radius: 4px;
   font-size: 16px;
-  font-weight: 700;
-  font-family: 'anth', Georgia, serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
   margin-top: 8px;
   transition: background 0.2s;
@@ -2167,7 +2227,7 @@ body.dark-mode .btn-nav:hover {
 
 .page-hero-left h1 {
   font-size: 38px;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 16px;
   letter-spacing: -0.3px;
   line-height: 1.2;
@@ -2192,7 +2252,7 @@ body.dark-mode .btn-nav:hover {
 
 .werkwijze-header h2 {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .steps { display: flex; flex-direction: column; gap: 0; }
@@ -2222,7 +2282,7 @@ body.dark-mode .btn-nav:hover {
 
 .step-body h3 {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 6px;
 }
 
@@ -2241,9 +2301,11 @@ body.dark-mode .btn-nav:hover {
   margin-bottom: 40px;
 }
 .svc-werkwijze-title {
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -0.06em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -1px;
   color: var(--dark);
   line-height: 1.15;
 }
@@ -2279,7 +2341,7 @@ body.dark-mode .btn-nav:hover {
 .svc-accordion-trigger h3 {
   flex: 1;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--dark);
   margin: 0;
   letter-spacing: -0.03em;
@@ -2327,8 +2389,8 @@ body.dark-mode .btn-nav:hover {
 }
 .geschikt-left h2 {
   font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -0.06em;
+  font-weight: 400;
+  letter-spacing: -1px;
   color: var(--dark);
   line-height: 1.15;
 }
@@ -2379,10 +2441,12 @@ body.dark-mode .btn-nav:hover {
   gap: 16px;
 }
 .svc-cta-title {
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 400;
+  text-transform: uppercase;
   color: white;
-  letter-spacing: -0.06em;
+  letter-spacing: -1px;
   line-height: 1.2;
   margin: 0;
 }
@@ -2417,7 +2481,7 @@ body.dark-mode .btn-nav:hover {
 
 .geschikt-section h2 {
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 28px;
   letter-spacing: -0.3px;
 }
@@ -2453,8 +2517,8 @@ body.dark-mode .btn-nav:hover {
 
 .legal-hero h1 {
   font-size: 38px;
-  font-weight: 700;
-  letter-spacing: -0.06em;
+  font-weight: 400;
+  letter-spacing: -1px;
   color: var(--dark);
   margin-bottom: 8px;
 }
@@ -2529,8 +2593,8 @@ body.dark-mode .btn-nav:hover {
 }
 .gallery-title {
   font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.06em;
+  font-weight: 400;
+  letter-spacing: -1px;
   color: var(--dark);
   line-height: 1.2;
 }
@@ -2652,7 +2716,7 @@ body.dark-mode .btn-nav:hover {
 .about-story-text h2 {
   font-size: 32px;
   font-weight: 700;
-  letter-spacing: -0.06em;
+  letter-spacing: -1px;
   color: var(--dark);
   margin-bottom: 20px;
   line-height: 1.2;
@@ -2736,7 +2800,7 @@ body.dark-mode .btn-nav:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.66;
@@ -2772,7 +2836,7 @@ body.dark-mode .btn-nav:hover {
 .mob-accordion-section {}
 
 .mob-accordion-num {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 900;
   color: #1a1a1a;
@@ -2783,7 +2847,7 @@ body.dark-mode .btn-nav:hover {
 }
 
 .mob-accordion-heading {
-  font-family: 'anth', 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 900;
   color: #1a1a1a;
@@ -2871,7 +2935,7 @@ body.dark-mode .btn-nav:hover {
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   background: #ffffff;
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   color: #555555;
   cursor: pointer;
@@ -2939,7 +3003,7 @@ body.dark-mode .btn-nav:hover {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   letter-spacing: -0.02em;
   text-align: left;
 }
@@ -2984,7 +3048,7 @@ body.dark-mode .btn-nav:hover {
   min-height: 52px;
   flex-shrink: 0;
   border-radius: 4px;
-  font-family: 'anth', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 16px;
   text-decoration: none;
@@ -3069,8 +3133,8 @@ body.dark-mode .btn-nav:hover {
     height: 82px;
   }
 
-  .logo-text { font-size: 22px; }
-  .logo-sub { font-size: 22px; }
+  .logo-text { font-size: 28px; }
+  .logo-sub { font-size: 28px; }
 
   .nav-links { display: none; }
   .nav-right .btn-nav { display: none; }
@@ -3116,7 +3180,7 @@ body.dark-mode .btn-nav:hover {
 
   /* Service hero */
   .svc-hero { padding: 64px 24px 56px; }
-  .svc-title { font-size: 30px; letter-spacing: -0.06em; }
+  .svc-title { font-size: 30px; letter-spacing: -1px; }
   .svc-desc { font-size: 16px; }
   .svc-hero .hero-actions { flex-direction: column; width: 100%; }
   .svc-hero .hero-actions .btn-primary,
@@ -3180,7 +3244,7 @@ body.dark-mode .btn-nav:hover {
     border-radius: 10px;
   }
 
-  .service-text h2 { font-size: 24px; letter-spacing: -0.06em; }
+  .service-text h2 { font-size: 24px; letter-spacing: -1px; }
 
   /* USP */
   .usp-section { padding: 48px 0 96px; background: white; }
