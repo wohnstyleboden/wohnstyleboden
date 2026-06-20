@@ -14,10 +14,7 @@
   <nav class="navbar">
     <div class="container navbar-inner">
     <div class="nav-left">
-    <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span></a>
-    <ul class="nav-links">
-      <li><a href="over-ons.html" data-i18n="nav.about">Over Ons</a></li>
-    </ul>
+    <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
     </div>
     <div class="nav-right">
       <div class="nav-lang-sel" id="navLangSel">
@@ -47,13 +44,115 @@
     </div>
   </nav>
 
+  <nav class="subnav" id="subnavEl">
+    <div class="subnav-inner">
+      <a href="index.html"><span data-i18n="subnav.home">Home</span></a>
+      <div class="subnav-item--dropdown" id="laminaatDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.laminaat">Laminaat</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <a href="#"><span data-i18n="subnav.pvc">PVC vloeren</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#"><span data-i18n="subnav.visgraat">Visgraat vloeren</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#"><span data-i18n="subnav.parket">Parket</span></a>
+      <a href="#"><span data-i18n="subnav.accessoires">Accessoires</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="over-ons.html"><span data-i18n="subnav.about">Over Ons</span></a>
+    </div>
+    <div class="subnav-mega" id="laminaatMega">
+      <div class="subnav-mega-inner">
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">01</span>
+          <strong class="subnav-mega-heading">Soorten</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">Laminaat</a></li>
+            <li><a href="#">Kliklaminaat</a></li>
+            <li><a href="#">XL laminaat</a></li>
+            <li><a href="#">XXL laminaat</a></li>
+            <li><a href="#">Waterbestendig laminaat</a></li>
+            <li><a href="#">Tegel laminaat</a></li>
+            <li><a href="#">Breed laminaat</a></li>
+            <li><a href="#">Visgraat laminaat</a></li>
+          </ul>
+        </div>
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">02</span>
+          <strong class="subnav-mega-heading">Stijlen</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">Bruin laminaat</a></li>
+            <li><a href="#">Wit laminaat</a></li>
+            <li><a href="#">Grijs laminaat</a></li>
+            <li><a href="#">Eiken laminaat</a></li>
+            <li><a href="#">Zwart laminaat</a></li>
+          </ul>
+        </div>
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">03</span>
+          <strong class="subnav-mega-heading">Merken</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">Quickstep laminaat</a></li>
+            <li><a href="#">Egger laminaat</a></li>
+            <li><a href="#">Classen</a></li>
+            <li><a href="#">Kronoswiss laminaat</a></li>
+            <li><a href="#">Beautifloor laminaat</a></li>
+            <li><a href="#">Meer merken →</a></li>
+          </ul>
+        </div>
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">04</span>
+          <strong class="subnav-mega-heading">Accessoires</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">Ondervloer</a></li>
+            <li><a href="#">Plinten</a></li>
+          </ul>
+        </div>
+        <div class="subnav-mega-col">
+          <span class="subnav-mega-num">05</span>
+          <strong class="subnav-mega-heading">Aanbiedingen</strong>
+          <ul class="subnav-mega-list">
+            <li><a href="#">Laminaat aanbieding</a></li>
+            <li><a href="#">Restpartijen laminaat</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-nav-group">
-    <a href="over-ons.html" data-i18n="mobile.link4">Over Ons</a>
+      <a href="index.html"><span data-i18n="subnav.home">Home</span></a>
+      <div class="mob-accordion-item">
+        <button class="mob-accordion-trigger" onclick="toggleMobAccordion(this)">
+          <span data-i18n="subnav.laminaat">Laminaat</span>
+          <svg class="mob-chevron mob-chevron--rotate" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mob-accordion-panel">
+          <div class="mob-accordion-section"><span class="mob-accordion-num">01</span><strong class="mob-accordion-heading">Soorten</strong><ul class="mob-accordion-list"><li><a href="#">Laminaat</a></li><li><a href="#">Kliklaminaat</a></li><li><a href="#">XL laminaat</a></li><li><a href="#">XXL laminaat</a></li><li><a href="#">Waterbestendig laminaat</a></li><li><a href="#">Tegel laminaat</a></li><li><a href="#">Breed laminaat</a></li><li><a href="#">Visgraat laminaat</a></li></ul></div>
+          <div class="mob-accordion-section"><span class="mob-accordion-num">02</span><strong class="mob-accordion-heading">Stijlen</strong><ul class="mob-accordion-list"><li><a href="#">Bruin laminaat</a></li><li><a href="#">Wit laminaat</a></li><li><a href="#">Grijs laminaat</a></li><li><a href="#">Eiken laminaat</a></li><li><a href="#">Zwart laminaat</a></li></ul></div>
+          <div class="mob-accordion-section"><span class="mob-accordion-num">03</span><strong class="mob-accordion-heading">Merken</strong><ul class="mob-accordion-list"><li><a href="#">Quickstep laminaat</a></li><li><a href="#">Egger laminaat</a></li><li><a href="#">Classen</a></li><li><a href="#">Kronoswiss laminaat</a></li><li><a href="#">Beautifloor laminaat</a></li><li><a href="#">Meer merken →</a></li></ul></div>
+          <div class="mob-accordion-section"><span class="mob-accordion-num">04</span><strong class="mob-accordion-heading">Accessoires</strong><ul class="mob-accordion-list"><li><a href="#">Ondervloer</a></li><li><a href="#">Plinten</a></li></ul></div>
+          <div class="mob-accordion-section"><span class="mob-accordion-num">05</span><strong class="mob-accordion-heading">Aanbiedingen</strong><ul class="mob-accordion-list"><li><a href="#">Laminaat aanbieding</a></li><li><a href="#">Restpartijen laminaat</a></li></ul></div>
+        </div>
+      </div>
+      <a href="#"><span data-i18n="subnav.pvc">PVC vloeren</span><svg class="mob-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#"><span data-i18n="subnav.visgraat">Visgraat vloeren</span><svg class="mob-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#"><span data-i18n="subnav.parket">Parket</span></a>
+      <a href="#"><span data-i18n="subnav.accessoires">Accessoires</span><svg class="mob-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="over-ons.html"><span data-i18n="mobile.link4">Over Ons</span></a>
     </div>
     <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact ↗</a>
+    <div class="mobile-lang-row">
+      <button class="lang-menu-item--icon" onclick="setLang('de')" title="Deutsch">
+        <svg class="lang-flag-svg" viewBox="0 0 752 752" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
+      </button>
+      <button class="lang-menu-item--icon" onclick="setLang('en')" title="English">
+        <svg class="lang-flag-svg" viewBox="12 12 24 24"><defs><clipPath id="mob-en-clip"><rect width="23" height="23" fill="white" transform="translate(12.5 12.5)"/></clipPath></defs><g clip-path="url(#mob-en-clip)"><mask id="mob-en-m0" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#mob-en-m0)"><path d="M6.61597 11.062H41.3839V36.9096H6.61597V11.062Z" fill="#00247D"/></g><mask id="mob-en-m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#mob-en-m1)"><path d="M37.4917 36.9095L23.9999 26.8755L10.4985 36.9095H6.61597V34.0128L20.1128 23.9858L6.61597 13.9452V11.062H10.4986L23.9999 21.0959L37.492 11.062H41.3839V13.9447L27.8871 23.9858L41.3839 34.0122V36.9095H37.4917Z" fill="white"/></g><mask id="mob-en-m2" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#mob-en-m2)"><path d="M9.20282 36.9095H6.61597L22.7138 24.8697L6.61597 12.9886V11.062L22.7544 22.9852L38.7924 11.062H41.3839L25.2416 22.9886L41.3839 34.983V36.9095L25.3453 24.9121L9.20282 36.9095Z" fill="#CF142B"/></g><mask id="mob-en-m3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#mob-en-m3)"><path d="M27.1558 37.6849H20.8443V27.1414H5.06555V20.8299H20.8443V10.5449H27.1558V20.8299H42.9346V27.1414H27.1558V37.6849Z" fill="white"/></g><mask id="mob-en-m4" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#mob-en-m4)"><path d="M25.8935 37.6849H22.1066V25.8792H5.06555V22.0923H22.1066V10.5449H25.8935V22.0923H42.9346V25.8792H25.8935V37.6849Z" fill="#CF142B"/></g></g></svg>
+      </button>
+    </div>
   </div>
 
+  <a href="https://wa.me/" class="whatsapp-fab" aria-label="WhatsApp" target="_blank" rel="noopener">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.52 3.449C18.24 1.245 15.24 0.005 12.045 0C5.463 0 0.101 5.334 0.098 11.892C0.097 13.988 0.648 16.031 1.693 17.832L0 24l6.335-1.652C8.095 23.278 10.06 23.775 12.045 23.776h.005c6.582 0 11.944-5.335 11.947-11.893.002-3.178-1.24-6.167-3.477-8.434zM12.05 21.785h-.004c-1.773 0-3.513-.474-5.033-1.37l-.361-.213-3.741.977.998-3.632-.236-.373a9.867 9.867 0 01-1.527-5.292c.002-5.45 4.45-9.882 9.905-9.882 2.646 0 5.13 1.03 6.998 2.898a9.805 9.805 0 012.895 6.979c-.002 5.451-4.45 9.908-9.894 9.908zm5.43-7.403c-.297-.149-1.758-.867-2.031-.967-.272-.099-.47-.148-.669.149-.198.297-.767.966-.94 1.164-.174.198-.347.223-.644.074-1.757-.877-2.912-1.566-4.069-3.547-.307-.527.307-.49.878-1.63.099-.198.05-.372-.025-.521-.075-.148-.668-1.611-.916-2.207-.24-.579-.486-.5-.668-.51-.173-.008-.37-.01-.568-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/>
+    </svg>
+  </a>
 
 <div class="page-wrapper">
 
@@ -79,42 +178,26 @@
       <div class="contact-left">
         <h2 class="contact-left-title" data-i18n="contact.info.title">Unsere Kontaktdaten</h2>
         <p class="contact-left-sub" data-i18n="contact.info.sub">Nutzen Sie eine unserer Kontaktmöglichkeiten</p>
-        <div class="contact-info">
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg width="22" height="22" viewBox="12 12 24 24" fill="none"><path d="M34 28.4217C34 29.3985 33.2411 30.1904 32.3051 30.1904H15.6949C14.7589 30.1904 14 29.3985 14 28.4217V19.5782C14 18.6014 14.7589 17.8095 15.6949 17.8095H32.3051C33.2411 17.8095 34 18.6014 34 19.5782V28.4217Z" stroke="#111111" stroke-width="2" stroke-miterlimit="10"/><path d="M14.5428 18.2814L21.8302 24.766C23.0873 25.8592 24.9134 25.8592 26.1705 24.766L33.4579 18.2814" stroke="#111111" stroke-width="2" stroke-miterlimit="10"/></svg>
-            </div>
-            <div class="contact-row-text">
-              <span class="contact-row-label" data-i18n="contact.label.email">E-Mail</span>
-              <span>info@wohnstyle.de</span>
-            </div>
+        <div class="contact-options-grid">
+          <div class="contact-option-block">
+            <span class="contact-option-num">01</span>
+            <strong class="contact-option-title" data-i18n="contact.label.email">E-Mail</strong>
+            <span class="contact-option-val">info@wohnstyle.de</span>
           </div>
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg width="20" height="22" viewBox="85 12 22 24" fill="none"><path d="M104.999 28.4765V31.1862C105 31.4377 104.949 31.6867 104.848 31.9172C104.747 32.1477 104.599 32.3546 104.413 32.5247C104.227 32.6947 104.008 32.8242 103.769 32.9048C103.531 32.9854 103.277 33.0153 103.026 32.9927C100.242 32.6907 97.5664 31.7409 95.216 30.2197C93.0293 28.8329 91.1753 26.9827 89.7858 24.8003C88.2563 22.4439 87.3044 19.7611 87.0073 16.9692C86.9847 16.7194 87.0145 16.4676 87.0947 16.23C87.1749 15.9923 87.3038 15.7739 87.4732 15.5887C87.6426 15.4034 87.8489 15.2554 88.0787 15.1541C88.3086 15.0528 88.5571 15.0003 88.8084 15.0001H91.5235C91.9627 14.9958 92.3885 15.151 92.7215 15.4368C93.0545 15.7227 93.2721 16.1196 93.3335 16.5537C93.4481 17.4208 93.6607 18.2723 93.9671 19.0918C94.0888 19.4151 94.1152 19.7664 94.043 20.1042C93.9708 20.442 93.8031 20.752 93.5598 20.9976L92.4104 22.1447C93.6988 24.406 95.5748 26.2784 97.8406 27.5642L98.99 26.4171C99.2361 26.1742 99.5467 26.0069 99.8852 25.9348C100.224 25.8628 100.576 25.8891 100.9 26.0106C101.721 26.3164 102.574 26.5285 103.443 26.6429C103.882 26.7048 104.284 26.9258 104.571 27.2639C104.858 27.6019 105.01 28.0335 104.999 28.4765Z" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="contact-row-text">
-              <span class="contact-row-label" data-i18n="contact.label.phone">Telefon</span>
-              <span><a href="tel:+4915112345678" style="color:inherit;text-decoration:none;">+49 151 12345678</a></span>
-            </div>
+          <div class="contact-option-block">
+            <span class="contact-option-num">02</span>
+            <strong class="contact-option-title" data-i18n="contact.label.phone">Telefon</strong>
+            <span class="contact-option-val"><a href="tel:+4915112345678" style="color:inherit;text-decoration:none;">+49 151 12345678</a></span>
           </div>
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#111111" stroke-width="2"/><circle cx="12" cy="9" r="2.5" stroke="#111111" stroke-width="2"/></svg>
-            </div>
-            <div class="contact-row-text">
-              <span class="contact-row-label" data-i18n="contact.label.address">Unser Standort</span>
-              <span>Musterstraße 12<br>80331 München</span>
-            </div>
+          <div class="contact-option-block">
+            <span class="contact-option-num">03</span>
+            <strong class="contact-option-title" data-i18n="contact.label.address">Standort</strong>
+            <span class="contact-option-val">Musterstraße 12<br>80331 München</span>
           </div>
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#111111" stroke-width="2"/><path d="M8 4V2M16 4V2M3 9h18" stroke="#111111" stroke-width="2" stroke-linecap="round"/></svg>
-            </div>
-            <div class="contact-row-text">
-              <span class="contact-row-label" data-i18n="contact.hours.days">Mo – Fr</span>
-              <span>08:00 – 18:00 Uhr</span>
-            </div>
+          <div class="contact-option-block">
+            <span class="contact-option-num">04</span>
+            <strong class="contact-option-title" data-i18n="contact.hours.days">Öffnungszeiten</strong>
+            <span class="contact-option-val">Mo – Fr<br>08:00 – 18:00</span>
           </div>
         </div>
       </div>
@@ -186,7 +269,7 @@
     <span class="corner-bracket corner-bracket--tl"></span>
     <span class="corner-bracket corner-bracket--tr"></span>
     <div class="footer-logo-wrap">
-      <img src="images/logo-footer.png" alt="WohnStyle" class="footer-big-logo-img">
+      <img src="images/logo-footer2.png" alt="WohnStyle Boden GmbH" class="footer-big-logo-img">
     </div>
   </footer>
 
@@ -204,9 +287,37 @@
 
   <script src="js/lang.js"></script>
   <script>
+    // Laminaat mega dropdown
+    (function() {
+      const drop = document.getElementById('laminaatDrop');
+      const mega = document.getElementById('laminaatMega');
+      if (!drop || !mega) return;
+      let timer;
+      function open() { clearTimeout(timer); drop.classList.add('open'); mega.classList.add('open'); }
+      function close() { timer = setTimeout(function() { drop.classList.remove('open'); mega.classList.remove('open'); }, 120); }
+      drop.addEventListener('mouseenter', open);
+      drop.addEventListener('mouseleave', close);
+      mega.addEventListener('mouseenter', open);
+      mega.addEventListener('mouseleave', close);
+      drop.querySelector('.subnav-drop-trigger').addEventListener('click', function(e) {
+        e.preventDefault();
+        drop.classList.contains('open') ? close() : open();
+      });
+      document.addEventListener('click', function(e) {
+        if (!drop.contains(e.target) && !mega.contains(e.target)) close();
+      });
+    })();
+
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
       document.querySelector('.hamburger').classList.toggle('open');
+    }
+
+    function toggleMobAccordion(btn) {
+      const panel = btn.nextElementSibling;
+      const isOpen = btn.classList.contains('open');
+      btn.classList.toggle('open', !isOpen);
+      panel.classList.toggle('open', !isOpen);
     }
     function toggleTheme() {
       const isDark = document.body.classList.toggle('dark-mode');

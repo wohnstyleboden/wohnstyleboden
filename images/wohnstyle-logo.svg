@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1152 180" width="1152" height="180">
+  <defs>
+    <style>
+      @import url("https://use.typekit.net/uag0nqp.css");
+    </style>
+  </defs>
+  <text
+    x="0"
+    y="162"
+    font-family="anth, Georgia, serif"
+    font-weight="700"
+    font-size="180"
+    fill="#111111"
+    letter-spacing="-4"
+    text-rendering="geometricPrecision"
+  >WohnStyle</text>
+</svg>

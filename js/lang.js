@@ -339,6 +339,15 @@ const translations = {
     'miniusp.2': 'Transparante prijzen',
     'miniusp.3': 'Tevredenheid gegarandeerd',
 
+    'subnav.home': 'Home',
+    'subnav.laminaat': 'Laminaat',
+    'subnav.pvc': 'PVC vloeren',
+    'subnav.visgraat': 'Visgraat vloeren',
+    'subnav.parket': 'Parket',
+    'subnav.accessoires': 'Accessoires',
+    'subnav.about': 'Over Ons',
+    'subnav.contact': 'Contact',
+
     'gallery.title': 'Unsere aktuellen Projekte',
     'gallery.sub': 'Entdecken Sie unsere abgeschlossenen Projekte — echte Böden in echten Zuhausen.',
     'gallery.label1': 'Wohnzimmer — Eiche Natur',
@@ -696,6 +705,15 @@ const translations = {
     'miniusp.2': 'Transparent pricing',
     'miniusp.3': 'Satisfaction guaranteed',
 
+    'subnav.home': 'Home',
+    'subnav.laminaat': 'Laminate',
+    'subnav.pvc': 'PVC flooring',
+    'subnav.visgraat': 'Herringbone flooring',
+    'subnav.parket': 'Parquet',
+    'subnav.accessoires': 'Accessories',
+    'subnav.about': 'About Us',
+    'subnav.contact': 'Contact',
+
     'gallery.title': 'See recent projects',
     'gallery.sub': 'Discover our completed projects — real floors in real homes.',
     'gallery.label1': 'Living room — Natural Oak',
@@ -752,21 +770,31 @@ function setLang(lang) {
     if (translations[lang] && translations[lang][key]) el.placeholder = translations[lang][key];
   });
 
-  // Update active flag SVG
+  // Update active flag SVG (navbar)
   const activeFlag = document.getElementById('activeFlagSvg');
   if (activeFlag) {
     activeFlag.innerHTML = flags[lang].svg;
     activeFlag.setAttribute('viewBox', flags[lang].viewBox);
   }
 
-  // Mark active/inactive in dropdown
+  // Update active flag SVG (mobile)
+  const mobActiveFlag = document.getElementById('mobActiveFlagSvg');
+  if (mobActiveFlag) {
+    mobActiveFlag.innerHTML = flags[lang].svg;
+    mobActiveFlag.setAttribute('viewBox', flags[lang].viewBox);
+  }
+
+  // Mark active/inactive in dropdowns
   document.querySelectorAll('.lang-menu-item--icon').forEach(btn => {
-    btn.classList.toggle('active', btn.id === 'opt-' + lang);
+    const isActive = btn.id === 'opt-' + lang || btn.id === 'mob-opt-' + lang;
+    btn.classList.toggle('active', isActive);
   });
 
-  // Close dropdown
+  // Close dropdowns
   const menu = document.getElementById('navLangMenu');
   if (menu) menu.classList.remove('open');
+  const mobMenu = document.getElementById('mobLangMenu');
+  if (mobMenu) mobMenu.classList.remove('open');
 }
 
 function initLang() {
