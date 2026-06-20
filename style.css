@@ -163,28 +163,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .subnav-mega-num {
-  font-family: 'Poppins', sans-serif;
-  font-size: 11px;
-  color: #aaaaaa;
-  letter-spacing: 0.06em;
-  display: block;
-  margin-bottom: 10px;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  display: inline;
+  margin-right: 0.5em;
 }
 
 .subnav-mega-heading {
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
   color: #1a1a1a;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  display: block;
-  margin-bottom: 14px;
+  letter-spacing: -1px;
+  display: inline;
+  margin-bottom: 48px;
 }
 
 .subnav-mega-list {
   list-style: none;
-  margin: 0;
+  margin: 48px 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -2802,7 +2804,8 @@ body.dark-mode .btn-nav:hover {
   justify-content: space-between;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
+  text-transform: uppercase;
   line-height: 1.66;
   color: var(--text);
   cursor: pointer;
@@ -2836,23 +2839,23 @@ body.dark-mode .btn-nav:hover {
 .mob-accordion-section {}
 
 .mob-accordion-num {
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
   color: #1a1a1a;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: -1px;
   display: inline;
   margin-right: 0.5em;
 }
 
 .mob-accordion-heading {
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
+  font-family: 'didot-lt-pro-headline', 'Didot', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
   color: #1a1a1a;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: -1px;
   display: inline;
   margin-bottom: 0;
 }
@@ -2876,6 +2879,8 @@ body.dark-mode .btn-nav:hover {
 
 .mob-accordion-list a {
   font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
   color: #555555;
   text-decoration: none;
   display: block;
@@ -2957,7 +2962,8 @@ body.dark-mode .btn-nav:hover {
   display: block;
   padding: 16px 0;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
+  text-transform: uppercase;
   color: var(--text);
   text-decoration: none;
   border-bottom: 1px solid var(--gray-100);
@@ -2998,13 +3004,14 @@ body.dark-mode .btn-nav:hover {
   width: 100%;
   padding: 16px 0;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
+  text-transform: uppercase;
   color: var(--text);
   background: none;
   border: none;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
-  letter-spacing: -0.02em;
+  letter-spacing: -1px;
   text-align: left;
 }
 
@@ -3029,7 +3036,8 @@ body.dark-mode .btn-nav:hover {
   display: block;
   padding: 16px 0;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
+  text-transform: uppercase;
   color: var(--text);
   border-bottom: none !important;
 }
@@ -3049,8 +3057,9 @@ body.dark-mode .btn-nav:hover {
   flex-shrink: 0;
   border-radius: 4px;
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
+  text-transform: uppercase;
   text-decoration: none;
   transition: background 0.2s;
 }
@@ -3097,8 +3106,9 @@ body.dark-mode .btn-nav:hover {
   color: white;
   padding: 0 24px;
   border-radius: 100px;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 15px;
+  text-transform: uppercase;
   text-decoration: none;
 }
 
