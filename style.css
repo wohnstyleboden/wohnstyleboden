@@ -646,6 +646,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400 !important;
   font-size: 52px !important;
   letter-spacing: 0.35em !important;
+  margin-right: -0.35em !important;
   text-transform: uppercase !important;
 }
 
@@ -3137,6 +3138,7 @@ body.dark-mode .btn-nav:hover {
   .nav-links { display: none; }
   .nav-right .btn-nav { display: none; }
   .nav-right .flag { display: none; }
+  .nav-right .nav-lang-sel { display: flex; }
   .hamburger { display: flex; }
   .mobile-sticky-btn { display: block; opacity: 0; transform: translateY(12px); transition: opacity 0.3s, transform 0.3s; pointer-events: none; }
   .mobile-sticky-btn.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
