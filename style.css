@@ -1383,7 +1383,11 @@ body.dark-mode .usp-principle-card p { color: #999; }
   text-align: center;
   padding: 28px 32px;
   font-family: 'Poppins', sans-serif;
-  font-size: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  line-height: 1.6;
+  text-transform: uppercase;
   color: #111111;
 }
 
