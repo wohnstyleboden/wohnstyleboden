@@ -324,6 +324,8 @@ const translations = {
 
     'divider.text': 'Von Experten ausgewählt — Qualität, die man spürt',
 
+    'brands.title': 'Laminat und PVC von allen Topmarken',
+
     'section2.tag': 'Unsere Kollektion',
     'section2.title': 'Böden für jeden Raum und jeden Stil',
     'section2.text': 'Von klassischem Eichendekor bis hin zu modernen Grautönen — entdecken Sie unsere handverlesene Auswahl an Premium-Laminat und Parkett für Ihr Zuhause.',
@@ -689,6 +691,8 @@ const translations = {
     'about.cta.btn': 'Contact us',
 
     'divider.text': 'Selected by experts — quality you can feel',
+
+    'brands.title': 'Laminate and PVC flooring from all top brands',
 
     'section2.tag': 'Our Collection',
     'section2.title': 'Floors for every room and every style',
