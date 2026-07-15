@@ -313,7 +313,11 @@
       const mega = document.getElementById(megaId);
       if (!drop || !mega) return;
       let timer;
-      function open() { clearTimeout(timer); drop.classList.add('open'); mega.classList.add('open'); }
+      function setTop() {
+        const subnav = document.getElementById('subnavEl');
+        if (subnav) mega.style.top = subnav.getBoundingClientRect().bottom + 'px';
+      }
+      function open() { clearTimeout(timer); setTop(); drop.classList.add('open'); mega.classList.add('open'); }
       function close() { timer = setTimeout(function() { drop.classList.remove('open'); mega.classList.remove('open'); }, 120); }
       drop.addEventListener('mouseenter', open);
       drop.addEventListener('mouseleave', close);
