@@ -71,6 +71,10 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 99;
 }
 
+.subnav-wrap {
+  position: relative;
+}
+
 .subnav-inner {
   max-width: 1400px;
   margin: 0 auto;
