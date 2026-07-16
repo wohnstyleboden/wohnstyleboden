@@ -10,10 +10,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="style.css?v=54">
 </head>
 <body>
 
+  <div id="navOverlay" class="nav-overlay"></div>
   <div class="navbar-wrap"><nav class="navbar">
     <div class="container navbar-inner">
     <div class="nav-left">
@@ -165,6 +166,7 @@
     <div class="mobile-menu" id="mobileMenu">
 
     <div class="mob-panel" id="mobMainPanel">
+      <div class="mob-panel-scroll">
       <a class="mob-main-link" href="index.html">Home</a>
       <button class="mob-main-link" onclick="mobOpenSub('mobSubLaminaat', this)"><span>Laminaat</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <button class="mob-main-link" onclick="mobOpenSub('mobSubPvc', this)"><span>PVC-Böden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -174,9 +176,11 @@
       <a class="mob-main-link" href="#">Inspiratie</a>
       <a class="mob-main-link" href="over-ons.html">Über uns</a>
       <a href="contact.html" class="mobile-cta">Contact</a>
+      </div>
     </div>
 
     <div class="mob-panel mob-panel--sub" id="mobSubLaminaat">
+      <div class="mob-panel-scroll">
       <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Laminaat</button>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Sorten</span>
@@ -219,9 +223,11 @@
         </div>
       </div>
       <a href="#" class="mob-sub-cta">Alle laminaat</a>
+      </div>
     </div>
 
     <div class="mob-panel mob-panel--sub" id="mobSubPvc">
+      <div class="mob-panel-scroll">
       <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> PVC-Böden</button>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Sorten</span>
@@ -261,23 +267,28 @@
           <a href="#">PVC Restposten</a>
         </div>
       </div>
+      </div>
     </div>
 
     <div class="mob-panel mob-panel--sub" id="mobSubVisgraat">
+      <div class="mob-panel-scroll">
       <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Fischgrätboden</button>
       <div class="mob-sub-group">
         <a href="#">Fischgrät Laminat</a>
         <a href="#">Fischgrät PVC</a>
         <a href="#">Fischgrät Parkett</a>
       </div>
+      </div>
     </div>
 
     <div class="mob-panel mob-panel--sub" id="mobSubZubehor">
+      <div class="mob-panel-scroll">
       <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Zubehör</button>
       <div class="mob-sub-group">
         <a href="#">Unterlagsboden</a>
         <a href="#">Sockelleisten</a>
         <a href="#">Reinigungsprodukte</a>
+      </div>
       </div>
     </div>
 
@@ -286,7 +297,7 @@
     <span class="mob-lang-divider">|</span>
     <button class="mob-lang-btn" id="mobLangEn" onclick="setLang('en'); mobUpdateLang()">EN</button>
   </div>
-  <div id="mobScrollbar" class="mob-scrollbar"><div id="mobScrollbarThumb" class="mob-scrollbar-thumb"></div></div>
+  <div id="mobNavImg" class="mob-nav-img"><img id="mobNavImgEl" src="" alt=""></div>
   </div>
 
   <div class="mobile-sticky-btn">
@@ -654,11 +665,45 @@
     })();
 
     function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
+      var isOpen = document.getElementById('mobileMenu').classList.toggle('open');
+      var overlay = document.getElementById('navOverlay');
+      var navbarWrap = document.querySelector('.navbar-wrap');
+      if (isOpen) {
+        var scrollW = window.innerWidth - document.documentElement.clientWidth;
+        window.scrollTo(0, 0);
+        document.body.classList.add('nav-open');
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+        if (overlay) overlay.classList.add('active');
+      } else {
+        document.body.classList.remove('nav-open');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        if (overlay) overlay.classList.remove('active');
+      }
       mobUpdateLang();
       document.querySelector('.hamburger').classList.toggle('open');
       document.querySelector('.navbar').classList.toggle('nav-open');
       mobGoBack();
+    }
+    var mobNavImages = {
+      'mobSubLaminaat':  'images/6855 1.png',
+      'mobSubPvc':       'images/2505 1.png',
+      'mobSubVisgraat':  'images/2240 1.png',
+      'mobSubZubehor':   'images/793 1.png'
+    };
+    function mobSetNavImage(panelId) {
+      var img = document.getElementById('mobNavImgEl');
+      if (!img) return;
+      var src = mobNavImages[panelId];
+      if (src) {
+        img.classList.remove('visible');
+        img.src = src;
+        img.onload = function() { img.classList.add('visible'); };
+        if (img.complete) img.classList.add('visible');
+      } else {
+        img.classList.remove('visible');
+      }
     }
     function mobOpenSub(panelId, btn) {
       var isDesktop = window.innerWidth >= 769;
@@ -668,10 +713,11 @@
       if (isDesktop) {
         document.querySelectorAll('.mob-main-link').forEach(function(l) { l.classList.remove('mob-link-active'); });
         if (btn) btn.classList.add('mob-link-active');
+        mobSetNavImage(panelId);
       } else {
         document.getElementById('mobMainPanel').classList.add('mob-hidden');
       }
-      setTimeout(function() { mobUpdateScrollbar(panel); }, 20);
+      nsInit(panel);
     }
 
     function mobUpdateLang() {
@@ -684,32 +730,14 @@
     function mobGoBack() {
       document.querySelectorAll('.mob-panel--sub').forEach(function(p) { p.classList.remove('mob-active'); });
       document.getElementById('mobMainPanel').classList.remove('mob-hidden');
-      mobUpdateScrollbar(document.getElementById('mobMainPanel'));
     }
 
-    var _mobScrollbarPanel = null;
-    function mobUpdateScrollbar(panel) {
-      var thumb = document.getElementById('mobScrollbarThumb');
-      if (!thumb || !panel) return;
-      if (panel.scrollHeight <= panel.clientHeight) {
-        thumb.classList.remove('visible');
-        return;
-      }
-      var ratio = panel.clientHeight / panel.scrollHeight;
-      var thumbH = Math.max(30, ratio * panel.clientHeight);
-      var scrollRatio = panel.scrollTop / (panel.scrollHeight - panel.clientHeight);
-      var thumbTop = scrollRatio * (panel.clientHeight - thumbH);
-      thumb.style.height = thumbH + 'px';
-      thumb.style.top = thumbTop + 'px';
-      thumb.classList.add('visible');
-      _mobScrollbarPanel = panel;
+    function nsInit(panel) {
+      var scroller = panel.querySelector('.mob-panel-scroll');
+      var track = panel.querySelector('.ns-track');
+      var thumb = panel.querySelector('.ns-thumb');
+      if (!scroller || !track || !thumb) return;
     }
-    function initMobScrollbar() {
-      document.querySelectorAll('.mob-panel').forEach(function(p) {
-        p.addEventListener('scroll', function() { mobUpdateScrollbar(p); });
-      });
-    }
-    document.addEventListener('DOMContentLoaded', initMobScrollbar);
 
     // Mega dropdown factory
     function initMegaDrop(dropId, megaId) {
