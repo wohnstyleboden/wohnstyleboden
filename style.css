@@ -280,10 +280,14 @@ h1, h2, h3, h4, h5, h6 {
   height: 82px;
   background: #ffffff;
   border-bottom: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
   overflow: visible;
   position: sticky;
   top: 0;
   z-index: 100;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .navbar-inner {
