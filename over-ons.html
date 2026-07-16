@@ -17,27 +17,23 @@
   <nav class="navbar">
     <div class="container navbar-inner">
     <div class="nav-left">
-    <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M3 15H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M5 5L19 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M19 5L5 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
     </div>
     <div class="nav-center">
       <button class="nav-text-btn nav-search-center" aria-label="Search">ZOEKEN</button>
     </div>
     <div class="nav-right">
-
-      
-
-      </div>
       <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
-      <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button><a href="#" class="btn-nav" data-i18n="nav.mylist">mijn lijst (0)</a>
-      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4.29053 18.5581H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
-          <path d="M4.29053 24H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
-          <path d="M4.29053 29.4419H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
-          <path d="M18.5 17.5L5.5 30.5" stroke="#242E30" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M5.5 17.5L18.5 30.5" stroke="#242E30" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+      <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button>
+      <a href="#" class="btn-nav" data-i18n="nav.mylist">mijn lijst (0)</a>
     </div>
     </div>
     </div>
@@ -340,13 +336,16 @@
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
       document.querySelector('.hamburger').classList.toggle('open');
+      document.querySelector('.navbar').classList.toggle('nav-open');
+      mobGoBack();
     }
-
-    function toggleMobAccordion(btn) {
-      const panel = btn.nextElementSibling;
-      const isOpen = btn.classList.contains('open');
-      btn.classList.toggle('open', !isOpen);
-      panel.classList.toggle('open', !isOpen);
+    function mobOpenSub(panelId) {
+      document.getElementById('mobMainPanel').classList.add('mob-hidden');
+      document.getElementById(panelId).classList.add('mob-active');
+    }
+    function mobGoBack() {
+      document.querySelectorAll('.mob-panel--sub').forEach(function(p) { p.classList.remove('mob-active'); });
+      document.getElementById('mobMainPanel').classList.remove('mob-hidden');
     }
     (function() {
       if (localStorage.getItem('theme') === 'dark') {

@@ -17,7 +17,15 @@
   <nav class="navbar">
     <div class="container navbar-inner">
     <div class="nav-left">
-    <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M3 15H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M5 5L19 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M19 5L5 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
     </div>
     <div class="nav-center">
       <button class="nav-text-btn nav-search-center" aria-label="Search">ZOEKEN</button>
@@ -25,15 +33,7 @@
     <div class="nav-right">
       <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
       <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button><a href="#" class="btn-nav" data-i18n="nav.mylist">mijn lijst (0)</a>
-      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <svg width="24" height="48" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4.29053 18.5581H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
-          <path d="M4.29053 24H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
-          <path d="M4.29053 29.4419H19.7091" stroke="#242E30" stroke-width="2" stroke-linecap="round"/>
-          <path d="M18.5 17.5L5.5 30.5" stroke="#242E30" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M5.5 17.5L18.5 30.5" stroke="#242E30" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+
     </div>
     </div>
     </div>
@@ -161,89 +161,109 @@
 
   <div class="mega-overlay" id="megaOverlay"></div>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-nav-group">
-      <a href="index.html"><span data-i18n="subnav.home">Home</span></a>
-      <div class="mob-accordion-item">
-        <button class="mob-accordion-trigger" onclick="toggleMobAccordion(this)">
-          <span data-i18n="subnav.laminaat">Laminat</span>
-          <svg class="mob-chevron mob-chevron--rotate" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="mob-accordion-panel">
-          <div class="mob-accordion-section">
-            <span class="mob-accordion-num">01</span>
-            <strong class="mob-accordion-heading">Sorten</strong>
-            <ul class="mob-accordion-list">
-              <li><a href="#">Laminat</a></li>
-              <li><a href="#">Klick-Laminat</a></li>
-              <li><a href="#">XL Laminat</a></li>
-              <li><a href="#">XXL Laminat</a></li>
-              <li><a href="#">Wasserfestes Laminat</a></li>
-              <li><a href="#">Fliesen-Laminat</a></li>
-              <li><a href="#">Breites Laminat</a></li>
-              <li><a href="#">Fischgrät-Laminat</a></li>
-            </ul>
-          </div>
-          <div class="mob-accordion-section">
-            <span class="mob-accordion-num">02</span>
-            <strong class="mob-accordion-heading">Stile</strong>
-            <ul class="mob-accordion-list">
-              <li><a href="#">Braunes Laminat</a></li>
-              <li><a href="#">Weißes Laminat</a></li>
-              <li><a href="#">Graues Laminat</a></li>
-              <li><a href="#">Eichen-Laminat</a></li>
-              <li><a href="#">Schwarzes Laminat</a></li>
-            </ul>
-          </div>
-          <div class="mob-accordion-section">
-            <span class="mob-accordion-num">03</span>
-            <strong class="mob-accordion-heading">Marken</strong>
-            <ul class="mob-accordion-list">
-              <li><a href="#">Quickstep Laminat</a></li>
-              <li><a href="#">Egger Laminat</a></li>
-              <li><a href="#">Classen</a></li>
-              <li><a href="#">Kronoswiss Laminat</a></li>
-              <li><a href="#">Beautifloor Laminat</a></li>
-              <li><a href="#">Mehr Marken</a></li>
-            </ul>
-          </div>
-          <div class="mob-accordion-section">
-            <span class="mob-accordion-num">04</span>
-            <strong class="mob-accordion-heading">Zubehör</strong>
-            <ul class="mob-accordion-list">
-              <li><a href="#">Unterlagsboden</a></li>
-              <li><a href="#">Sockelleisten</a></li>
-            </ul>
-          </div>
-          <div class="mob-accordion-section">
-            <span class="mob-accordion-num">05</span>
-            <strong class="mob-accordion-heading">Angebote</strong>
-            <ul class="mob-accordion-list">
-              <li><a href="#">Laminat Angebote</a></li>
-              <li><a href="#">Laminat Restposten</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="mob-accordion-item">
-        <button class="mob-accordion-trigger" onclick="toggleMobAccordion(this)">
-          <span data-i18n="subnav.pvc">PVC-Böden</span>
-          <svg class="mob-chevron mob-chevron--rotate" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="mob-accordion-panel">
-          <div class="mob-accordion-section"><span class="mob-accordion-num">01</span><strong class="mob-accordion-heading">Sorten</strong><ul class="mob-accordion-list"><li><a href="#">PVC-Böden</a></li><li><a href="#">Fischgrät PVC</a></li><li><a href="#">Klick PVC</a></li><li><a href="#">Klebe PVC</a></li><li><a href="#">PVC-Fliesen</a></li><li><a href="#">Fischgrät Klick PVC</a></li><li><a href="#">Visgraat Klebe PVC</a></li><li><a href="#">Ungarischer Punkt PVC</a></li></ul></div>
-          <div class="mob-accordion-section"><span class="mob-accordion-num">02</span><strong class="mob-accordion-heading">Stile</strong><ul class="mob-accordion-list"><li><a href="#">Weißer PVC</a></li><li><a href="#">Schwarzer PVC</a></li><li><a href="#">Brauner PVC</a></li><li><a href="#">Beton-Optik PVC</a></li><li><a href="#">Fliesen-Optik Klick PVC</a></li><li><a href="#">Helle Eiche PVC</a></li><li><a href="#">Dunkle Eiche PVC</a></li><li><a href="#">PVC Marmor-Optik</a></li><li><a href="#">PVC Grau Eiche</a></li><li><a href="#">PVC Walnuss</a></li></ul></div>
-          <div class="mob-accordion-section"><span class="mob-accordion-num">03</span><strong class="mob-accordion-heading">Marken</strong><ul class="mob-accordion-list"><li><a href="#">Moduleo PVC</a></li><li><a href="#">mFLOR PVC</a></li><li><a href="#">Quick-Step PVC</a></li><li><a href="#">Vtwonen PVC</a></li><li><a href="#">Belakos PVC</a></li><li><a href="#">Saffier PVC</a></li><li><a href="#">TFD PVC</a></li><li><a href="#">Mehr Marken</a></li></ul></div>
-          <div class="mob-accordion-section"><span class="mob-accordion-num">04</span><strong class="mob-accordion-heading">Zubehör</strong><ul class="mob-accordion-list"><li><a href="#">Sockelleisten</a></li></ul></div>
-          <div class="mob-accordion-section"><span class="mob-accordion-num">05</span><strong class="mob-accordion-heading">Angebote</strong><ul class="mob-accordion-list"><li><a href="#">PVC Angebote</a></li><li><a href="#">PVC Restposten</a></li></ul></div>
-        </div>
-      </div>
-      <a href="#"><span data-i18n="subnav.visgraat">Fischgrätboden</span><svg class="mob-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#"><span data-i18n="subnav.parket">Parkett</span></a>
-      <a href="#"><span data-i18n="subnav.accessoires">Zubehör</span><svg class="mob-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="over-ons.html"><span data-i18n="mobile.link4">Über uns</span></a>
+    <div class="mobile-menu" id="mobileMenu">
+
+    <div class="mob-panel" id="mobMainPanel">
+      <a class="mob-main-link" href="index.html">Home</a>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubLaminaat')"><span>Laminaat</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubPvc')"><span>PVC-Böden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubVisgraat')"><span>Fischgrätboden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a class="mob-main-link" href="#">Parkett</a>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubZubehor')"><span>Zubehör</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a class="mob-main-link" href="#">Inspiratie</a>
+      <a class="mob-main-link" href="over-ons.html">Über uns</a>
+      <a href="contact.html" class="mobile-cta">Contact ↗</a>
     </div>
-    <a href="contact.html" class="mobile-cta" data-i18n="mobile.cta">Contact ↗</a>
+
+    <div class="mob-panel mob-panel--sub" id="mobSubLaminaat">
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Laminaat</button>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Sorten</span>
+        <a href="#">Laminat</a>
+        <a href="#">Klick-Laminat</a>
+        <a href="#">XL Laminat</a>
+        <a href="#">XXL Laminat</a>
+        <a href="#">Wasserfestes Laminat</a>
+        <a href="#">Fliesen-Laminat</a>
+        <a href="#">Breites Laminat</a>
+        <a href="#">Fischgrät-Laminat</a>
+      </div>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Stile</span>
+        <a href="#">Braunes Laminat</a>
+        <a href="#">Weißes Laminat</a>
+        <a href="#">Graues Laminat</a>
+        <a href="#">Eichen-Laminat</a>
+        <a href="#">Schwarzes Laminat</a>
+      </div>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Marken</span>
+        <a href="#">Quickstep Laminat</a>
+        <a href="#">Egger Laminat</a>
+        <a href="#">Classen</a>
+        <a href="#">Kronoswiss Laminat</a>
+        <a href="#">Beautifloor Laminat</a>
+      </div>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Angebote</span>
+        <a href="#">Laminat Angebote</a>
+        <a href="#">Laminat Restposten</a>
+      </div>
+      <a href="#" class="mob-sub-cta">Alle laminaat</a>
+    </div>
+
+    <div class="mob-panel mob-panel--sub" id="mobSubPvc">
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> PVC-Böden</button>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Sorten</span>
+        <a href="#">PVC-Böden</a>
+        <a href="#">Fischgrät PVC</a>
+        <a href="#">Klick PVC</a>
+        <a href="#">Klebe PVC</a>
+        <a href="#">PVC-Fliesen</a>
+        <a href="#">Fischgrät Klick PVC</a>
+      </div>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Stile</span>
+        <a href="#">Weißer PVC</a>
+        <a href="#">Schwarzer PVC</a>
+        <a href="#">Brauner PVC</a>
+        <a href="#">Beton-Optik PVC</a>
+        <a href="#">Helle Eiche PVC</a>
+      </div>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Marken</span>
+        <a href="#">Moduleo PVC</a>
+        <a href="#">mFLOR PVC</a>
+        <a href="#">Quick-Step PVC</a>
+        <a href="#">Vtwonen PVC</a>
+        <a href="#">Belakos PVC</a>
+      </div>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Angebote</span>
+        <a href="#">PVC Angebote</a>
+        <a href="#">PVC Restposten</a>
+      </div>
+    </div>
+
+    <div class="mob-panel mob-panel--sub" id="mobSubVisgraat">
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Fischgrätboden</button>
+      <div class="mob-sub-group">
+        <a href="#">Fischgrät Laminat</a>
+        <a href="#">Fischgrät PVC</a>
+        <a href="#">Fischgrät Parkett</a>
+      </div>
+    </div>
+
+    <div class="mob-panel mob-panel--sub" id="mobSubZubehor">
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Zubehör</button>
+      <div class="mob-sub-group">
+        <a href="#">Unterlagsboden</a>
+        <a href="#">Sockelleisten</a>
+        <a href="#">Reinigungsprodukte</a>
+      </div>
+    </div>
+
   </div>
 
   <div class="mobile-sticky-btn">
@@ -613,13 +633,16 @@
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
       document.querySelector('.hamburger').classList.toggle('open');
+      document.querySelector('.navbar').classList.toggle('nav-open');
+      mobGoBack();
     }
-
-    function toggleMobAccordion(btn) {
-      const panel = btn.nextElementSibling;
-      const isOpen = btn.classList.contains('open');
-      btn.classList.toggle('open', !isOpen);
-      panel.classList.toggle('open', !isOpen);
+    function mobOpenSub(panelId) {
+      document.getElementById('mobMainPanel').classList.add('mob-hidden');
+      document.getElementById(panelId).classList.add('mob-active');
+    }
+    function mobGoBack() {
+      document.querySelectorAll('.mob-panel--sub').forEach(function(p) { p.classList.remove('mob-active'); });
+      document.getElementById('mobMainPanel').classList.remove('mob-hidden');
     }
 
     // Mega dropdown factory
@@ -744,6 +767,7 @@
   </div>
 </body>
 </html>
+
 
 
 
