@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "usta-website",
+      "name": "wohnstyle",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "3000", "C:\\Users\\pc\\usta-website"],
-      "port": 3000
+      "runtimeArgs": ["serve", "-l", "3001", "C:\\Users\\pc\\Wohnstyle"],
+      "port": 3001
     }
   ]
 }

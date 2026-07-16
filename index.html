@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=25">
 </head>
 <body>
 
@@ -166,11 +166,11 @@
 
     <div class="mob-panel" id="mobMainPanel">
       <a class="mob-main-link" href="index.html">Home</a>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubLaminaat')"><span>Laminaat</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubPvc')"><span>PVC-Böden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubVisgraat')"><span>Fischgrätboden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubLaminaat', this)"><span>Laminaat</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubPvc', this)"><span>PVC-Böden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubVisgraat', this)"><span>Fischgrätboden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <a class="mob-main-link" href="#">Parkett</a>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubZubehor')"><span>Zubehör</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubZubehor', this)"><span>Zubehör</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <a class="mob-main-link" href="#">Inspiratie</a>
       <a class="mob-main-link" href="over-ons.html">Über uns</a>
       <a href="contact.html" class="mobile-cta">Contact</a>
@@ -180,35 +180,43 @@
       <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Laminaat</button>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Sorten</span>
-        <a href="#">Laminat</a>
-        <a href="#">Klick-Laminat</a>
-        <a href="#">XL Laminat</a>
-        <a href="#">XXL Laminat</a>
-        <a href="#">Wasserfestes Laminat</a>
-        <a href="#">Fliesen-Laminat</a>
-        <a href="#">Breites Laminat</a>
-        <a href="#">Fischgrät-Laminat</a>
+        <div class="mob-sub-group-links">
+          <a href="#">Laminat</a>
+          <a href="#">Klick-Laminat</a>
+          <a href="#">XL Laminat</a>
+          <a href="#">XXL Laminat</a>
+          <a href="#">Wasserfestes Laminat</a>
+          <a href="#">Fliesen-Laminat</a>
+          <a href="#">Breites Laminat</a>
+          <a href="#">Fischgrät-Laminat</a>
+        </div>
       </div>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Stile</span>
-        <a href="#">Braunes Laminat</a>
-        <a href="#">Weißes Laminat</a>
-        <a href="#">Graues Laminat</a>
-        <a href="#">Eichen-Laminat</a>
-        <a href="#">Schwarzes Laminat</a>
+        <div class="mob-sub-group-links">
+          <a href="#">Braunes Laminat</a>
+          <a href="#">Weißes Laminat</a>
+          <a href="#">Graues Laminat</a>
+          <a href="#">Eichen-Laminat</a>
+          <a href="#">Schwarzes Laminat</a>
+        </div>
       </div>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Marken</span>
-        <a href="#">Quickstep Laminat</a>
-        <a href="#">Egger Laminat</a>
-        <a href="#">Classen</a>
-        <a href="#">Kronoswiss Laminat</a>
-        <a href="#">Beautifloor Laminat</a>
+        <div class="mob-sub-group-links">
+          <a href="#">Quickstep Laminat</a>
+          <a href="#">Egger Laminat</a>
+          <a href="#">Classen</a>
+          <a href="#">Kronoswiss Laminat</a>
+          <a href="#">Beautifloor Laminat</a>
+        </div>
       </div>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Angebote</span>
-        <a href="#">Laminat Angebote</a>
-        <a href="#">Laminat Restposten</a>
+        <div class="mob-sub-group-links">
+          <a href="#">Laminat Angebote</a>
+          <a href="#">Laminat Restposten</a>
+        </div>
       </div>
       <a href="#" class="mob-sub-cta">Alle laminaat</a>
     </div>
@@ -217,33 +225,41 @@
       <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> PVC-Böden</button>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Sorten</span>
-        <a href="#">PVC-Böden</a>
-        <a href="#">Fischgrät PVC</a>
-        <a href="#">Klick PVC</a>
-        <a href="#">Klebe PVC</a>
-        <a href="#">PVC-Fliesen</a>
-        <a href="#">Fischgrät Klick PVC</a>
+        <div class="mob-sub-group-links">
+          <a href="#">PVC-Böden</a>
+          <a href="#">Fischgrät PVC</a>
+          <a href="#">Klick PVC</a>
+          <a href="#">Klebe PVC</a>
+          <a href="#">PVC-Fliesen</a>
+          <a href="#">Fischgrät Klick PVC</a>
+        </div>
       </div>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Stile</span>
-        <a href="#">Weißer PVC</a>
-        <a href="#">Schwarzer PVC</a>
-        <a href="#">Brauner PVC</a>
-        <a href="#">Beton-Optik PVC</a>
-        <a href="#">Helle Eiche PVC</a>
+        <div class="mob-sub-group-links">
+          <a href="#">Weißer PVC</a>
+          <a href="#">Schwarzer PVC</a>
+          <a href="#">Brauner PVC</a>
+          <a href="#">Beton-Optik PVC</a>
+          <a href="#">Helle Eiche PVC</a>
+        </div>
       </div>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Marken</span>
-        <a href="#">Moduleo PVC</a>
-        <a href="#">mFLOR PVC</a>
-        <a href="#">Quick-Step PVC</a>
-        <a href="#">Vtwonen PVC</a>
-        <a href="#">Belakos PVC</a>
+        <div class="mob-sub-group-links">
+          <a href="#">Moduleo PVC</a>
+          <a href="#">mFLOR PVC</a>
+          <a href="#">Quick-Step PVC</a>
+          <a href="#">Vtwonen PVC</a>
+          <a href="#">Belakos PVC</a>
+        </div>
       </div>
       <div class="mob-sub-group">
         <span class="mob-sub-group-label">Angebote</span>
-        <a href="#">PVC Angebote</a>
-        <a href="#">PVC Restposten</a>
+        <div class="mob-sub-group-links">
+          <a href="#">PVC Angebote</a>
+          <a href="#">PVC Restposten</a>
+        </div>
       </div>
     </div>
 
@@ -270,6 +286,7 @@
     <span class="mob-lang-divider">|</span>
     <button class="mob-lang-btn" id="mobLangEn" onclick="setLang('en'); mobUpdateLang()">EN</button>
   </div>
+  <div id="mobScrollbar" class="mob-scrollbar"><div id="mobScrollbarThumb" class="mob-scrollbar-thumb"></div></div>
   </div>
 
   <div class="mobile-sticky-btn">
@@ -643,11 +660,20 @@
       document.querySelector('.navbar').classList.toggle('nav-open');
       mobGoBack();
     }
-    function mobOpenSub(panelId) {
-      document.getElementById('mobMainPanel').classList.add('mob-hidden');
-      document.getElementById(panelId).classList.add('mob-active');
+    function mobOpenSub(panelId, btn) {
+      var isDesktop = window.innerWidth >= 769;
+      document.querySelectorAll('.mob-panel--sub').forEach(function(p) { p.classList.remove('mob-active'); });
+      var panel = document.getElementById(panelId);
+      panel.classList.add('mob-active');
+      if (isDesktop) {
+        document.querySelectorAll('.mob-main-link').forEach(function(l) { l.classList.remove('mob-link-active'); });
+        if (btn) btn.classList.add('mob-link-active');
+      } else {
+        document.getElementById('mobMainPanel').classList.add('mob-hidden');
+      }
+      setTimeout(function() { mobUpdateScrollbar(panel); }, 20);
     }
-    
+
     function mobUpdateLang() {
       var lang = localStorage.getItem('lang') || 'de';
       var de = document.getElementById('mobLangDe');
@@ -658,7 +684,32 @@
     function mobGoBack() {
       document.querySelectorAll('.mob-panel--sub').forEach(function(p) { p.classList.remove('mob-active'); });
       document.getElementById('mobMainPanel').classList.remove('mob-hidden');
+      mobUpdateScrollbar(document.getElementById('mobMainPanel'));
     }
+
+    var _mobScrollbarPanel = null;
+    function mobUpdateScrollbar(panel) {
+      var thumb = document.getElementById('mobScrollbarThumb');
+      if (!thumb || !panel) return;
+      if (panel.scrollHeight <= panel.clientHeight) {
+        thumb.classList.remove('visible');
+        return;
+      }
+      var ratio = panel.clientHeight / panel.scrollHeight;
+      var thumbH = Math.max(30, ratio * panel.clientHeight);
+      var scrollRatio = panel.scrollTop / (panel.scrollHeight - panel.clientHeight);
+      var thumbTop = scrollRatio * (panel.clientHeight - thumbH);
+      thumb.style.height = thumbH + 'px';
+      thumb.style.top = thumbTop + 'px';
+      thumb.classList.add('visible');
+      _mobScrollbarPanel = panel;
+    }
+    function initMobScrollbar() {
+      document.querySelectorAll('.mob-panel').forEach(function(p) {
+        p.addEventListener('scroll', function() { mobUpdateScrollbar(p); });
+      });
+    }
+    document.addEventListener('DOMContentLoaded', initMobScrollbar);
 
     // Mega dropdown factory
     function initMegaDrop(dropId, megaId) {

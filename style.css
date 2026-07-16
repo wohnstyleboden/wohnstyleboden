@@ -3076,10 +3076,9 @@ body.dark-mode .btn-nav:hover {
   display: none;
   position: fixed;
   top: 82px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: max(0px, calc((100vw - 1400px) / 2));
   width: 100%;
-  max-width: 1400px;
+  max-width: 600px;
   bottom: 0;
   background: white;
   overflow: hidden;
@@ -3088,15 +3087,84 @@ body.dark-mode .btn-nav:hover {
 
 .mobile-menu.open { display: block; }
 
+/* Desktop: two-column layout */
+@media (min-width: 769px) {
+  .mobile-menu {
+    max-width: 1400px;
+    padding-right: 400px;
+    padding-bottom: 48px;
+    box-sizing: border-box;
+  }
+  .mobile-menu.open { display: flex; }
+
+  /* Main panel: always visible on left */
+  #mobMainPanel {
+    position: relative !important;
+    inset: auto !important;
+    width: 420px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  #mobMainPanel.mob-hidden {
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Sub panels: shown to the right */
+  .mob-panel--sub {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+  }
+  .mob-panel--sub.mob-active { display: block; }
+
+  /* Hide back button on desktop */
+  .mob-back-btn { display: none !important; }
+
+  /* Active main link */
+  .mob-main-link.mob-link-active { font-weight: 600; }
+}
+
 /* Panel system */
 .mob-panel {
   position: absolute;
   inset: 0;
   overflow-y: auto;
-  padding: 0 24px 48px;
+  padding: 48px 24px 48px;
   background: #fff;
   transition: transform 0.28s ease;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.mob-panel::-webkit-scrollbar { display: none !important; }
+
+/* Custom 1px scrollbar */
+.mob-scrollbar {
+  position: absolute;
+  right: 400px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: transparent;
+  pointer-events: none;
+  z-index: 20;
+}
+.mob-scrollbar-thumb {
+  position: absolute;
+  right: 0;
+  width: 1px;
+  background: #1a1a1a;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.mob-scrollbar-thumb.visible { opacity: 1; }
 
 .mob-panel--sub {
   transform: translateX(100%);
@@ -3120,23 +3188,18 @@ body.dark-mode .btn-nav:hover {
   width: 100%;
   padding: 16px 0;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
+  font-size: 0.875rem;
+  font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #1a1a1a;
   text-decoration: none;
-  border-bottom: 1px solid #e8e8e8;
+  border: none;
   background: none;
-  border-top: none;
-  border-left: none;
-  border-right: none;
   cursor: pointer;
   text-align: left;
   box-sizing: border-box;
 }
-
-.mob-main-link:last-child { border-bottom: none; }
 
 /* Back button */
 .mob-back-btn {
@@ -3154,31 +3217,36 @@ body.dark-mode .btn-nav:hover {
   text-transform: uppercase;
   color: #1a1a1a;
   width: 100%;
-  border-bottom: 1px solid #e8e8e8;
   margin-bottom: 8px;
 }
 
 /* Sub-panel groups */
 .mob-sub-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 32px;
   padding: 16px 0;
-  border-bottom: 1px solid #e8e8e8;
 }
-
-.mob-sub-group:last-child { border-bottom: none; }
 
 .mob-sub-group-label {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #999;
-  margin-bottom: 10px;
+  color: #1a1a1a;
+  width: 80px;
+  flex-shrink: 0;
+  padding-top: 6px;
 }
 
-.mob-sub-group a {
+.mob-sub-group-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.mob-sub-group a,
+.mob-sub-group-links a {
   font-family: 'Poppins', sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
@@ -3230,18 +3298,17 @@ body.dark-mode .btn-nav:hover {
 
 .mob-sub-cta {
   display: block;
-  margin: 20px 0 8px;
-  padding: 14px 0;
-  text-align: center;
+  margin: 8px 0;
+  padding: 6px 0;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #1a1a1a;
   text-decoration: none;
-  background: #fff;
-  border: 1px solid #1a1a1a;
+  background: none;
+  border: none;
 }
 
 .mobile-lang-row {
@@ -3314,19 +3381,17 @@ body.dark-mode .btn-nav:hover {
 
 .mobile-cta {
   display: block !important;
-  margin-top: 20px;
-  padding: 14px 0 !important;
-  text-align: center;
+  margin: 8px 0;
+  padding: 6px 0 !important;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.7rem !important;
-  font-weight: 400;
-  letter-spacing: 0.12em;
+  font-size: 0.875rem !important;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #1a1a1a !important;
   text-decoration: none;
-  background: #ffffff !important;
-  border: 1px solid #1a1a1a !important;
-  border-radius: 0;
+  background: none !important;
+  border: none !important;
 }
 
 .mobile-nav-group > a {
@@ -3396,24 +3461,20 @@ body.dark-mode .btn-nav:hover {
 
 .mobile-menu .mobile-cta {
   display: block;
-  margin-top: 20px;
-  padding: 14px 0;
-  text-align: center;
+  margin: 8px 0;
+  padding: 6px 0;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #1a1a1a;
   text-decoration: none;
-  background: #fff;
-  border: 1px solid #1a1a1a;
-  border-radius: 0;
+  background: none;
+  border: none;
   height: auto;
   min-height: 0;
 }
-
-.mobile-menu .mobile-cta:hover { background: #f5f5f5; }
 
 /* â”€â”€ STICKY MOBILE CONTACT BTN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .whatsapp-fab {
