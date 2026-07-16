@@ -3005,11 +3005,11 @@ body.dark-mode .btn-nav:hover {
   padding: 4px;
   background: none;
   border: none;
-  order: 2;
+  order: 1;
 }
 
 .nav-logo {
-  order: 1;
+  order: 2;
 }
 
 .hamburger svg {
