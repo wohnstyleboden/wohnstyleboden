@@ -3244,20 +3244,20 @@ body.dark-mode .btn-nav:hover {
 }
 
 .mobile-cta {
-  display: block;
+  display: block !important;
   margin-top: 20px;
-  padding: 14px 0;
+  padding: 14px 0 !important;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.7rem !important;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #1a1a1a !important;
   text-decoration: none;
-  background: #fff;
-  border: 1px solid #1a1a1a;
-  border-bottom: 1px solid #1a1a1a !important;
+  background: #ffffff !important;
+  border: 1px solid #1a1a1a !important;
+  border-radius: 0;
 }
 
 .mobile-nav-group > a {
