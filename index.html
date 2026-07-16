@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=68">
+  <link rel="stylesheet" href="style.css?v=69">
 </head>
 <body>
 
@@ -167,14 +167,14 @@
 
     <div class="mob-panel" id="mobMainPanel">
       <div class="mob-panel-scroll">
-      <a class="mob-main-link" href="index.html">Home</a>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubLaminaat', this)"><span>Laminaat</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubPvc', this)"><span>PVC-Böden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubVisgraat', this)"><span>Fischgrätboden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <a class="mob-main-link" href="#">Parkett</a>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubZubehor', this)"><span>Zubehör</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubInspiratie', this)"><span>Inspiratie</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="mob-main-link" onclick="mobOpenSub('mobSubContact', this)"><span>Contact</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a class="mob-main-link" href="index.html" data-i18n="nav.home">Home</a>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubLaminaat', this)"><span data-i18n="nav.laminaat">Laminaat</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubPvc', this)"><span data-i18n="nav.pvc">PVC-Böden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubVisgraat', this)"><span data-i18n="nav.visgraat">Fischgrätboden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a class="mob-main-link" href="#" data-i18n="nav.parkett">Parkett</a>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubZubehor', this)"><span data-i18n="nav.zubehor">Zubehör</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubInspiratie', this)"><span data-i18n="nav.inspiratie">Inspiratie</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubContact', this)"><span data-i18n="nav.kontakt">Contact</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
       <div class="mob-lang-toggle">
         <button class="mob-lang-btn" id="mobLangDe" onclick="setLang('de'); mobUpdateLang()">DE</button>
@@ -185,90 +185,90 @@
 
     <div class="mob-panel mob-panel--sub" id="mobSubLaminaat">
       <div class="mob-panel-scroll">
-      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Laminaat</button>
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav.back.laminaat"> Laminaat</span></button>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Sorten</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.sorten">Sorten</span>
         <div class="mob-sub-group-links">
-          <a href="#">Laminat</a>
-          <a href="#">Klick-Laminat</a>
-          <a href="#">XL Laminat</a>
-          <a href="#">XXL Laminat</a>
-          <a href="#">Wasserfestes Laminat</a>
-          <a href="#">Fliesen-Laminat</a>
-          <a href="#">Breites Laminat</a>
-          <a href="#">Fischgrät-Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.laminat">Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.klick">Klick-Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.xl">XL Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.xxl">XXL Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.wasserfest">Wasserfestes Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.fliesen">Fliesen-Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.breit">Breites Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.fischgrat">Fischgrät-Laminat</a>
         </div>
       </div>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Stile</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.stile">Stile</span>
         <div class="mob-sub-group-links">
-          <a href="#">Braunes Laminat</a>
-          <a href="#">Weißes Laminat</a>
-          <a href="#">Graues Laminat</a>
-          <a href="#">Eichen-Laminat</a>
-          <a href="#">Schwarzes Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.braun">Braunes Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.weiss">Weißes Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.grau">Graues Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.eiche">Eichen-Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.schwarz">Schwarzes Laminat</a>
         </div>
       </div>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Marken</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.marken">Marken</span>
         <div class="mob-sub-group-links">
-          <a href="#">Quickstep Laminat</a>
-          <a href="#">Egger Laminat</a>
-          <a href="#">Classen</a>
-          <a href="#">Kronoswiss Laminat</a>
-          <a href="#">Beautifloor Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.quickstep">Quickstep Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.egger">Egger Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.classen">Classen</a>
+          <a href="#" data-i18n="nav.laminaat.kronoswiss">Kronoswiss Laminat</a>
+          <a href="#" data-i18n="nav.laminaat.beautifloor">Beautifloor Laminat</a>
         </div>
       </div>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Angebote</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.angebote">Angebote</span>
         <div class="mob-sub-group-links">
-          <a href="#">Laminat Angebote</a>
-          <a href="#">Laminat Restposten</a>
+          <a href="#" data-i18n="nav.laminaat.angebote">Laminat Angebote</a>
+          <a href="#" data-i18n="nav.laminaat.restposten">Laminat Restposten</a>
         </div>
       </div>
-      <a href="#" class="mob-sub-cta">Alle laminaat</a>
+      <a href="#" class="mob-sub-cta" data-i18n="nav.laminaat.alle">Alle laminaat</a>
       </div>
     </div>
 
     <div class="mob-panel mob-panel--sub" id="mobSubPvc">
       <div class="mob-panel-scroll">
-      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> PVC-Böden</button>
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav.back.pvc"> PVC-Böden</span></button>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Sorten</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.sorten">Sorten</span>
         <div class="mob-sub-group-links">
-          <a href="#">PVC-Böden</a>
-          <a href="#">Fischgrät PVC</a>
-          <a href="#">Klick PVC</a>
-          <a href="#">Klebe PVC</a>
-          <a href="#">PVC-Fliesen</a>
-          <a href="#">Fischgrät Klick PVC</a>
+          <a href="#" data-i18n="nav.pvc.pvc">PVC-Böden</a>
+          <a href="#" data-i18n="nav.pvc.fischgrat">Fischgrät PVC</a>
+          <a href="#" data-i18n="nav.pvc.klick">Klick PVC</a>
+          <a href="#" data-i18n="nav.pvc.klebe">Klebe PVC</a>
+          <a href="#" data-i18n="nav.pvc.fliesen">PVC-Fliesen</a>
+          <a href="#" data-i18n="nav.pvc.fischgrat.klick">Fischgrät Klick PVC</a>
         </div>
       </div>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Stile</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.stile">Stile</span>
         <div class="mob-sub-group-links">
-          <a href="#">Weißer PVC</a>
-          <a href="#">Schwarzer PVC</a>
-          <a href="#">Brauner PVC</a>
-          <a href="#">Beton-Optik PVC</a>
-          <a href="#">Helle Eiche PVC</a>
+          <a href="#" data-i18n="nav.pvc.weiss">Weißer PVC</a>
+          <a href="#" data-i18n="nav.pvc.schwarz">Schwarzer PVC</a>
+          <a href="#" data-i18n="nav.pvc.braun">Brauner PVC</a>
+          <a href="#" data-i18n="nav.pvc.beton">Beton-Optik PVC</a>
+          <a href="#" data-i18n="nav.pvc.eiche">Helle Eiche PVC</a>
         </div>
       </div>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Marken</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.marken">Marken</span>
         <div class="mob-sub-group-links">
-          <a href="#">Moduleo PVC</a>
-          <a href="#">mFLOR PVC</a>
-          <a href="#">Quick-Step PVC</a>
-          <a href="#">Vtwonen PVC</a>
-          <a href="#">Belakos PVC</a>
+          <a href="#" data-i18n="nav.pvc.moduleo">Moduleo PVC</a>
+          <a href="#" data-i18n="nav.pvc.mflor">mFLOR PVC</a>
+          <a href="#" data-i18n="nav.pvc.quickstep">Quick-Step PVC</a>
+          <a href="#" data-i18n="nav.pvc.vtwonen">Vtwonen PVC</a>
+          <a href="#" data-i18n="nav.pvc.belakos">Belakos PVC</a>
         </div>
       </div>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Angebote</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.angebote">Angebote</span>
         <div class="mob-sub-group-links">
-          <a href="#">PVC Angebote</a>
-          <a href="#">PVC Restposten</a>
+          <a href="#" data-i18n="nav.pvc.angebote">PVC Angebote</a>
+          <a href="#" data-i18n="nav.pvc.restposten">PVC Restposten</a>
         </div>
       </div>
       </div>
@@ -276,35 +276,35 @@
 
     <div class="mob-panel mob-panel--sub" id="mobSubVisgraat">
       <div class="mob-panel-scroll">
-      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Fischgrätboden</button>
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav.back.visgraat"> Fischgrätboden</span></button>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Sorten</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.sorten">Sorten</span>
         <div class="mob-sub-group-links">
-          <a href="#">Fischgrät Laminat</a>
-          <a href="#">Fischgrät PVC</a>
-          <a href="#">Klick-PVC Fischgrät</a>
-          <a href="#">Klebe-PVC Fischgrät</a>
-          <a href="#">Fischgrät Parkett</a>
-          <a href="#">Fischgrät Angebote</a>
+          <a href="#" data-i18n="nav.visgraat.laminat">Fischgrät Laminat</a>
+          <a href="#" data-i18n="nav.visgraat.pvc">Fischgrät PVC</a>
+          <a href="#" data-i18n="nav.visgraat.klick">Klick-PVC Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.klebe">Klebe-PVC Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.parkett">Fischgrät Parkett</a>
+          <a href="#" data-i18n="nav.visgraat.angebote">Fischgrät Angebote</a>
         </div>
       </div>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Stile</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.stile">Stile</span>
         <div class="mob-sub-group-links">
-          <a href="#">Grauer Fischgrät</a>
-          <a href="#">Eichen Fischgrät</a>
-          <a href="#">Dunkler Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.grau">Grauer Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.eiche">Eichen Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.dunkel">Dunkler Fischgrät</a>
         </div>
       </div>
       <div class="mob-sub-group">
-        <span class="mob-sub-group-label">Marken</span>
+        <span class="mob-sub-group-label" data-i18n="nav.label.marken">Marken</span>
         <div class="mob-sub-group-links">
-          <a href="#">Egger Fischgrät</a>
-          <a href="#">Belakos Fischgrät</a>
-          <a href="#">Floorlife Fischgrät</a>
-          <a href="#">mFLOR Fischgrät</a>
-          <a href="#">Beautifloor Fischgrät</a>
-          <a href="#">Kronotex Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.egger">Egger Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.belakos">Belakos Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.floorlife">Floorlife Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.mflor">mFLOR Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.beautifloor">Beautifloor Fischgrät</a>
+          <a href="#" data-i18n="nav.visgraat.kronotex">Kronotex Fischgrät</a>
         </div>
       </div>
       </div>
@@ -312,13 +312,13 @@
 
     <div class="mob-panel mob-panel--sub" id="mobSubZubehor">
       <div class="mob-panel-scroll">
-      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Zubehör</button>
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav.back.zubehor"> Zubehör</span></button>
       <div class="mob-sub-group">
         <div class="mob-sub-group-links">
-          <a href="#">Unterlagsboden</a>
-          <a href="#">Sockelleisten</a>
-          <a href="#">Treppenrenovierung</a>
-          <a href="#">Wandpaneele</a>
+          <a href="#" data-i18n="nav.zubehor.unterlage">Unterlagsboden</a>
+          <a href="#" data-i18n="nav.zubehor.sockel">Sockelleisten</a>
+          <a href="#" data-i18n="nav.zubehor.treppe">Treppenrenovierung</a>
+          <a href="#" data-i18n="nav.zubehor.wand">Wandpaneele</a>
         </div>
       </div>
       </div>
@@ -326,17 +326,17 @@
 
     <div class="mob-panel mob-panel--sub" id="mobSubInspiratie">
       <div class="mob-panel-scroll">
-      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Inspiratie</button>
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav.back.inspiratie"> Inspiratie</span></button>
       <div class="mob-sub-group">
         <div class="mob-sub-group-links">
-          <a href="#">Küche</a>
-          <a href="#">Flur</a>
-          <a href="#">Keller</a>
-          <a href="#">Wohnzimmer</a>
-          <a href="#">Schlafzimmer</a>
-          <a href="#">Kinderzimmer</a>
-          <a href="#">Gartenhaus</a>
-          <a href="#">Büro</a>
+          <a href="#" data-i18n="nav.insp.kuche">Küche</a>
+          <a href="#" data-i18n="nav.insp.flur">Flur</a>
+          <a href="#" data-i18n="nav.insp.keller">Keller</a>
+          <a href="#" data-i18n="nav.insp.wohnzimmer">Wohnzimmer</a>
+          <a href="#" data-i18n="nav.insp.schlafzimmer">Schlafzimmer</a>
+          <a href="#" data-i18n="nav.insp.kinderzimmer">Kinderzimmer</a>
+          <a href="#" data-i18n="nav.insp.gartenhaus">Gartenhaus</a>
+          <a href="#" data-i18n="nav.insp.buro">Büro</a>
         </div>
       </div>
       </div>
@@ -344,14 +344,14 @@
 
     <div class="mob-panel mob-panel--sub" id="mobSubContact">
       <div class="mob-panel-scroll">
-      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Contact</button>
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav.back.contact"> Contact</span></button>
       <div class="mob-sub-group">
         <div class="mob-sub-group-links">
-          <a href="over-ons.html">Über uns</a>
-          <a href="contact.html">Kontakt</a>
-          <a href="#">Showroom</a>
-          <a href="#">Beratung</a>
-          <a href="#">Stellenangebote</a>
+          <a href="over-ons.html" data-i18n="nav.contact.uber">Über uns</a>
+          <a href="contact.html" data-i18n="nav.contact.kontakt">Kontakt</a>
+          <a href="#" data-i18n="nav.contact.showroom">Showroom</a>
+          <a href="#" data-i18n="nav.contact.beratung">Beratung</a>
+          <a href="#" data-i18n="nav.contact.jobs">Stellenangebote</a>
         </div>
       </div>
       </div>
