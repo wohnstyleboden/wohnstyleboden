@@ -380,6 +380,7 @@ const translations = {
     'subnav.inspiratie': 'Inspiratie',
     'subnav.about': 'Über uns',
     'subnav.contact': 'Kontakt',
+    'lang.choose': 'Kies uw taal',
 
     'gallery.title': 'Unsere aktuellen Projekte',
     'gallery.sub': 'Entdecken Sie unsere abgeschlossenen Projekte — echte Böden in echten Zuhausen.',
@@ -392,6 +393,7 @@ const translations = {
     'sticky.btn': 'Angebot anfragen',
     'mobile.cta': 'Kontakt',
     'nav.contact': 'Kontakt',
+    'nav.mylist': 'meine Liste (0)',
     'footer.services': 'Kollektion',
     'footer.demont': 'Laminat',
     'footer.inkoop': 'Parkett',
@@ -779,6 +781,7 @@ const translations = {
     'subnav.inspiratie': 'Inspiration',
     'subnav.about': 'About Us',
     'subnav.contact': 'Contact',
+    'lang.choose': 'Choose your language',
 
     'gallery.title': 'See recent projects',
     'gallery.sub': 'Discover our completed projects — real floors in real homes.',
@@ -791,6 +794,7 @@ const translations = {
     'sticky.btn': 'Request a quote',
     'mobile.cta': 'Contact',
     'nav.contact': 'Contact',
+    'nav.mylist': 'my list (0)',
     'footer.services': 'Collection',
     'footer.demont': 'Laminate',
     'footer.inkoop': 'Parquet',
