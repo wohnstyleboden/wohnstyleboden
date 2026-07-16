@@ -3081,8 +3081,15 @@ body.dark-mode .btn-nav:hover {
 .hamburger.open svg path:nth-child(3),
 .hamburger.open svg path:nth-child(4) { opacity: 1; }
 
-/* Nav open: remove border only */
+/* Nav open: fix header in place so it stays visible at any scroll position */
 .navbar.nav-open { border-bottom: none; box-shadow: none; }
+body.nav-open .navbar-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+}
 
 .mobile-menu {
   display: none;
