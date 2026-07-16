@@ -377,6 +377,7 @@ const translations = {
     'subnav.visgraat': 'Fischgrätboden',
     'subnav.parket': 'Parkett',
     'subnav.accessoires': 'Zubehör',
+    'subnav.inspiratie': 'Inspiratie',
     'subnav.about': 'Über uns',
     'subnav.contact': 'Kontakt',
 
@@ -775,6 +776,7 @@ const translations = {
     'subnav.visgraat': 'Herringbone flooring',
     'subnav.parket': 'Parquet',
     'subnav.accessoires': 'Accessories',
+    'subnav.inspiratie': 'Inspiration',
     'subnav.about': 'About Us',
     'subnav.contact': 'Contact',
 
