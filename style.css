@@ -414,11 +414,27 @@ h1, h2, h3, h4, h5, h6 {
 .dropdown-menu a:hover { background: var(--gray-50); }
 
 .nav-right { display: flex; align-items: center; gap: 20px; justify-content: flex-end; }
-.nav-right .btn-nav { margin-left: 24px; }
+.nav-right .btn-nav {
+  background: none;
+  color: #1a1a1a;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 24px;
+  transition: none;
+}
+.nav-right .btn-nav:hover { background: none; color: #555; }
 
 .flag { width: 28px; height: 20px; border-radius: 3px; }
 
 /* â”€â”€ LANGUAGE SELECTOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Hide SHOWROOM & LANGUAGE on desktop */
+.nav-right .nav-text-btn { display: none; }
+
 .nav-text-btn {
   background: none;
   border: none;
