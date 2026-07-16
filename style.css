@@ -64,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 /* â”€â”€ NAVBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* ── Subnav ── */
 .subnav {
+  display: none;
   background: #1a1a1a;
   border-bottom: 1px solid #333;
   position: sticky;
@@ -2997,13 +2998,18 @@ body.dark-mode .btn-nav:hover {
 
 /* â”€â”€ HAMBURGER MENU â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hamburger {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   padding: 4px;
   background: none;
   border: none;
+  order: 2;
+}
+
+.nav-logo {
+  order: 1;
 }
 
 .hamburger svg {
@@ -3485,7 +3491,8 @@ body.dark-mode .btn-nav:hover {
     text-transform: uppercase;
     white-space: nowrap;
   }
-  .hamburger { display: flex; align-items: center; }
+  .hamburger { order: 1; }
+  .nav-logo { order: 2; }
   .mob-lang-toggle { display: flex; }
   .mobile-sticky-btn { display: block; opacity: 0; transform: translateY(12px); transition: opacity 0.3s, transform 0.3s; pointer-events: none; }
   .mobile-sticky-btn.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
