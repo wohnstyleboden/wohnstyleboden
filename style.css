@@ -3159,6 +3159,43 @@ body.dark-mode .btn-nav:hover {
   border: none;
 }
 
+/* Language toggle in mobile menu */
+.mob-lang-toggle {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #1a1a1a;
+  padding: 8px 14px;
+  z-index: 10;
+}
+
+.mob-lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  padding: 0;
+}
+
+.mob-lang-btn.active {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.mob-lang-divider {
+  font-size: 0.6rem;
+  color: #ccc;
+}
+
 .mob-sub-cta {
   display: block;
   margin: 20px 0 8px;
@@ -3451,6 +3488,7 @@ body.dark-mode .btn-nav:hover {
     white-space: nowrap;
   }
   .hamburger { display: flex; align-items: center; }
+  .mob-lang-toggle { display: flex; }
   .mobile-sticky-btn { display: block; opacity: 0; transform: translateY(12px); transition: opacity 0.3s, transform 0.3s; pointer-events: none; }
   .mobile-sticky-btn.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 

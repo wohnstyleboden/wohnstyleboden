@@ -346,6 +346,7 @@
 
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
+      mobUpdateLang();
       document.querySelector('.hamburger').classList.toggle('open');
       document.querySelector('.navbar').classList.toggle('nav-open');
       mobGoBack();
@@ -353,6 +354,14 @@
     function mobOpenSub(panelId) {
       document.getElementById('mobMainPanel').classList.add('mob-hidden');
       document.getElementById(panelId).classList.add('mob-active');
+    }
+    
+    function mobUpdateLang() {
+      var lang = localStorage.getItem('lang') || 'de';
+      var de = document.getElementById('mobLangDe');
+      var en = document.getElementById('mobLangEn');
+      if (de) de.classList.toggle('active', lang === 'de');
+      if (en) en.classList.toggle('active', lang === 'en');
     }
     function mobGoBack() {
       document.querySelectorAll('.mob-panel--sub').forEach(function(p) { p.classList.remove('mob-active'); });
