@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=57">
+  <link rel="stylesheet" href="style.css?v=68">
 </head>
 <body>
 
@@ -173,9 +173,13 @@
       <button class="mob-main-link" onclick="mobOpenSub('mobSubVisgraat', this)"><span>Fischgrätboden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <a class="mob-main-link" href="#">Parkett</a>
       <button class="mob-main-link" onclick="mobOpenSub('mobSubZubehor', this)"><span>Zubehör</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <a class="mob-main-link" href="#">Inspiratie</a>
-      <a class="mob-main-link" href="over-ons.html">Über uns</a>
-      <a href="contact.html" class="mobile-cta">Contact</a>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubInspiratie', this)"><span>Inspiratie</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="mob-main-link" onclick="mobOpenSub('mobSubContact', this)"><span>Contact</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="mob-lang-toggle">
+        <button class="mob-lang-btn" id="mobLangDe" onclick="setLang('de'); mobUpdateLang()">DE</button>
+        <span class="mob-lang-divider">|</span>
+        <button class="mob-lang-btn" id="mobLangEn" onclick="setLang('en'); mobUpdateLang()">EN</button>
       </div>
     </div>
 
@@ -274,9 +278,34 @@
       <div class="mob-panel-scroll">
       <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Fischgrätboden</button>
       <div class="mob-sub-group">
-        <a href="#">Fischgrät Laminat</a>
-        <a href="#">Fischgrät PVC</a>
-        <a href="#">Fischgrät Parkett</a>
+        <span class="mob-sub-group-label">Sorten</span>
+        <div class="mob-sub-group-links">
+          <a href="#">Fischgrät Laminat</a>
+          <a href="#">Fischgrät PVC</a>
+          <a href="#">Klick-PVC Fischgrät</a>
+          <a href="#">Klebe-PVC Fischgrät</a>
+          <a href="#">Fischgrät Parkett</a>
+          <a href="#">Fischgrät Angebote</a>
+        </div>
+      </div>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Stile</span>
+        <div class="mob-sub-group-links">
+          <a href="#">Grauer Fischgrät</a>
+          <a href="#">Eichen Fischgrät</a>
+          <a href="#">Dunkler Fischgrät</a>
+        </div>
+      </div>
+      <div class="mob-sub-group">
+        <span class="mob-sub-group-label">Marken</span>
+        <div class="mob-sub-group-links">
+          <a href="#">Egger Fischgrät</a>
+          <a href="#">Belakos Fischgrät</a>
+          <a href="#">Floorlife Fischgrät</a>
+          <a href="#">mFLOR Fischgrät</a>
+          <a href="#">Beautifloor Fischgrät</a>
+          <a href="#">Kronotex Fischgrät</a>
+        </div>
       </div>
       </div>
     </div>
@@ -285,18 +314,49 @@
       <div class="mob-panel-scroll">
       <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Zubehör</button>
       <div class="mob-sub-group">
-        <a href="#">Unterlagsboden</a>
-        <a href="#">Sockelleisten</a>
-        <a href="#">Reinigungsprodukte</a>
+        <div class="mob-sub-group-links">
+          <a href="#">Unterlagsboden</a>
+          <a href="#">Sockelleisten</a>
+          <a href="#">Treppenrenovierung</a>
+          <a href="#">Wandpaneele</a>
+        </div>
       </div>
       </div>
     </div>
 
-  <div class="mob-lang-toggle">
-    <button class="mob-lang-btn" id="mobLangDe" onclick="setLang('de'); mobUpdateLang()">DE</button>
-    <span class="mob-lang-divider">|</span>
-    <button class="mob-lang-btn" id="mobLangEn" onclick="setLang('en'); mobUpdateLang()">EN</button>
-  </div>
+    <div class="mob-panel mob-panel--sub" id="mobSubInspiratie">
+      <div class="mob-panel-scroll">
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Inspiratie</button>
+      <div class="mob-sub-group">
+        <div class="mob-sub-group-links">
+          <a href="#">Küche</a>
+          <a href="#">Flur</a>
+          <a href="#">Keller</a>
+          <a href="#">Wohnzimmer</a>
+          <a href="#">Schlafzimmer</a>
+          <a href="#">Kinderzimmer</a>
+          <a href="#">Gartenhaus</a>
+          <a href="#">Büro</a>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="mob-panel mob-panel--sub" id="mobSubContact">
+      <div class="mob-panel-scroll">
+      <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Contact</button>
+      <div class="mob-sub-group">
+        <div class="mob-sub-group-links">
+          <a href="over-ons.html">Über uns</a>
+          <a href="contact.html">Kontakt</a>
+          <a href="#">Showroom</a>
+          <a href="#">Beratung</a>
+          <a href="#">Stellenangebote</a>
+        </div>
+      </div>
+      </div>
+    </div>
+
   <div id="mobNavImg" class="mob-nav-img"><img id="mobNavImgEl" src="" alt=""></div>
   </div>
 
@@ -687,10 +747,13 @@
       mobGoBack();
     }
     var mobNavImages = {
-      'mobSubLaminaat':  'images/6855 1.png',
-      'mobSubPvc':       'images/2505 1.png',
-      'mobSubVisgraat':  'images/2240 1.png',
-      'mobSubZubehor':   'images/793 1.png'
+      'mobSubLaminaat':   'images/6855 1.png',
+      'mobSubPvc':        'images/2505 1.png',
+      'mobSubVisgraat':   'images/2240 1.png',
+      'mobSubZubehor':    'images/793 1.png',
+      'mobSubParkett':    'images/6855 1.png',
+      'mobSubInspiratie': 'images/2240 1.png',
+      'mobSubContact':    'images/2505 1.png'
     };
     function mobSetNavImage(panelId) {
       var img = document.getElementById('mobNavImgEl');
@@ -728,7 +791,11 @@
       if (en) en.classList.toggle('active', lang === 'en');
     }
     function mobGoBack() {
-      document.querySelectorAll('.mob-panel--sub').forEach(function(p) { p.classList.remove('mob-active'); });
+      document.querySelectorAll('.mob-panel--sub').forEach(function(p) {
+        p.classList.remove('mob-active');
+        var scroller = p.querySelector('.mob-panel-scroll');
+        if (scroller) scroller.scrollTop = 0;
+      });
       document.getElementById('mobMainPanel').classList.remove('mob-hidden');
     }
 
@@ -738,6 +805,11 @@
       var thumb = panel.querySelector('.ns-thumb');
       if (!scroller || !track || !thumb) return;
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!localStorage.getItem('lang')) localStorage.setItem('lang', 'de');
+      mobUpdateLang();
+    });
 
     // Mega dropdown factory
     function initMegaDrop(dropId, megaId) {
