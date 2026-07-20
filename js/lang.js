@@ -1072,6 +1072,8 @@ function setLang(lang) {
     if (translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
   });
 
+  if (typeof window.onLangChange === 'function') window.onLangChange(lang);
+
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
     if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];

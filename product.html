@@ -280,6 +280,10 @@
 
     updateQuoteBar();
     updateNavBtn();
+
+    window.onLangChange = function() {
+      if (window._currentProduct) renderProduct(window._currentProduct);
+    };
   </script>
 </body>
 </html>
