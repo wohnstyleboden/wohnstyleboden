@@ -6,17 +6,14 @@
       "category": "visgraat",
       "brand": "Plaza Collectie",
       "price": 18.95,
-      "price_original": 44.95,
       "thickness": "2.5mm",
       "wear_class": "AC4",
       "color": "Fiji Oak",
       "sku": "DB-FIJI-OAK-PVC",
       "in_stock": true,
-      "floor_heating": true,
-      "warranty": "20 jaar",
-      "desc_de": "DB Fiji Oak Plaza Kollektion Fischgrätboden PVC – geeignet für Fußbodenheizung, 20 Jahre Herstellergarantie.",
-      "desc_en": "DB Fiji Oak Plaza Collection Herringbone PVC – suitable for underfloor heating, 20-year manufacturer warranty.",
-      "image": "images/products/db-fiji-oak-pvc.jpg",
+      "desc_de": "DB Fiji Oak Plaza Kollektion FischgrÃ¤tboden PVC â geeignet fÃ¼r FuÃbodenheizung, 20 Jahre Herstellergarantie.",
+      "desc_en": "DB Fiji Oak Plaza Collection Herringbone PVC â suitable for underfloor heating, 20-year manufacturer warranty.",
+      "image": "images/products/image 1039.png",
       "_added": 1753027200000
     }
   ]
