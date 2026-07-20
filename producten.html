@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="images/favicon-wohnstyle.svg">
+  <title>Producten – WohnStyle Boden</title>
+  <link rel="stylesheet" href="https://use.typekit.net/uag0nqp.css">
+  <link rel="stylesheet" href="https://use.typekit.net/vha7kpr.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=69">
+  <style>
+    /* ---- Page layout ---- */
+    .products-page { padding: 40px 0 80px; }
+    .products-wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+    /* ---- Breadcrumb ---- */
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #888; margin-bottom: 32px; }
+    .breadcrumb a { color: #888; text-decoration: none; }
+    .breadcrumb a:hover { color: #1a1a1a; }
+    .breadcrumb span { color: #1a1a1a; }
+
+    /* ---- Page title row ---- */
+    .products-title-row { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; gap: 16px; flex-wrap: wrap; }
+    .products-title-row h1 { font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; }
+    .products-count { font-size: 0.875rem; color: #888; }
+
+    /* ---- Filter bar ---- */
+    .filter-row { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; align-items: center; }
+    .filter-row select, .filter-row input { padding: 10px 14px; border: 1px solid #ddd; font-family: inherit; font-size: 0.875rem; background: #fff; color: #1a1a1a; appearance: none; -webkit-appearance: none; cursor: pointer; }
+    .filter-row select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+    .filter-row input { flex: 1; min-width: 200px; max-width: 320px; }
+    .filter-row input:focus, .filter-row select:focus { outline: none; border-color: #1a1a1a; }
+
+    /* ---- Category tabs ---- */
+    .cat-tabs { display: flex; gap: 0; border-bottom: 1px solid #e0e0e0; margin-bottom: 32px; overflow-x: auto; }
+    .cat-tab { padding: 12px 20px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border: none; background: none; cursor: pointer; color: #888; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; transition: color 0.15s; }
+    .cat-tab:hover { color: #1a1a1a; }
+    .cat-tab.active { color: #1a1a1a; border-bottom-color: #1a1a1a; }
+
+    /* ---- Grid ---- */
+    .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    @media (max-width: 1100px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+    @media (max-width: 480px) { .products-grid { grid-template-columns: 1fr; } }
+
+    /* ---- Product card ---- */
+    .product-card { cursor: pointer; transition: transform 0.2s; }
+    .product-card:hover { transform: translateY(-2px); }
+    .product-card:hover .card-img { opacity: 0.9; }
+    .card-img-wrap { position: relative; aspect-ratio: 1; overflow: hidden; background: #f5f5f5; margin-bottom: 14px; }
+    .card-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.2s; }
+    .card-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 0.8rem; }
+    .card-badge { position: absolute; top: 10px; left: 10px; background: #1a1a1a; color: #fff; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; padding: 4px 8px; text-transform: uppercase; }
+    .card-badge.sale { background: #c00; }
+    .card-info { padding: 0 2px; }
+    .card-brand { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+    .card-name { font-size: 0.9rem; font-weight: 500; line-height: 1.4; margin-bottom: 10px; color: #1a1a1a; }
+    .card-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px; }
+    .card-price { font-size: 1rem; font-weight: 600; color: #1a1a1a; }
+    .card-price-unit { font-size: 0.75rem; color: #888; }
+    .card-price-original { font-size: 0.8rem; color: #aaa; text-decoration: line-through; }
+    .card-btn { width: 100%; padding: 11px; background: #1a1a1a; color: #fff; border: none; cursor: pointer; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; font-family: inherit; transition: background 0.15s; }
+    .card-btn:hover { background: #333; }
+    .card-btn.added { background: #2e7d32; }
+
+    /* ---- Empty state ---- */
+    .empty { text-align: center; padding: 80px 0; color: #aaa; grid-column: 1 / -1; }
+
+    /* ---- Offertenlijst bar ---- */
+    .quote-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; color: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transform: translateY(100%); transition: transform 0.3s; }
+    .quote-bar.visible { transform: translateY(0); }
+    .quote-bar-left { font-size: 0.9rem; }
+    .quote-bar-left strong { font-weight: 600; }
+    .quote-bar-right { display: flex; gap: 12px; align-items: center; }
+    .quote-bar-btn { padding: 10px 24px; background: #fff; color: #1a1a1a; border: none; cursor: pointer; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-family: inherit; }
+    .quote-bar-clear { background: none; color: #aaa; border: none; cursor: pointer; font-size: 0.8rem; font-family: inherit; }
+    .quote-bar-clear:hover { color: #fff; }
+
+    /* ---- Loading ---- */
+    .loading { text-align: center; padding: 80px 0; color: #aaa; font-size: 0.9rem; grid-column: 1/-1; }
+  </style>
+</head>
+<body>
+
+  <div id="navOverlay" class="nav-overlay"></div>
+  <div class="navbar-wrap"><nav class="navbar">
+    <div class="container navbar-inner">
+    <div class="nav-left">
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M3 15H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M5 5L19 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M19 5L5 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
+    </div>
+    <div class="nav-center">
+      <button class="nav-text-btn nav-search-center" aria-label="Search">ZOEKEN</button>
+    </div>
+    <div class="nav-right">
+      <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
+      <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button>
+      <a href="offerte.html" class="btn-nav" id="navListBtn">mijn lijst (0)</a>
+    </div>
+    </div>
+    </div>
+  </nav></div>
+
+  <div class="products-page">
+    <div class="products-wrap">
+
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="breadcrumbCat">Alle producten</span>
+      </nav>
+
+      <div class="products-title-row">
+        <h1 id="pageTitle">Producten</h1>
+        <span class="products-count" id="productsCount">0 producten</span>
+      </div>
+
+      <div class="cat-tabs" id="catTabs">
+        <button class="cat-tab active" data-cat="all">Alle</button>
+        <button class="cat-tab" data-cat="laminaat">Laminaat</button>
+        <button class="cat-tab" data-cat="pvc">PVC-Böden</button>
+        <button class="cat-tab" data-cat="visgraat">Fischgrätboden</button>
+        <button class="cat-tab" data-cat="parkett">Parkett</button>
+        <button class="cat-tab" data-cat="zubehor">Zubehör</button>
+      </div>
+
+      <div class="filter-row">
+        <input type="text" id="searchInput" placeholder="Zoeken op naam, merk, kleur..." oninput="renderProducts()">
+        <select id="filterSort" onchange="renderProducts()">
+          <option value="name">Naam A-Z</option>
+          <option value="price_asc">Prijs laag-hoog</option>
+          <option value="price_desc">Prijs hoog-laag</option>
+        </select>
+        <select id="filterStock" onchange="renderProducts()">
+          <option value="">Alle</option>
+          <option value="true">Op voorraad</option>
+        </select>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <div class="loading">Producten laden...</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Offertenlijst bar -->
+  <div class="quote-bar" id="quoteBar">
+    <div class="quote-bar-left"><strong id="quoteCount">0</strong> product(en) in je lijst</div>
+    <div class="quote-bar-right">
+      <button class="quote-bar-clear" onclick="clearQuote()">Verwijder alles</button>
+      <button class="quote-bar-btn" onclick="location.href='offerte.html'">Offerte aanvragen →</button>
+    </div>
+  </div>
+
+  <script src="js/lang.js?v=69"></script>
+  <script>
+    let allProducts = [];
+    let currentCat = 'all';
+    const catLabels = { all: 'Alle producten', laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
+
+    // ---- Load products ----
+    fetch('products.json?v=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        allProducts = data.products || [];
+        renderProducts();
+      })
+      .catch(() => {
+        document.getElementById('productsGrid').innerHTML = '<div class="empty">Producten konden niet worden geladen.</div>';
+      });
+
+    // ---- Category tabs ----
+    document.querySelectorAll('.cat-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        currentCat = this.dataset.cat;
+        document.getElementById('pageTitle').textContent = catLabels[currentCat] || currentCat;
+        document.getElementById('breadcrumbCat').textContent = catLabels[currentCat] || currentCat;
+        renderProducts();
+      });
+    });
+
+    // ---- Render ----
+    function renderProducts() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const sort = document.getElementById('filterSort').value;
+      const stock = document.getElementById('filterStock').value;
+
+      let list = allProducts.filter(p => {
+        if (currentCat !== 'all' && p.category !== currentCat) return false;
+        if (stock && String(p.in_stock) !== stock) return false;
+        if (q && !((p.name||'') + (p.brand||'') + (p.color||'')).toLowerCase().includes(q)) return false;
+        return true;
+      });
+
+      list.sort((a, b) => {
+        if (sort === 'price_asc') return (a.price||0) - (b.price||0);
+        if (sort === 'price_desc') return (b.price||0) - (a.price||0);
+        return (a.name||'').localeCompare(b.name||'');
+      });
+
+      document.getElementById('productsCount').textContent = list.length + ' product' + (list.length !== 1 ? 'en' : '');
+
+      const grid = document.getElementById('productsGrid');
+      if (!list.length) {
+        grid.innerHTML = '<div class="empty">Geen producten gevonden.</div>';
+        return;
+      }
+
+      const quote = getQuote();
+      grid.innerHTML = list.map(p => {
+        const inQuote = quote.some(q => q.id === p.id);
+        const hasSale = p.price_original && p.price_original > p.price;
+        return `
+          <div class="product-card" onclick="goToProduct('${p.id}')">
+            <div class="card-img-wrap">
+              ${p.image
+                ? `<img class="card-img" src="${p.image}" alt="${esc(p.name)}" onerror="this.parentElement.innerHTML='<div class=card-img-placeholder>Geen afbeelding</div>'">`
+                : `<div class="card-img-placeholder">Geen afbeelding</div>`}
+              ${hasSale ? `<span class="card-badge sale">-${Math.round((1 - p.price/p.price_original)*100)}%</span>` : ''}
+              ${p.in_stock ? '' : '<span class="card-badge">Uitverkocht</span>'}
+            </div>
+            <div class="card-info">
+              <div class="card-brand">${esc(p.brand||'')}</div>
+              <div class="card-name">${esc(p.name)}</div>
+              <div class="card-price-row">
+                <span class="card-price">€ ${Number(p.price).toFixed(2)}</span>
+                <span class="card-price-unit">/m²</span>
+                ${hasSale ? `<span class="card-price-original">€ ${Number(p.price_original).toFixed(2)}</span>` : ''}
+              </div>
+              <button class="card-btn ${inQuote ? 'added' : ''}" onclick="event.stopPropagation(); toggleQuote('${p.id}')">
+                ${inQuote ? '✓ Toegevoegd aan lijst' : '+ Voeg toe aan lijst'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ---- Quote list (localStorage) ----
+    function getQuote() {
+      try { return JSON.parse(localStorage.getItem('wohnstyle_quote') || '[]'); } catch { return []; }
+    }
+    function saveQuote(q) {
+      localStorage.setItem('wohnstyle_quote', JSON.stringify(q));
+      updateQuoteBar();
+      updateNavBtn();
+    }
+    function toggleQuote(id) {
+      const p = allProducts.find(x => x.id === id);
+      if (!p) return;
+      let q = getQuote();
+      const idx = q.findIndex(x => x.id === id);
+      if (idx > -1) { q.splice(idx, 1); } else { q.push({ id: p.id, name: p.name, price: p.price, image: p.image, category: p.category }); }
+      saveQuote(q);
+      renderProducts();
+    }
+    function clearQuote() {
+      saveQuote([]);
+      renderProducts();
+    }
+    function updateQuoteBar() {
+      const q = getQuote();
+      const bar = document.getElementById('quoteBar');
+      document.getElementById('quoteCount').textContent = q.length;
+      bar.classList.toggle('visible', q.length > 0);
+    }
+    function updateNavBtn() {
+      const btn = document.getElementById('navListBtn');
+      if (btn) btn.textContent = 'mijn lijst (' + getQuote().length + ')';
+    }
+    function goToProduct(id) {
+      location.href = 'product.html?id=' + id;
+    }
+
+    function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    updateQuoteBar();
+    updateNavBtn();
+  </script>
+</body>
+</html>
