@@ -33,7 +33,7 @@
     </div>
     <div class="nav-right">
       <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
-      <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button><a href="#" class="btn-nav" data-i18n="nav.mylist">mijn lijst (0)</a>
+      <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button><a href="offerte.html" class="btn-nav" id="navListBtn">mijn lijst (0)</a>
 
     </div>
     </div>
@@ -382,7 +382,7 @@
         <p class="svc-desc" data-i18n="hero.sub">Entdecken Sie unsere exklusive Kollektion – langlebig, schön und für jeden Wohnraum.</p>
         <div class="hero-actions">
           <a href="contact.html" class="btn-primary btn-hero" data-i18n="hero.btn">Angebot anfragen</a>
-          <a href="#diensten" class="btn-ghost-dark btn-hero" data-i18n="hero.secondary">Kollektion ansehen</a>
+          <a href="producten.html" class="btn-ghost-dark btn-hero" data-i18n="hero.secondary">Kollektion ansehen</a>
         </div>
       </div>
       <div class="hero-img-side">
@@ -809,6 +809,10 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (!localStorage.getItem('lang')) localStorage.setItem('lang', 'de');
       mobUpdateLang();
+      var q = [];
+      try { q = JSON.parse(localStorage.getItem('wohnstyle_quote') || '[]'); } catch(e) {}
+      var btn = document.getElementById('navListBtn');
+      if (btn) btn.textContent = 'mijn lijst (' + q.length + ')';
     });
 
     // Mega dropdown factory
