@@ -509,7 +509,7 @@ async function saveProduct() {
 
 async function uploadImageToGitHub(file) {
   const ext = file.name.split('.').pop();
-  const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '-');
+  const safeName = file.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9.\-_]/g, '-');
   const filePath = 'images/products/' + safeName;
 
   // Lees bestand als base64
