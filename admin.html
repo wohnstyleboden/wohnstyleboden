@@ -458,11 +458,25 @@ function clearForm() {
   document.getElementById('imgPreview').innerHTML = '<span>Klik om afbeelding te uploaden</span>';
 }
 
-function saveProduct() {
+async function saveProduct() {
   const name = document.getElementById('fName').value.trim();
   if (!name) { showToast('Productnaam is verplicht.', true); return; }
   const price = document.getElementById('fPrice').value;
   if (!price) { showToast('Prijs is verplicht.', true); return; }
+
+  let imagePath = document.getElementById('fImgUrl').value.trim();
+
+  // Upload afbeelding naar GitHub als er een bestand geselecteerd is
+  const imgFile = document.getElementById('imgFile').files[0];
+  if (imgFile) {
+    showToast('Afbeelding uploaden...');
+    try {
+      imagePath = await uploadImageToGitHub(imgFile);
+    } catch(e) {
+      showToast('Afbeelding upload mislukt: ' + e.message, true);
+      return;
+    }
+  }
 
   const p = {
     id: editingId || 'p-' + Date.now(),
@@ -477,7 +491,7 @@ function saveProduct() {
     in_stock: document.getElementById('fInStock').value === 'true',
     desc_de: document.getElementById('fDescDe').value.trim(),
     desc_en: document.getElementById('fDescEn').value.trim(),
-    image: document.getElementById('fImgUrl').value.trim(),
+    image: imagePath,
     _added: editingId ? (products.find(x=>x.id===editingId)||{})._added || Date.now() : Date.now()
   };
 
@@ -491,6 +505,45 @@ function saveProduct() {
   renderTable();
   closeModal();
   showToast(editingId ? 'Product bijgewerkt.' : 'Product toegevoegd.');
+}
+
+async function uploadImageToGitHub(file) {
+  const ext = file.name.split('.').pop();
+  const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '-');
+  const filePath = 'images/products/' + safeName;
+
+  // Lees bestand als base64
+  const base64 = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => resolve(e.target.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+
+  // Check of bestand al bestaat (voor sha)
+  let sha = null;
+  try {
+    const check = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}?ref=${BRANCH}`, {
+      headers: { Authorization: 'token ' + getToken() }
+    });
+    if (check.ok) { const d = await check.json(); sha = d.sha; }
+  } catch(e) {}
+
+  const body = {
+    message: 'Upload product afbeelding: ' + safeName,
+    content: base64,
+    branch: BRANCH
+  };
+  if (sha) body.sha = sha;
+
+  const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${filePath}`, {
+    method: 'PUT',
+    headers: { Authorization: 'token ' + getToken(), 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return filePath;
 }
 
 function deleteProduct(id) {
