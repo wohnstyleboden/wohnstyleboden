@@ -70,8 +70,8 @@
     .empty { text-align: center; padding: 80px 0; color: #aaa; grid-column: 1 / -1; }
 
     /* ---- Offertenlijst bar ---- */
-    .quote-bar { position: fixed; bottom: 4px; left: 50%; transform: translateX(-50%) translateY(100%); width: 100%; max-width: 1400px; background: #1a1a1a; color: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transition: transform 0.3s; }
-    .quote-bar.visible { transform: translateY(0); }
+    .quote-bar { position: fixed; bottom: 4px; left: 50%; transform: translateX(-50%) translateY(calc(100% + 8px)); width: calc(100% - 32px); max-width: 1400px; background: #1a1a1a; color: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transition: transform 0.35s cubic-bezier(.4,0,.2,1); }
+    .quote-bar.visible { transform: translateX(-50%) translateY(0); }
     .quote-bar-left { font-size: 0.9rem; }
     .quote-bar-left strong { font-weight: 600; }
     .quote-bar-right { display: flex; gap: 12px; align-items: center; }
@@ -253,9 +253,9 @@
     function getQuote() {
       try { return JSON.parse(localStorage.getItem('wohnstyle_quote') || '[]'); } catch { return []; }
     }
-    function saveQuote(q) {
+    function saveQuote(q, autoHide) {
       localStorage.setItem('wohnstyle_quote', JSON.stringify(q));
-      updateQuoteBar();
+      updateQuoteBar(autoHide);
       updateNavBtn();
     }
     function toggleQuote(id) {
@@ -264,18 +264,25 @@
       let q = getQuote();
       const idx = q.findIndex(x => x.id === id);
       if (idx > -1) { q.splice(idx, 1); } else { q.push({ id: p.id, name: p.name, price: p.price, image: p.image, category: p.category }); }
-      saveQuote(q);
+      saveQuote(q, true);
       renderProducts();
     }
     function clearQuote() {
       saveQuote([]);
       renderProducts();
     }
-    function updateQuoteBar() {
+    let quoteBarTimer = null;
+    function updateQuoteBar(autoHide) {
       const q = getQuote();
       const bar = document.getElementById('quoteBar');
       document.getElementById('quoteCount').textContent = q.length;
-      bar.classList.toggle('visible', q.length > 0);
+      if (q.length > 0 && autoHide) {
+        bar.classList.add('visible');
+        clearTimeout(quoteBarTimer);
+        quoteBarTimer = setTimeout(() => bar.classList.remove('visible'), 3000);
+      } else if (q.length === 0) {
+        bar.classList.remove('visible');
+      }
     }
     function updateNavBtn() {
       const btn = document.getElementById('navListBtn');
