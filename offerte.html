@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="style.css?v=69">
   <style>
     .offerte-page { padding: 40px 0 100px; }
-    .offerte-wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .offerte-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
     .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #888; margin-bottom: 40px; }
     .breadcrumb a { color: #888; text-decoration: none; }
@@ -249,8 +249,7 @@
               <input type="number" min="0" step="0.5" value="${m2Values[p.id] !== undefined ? m2Values[p.id] : 10}" placeholder="10"
                 oninput="onM2Change('${p.id}', this.value)" aria-label="Aantal m²">
               <label>m²</label>
-              <div style="margin-left:auto"></div>
-              <div class="quote-item-subtotal" id="sub-${p.id}">–</div>
+              <div class="quote-item-subtotal" id="sub-${p.id}" style="margin-left:auto">–</div>
             </div>
           </div>
         </div>
