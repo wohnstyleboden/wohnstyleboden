@@ -1,6 +1,22 @@
 {
   "products": [
     {
+      "id": "p-1784574304074",
+      "name": "Heerenveen EL291F Egger Hongaarse punt laminaat",
+      "category": "laminaat",
+      "brand": "Egger",
+      "price": 11.95,
+      "thickness": "8",
+      "wear_class": "AC4",
+      "color": "Naturel",
+      "sku": "LM-728",
+      "in_stock": true,
+      "desc_de": "",
+      "desc_en": "",
+      "image": "images/products/image-1040.png",
+      "_added": 1784574304074
+    },
+    {
       "id": "p-1753027200000",
       "name": "DB Fiji Oak Plaza Collectie Visgraat PVC",
       "category": "visgraat",
@@ -11,8 +27,8 @@
       "color": "Fiji Oak",
       "sku": "DB-FIJI-OAK-PVC",
       "in_stock": true,
-      "desc_de": "DB Fiji Oak Plaza Kollektion Fischgrätboden PVC – geeignet für Fußbodenheizung, 20 Jahre Herstellergarantie.",
-      "desc_en": "DB Fiji Oak Plaza Collection Herringbone PVC – suitable for underfloor heating, 20-year manufacturer warranty.",
+      "desc_de": "DB Fiji Oak Plaza Kollektion FischgrÃ¤tboden PVC â geeignet fÃ¼r FuÃbodenheizung, 20 Jahre Herstellergarantie.",
+      "desc_en": "DB Fiji Oak Plaza Collection Herringbone PVC â suitable for underfloor heating, 20-year manufacturer warranty.",
       "image": "images/products/db-fiji-oak-plaza-visgraat-pvc.png",
       "_added": 1753027200000
     }
