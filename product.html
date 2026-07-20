@@ -246,7 +246,7 @@
       let q = getQuote();
       const idx = q.findIndex(x => x.id === p.id);
       if (idx > -1) { q.splice(idx, 1); } else { q.push({ id: p.id, name: p.name, price: p.price, image: p.image, category: p.category }); }
-      saveQuote(q);
+      saveQuote(q, true);
       const inQuote = q.some(x => x.id === p.id);
       const btn = document.getElementById('addBtn');
       if (btn) {
@@ -256,12 +256,20 @@
     }
 
     function getQuote() { try { return JSON.parse(localStorage.getItem('wohnstyle_quote') || '[]'); } catch { return []; } }
-    function saveQuote(q) { localStorage.setItem('wohnstyle_quote', JSON.stringify(q)); updateQuoteBar(); updateNavBtn(); }
+    function saveQuote(q, autoHide) { localStorage.setItem('wohnstyle_quote', JSON.stringify(q)); updateQuoteBar(autoHide); updateNavBtn(); }
     function clearQuote() { saveQuote([]); }
-    function updateQuoteBar() {
+    let quoteBarTimer = null;
+    function updateQuoteBar(autoHide) {
       const q = getQuote();
+      const bar = document.getElementById('quoteBar');
       document.getElementById('quoteCount').textContent = q.length;
-      document.getElementById('quoteBar').classList.toggle('visible', q.length > 0);
+      if (q.length > 0 && autoHide) {
+        bar.classList.add('visible');
+        clearTimeout(quoteBarTimer);
+        quoteBarTimer = setTimeout(() => bar.classList.remove('visible'), 3500);
+      } else if (q.length === 0) {
+        bar.classList.remove('visible');
+      }
     }
     function updateNavBtn() {
       const btn = document.getElementById('navListBtn');
