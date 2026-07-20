@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="images/favicon-wohnstyle.svg">
+  <title>Product – WohnStyle Boden</title>
+  <link rel="stylesheet" href="https://use.typekit.net/uag0nqp.css">
+  <link rel="stylesheet" href="https://use.typekit.net/vha7kpr.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=69">
+  <style>
+    .product-page { padding: 40px 0 100px; }
+    .product-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #888; margin-bottom: 40px; flex-wrap: wrap; }
+    .breadcrumb a { color: #888; text-decoration: none; }
+    .breadcrumb a:hover { color: #1a1a1a; }
+    .breadcrumb span { color: #1a1a1a; }
+
+    .product-layout { display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: start; }
+    @media (max-width: 900px) { .product-layout { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* Images */
+    .product-images {}
+    .img-main { width: 100%; aspect-ratio: 1; background: #f5f5f5; overflow: hidden; margin-bottom: 12px; }
+    .img-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .img-main-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 0.9rem; }
+    .img-thumbs { display: flex; gap: 10px; }
+    .img-thumb { width: 80px; height: 80px; background: #f5f5f5; overflow: hidden; cursor: pointer; border: 2px solid transparent; flex-shrink: 0; }
+    .img-thumb.active { border-color: #1a1a1a; }
+    .img-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Info */
+    .product-info {}
+    .product-brand { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+    .product-name { font-size: 1.75rem; font-weight: 600; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.02em; }
+    .product-sku { font-size: 0.75rem; color: #aaa; margin-bottom: 24px; }
+
+    .price-block { padding: 20px; background: #f9f9f9; margin-bottom: 28px; }
+    .price-main { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+    .price-value { font-size: 2rem; font-weight: 700; color: #1a1a1a; }
+    .price-unit { font-size: 0.875rem; color: #888; }
+    .price-original { font-size: 0.9rem; color: #aaa; text-decoration: line-through; }
+    .price-saving { font-size: 0.8rem; color: #c00; font-weight: 600; }
+
+    .specs-list { margin-bottom: 28px; }
+    .specs-list table { width: 100%; border-collapse: collapse; }
+    .specs-list td { padding: 10px 0; font-size: 0.875rem; border-bottom: 1px solid #f0f0f0; }
+    .specs-list td:first-child { color: #888; width: 50%; }
+    .specs-list td:last-child { font-weight: 500; color: #1a1a1a; }
+
+    .product-actions { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .btn-add-quote { width: 100%; padding: 16px; background: #1a1a1a; color: #fff; border: none; cursor: pointer; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-family: inherit; transition: background 0.15s; }
+    .btn-add-quote:hover { background: #333; }
+    .btn-add-quote.added { background: #2e7d32; }
+    .btn-quote-now { width: 100%; padding: 14px; background: #fff; color: #1a1a1a; border: 1.5px solid #1a1a1a; cursor: pointer; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; font-family: inherit; transition: all 0.15s; }
+    .btn-quote-now:hover { background: #1a1a1a; color: #fff; }
+
+    .product-desc { font-size: 0.9rem; line-height: 1.7; color: #555; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+    .product-desc h4 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 10px; }
+
+    .badge-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .spec-badge { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: #555; background: #f5f5f5; padding: 6px 12px; }
+    .spec-badge svg { flex-shrink: 0; }
+
+    /* Quote bar */
+    .quote-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; color: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transform: translateY(100%); transition: transform 0.3s; }
+    .quote-bar.visible { transform: translateY(0); }
+    .quote-bar-left { font-size: 0.9rem; }
+    .quote-bar-left strong { font-weight: 600; }
+    .quote-bar-right { display: flex; gap: 12px; align-items: center; }
+    .quote-bar-btn { padding: 10px 24px; background: #fff; color: #1a1a1a; border: none; cursor: pointer; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-family: inherit; }
+    .quote-bar-clear { background: none; color: #aaa; border: none; cursor: pointer; font-size: 0.8rem; font-family: inherit; }
+    .quote-bar-clear:hover { color: #fff; }
+
+    .loading { text-align: center; padding: 100px 0; color: #aaa; }
+    .not-found { text-align: center; padding: 100px 0; }
+    .not-found h2 { font-size: 1.5rem; margin-bottom: 12px; }
+    .not-found a { color: #1a1a1a; }
+  </style>
+</head>
+<body>
+
+  <div id="navOverlay" class="nav-overlay"></div>
+  <div class="navbar-wrap"><nav class="navbar">
+    <div class="container navbar-inner">
+    <div class="nav-left">
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M3 9H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M3 15H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M5 5L19 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M19 5L5 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
+    </div>
+    <div class="nav-center">
+      <button class="nav-text-btn nav-search-center" aria-label="Search">ZOEKEN</button>
+    </div>
+    <div class="nav-right">
+      <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
+      <button class="nav-text-btn" onclick="openLangPopup()">LANGUAGE</button>
+      <a href="offerte.html" class="btn-nav" id="navListBtn">mijn lijst (0)</a>
+    </div>
+    </div>
+  </nav></div>
+
+  <div class="product-page" id="productPage">
+    <div class="product-wrap">
+      <div class="loading" id="loadingState">Laden...</div>
+    </div>
+  </div>
+
+  <div class="quote-bar" id="quoteBar">
+    <div class="quote-bar-left"><strong id="quoteCount">0</strong> product(en) in je lijst</div>
+    <div class="quote-bar-right">
+      <button class="quote-bar-clear" onclick="clearQuote()">Verwijder alles</button>
+      <button class="quote-bar-btn" onclick="location.href='offerte.html'">Offerte aanvragen →</button>
+    </div>
+  </div>
+
+  <script src="js/lang.js?v=69"></script>
+  <script>
+    const catLabels = { laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
+    const params = new URLSearchParams(location.search);
+    const productId = params.get('id');
+
+    fetch('products.json?v=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        const p = (data.products || []).find(x => x.id === productId);
+        if (!p) { showNotFound(); return; }
+        document.title = p.name + ' – WohnStyle Boden';
+        renderProduct(p);
+      })
+      .catch(showNotFound);
+
+    function renderProduct(p) {
+      const hasSale = p.price_original && p.price_original > p.price;
+      const savings = hasSale ? Math.round((1 - p.price / p.price_original) * 100) : 0;
+      const lang = localStorage.getItem('lang') || 'de';
+      const desc = lang === 'en' ? p.desc_en : p.desc_de;
+      const inQuote = getQuote().some(q => q.id === p.id);
+
+      const specs = [
+        ['Merk', p.brand],
+        ['Categorie', catLabels[p.category] || p.category],
+        ['Dikte', p.thickness],
+        ['Slijtklasse', p.wear_class],
+        ['Kleur', p.color],
+        ['Vloerverwarming', p.floor_heating ? 'Geschikt' : null],
+        ['Garantie', p.warranty],
+        ['Artikelnummer', p.sku],
+      ].filter(([, v]) => v);
+
+      document.getElementById('productPage').innerHTML = `
+        <div class="product-wrap">
+          <nav class="breadcrumb">
+            <a href="index.html">Home</a>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a href="producten.html?cat=${p.category}">${catLabels[p.category] || p.category}</a>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>${esc(p.name)}</span>
+          </nav>
+
+          <div class="product-layout">
+            <div class="product-images">
+              <div class="img-main" id="mainImg">
+                ${p.image
+                  ? `<img src="${p.image}" alt="${esc(p.name)}" onerror="this.parentElement.innerHTML='<div class=img-main-placeholder>Geen afbeelding</div>'">`
+                  : `<div class="img-main-placeholder">Geen afbeelding</div>`}
+              </div>
+              ${p.image ? `<div class="img-thumbs"><div class="img-thumb active"><img src="${p.image}" alt=""></div></div>` : ''}
+            </div>
+
+            <div class="product-info">
+              ${p.brand ? `<div class="product-brand">${esc(p.brand)}</div>` : ''}
+              <h1 class="product-name">${esc(p.name)}</h1>
+              ${p.sku ? `<div class="product-sku">Art. ${esc(p.sku)}</div>` : ''}
+
+              <div class="price-block">
+                <div class="price-main">
+                  <span class="price-value">€ ${Number(p.price).toFixed(2)}</span>
+                  <span class="price-unit">/m² incl. BTW</span>
+                </div>
+                ${hasSale ? `
+                  <div style="display:flex;gap:12px;align-items:center;margin-top:4px">
+                    <span class="price-original">€ ${Number(p.price_original).toFixed(2)}</span>
+                    <span class="price-saving">U bespaart ${savings}%</span>
+                  </div>` : ''}
+              </div>
+
+              <div class="badge-row">
+                ${p.in_stock
+                  ? `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Op voorraad</div>`
+                  : `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M6 6l12 12" stroke="#c00" stroke-width="2" stroke-linecap="round"/></svg>Niet op voorraad</div>`}
+                ${p.floor_heating ? `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 6 5 10c0 5 7 12 7 12s7-7 7-12c0-4-3-8-7-8z" stroke="#555" stroke-width="1.6"/></svg>Vloerverwarming geschikt</div>` : ''}
+                ${p.warranty ? `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" stroke="#555" stroke-width="1.6"/></svg>${esc(p.warranty)} garantie</div>` : ''}
+              </div>
+
+              <div class="product-actions">
+                <button class="btn-add-quote ${inQuote ? 'added' : ''}" id="addBtn" onclick="toggleQuote()">
+                  ${inQuote ? '✓ Toegevoegd aan lijst' : '+ Voeg toe aan lijst'}
+                </button>
+                <button class="btn-quote-now" onclick="toggleQuote(); location.href='offerte.html'">
+                  Direct offerte aanvragen
+                </button>
+              </div>
+
+              <div class="specs-list">
+                <table>
+                  ${specs.map(([k, v]) => `<tr><td>${k}</td><td>${esc(v)}</td></tr>`).join('')}
+                </table>
+              </div>
+
+              ${desc ? `<div class="product-desc"><h4>Omschrijving</h4><p>${esc(desc)}</p></div>` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+
+      updateQuoteBar();
+      updateNavBtn();
+
+      // Store product ref for toggleQuote
+      window._currentProduct = p;
+    }
+
+    function showNotFound() {
+      document.getElementById('productPage').innerHTML = `
+        <div class="product-wrap">
+          <div class="not-found">
+            <h2>Product niet gevonden</h2>
+            <p><a href="producten.html">← Terug naar alle producten</a></p>
+          </div>
+        </div>`;
+    }
+
+    function toggleQuote() {
+      const p = window._currentProduct;
+      if (!p) return;
+      let q = getQuote();
+      const idx = q.findIndex(x => x.id === p.id);
+      if (idx > -1) { q.splice(idx, 1); } else { q.push({ id: p.id, name: p.name, price: p.price, image: p.image, category: p.category }); }
+      saveQuote(q);
+      const inQuote = q.some(x => x.id === p.id);
+      const btn = document.getElementById('addBtn');
+      if (btn) {
+        btn.textContent = inQuote ? '✓ Toegevoegd aan lijst' : '+ Voeg toe aan lijst';
+        btn.className = 'btn-add-quote' + (inQuote ? ' added' : '');
+      }
+    }
+
+    function getQuote() { try { return JSON.parse(localStorage.getItem('wohnstyle_quote') || '[]'); } catch { return []; } }
+    function saveQuote(q) { localStorage.setItem('wohnstyle_quote', JSON.stringify(q)); updateQuoteBar(); updateNavBtn(); }
+    function clearQuote() { saveQuote([]); }
+    function updateQuoteBar() {
+      const q = getQuote();
+      document.getElementById('quoteCount').textContent = q.length;
+      document.getElementById('quoteBar').classList.toggle('visible', q.length > 0);
+    }
+    function updateNavBtn() {
+      const btn = document.getElementById('navListBtn');
+      if (btn) btn.textContent = 'mijn lijst (' + getQuote().length + ')';
+    }
+    function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    updateQuoteBar();
+    updateNavBtn();
+  </script>
+</body>
+</html>

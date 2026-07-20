@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="images/favicon-wohnstyle.svg">
+  <title>Offerte aanvragen – WohnStyle Boden</title>
+  <link rel="stylesheet" href="https://use.typekit.net/uag0nqp.css">
+  <link rel="stylesheet" href="https://use.typekit.net/vha7kpr.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=69">
+  <style>
+    .offerte-page { padding: 40px 0 100px; }
+    .offerte-wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #888; margin-bottom: 40px; }
+    .breadcrumb a { color: #888; text-decoration: none; }
+    .breadcrumb a:hover { color: #1a1a1a; }
+    .breadcrumb span { color: #1a1a1a; }
+
+    h1 { font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .page-sub { color: #888; font-size: 0.9rem; margin-bottom: 48px; }
+
+    .offerte-layout { display: grid; grid-template-columns: 1fr 400px; gap: 48px; align-items: start; }
+    @media (max-width: 900px) { .offerte-layout { grid-template-columns: 1fr; } }
+
+    /* Product list */
+    .section-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 16px; }
+
+    .quote-item { display: grid; grid-template-columns: 72px 1fr auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid #f0f0f0; }
+    .quote-item-img { width: 72px; height: 72px; background: #f5f5f5; overflow: hidden; flex-shrink: 0; }
+    .quote-item-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .quote-item-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 0.65rem; }
+    .quote-item-info { min-width: 0; }
+    .quote-item-name { font-size: 0.9rem; font-weight: 500; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .quote-item-price { font-size: 0.8rem; color: #888; margin-bottom: 8px; }
+    .quote-item-m2 { display: flex; align-items: center; gap: 8px; }
+    .quote-item-m2 input { width: 80px; padding: 6px 10px; border: 1px solid #ddd; font-size: 0.875rem; font-family: inherit; text-align: center; }
+    .quote-item-m2 input:focus { outline: none; border-color: #1a1a1a; }
+    .quote-item-m2 label { font-size: 0.8rem; color: #888; }
+    .quote-item-subtotal { font-size: 0.875rem; font-weight: 600; text-align: right; white-space: nowrap; }
+    .btn-remove { background: none; border: none; cursor: pointer; color: #ccc; font-size: 1.1rem; padding: 4px; display: block; margin-top: 4px; margin-left: auto; }
+    .btn-remove:hover { color: #c00; }
+
+    .quote-total { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-top: 2px solid #1a1a1a; margin-top: 8px; }
+    .quote-total-label { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .quote-total-value { font-size: 1.25rem; font-weight: 700; }
+    .quote-total-note { font-size: 0.75rem; color: #888; margin-top: 4px; text-align: right; }
+
+    .empty-quote { text-align: center; padding: 60px 0; color: #aaa; }
+    .empty-quote p { margin-bottom: 16px; }
+    .empty-quote a { color: #1a1a1a; font-weight: 500; }
+
+    /* Form */
+    .form-card { background: #f9f9f9; padding: 32px; }
+    .form-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 24px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #666; margin-bottom: 6px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px 14px; border: 1px solid #ddd; font-family: inherit; font-size: 0.875rem; background: #fff; color: #1a1a1a; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #1a1a1a; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-note { font-size: 0.75rem; color: #aaa; margin-top: 6px; }
+    .btn-submit { width: 100%; padding: 16px; background: #1a1a1a; color: #fff; border: none; cursor: pointer; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-family: inherit; margin-top: 8px; transition: background 0.15s; }
+    .btn-submit:hover { background: #333; }
+    .btn-submit:disabled { background: #aaa; cursor: default; }
+
+    /* Success state */
+    .success-state { text-align: center; padding: 60px 20px; }
+    .success-state svg { margin-bottom: 20px; }
+    .success-state h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 12px; }
+    .success-state p { color: #666; margin-bottom: 24px; font-size: 0.9rem; }
+    .success-state a { display: inline-block; padding: 12px 28px; background: #1a1a1a; color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em; }
+  </style>
+</head>
+<body>
+
+  <div id="navOverlay" class="nav-overlay"></div>
+  <div class="navbar-wrap"><nav class="navbar">
+    <div class="container navbar-inner">
+    <div class="nav-left">
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M3 9H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M3 15H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M5 5L19 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M19 5L5 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
+    </div>
+    <div class="nav-center">
+      <button class="nav-text-btn nav-search-center" aria-label="Search">ZOEKEN</button>
+    </div>
+    <div class="nav-right">
+      <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
+      <button class="nav-text-btn" onclick="openLangPopup()">LANGUAGE</button>
+      <a href="offerte.html" class="btn-nav" id="navListBtn">mijn lijst (0)</a>
+    </div>
+    </div>
+  </nav></div>
+
+  <div class="offerte-page">
+    <div class="offerte-wrap">
+
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Offerte aanvragen</span>
+      </nav>
+
+      <h1>Offerte aanvragen</h1>
+      <p class="page-sub">Voeg m² toe per product en vul je gegevens in. Wij sturen binnen 24 uur een offerte op maat.</p>
+
+      <div id="mainContent">
+        <div class="offerte-layout">
+          <!-- Left: product list -->
+          <div>
+            <div class="section-title">Mijn productenlijst</div>
+            <div id="quoteList"></div>
+            <div class="empty-quote" id="emptyState" style="display:none">
+              <p>Je lijst is leeg.</p>
+              <a href="producten.html">← Bekijk onze producten</a>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="form-card" id="formCard">
+            <h3>Jouw gegevens</h3>
+            <form id="offerteForm" onsubmit="submitForm(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Voornaam *</label>
+                  <input type="text" id="fFirstName" required placeholder="Jan">
+                </div>
+                <div class="form-group">
+                  <label>Achternaam *</label>
+                  <input type="text" id="fLastName" required placeholder="de Vries">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>E-mailadres *</label>
+                <input type="email" id="fEmail" required placeholder="jan@email.com">
+              </div>
+              <div class="form-group">
+                <label>Telefoonnummer</label>
+                <input type="tel" id="fPhone" placeholder="+49 123 456789">
+              </div>
+              <div class="form-group">
+                <label>Postcode & Stad</label>
+                <input type="text" id="fCity" placeholder="31655 Stadthagen">
+              </div>
+              <div class="form-group">
+                <label>Opmerkingen</label>
+                <textarea id="fNotes" placeholder="Bijv. legservice nodig, specifieke kleurwens, etc."></textarea>
+              </div>
+              <p class="form-note">* Verplichte velden. Uw gegevens worden niet gedeeld met derden.</p>
+              <button type="submit" class="btn-submit" id="submitBtn">Offerte aanvragen</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="successState" class="success-state" style="display:none">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+          <circle cx="28" cy="28" r="28" fill="#e8f5e9"/>
+          <path d="M16 28l8 8 16-16" stroke="#2e7d32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h2>Aanvraag verzonden!</h2>
+        <p>Bedankt voor je aanvraag. We nemen binnen 24 uur contact met je op.</p>
+        <a href="producten.html">← Verder winkelen</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/lang.js?v=69"></script>
+  <script>
+    // m² values per product (keyed by id)
+    const m2Values = {};
+
+    function getQuote() { try { return JSON.parse(localStorage.getItem('wohnstyle_quote') || '[]'); } catch { return []; } }
+    function saveQuote(q) { localStorage.setItem('wohnstyle_quote', JSON.stringify(q)); updateNavBtn(); }
+    function updateNavBtn() {
+      const btn = document.getElementById('navListBtn');
+      if (btn) btn.textContent = 'mijn lijst (' + getQuote().length + ')';
+    }
+    function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    function removeItem(id) {
+      let q = getQuote().filter(x => x.id !== id);
+      saveQuote(q);
+      delete m2Values[id];
+      renderList();
+    }
+
+    function onM2Change(id, val) {
+      m2Values[id] = parseFloat(val) || 0;
+      updateSubtotals();
+    }
+
+    function updateSubtotals() {
+      const q = getQuote();
+      let total = 0;
+      q.forEach(p => {
+        const m2 = m2Values[p.id] || 0;
+        const sub = m2 * (p.price || 0);
+        total += sub;
+        const el = document.getElementById('sub-' + p.id);
+        if (el) el.textContent = sub > 0 ? '€ ' + sub.toFixed(2) : '–';
+      });
+      const totalEl = document.getElementById('grandTotal');
+      if (totalEl) totalEl.textContent = total > 0 ? '€ ' + total.toFixed(2) : '–';
+    }
+
+    function renderList() {
+      const q = getQuote();
+      const list = document.getElementById('quoteList');
+      const empty = document.getElementById('emptyState');
+      const formCard = document.getElementById('formCard');
+
+      if (!q.length) {
+        list.innerHTML = '';
+        empty.style.display = 'block';
+        formCard.style.display = 'none';
+        return;
+      }
+      empty.style.display = 'none';
+      formCard.style.display = '';
+
+      list.innerHTML = q.map(p => `
+        <div class="quote-item">
+          <div class="quote-item-img">
+            ${p.image
+              ? `<img src="${p.image}" alt="${esc(p.name)}" onerror="this.parentElement.innerHTML='<div class=quote-item-img-placeholder>–</div>'">`
+              : `<div class="quote-item-img-placeholder">–</div>`}
+          </div>
+          <div class="quote-item-info">
+            <div class="quote-item-name">${esc(p.name)}</div>
+            <div class="quote-item-price">€ ${Number(p.price).toFixed(2)} /m²</div>
+            <div class="quote-item-m2">
+              <input type="number" min="0" step="0.5" value="${m2Values[p.id] || ''}" placeholder="0"
+                oninput="onM2Change('${p.id}', this.value)" aria-label="Aantal m²">
+              <label>m²</label>
+            </div>
+          </div>
+          <div style="text-align:right">
+            <div class="quote-item-subtotal" id="sub-${p.id}">–</div>
+            <button class="btn-remove" onclick="removeItem('${p.id}')" title="Verwijder">&#times;</button>
+          </div>
+        </div>
+      `).join('') + `
+        <div class="quote-total">
+          <span class="quote-total-label">Geschatte totaal</span>
+          <div>
+            <div class="quote-total-value" id="grandTotal">–</div>
+            <div class="quote-total-note">excl. legkosten · indicatief</div>
+          </div>
+        </div>
+      `;
+      updateSubtotals();
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      const q = getQuote();
+      if (!q.length) { alert('Voeg eerst producten toe aan je lijst.'); return; }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Verzenden...';
+
+      const firstName = document.getElementById('fFirstName').value;
+      const lastName  = document.getElementById('fLastName').value;
+      const email     = document.getElementById('fEmail').value;
+      const phone     = document.getElementById('fPhone').value;
+      const city      = document.getElementById('fCity').value;
+      const notes     = document.getElementById('fNotes').value;
+
+      const productLines = q.map(p => {
+        const m2 = m2Values[p.id] || 0;
+        return `${p.name} — ${m2} m² × €${p.price}/m²`;
+      }).join('\n');
+
+      // Formspree — vervang YOUR_FORM_ID met jouw Formspree form ID
+      const FORMSPREE_ID = 'YOUR_FORM_ID';
+      const endpoint = `https://formspree.io/f/${FORMSPREE_ID}`;
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          naam: firstName + ' ' + lastName,
+          email,
+          telefoon: phone,
+          stad: city,
+          producten: productLines,
+          opmerkingen: notes,
+          _subject: 'Offerte aanvraag – WohnStyle Boden'
+        })
+      })
+      .then(r => {
+        if (r.ok) {
+          saveQuote([]);
+          document.getElementById('mainContent').style.display = 'none';
+          document.getElementById('successState').style.display = 'block';
+        } else {
+          throw new Error('Verzenden mislukt');
+        }
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Offerte aanvragen';
+        alert('Er is iets misgegaan. Probeer het opnieuw of mail naar info@wohnstyle.de');
+      });
+    }
+
+    renderList();
+    updateNavBtn();
+  </script>
+</body>
+</html>
