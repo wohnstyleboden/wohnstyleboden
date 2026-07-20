@@ -43,7 +43,8 @@
     .quote-item-subtotal { font-size: 0.875rem; font-weight: 600; text-align: right; white-space: nowrap; }
     .btn-remove { background: none; border: none; cursor: pointer; color: #888; padding: 2px; display: inline-flex; align-items: center; flex-shrink: 0; }
     .btn-remove:hover { color: #c00; }
-    .quote-item-name-row { display: flex; align-items: center; gap: 8px; }
+    .quote-item-name-row { display: flex; align-items: center; gap: 8px; width: 100%; }
+    .quote-item-name-row .btn-remove { margin-left: auto; }
 
     .quote-total { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; margin-top: 0; }
     .quote-total-label { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
@@ -109,17 +110,17 @@
       <nav class="breadcrumb">
         <a href="index.html">Home</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Offerte aanvragen</span>
+        <span data-i18n="offerte.title">Offerte aanvragen</span>
       </nav>
 
-      <h1>Offerte aanvragen</h1>
-      <p class="page-sub">Voeg m² toe per product en vul je gegevens in. Wij sturen binnen 24 uur een offerte op maat.</p>
+      <h1 data-i18n="offerte.title">Offerte aanvragen</h1>
+      <p class="page-sub" data-i18n="offerte.sub">Voeg m² toe per product en vul je gegevens in. Wij sturen binnen 24 uur een offerte op maat.</p>
 
       <div id="mainContent">
         <div class="offerte-layout">
           <!-- Left: product list -->
           <div>
-            <div class="section-title">Mijn productenlijst</div>
+            <div class="section-title" data-i18n="offerte.list_title">Mijn productenlijst</div>
             <div id="quoteList"></div>
             <div class="empty-quote" id="emptyState" style="display:none">
               <p>Je lijst is leeg.</p>
@@ -129,15 +130,15 @@
 
           <!-- Right: form -->
           <div class="form-card" id="formCard">
-            <h3>Jouw gegevens</h3>
+            <h3 data-i18n="offerte.form_title">Jouw gegevens</h3>
             <form id="offerteForm" onsubmit="submitForm(event)">
               <div class="form-row">
                 <div class="form-group">
-                  <label>Voornaam *</label>
+                  <label data-i18n="offerte.firstname">Voornaam *</label>
                   <input type="text" id="fFirstName" required placeholder="Jan">
                 </div>
                 <div class="form-group">
-                  <label>Achternaam *</label>
+                  <label data-i18n="offerte.lastname">Achternaam *</label>
                   <input type="text" id="fLastName" required placeholder="de Vries">
                 </div>
               </div>
@@ -154,11 +155,11 @@
                 <input type="text" id="fCity" placeholder="31655 Stadthagen">
               </div>
               <div class="form-group">
-                <label>Opmerkingen</label>
+                <label data-i18n="offerte.notes">Opmerkingen</label>
                 <textarea id="fNotes" placeholder="Bijv. legservice nodig, specifieke kleurwens, etc."></textarea>
               </div>
-              <p class="form-note">* Verplichte velden. Uw gegevens worden niet gedeeld met derden.</p>
-              <button type="submit" class="btn-submit" id="submitBtn">Offerte aanvragen</button>
+              <p class="form-note" data-i18n="offerte.note_privacy">* Verplichte velden. Uw gegevens worden niet gedeeld met derden.</p>
+              <button type="submit" class="btn-submit" id="submitBtn" data-i18n="offerte.submit">Offerte aanvragen</button>
             </form>
           </div>
         </div>
@@ -169,9 +170,9 @@
           <circle cx="28" cy="28" r="28" fill="#e8f5e9"/>
           <path d="M16 28l8 8 16-16" stroke="#2e7d32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <h2>Aanvraag verzonden!</h2>
-        <p>Bedankt voor je aanvraag. We nemen binnen 24 uur contact met je op.</p>
-        <a href="producten.html">← Verder winkelen</a>
+        <h2 data-i18n="offerte.success_title">Aanvraag verzonden!</h2>
+        <p data-i18n="offerte.success_sub">Bedankt voor je aanvraag. We nemen binnen 24 uur contact met je op.</p>
+        <a href="producten.html" data-i18n="offerte.success_link">← Verder winkelen</a>
       </div>
 
     </div>
@@ -189,6 +190,7 @@
       if (btn) btn.textContent = 'mijn lijst (' + getQuote().length + ')';
     }
     function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function t(key) { const lang = localStorage.getItem('lang')||'de'; return (translations[lang]&&translations[lang][key])||key; }
 
     function removeItem(id) {
       let q = getQuote().filter(x => x.id !== id);
@@ -255,10 +257,10 @@
         </div>
       `).join('') + `
         <div class="quote-total">
-          <span class="quote-total-label">Geschatte totaal</span>
+          <span class="quote-total-label" data-i18n="offerte.total">Geschatte totaal</span>
           <div>
             <div class="quote-total-value" id="grandTotal">–</div>
-            <div class="quote-total-note">excl. legkosten · indicatief</div>
+            <div class="quote-total-note" data-i18n="offerte.excl">excl. legkosten · indicatief</div>
           </div>
         </div>
       `;
@@ -272,7 +274,7 @@
 
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
-      btn.textContent = 'Verzenden...';
+      btn.textContent = '...';
 
       const firstName = document.getElementById('fFirstName').value;
       const lastName  = document.getElementById('fLastName').value;
@@ -314,7 +316,7 @@
       })
       .catch(() => {
         btn.disabled = false;
-        btn.textContent = 'Offerte aanvragen';
+        btn.textContent = t('offerte.submit');
         alert('Er is iets misgegaan. Probeer het opnieuw of mail naar info@wohnstyle.de');
       });
     }

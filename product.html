@@ -196,18 +196,18 @@
 
               <div class="badge-row">
                 ${p.in_stock
-                  ? `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Op voorraad</div>`
-                  : `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M6 6l12 12" stroke="#c00" stroke-width="2" stroke-linecap="round"/></svg>Niet op voorraad</div>`}
+                  ? `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>${t('product.in_stock')}</div>`
+                  : `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 18L18 6M6 6l12 12" stroke="#c00" stroke-width="2" stroke-linecap="round"/></svg>${t('product.out_of_stock')}</div>`}
                 ${p.floor_heating ? `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 6 5 10c0 5 7 12 7 12s7-7 7-12c0-4-3-8-7-8z" stroke="#555" stroke-width="1.6"/></svg>Vloerverwarming geschikt</div>` : ''}
                 ${p.warranty ? `<div class="spec-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" stroke="#555" stroke-width="1.6"/></svg>${esc(p.warranty)} garantie</div>` : ''}
               </div>
 
               <div class="product-actions">
                 <button class="btn-add-quote ${inQuote ? 'added' : ''}" id="addBtn" onclick="toggleQuote()">
-                  ${inQuote ? '✓ Toegevoegd aan lijst' : '+ Voeg toe aan lijst'}
+                  ${inQuote ? t('product.added') : t('product.add')}
                 </button>
                 <button class="btn-quote-now" onclick="toggleQuote(); location.href='offerte.html'">
-                  Direct offerte aanvragen
+                  ${t('product.quote_now')}
                 </button>
               </div>
 
@@ -217,7 +217,7 @@
                 </table>
               </div>
 
-              ${desc ? `<div class="product-desc"><h4>Omschrijving</h4><p>${esc(desc)}</p></div>` : ''}
+              ${desc ? `<div class="product-desc"><h4>${t('product.description')}</h4><p>${esc(desc)}</p></div>` : ''}
             </div>
           </div>
         </div>
@@ -250,7 +250,7 @@
       const inQuote = q.some(x => x.id === p.id);
       const btn = document.getElementById('addBtn');
       if (btn) {
-        btn.textContent = inQuote ? '✓ Toegevoegd aan lijst' : '+ Voeg toe aan lijst';
+        btn.textContent = inQuote ? t('product.added') : t('product.add');
         btn.className = 'btn-add-quote' + (inQuote ? ' added' : '');
       }
     }
@@ -268,6 +268,7 @@
       if (btn) btn.textContent = 'mijn lijst (' + getQuote().length + ')';
     }
     function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function t(key) { const lang = localStorage.getItem('lang')||'de'; return (translations[lang]&&translations[lang][key])||key; }
 
     updateQuoteBar();
     updateNavBtn();

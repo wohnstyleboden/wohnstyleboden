@@ -242,7 +242,7 @@
                 ${hasSale ? `<span class="card-price-original">€ ${Number(p.price_original).toFixed(2)}</span>` : ''}
               </div>
               <button class="card-btn ${inQuote ? 'added' : ''}" onclick="event.stopPropagation(); toggleQuote('${p.id}')">
-                ${inQuote ? '✓ Toegevoegd aan lijst' : '+ Voeg toe aan lijst'}
+                ${inQuote ? (translations[localStorage.getItem('lang')||'de']['product.added']||'✓ Toegevoegd') : (translations[localStorage.getItem('lang')||'de']['product.add']||'+ Voeg toe aan lijst')}
               </button>
             </div>
           </div>
@@ -294,6 +294,7 @@
     }
 
     function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function t(key) { const lang = localStorage.getItem('lang')||'de'; return (translations[lang]&&translations[lang][key])||key; }
 
     updateQuoteBar();
     updateNavBtn();
