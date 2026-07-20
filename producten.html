@@ -70,7 +70,7 @@
     .empty { text-align: center; padding: 80px 0; color: #aaa; grid-column: 1 / -1; }
 
     /* ---- Offertenlijst bar ---- */
-    .quote-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; color: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transform: translateY(100%); transition: transform 0.3s; }
+    .quote-bar { position: fixed; bottom: 4px; left: 50%; transform: translateX(-50%) translateY(100%); width: 100%; max-width: 1400px; background: #1a1a1a; color: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transition: transform 0.3s; }
     .quote-bar.visible { transform: translateY(0); }
     .quote-bar-left { font-size: 0.9rem; }
     .quote-bar-left strong { font-weight: 600; }
