@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WohnStyle Admin</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; }
+
+  /* Header */
+  .admin-header { background: #1a1a1a; color: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .admin-header h1 { font-size: 1.1rem; font-weight: 500; letter-spacing: 0.05em; }
+  .admin-header .status { font-size: 0.8rem; color: #aaa; }
+
+  /* Token bar */
+  #tokenBar { background: #fff3cd; border-bottom: 1px solid #ffc107; padding: 12px 32px; display: flex; align-items: center; gap: 12px; }
+  #tokenBar input { flex: 1; max-width: 400px; padding: 8px 12px; border: 1px solid #ccc; font-size: 0.875rem; }
+  #tokenBar button { padding: 8px 16px; background: #1a1a1a; color: #fff; border: none; cursor: pointer; font-size: 0.875rem; }
+  #tokenBar.hidden { display: none; }
+
+  /* Layout */
+  .admin-body { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 57px); }
+
+  /* Sidebar */
+  .sidebar { background: #fff; border-right: 1px solid #e0e0e0; padding: 24px 0; }
+  .sidebar-section { padding: 8px 24px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; color: #999; text-transform: uppercase; margin-top: 16px; }
+  .sidebar-item { display: block; padding: 10px 24px; font-size: 0.875rem; cursor: pointer; color: #333; border: none; background: none; width: 100%; text-align: left; transition: background 0.15s; }
+  .sidebar-item:hover, .sidebar-item.active { background: #f5f5f5; color: #1a1a1a; font-weight: 500; }
+  .sidebar-item .count { float: right; background: #eee; color: #666; font-size: 0.7rem; padding: 2px 7px; border-radius: 10px; }
+
+  /* Main content */
+  .main { padding: 32px; }
+  .main-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+  .main-header h2 { font-size: 1.25rem; font-weight: 600; }
+  .btn-primary { padding: 10px 20px; background: #1a1a1a; color: #fff; border: none; cursor: pointer; font-size: 0.875rem; letter-spacing: 0.05em; }
+  .btn-primary:hover { background: #333; }
+  .btn-secondary { padding: 8px 16px; background: #fff; color: #1a1a1a; border: 1px solid #ccc; cursor: pointer; font-size: 0.875rem; }
+  .btn-danger { padding: 6px 12px; background: #fff; color: #c00; border: 1px solid #c00; cursor: pointer; font-size: 0.8rem; }
+  .btn-danger:hover { background: #c00; color: #fff; }
+
+  /* Product table */
+  .product-table { width: 100%; border-collapse: collapse; background: #fff; }
+  .product-table th { padding: 12px 16px; text-align: left; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #666; border-bottom: 2px solid #e0e0e0; }
+  .product-table td { padding: 12px 16px; font-size: 0.875rem; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+  .product-table tr:hover td { background: #fafafa; }
+  .product-img { width: 48px; height: 48px; object-fit: cover; background: #eee; display: block; }
+  .product-img-placeholder { width: 48px; height: 48px; background: #eee; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.7rem; }
+  .badge { display: inline-block; padding: 3px 8px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+  .badge-green { background: #e8f5e9; color: #2e7d32; }
+  .badge-red { background: #ffebee; color: #c62828; }
+  .actions { display: flex; gap: 8px; }
+
+  /* Search/filter bar */
+  .filter-bar { display: flex; gap: 12px; margin-bottom: 20px; }
+  .filter-bar input, .filter-bar select { padding: 8px 12px; border: 1px solid #ddd; font-size: 0.875rem; background: #fff; }
+  .filter-bar input { flex: 1; max-width: 300px; }
+
+  /* Empty state */
+  .empty-state { text-align: center; padding: 80px 0; color: #aaa; }
+  .empty-state p { margin-bottom: 16px; font-size: 0.95rem; }
+
+  /* Modal */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; display: none; align-items: center; justify-content: center; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: #fff; width: 640px; max-width: 95vw; max-height: 90vh; overflow-y: auto; }
+  .modal-header { padding: 20px 24px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: #fff; z-index: 1; }
+  .modal-header h3 { font-size: 1rem; font-weight: 600; }
+  .modal-close { background: none; border: none; cursor: pointer; font-size: 1.25rem; color: #666; padding: 4px; }
+  .modal-body { padding: 24px; }
+  .modal-footer { padding: 16px 24px; border-top: 1px solid #e0e0e0; display: flex; gap: 12px; justify-content: flex-end; position: sticky; bottom: 0; background: #fff; }
+
+  /* Form */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #666; }
+  .form-group input, .form-group select, .form-group textarea { padding: 8px 12px; border: 1px solid #ddd; font-size: 0.875rem; font-family: inherit; }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #1a1a1a; }
+
+  /* Image upload */
+  .img-preview { width: 100%; height: 140px; background: #f5f5f5; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center; cursor: pointer; overflow: hidden; margin-bottom: 8px; }
+  .img-preview img { width: 100%; height: 100%; object-fit: cover; }
+  .img-preview span { color: #aaa; font-size: 0.875rem; }
+
+  /* Toast */
+  #toast { position: fixed; bottom: 24px; right: 24px; background: #1a1a1a; color: #fff; padding: 12px 20px; font-size: 0.875rem; z-index: 9999; display: none; }
+  #toast.error { background: #c00; }
+
+  /* Stats */
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .stat-card { background: #fff; padding: 20px; border: 1px solid #e0e0e0; }
+  .stat-card .num { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+  .stat-card .label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+
+<div class="admin-header">
+  <h1>WohnStyle &mdash; Productbeheer</h1>
+  <span class="status" id="headerStatus">Niet verbonden</span>
+</div>
+
+<div id="tokenBar">
+  <span style="font-size:0.875rem;font-weight:500;">GitHub Token vereist:</span>
+  <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+  <button onclick="saveToken()">Opslaan</button>
+  <a href="https://github.com/settings/tokens/new?scopes=repo&description=WohnStyle+Admin" target="_blank" style="font-size:0.8rem;color:#666;">Token aanmaken →</a>
+</div>
+
+<div class="admin-body">
+  <aside class="sidebar">
+    <div class="sidebar-section">Producten</div>
+    <button class="sidebar-item active" onclick="showView('all')">Alle producten <span class="count" id="countAll">0</span></button>
+    <button class="sidebar-item" onclick="showView('laminaat')">Laminaat <span class="count" id="countLaminaat">0</span></button>
+    <button class="sidebar-item" onclick="showView('pvc')">PVC-Böden <span class="count" id="countPvc">0</span></button>
+    <button class="sidebar-item" onclick="showView('visgraat')">Fischgrätboden <span class="count" id="countVisgraat">0</span></button>
+    <button class="sidebar-item" onclick="showView('parkett')">Parkett <span class="count" id="countParkett">0</span></button>
+    <button class="sidebar-item" onclick="showView('zubehor')">Zubehör <span class="count" id="countZubehor">0</span></button>
+    <div class="sidebar-section">Acties</div>
+    <button class="sidebar-item" onclick="publishToGitHub()">&#8593; Publiceren naar site</button>
+    <button class="sidebar-item" onclick="exportCSV()">&#8595; Exporteer CSV</button>
+    <button class="sidebar-item" onclick="importCSVClick()">&#8593; Importeer CSV</button>
+    <input type="file" id="csvFileInput" accept=".csv" style="display:none" onchange="importCSV(event)">
+  </aside>
+
+  <main class="main">
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card"><div class="num" id="statTotal">0</div><div class="label">Producten totaal</div></div>
+      <div class="stat-card"><div class="num" id="statActive">0</div><div class="label">Actief</div></div>
+      <div class="stat-card"><div class="num" id="statCategories">0</div><div class="label">Categorieën</div></div>
+      <div class="stat-card"><div class="num" id="statBrands">0</div><div class="label">Merken</div></div>
+    </div>
+
+    <div class="main-header">
+      <h2 id="viewTitle">Alle producten</h2>
+      <button class="btn-primary" onclick="openAddModal()">+ Product toevoegen</button>
+    </div>
+
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Zoeken op naam, merk..." oninput="renderTable()">
+      <select id="filterInStock" onchange="renderTable()">
+        <option value="">Alle statussen</option>
+        <option value="true">Op voorraad</option>
+        <option value="false">Niet op voorraad</option>
+      </select>
+      <select id="filterSort" onchange="renderTable()">
+        <option value="name">Naam A-Z</option>
+        <option value="price_asc">Prijs laag-hoog</option>
+        <option value="price_desc">Prijs hoog-laag</option>
+        <option value="newest">Nieuwste eerst</option>
+      </select>
+    </div>
+
+    <table class="product-table" id="productTable">
+      <thead>
+        <tr>
+          <th>Afbeelding</th>
+          <th>Naam</th>
+          <th>Merk</th>
+          <th>Categorie</th>
+          <th>Dikte</th>
+          <th>Prijs/m²</th>
+          <th>Status</th>
+          <th>Acties</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <div class="empty-state" id="emptyState" style="display:none">
+      <p>Nog geen producten in deze categorie.</p>
+      <button class="btn-primary" onclick="openAddModal()">+ Eerste product toevoegen</button>
+    </div>
+  </main>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Product toevoegen</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group full">
+          <label>Afbeelding</label>
+          <div class="img-preview" id="imgPreview" onclick="document.getElementById('imgFile').click()">
+            <span>Klik om afbeelding te uploaden</span>
+          </div>
+          <input type="file" id="imgFile" accept="image/*" style="display:none" onchange="previewImage(event)">
+          <input type="text" id="fImgUrl" placeholder="Of voer een URL in: images/products/foto.jpg" oninput="previewImageUrl(this.value)">
+        </div>
+        <div class="form-group full">
+          <label>Productnaam *</label>
+          <input type="text" id="fName" placeholder="bijv. Classic Oak 8mm">
+        </div>
+        <div class="form-group">
+          <label>Categorie *</label>
+          <select id="fCategory">
+            <option value="laminaat">Laminaat</option>
+            <option value="pvc">PVC-Böden</option>
+            <option value="visgraat">Fischgrätboden</option>
+            <option value="parkett">Parkett</option>
+            <option value="zubehor">Zubehör</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Merk</label>
+          <input type="text" id="fBrand" placeholder="bijv. Quick-Step">
+        </div>
+        <div class="form-group">
+          <label>Prijs per m² (€) *</label>
+          <input type="number" id="fPrice" step="0.01" min="0" placeholder="12.99">
+        </div>
+        <div class="form-group">
+          <label>Dikte</label>
+          <input type="text" id="fThickness" placeholder="bijv. 8mm">
+        </div>
+        <div class="form-group">
+          <label>Slijtklasse (AC)</label>
+          <select id="fWearClass">
+            <option value="">Onbekend</option>
+            <option value="AC3">AC3</option>
+            <option value="AC4">AC4</option>
+            <option value="AC5">AC5</option>
+            <option value="AC6">AC6</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Kleur</label>
+          <input type="text" id="fColor" placeholder="bijv. Eik naturel">
+        </div>
+        <div class="form-group">
+          <label>Artikelnummer</label>
+          <input type="text" id="fSku" placeholder="bijv. LAM-001">
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select id="fInStock">
+            <option value="true">Op voorraad</option>
+            <option value="false">Niet op voorraad</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Omschrijving (DE)</label>
+          <textarea id="fDescDe" placeholder="Productomschrijving in het Duits..."></textarea>
+        </div>
+        <div class="form-group full">
+          <label>Omschrijving (EN)</label>
+          <textarea id="fDescEn" placeholder="Product description in English..."></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal()">Annuleren</button>
+      <button class="btn-primary" onclick="saveProduct()">Product opslaan</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const REPO_OWNER = 'wohnstyleboden';
+const REPO_NAME  = 'wohnstyleboden';
+const FILE_PATH  = 'products.json';
+const BRANCH     = 'main';
+
+let products = [];
+let currentView = 'all';
+let editingId = null;
+let currentFileSha = null;
+
+// ---- Token ----
+function saveToken() {
+  const t = document.getElementById('tokenInput').value.trim();
+  if (!t) return;
+  localStorage.setItem('gh_token', t);
+  document.getElementById('tokenBar').classList.add('hidden');
+  loadProducts();
+}
+
+function getToken() {
+  return localStorage.getItem('gh_token');
+}
+
+// ---- Init ----
+window.addEventListener('DOMContentLoaded', function() {
+  const token = getToken();
+  if (token) {
+    document.getElementById('tokenBar').classList.add('hidden');
+    loadProducts();
+  }
+});
+
+// ---- Load from GitHub ----
+async function loadProducts() {
+  document.getElementById('headerStatus').textContent = 'Laden...';
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}?ref=${BRANCH}`, {
+      headers: { Authorization: 'token ' + getToken(), Accept: 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) throw new Error('Fout bij laden: ' + res.status);
+    const data = await res.json();
+    currentFileSha = data.sha;
+    const json = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    products = json.products || [];
+    document.getElementById('headerStatus').textContent = 'Verbonden · ' + products.length + ' producten';
+    updateCounts();
+    renderTable();
+  } catch (e) {
+    document.getElementById('headerStatus').textContent = 'Fout: ' + e.message;
+    showToast('Laden mislukt: ' + e.message, true);
+  }
+}
+
+// ---- Publish to GitHub ----
+async function publishToGitHub() {
+  if (!getToken()) { showToast('Voer eerst een GitHub token in.', true); return; }
+  document.getElementById('headerStatus').textContent = 'Publiceren...';
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify({ products }, null, 2))));
+  try {
+    const body = {
+      message: 'Update products.json via admin panel (' + products.length + ' producten)',
+      content,
+      branch: BRANCH
+    };
+    if (currentFileSha) body.sha = currentFileSha;
+    const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
+      method: 'PUT',
+      headers: { Authorization: 'token ' + getToken(), 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    currentFileSha = data.content.sha;
+    document.getElementById('headerStatus').textContent = 'Gepubliceerd · ' + products.length + ' producten';
+    showToast('Gepubliceerd naar GitHub Pages.');
+  } catch(e) {
+    document.getElementById('headerStatus').textContent = 'Fout bij publiceren';
+    showToast('Publiceren mislukt: ' + e.message, true);
+  }
+}
+
+// ---- Views ----
+function showView(view) {
+  currentView = view;
+  document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  const titles = { all: 'Alle producten', laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
+  document.getElementById('viewTitle').textContent = titles[view] || view;
+  renderTable();
+}
+
+function getFilteredProducts() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const stock = document.getElementById('filterInStock').value;
+  const sort = document.getElementById('filterSort').value;
+  let list = products.filter(p => {
+    if (currentView !== 'all' && p.category !== currentView) return false;
+    if (stock !== '' && String(p.in_stock) !== stock) return false;
+    if (q && !((p.name||'').toLowerCase().includes(q) || (p.brand||'').toLowerCase().includes(q) || (p.sku||'').toLowerCase().includes(q))) return false;
+    return true;
+  });
+  list.sort((a, b) => {
+    if (sort === 'price_asc') return (a.price||0) - (b.price||0);
+    if (sort === 'price_desc') return (b.price||0) - (a.price||0);
+    if (sort === 'newest') return (b._added||0) - (a._added||0);
+    return (a.name||'').localeCompare(b.name||'');
+  });
+  return list;
+}
+
+function renderTable() {
+  const list = getFilteredProducts();
+  const tbody = document.getElementById('tableBody');
+  const empty = document.getElementById('emptyState');
+  if (list.length === 0) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+    document.getElementById('productTable').style.display = 'none';
+    return;
+  }
+  empty.style.display = 'none';
+  document.getElementById('productTable').style.display = '';
+  const catLabels = { laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
+  tbody.innerHTML = list.map(p => `
+    <tr>
+      <td>${p.image ? `<img class="product-img" src="${p.image}" alt="" onerror="this.style.display='none'">` : `<div class="product-img-placeholder">–</div>`}</td>
+      <td><strong>${esc(p.name)}</strong>${p.sku ? `<br><span style="color:#aaa;font-size:0.75rem">${esc(p.sku)}</span>` : ''}</td>
+      <td>${esc(p.brand||'–')}</td>
+      <td>${catLabels[p.category]||p.category}</td>
+      <td>${esc(p.thickness||'–')}</td>
+      <td>${p.price ? '€ ' + Number(p.price).toFixed(2) : '–'}</td>
+      <td><span class="badge ${p.in_stock ? 'badge-green' : 'badge-red'}">${p.in_stock ? 'Op voorraad' : 'Niet op voorraad'}</span></td>
+      <td><div class="actions">
+        <button class="btn-secondary" onclick="openEditModal('${p.id}')">Bewerk</button>
+        <button class="btn-danger" onclick="deleteProduct('${p.id}')">Verwijder</button>
+      </div></td>
+    </tr>
+  `).join('');
+}
+
+function updateCounts() {
+  document.getElementById('countAll').textContent = products.length;
+  ['laminaat','pvc','visgraat','parkett','zubehor'].forEach(c => {
+    document.getElementById('count' + c.charAt(0).toUpperCase() + c.slice(1)).textContent = products.filter(p => p.category === c).length;
+  });
+  document.getElementById('statTotal').textContent = products.length;
+  document.getElementById('statActive').textContent = products.filter(p => p.in_stock).length;
+  document.getElementById('statCategories').textContent = new Set(products.map(p => p.category)).size;
+  document.getElementById('statBrands').textContent = new Set(products.map(p => p.brand).filter(Boolean)).size;
+}
+
+// ---- Modal ----
+function openAddModal() {
+  editingId = null;
+  document.getElementById('modalTitle').textContent = 'Product toevoegen';
+  clearForm();
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function openEditModal(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  editingId = id;
+  document.getElementById('modalTitle').textContent = 'Product bewerken';
+  document.getElementById('fName').value = p.name || '';
+  document.getElementById('fCategory').value = p.category || 'laminaat';
+  document.getElementById('fBrand').value = p.brand || '';
+  document.getElementById('fPrice').value = p.price || '';
+  document.getElementById('fThickness').value = p.thickness || '';
+  document.getElementById('fWearClass').value = p.wear_class || '';
+  document.getElementById('fColor').value = p.color || '';
+  document.getElementById('fSku').value = p.sku || '';
+  document.getElementById('fInStock').value = String(p.in_stock !== false);
+  document.getElementById('fDescDe').value = p.desc_de || '';
+  document.getElementById('fDescEn').value = p.desc_en || '';
+  document.getElementById('fImgUrl').value = p.image || '';
+  const prev = document.getElementById('imgPreview');
+  if (p.image) { prev.innerHTML = `<img src="${p.image}" alt="">`; } else { prev.innerHTML = '<span>Klik om afbeelding te uploaden</span>'; }
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  editingId = null;
+}
+
+function clearForm() {
+  ['fName','fBrand','fPrice','fThickness','fColor','fSku','fDescDe','fDescEn','fImgUrl'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('fCategory').value = 'laminaat';
+  document.getElementById('fWearClass').value = '';
+  document.getElementById('fInStock').value = 'true';
+  document.getElementById('imgPreview').innerHTML = '<span>Klik om afbeelding te uploaden</span>';
+}
+
+function saveProduct() {
+  const name = document.getElementById('fName').value.trim();
+  if (!name) { showToast('Productnaam is verplicht.', true); return; }
+  const price = document.getElementById('fPrice').value;
+  if (!price) { showToast('Prijs is verplicht.', true); return; }
+
+  const p = {
+    id: editingId || 'p-' + Date.now(),
+    name,
+    category: document.getElementById('fCategory').value,
+    brand: document.getElementById('fBrand').value.trim(),
+    price: parseFloat(price),
+    thickness: document.getElementById('fThickness').value.trim(),
+    wear_class: document.getElementById('fWearClass').value,
+    color: document.getElementById('fColor').value.trim(),
+    sku: document.getElementById('fSku').value.trim(),
+    in_stock: document.getElementById('fInStock').value === 'true',
+    desc_de: document.getElementById('fDescDe').value.trim(),
+    desc_en: document.getElementById('fDescEn').value.trim(),
+    image: document.getElementById('fImgUrl').value.trim(),
+    _added: editingId ? (products.find(x=>x.id===editingId)||{})._added || Date.now() : Date.now()
+  };
+
+  if (editingId) {
+    const idx = products.findIndex(x => x.id === editingId);
+    products[idx] = p;
+  } else {
+    products.unshift(p);
+  }
+  updateCounts();
+  renderTable();
+  closeModal();
+  showToast(editingId ? 'Product bijgewerkt.' : 'Product toegevoegd.');
+}
+
+function deleteProduct(id) {
+  if (!confirm('Weet je zeker dat je dit product wilt verwijderen?')) return;
+  products = products.filter(p => p.id !== id);
+  updateCounts();
+  renderTable();
+  showToast('Product verwijderd.');
+}
+
+// ---- Image preview ----
+function previewImage(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('imgPreview').innerHTML = `<img src="${e.target.result}" alt="">`;
+    document.getElementById('fImgUrl').value = 'images/products/' + file.name;
+  };
+  reader.readAsDataURL(file);
+}
+
+function previewImageUrl(url) {
+  if (!url) { document.getElementById('imgPreview').innerHTML = '<span>Klik om afbeelding te uploaden</span>'; return; }
+  document.getElementById('imgPreview').innerHTML = `<img src="${url}" alt="" onerror="this.parentElement.innerHTML='<span>Afbeelding niet gevonden</span>'">`;
+}
+
+// ---- CSV Export ----
+function exportCSV() {
+  if (!products.length) { showToast('Geen producten om te exporteren.', true); return; }
+  const headers = ['id','name','category','brand','price','thickness','wear_class','color','sku','in_stock','desc_de','desc_en','image'];
+  const rows = products.map(p => headers.map(h => JSON.stringify(p[h] ?? '')).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'wohnstyle-producten.csv';
+  a.click();
+  showToast('CSV geëxporteerd.');
+}
+
+// ---- CSV Import ----
+function importCSVClick() {
+  document.getElementById('csvFileInput').click();
+}
+
+function importCSV(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const lines = e.target.result.split('\n').filter(l => l.trim());
+    const headers = parseCSVLine(lines[0]);
+    const imported = lines.slice(1).map(line => {
+      const vals = parseCSVLine(line);
+      const obj = {};
+      headers.forEach((h, i) => { obj[h] = vals[i] || ''; });
+      obj.price = parseFloat(obj.price) || 0;
+      obj.in_stock = obj.in_stock !== 'false';
+      if (!obj.id) obj.id = 'p-' + Date.now() + Math.random();
+      if (!obj._added) obj._added = Date.now();
+      return obj;
+    });
+    if (!confirm(`${imported.length} producten importeren? Dit vervangt ALLE bestaande producten.`)) return;
+    products = imported;
+    updateCounts();
+    renderTable();
+    showToast(imported.length + ' producten geïmporteerd.');
+    event.target.value = '';
+  };
+  reader.readAsText(file);
+}
+
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    if (line[i] === '"') { inQuotes = !inQuotes; }
+    else if (line[i] === ',' && !inQuotes) { result.push(current); current = ''; }
+    else { current += line[i]; }
+  }
+  result.push(current);
+  return result.map(v => v.replace(/^"|"$/g, ''));
+}
+
+// ---- Helpers ----
+function esc(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function showToast(msg, isError) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = isError ? 'error' : '';
+  t.style.display = 'block';
+  setTimeout(() => { t.style.display = 'none'; }, 3000);
+}
+
+// Close modal on overlay click
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+</script>
+</body>
+</html>
