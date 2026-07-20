@@ -118,16 +118,16 @@
       <nav class="breadcrumb">
         <a href="index.html">Home</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span id="breadcrumbCat">Alle producten</span>
+        <span id="breadcrumbCat" data-i18n="products.breadcrumb.all">Alle producten</span>
       </nav>
 
       <div class="products-title-row">
-        <h1 id="pageTitle">Producten</h1>
+        <h1 id="pageTitle" data-i18n="products.title">Producten</h1>
         <span class="products-count" id="productsCount">0 producten</span>
       </div>
 
       <div class="cat-tabs" id="catTabs">
-        <button class="cat-tab active" data-cat="all">Alle</button>
+        <button class="cat-tab active" data-cat="all" data-i18n="products.tab.all">Alle</button>
         <button class="cat-tab" data-cat="laminaat">Laminaat</button>
         <button class="cat-tab" data-cat="pvc">PVC-Böden</button>
         <button class="cat-tab" data-cat="visgraat">Fischgrätboden</button>
@@ -136,15 +136,15 @@
       </div>
 
       <div class="filter-row">
-        <input type="text" id="searchInput" placeholder="Zoeken op naam, merk, kleur..." oninput="renderProducts()">
+        <input type="text" id="searchInput" placeholder="" oninput="renderProducts()">
         <select id="filterSort" onchange="renderProducts()">
-          <option value="name">Naam A-Z</option>
-          <option value="price_asc">Prijs laag-hoog</option>
-          <option value="price_desc">Prijs hoog-laag</option>
+          <option value="name" data-i18n="products.sort.name">Naam A-Z</option>
+          <option value="price_asc" data-i18n="products.sort.price_asc">Prijs laag-hoog</option>
+          <option value="price_desc" data-i18n="products.sort.price_desc">Prijs hoog-laag</option>
         </select>
         <select id="filterStock" onchange="renderProducts()">
-          <option value="">Alle</option>
-          <option value="true">Op voorraad</option>
+          <option value="" data-i18n="products.stock.all">Alle</option>
+          <option value="true" data-i18n="products.stock.in">Op voorraad</option>
         </select>
       </div>
 
@@ -169,7 +169,13 @@
   <script>
     let allProducts = [];
     let currentCat = 'all';
-    const catLabels = { all: 'Alle producten', laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
+    const catLabels = { all: 'products.breadcrumb.all', laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
+
+    function getCatLabel(cat) {
+      const key = catLabels[cat];
+      if (key && key.includes('.')) return t(key);
+      return key || cat;
+    }
 
     // ---- Load products ----
     fetch('products.json?v=' + Date.now())
@@ -179,7 +185,7 @@
         renderProducts();
       })
       .catch(() => {
-        document.getElementById('productsGrid').innerHTML = '<div class="empty">Producten konden niet worden geladen.</div>';
+        document.getElementById('productsGrid').innerHTML = '<div class="empty">' + t('products.loading') + '</div>';
       });
 
     // ---- Category tabs ----
@@ -188,8 +194,8 @@
         document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
         this.classList.add('active');
         currentCat = this.dataset.cat;
-        document.getElementById('pageTitle').textContent = catLabels[currentCat] || currentCat;
-        document.getElementById('breadcrumbCat').textContent = catLabels[currentCat] || currentCat;
+        document.getElementById('pageTitle').textContent = getCatLabel(currentCat);
+        document.getElementById('breadcrumbCat').textContent = getCatLabel(currentCat);
         renderProducts();
       });
     });
@@ -213,11 +219,11 @@
         return (a.name||'').localeCompare(b.name||'');
       });
 
-      document.getElementById('productsCount').textContent = list.length + ' product' + (list.length !== 1 ? 'en' : '');
+      document.getElementById('productsCount').textContent = list.length + ' ' + t('products.count');
 
       const grid = document.getElementById('productsGrid');
       if (!list.length) {
-        grid.innerHTML = '<div class="empty">Geen producten gevonden.</div>';
+        grid.innerHTML = '<div class="empty">' + t('products.empty') + '</div>';
         return;
       }
 
@@ -300,7 +306,12 @@
     updateQuoteBar();
     updateNavBtn();
 
-    window.onLangChange = function() { renderProducts(); };
+    document.getElementById('searchInput').placeholder = t('products.search');
+
+    window.onLangChange = function() {
+      document.getElementById('searchInput').placeholder = t('products.search');
+      renderProducts();
+    };
   </script>
 </body>
 </html>
