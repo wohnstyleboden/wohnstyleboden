@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=69">
+  <link rel="stylesheet" href="style.css?v=73">
 </head>
 <body>
 
@@ -622,15 +622,133 @@
   </section>
 
   <section class="testimonial-section">
-    <div class="testimonial-inner">
-      <img src="images/opining-logo.svg" alt="Opining" class="testimonial-logo">
-      <p class="testimonial-quote" data-i18n="testimonial.quote">'Wij hebben onze volledige woonkamer laten bekleden met laminaat van WohnStyle. De kwaliteit is uitstekend en de service was van begin tot eind van topniveau.'</p>
-      <div class="testimonial-author">
-        <strong class="testimonial-name" data-i18n="testimonial.name">Serdar Orman,</strong>
-        <span class="testimonial-role" data-i18n="testimonial.role">De Eigenaar</span>
+    <div class="testimonial-layout">
+
+      <div class="testimonial-quote-panel">
+        <span class="testimonial-mark">"</span>
+        <p class="testimonial-quote" id="tQuote">Wij hebben onze volledige woonkamer laten bekleden met laminaat van WohnStyle. De kwaliteit is uitstekend en de service was van begin tot eind van topniveau.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-author-line"></div>
+          <div class="testimonial-author-info">
+            <strong class="testimonial-name" id="tName">Serdar Orman</strong>
+            <span class="testimonial-role" id="tRole">Düsseldorf</span>
+          </div>
+        </div>
       </div>
+
+      <div class="testimonial-tabs">
+        <button class="t-tab active" data-idx="0">
+          <span class="t-tab-name">Serdar Orman</span>
+          <span class="t-tab-role">Düsseldorf</span>
+          <div class="t-tab-progress"></div>
+        </button>
+        <button class="t-tab" data-idx="1">
+          <span class="t-tab-name">Laura de Vries</span>
+          <span class="t-tab-role">Krefeld</span>
+          <div class="t-tab-progress"></div>
+        </button>
+        <button class="t-tab" data-idx="2">
+          <span class="t-tab-name">Marco Jansen</span>
+          <span class="t-tab-role">Mönchengladbach</span>
+          <div class="t-tab-progress"></div>
+        </button>
+        <button class="t-tab" data-idx="3">
+          <span class="t-tab-name">Sofia Brouwer</span>
+          <span class="t-tab-role">Neuss</span>
+          <div class="t-tab-progress"></div>
+        </button>
+        <button class="t-tab" data-idx="4">
+          <span class="t-tab-name">Thomas Bakker</span>
+          <span class="t-tab-role">Köln</span>
+          <div class="t-tab-progress"></div>
+        </button>
+      </div>
+
     </div>
   </section>
+
+  <script>
+  (function() {
+    var testimonialData = {
+      de: [
+        { quote: 'Wir haben unser gesamtes Wohnzimmer mit Laminat von WohnStyle ausstatten lassen. Die Qualität ist hervorragend und der Service war von Anfang bis Ende auf höchstem Niveau.', name: 'Serdar Orman', role: 'Düsseldorf' },
+        { quote: 'Die Beratung im Showroom war sehr persönlich und kompetent. Wir haben genau den richtigen Boden für unsere offene Küche gefunden. Alle Nachbarn fragen, wo wir ihn gekauft haben.', name: 'Laura de Vries', role: 'Krefeld' },
+        { quote: 'Als Bauunternehmer arbeite ich regelmäßig mit WohnStyle für Projektböden zusammen. Schnelle Lieferung, faire Preise und ein Team, das mitdenkt. Ich empfehle sie jedem weiter.', name: 'Marco Jansen', role: 'Mönchengladbach' },
+        { quote: 'Das Fischgrät-Laminat, das ich hier ausgewählt habe, passte perfekt zu meinem Einrichtungskonzept. Ausgezeichnete Qualität zu einem sehr fairen Preis. Meine Kunden lieben es.', name: 'Sofia Brouwer', role: 'Neuss' },
+        { quote: 'Für drei Apartments in einem Komplex haben wir denselben Boden verlegen lassen. WohnStyle hat alles reibungslos organisiert — von der Aufmaßnahme bis zur Übergabe. Top-Unternehmen.', name: 'Thomas Bakker', role: 'Köln' }
+      ],
+      en: [
+        { quote: 'We had our entire living room fitted with laminate from WohnStyle. The quality is excellent and the service was top-notch from start to finish.', name: 'Serdar Orman', role: 'Düsseldorf' },
+        { quote: 'The advice in the showroom was very personal and knowledgeable. We found exactly the right floor for our open-plan kitchen. All our neighbours ask where we got it.', name: 'Laura de Vries', role: 'Krefeld' },
+        { quote: 'As a contractor I work with WohnStyle regularly for project flooring. Fast delivery, sharp prices and a team that thinks along with you. I recommend them to everyone.', name: 'Marco Jansen', role: 'Mönchengladbach' },
+        { quote: 'The herringbone laminate I chose here fitted my interior concept perfectly. Excellent quality at a very fair price. My clients love it.', name: 'Sofia Brouwer', role: 'Neuss' },
+        { quote: 'For three apartments in one complex we used the same floor throughout. WohnStyle handled everything smoothly — from measuring up to handover. Outstanding company.', name: 'Thomas Bakker', role: 'Köln' }
+      ]
+    };
+
+    var current = 0;
+    var timer;
+
+    function getLang() {
+      return (localStorage.getItem('wohnstyle_lang') || 'de') === 'en' ? 'en' : 'de';
+    }
+
+    function getList() {
+      return testimonialData[getLang()];
+    }
+
+    function showTestimonial(idx, animate) {
+      var q = document.getElementById('tQuote');
+      var n = document.getElementById('tName');
+      var r = document.getElementById('tRole');
+      var tabs = document.querySelectorAll('.t-tab');
+      var t = getList()[idx];
+
+      if (animate) {
+        q.style.opacity = '0'; q.style.transform = 'translateY(10px)';
+        setTimeout(function() {
+          q.textContent = t.quote;
+          n.textContent = t.name;
+          r.textContent = t.role;
+          q.style.opacity = '1'; q.style.transform = 'translateY(0)';
+        }, 200);
+      } else {
+        q.textContent = t.quote;
+        n.textContent = t.name;
+        r.textContent = t.role;
+      }
+
+      tabs.forEach(function(tab, i) {
+        tab.classList.toggle('active', i === idx);
+      });
+      current = idx;
+    }
+
+    document.querySelectorAll('.t-tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        clearInterval(timer);
+        showTestimonial(parseInt(btn.dataset.idx), true);
+        startTimer();
+      });
+    });
+
+    function startTimer() {
+      timer = setInterval(function() {
+        showTestimonial((current + 1) % getList().length, true);
+      }, 5000);
+    }
+
+    window.onLangChange = (function(prev) {
+      return function(lang) {
+        if (prev) prev(lang);
+        showTestimonial(current, false);
+      };
+    })(window.onLangChange);
+
+    showTestimonial(0, false);
+    startTimer();
+  })();
+  </script>
 
   <section class="section2-image-block">
     <div class="section2-img-wrap">
