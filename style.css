@@ -1159,14 +1159,26 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
+.section2-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.38);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
 .section2-card {
   position: absolute;
-  bottom: 48px;
-  left: 48px;
-  right: 48px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: none;
   padding: 0;
-  max-width: 420px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  z-index: 2;
 }
 
 .section2-card-tag {
@@ -1175,21 +1187,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .section2-card-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 400;
   color: #ffffff;
   line-height: 1.2;
-  margin-bottom: 14px;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+  margin-bottom: 16px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .section2-card-text {
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.65;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  color: rgba(255,255,255,0.88);
+  line-height: 1.7;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.35);
 }
 
 /* â”€â”€ STATS BAND â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -1915,6 +1929,113 @@ body.dark-mode .contact-row-label { color: #D7AA67; }
 
 .gallery-panel:not(.active):hover img {
   transform: scale(1.05);
+}
+
+/* collapsed: dark overlay + vertical label */
+.gallery-panel-vertical {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: rgba(0,0,0,0.45);
+  transition: opacity 0.45s ease, background 0.45s ease;
+}
+
+.gallery-panel.active .gallery-panel-vertical {
+  opacity: 0;
+}
+
+.gallery-panel-vertical-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+
+/* active: horizontal overlay */
+.gallery-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 28px 24px;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.gallery-panel.active .gallery-panel-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gallery-panel-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 10px;
+  display: block;
+  transform: translateY(6px);
+  opacity: 0;
+  transition: transform 0.4s ease 0.15s, opacity 0.4s ease 0.15s;
+}
+
+.gallery-panel-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 18px;
+  display: block;
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform 0.4s ease 0.05s, opacity 0.4s ease 0.05s;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.gallery-panel-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform 0.4s ease 0.2s, opacity 0.4s ease 0.2s, background 0.15s, color 0.15s;
+}
+
+.gallery-panel.active .gallery-panel-label,
+.gallery-panel.active .gallery-panel-title,
+.gallery-panel.active .gallery-panel-btn {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-panel-btn:hover {
+  background: #1a1a1a;
+  color: #fff;
 }
 
 /* Mobile: hero stacked */

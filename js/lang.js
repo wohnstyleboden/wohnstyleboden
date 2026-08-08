@@ -495,6 +495,7 @@ const translations = {
     'nav.contact.beratung': 'Beratung',
     'nav.contact.jobs': 'Stellenangebote',
 
+    'gallery.btn': 'Kollektion ansehen',
     'products.search': 'Nach Name, Marke, Farbe suchen...',
     'products.sort.name': 'Name A-Z',
     'products.sort.price_asc': 'Preis aufsteigend',
@@ -1030,6 +1031,7 @@ const translations = {
     'nav.contact.beratung': 'Consultation',
     'nav.contact.jobs': 'Vacancies',
 
+    'gallery.btn': 'View collection',
     'products.search': 'Search by name, brand, colour...',
     'products.sort.name': 'Name A-Z',
     'products.sort.price_asc': 'Price low-high',
