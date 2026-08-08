@@ -1057,6 +1057,18 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid #e0e0e0;
 }
 
+.testimonial-section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.6px;
+  font-weight: 400;
+  letter-spacing: 4.76px;
+  text-transform: uppercase;
+  color: #111827;
+  text-align: center;
+  padding-top: 64px;
+  margin: 0;
+}
+
 .testimonial-layout {
   display: flex;
   flex-direction: column;
@@ -1069,6 +1081,8 @@ h1, h2, h3, h4, h5, h6 {
 .testimonial-quote-panel {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 28px;
   padding-bottom: 48px;
 }
@@ -1351,12 +1365,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 13.6px;
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 24px;
-  letter-spacing: 0.35em;
+  letter-spacing: 4.76px;
+  color: #111827;
 }
 
 .tabs {
@@ -1509,7 +1524,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #d1d1d1;
 }
 
-.usp-section .section-title { text-align: left; }
+.usp-section .section-title { text-align: center; }
 
 .usp-eyebrow {
   color: var(--gray-500);

@@ -356,6 +356,7 @@ const translations = {
     'rooms.sommerhaus': 'Sommerhaus ›',
     'rooms.arbeitszimmer': 'Arbeitszimmer ›',
 
+    'testimonials.title': 'Testimonials',
     'section2.tag': 'Unsere Kollektion',
     'section2.title': 'Böden für jeden Raum und jeden Stil',
     'section2.text': 'Von klassischem Eichendekor bis hin zu modernen Grautönen — entdecken Sie unsere handverlesene Auswahl an Premium-Laminat und Parkett für Ihr Zuhause.',
@@ -892,6 +893,7 @@ const translations = {
     'rooms.sommerhaus': 'Summer House ›',
     'rooms.arbeitszimmer': 'Office ›',
 
+    'testimonials.title': 'Testimonials',
     'section2.tag': 'Our Collection',
     'section2.title': 'Floors for every room and every style',
     'section2.text': 'From classic oak to modern grey tones — discover our hand-picked selection of premium laminate and parquet for your home.',

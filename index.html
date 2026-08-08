@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=76">
+  <link rel="stylesheet" href="style.css?v=79">
 </head>
 <body>
 
@@ -622,10 +622,10 @@
   </section>
 
   <section class="testimonial-section">
+    <h2 class="testimonial-section-title" data-i18n="testimonials.title">Testimonials</h2>
     <div class="testimonial-layout">
 
       <div class="testimonial-quote-panel">
-        <span class="testimonial-mark">"</span>
         <p class="testimonial-quote" id="tQuote">Wij hebben onze volledige woonkamer laten bekleden met laminaat van WohnStyle. De kwaliteit is uitstekend en de service was van begin tot eind van topniveau.</p>
         <div class="testimonial-author">
           <div class="testimonial-author-line"></div>
@@ -726,6 +726,21 @@
 
     showTestimonial(0, false);
     startTimer();
+
+    // Swipe on mobile
+    var panel = document.querySelector('.testimonial-quote-panel');
+    var swipeStartX = 0;
+    panel.addEventListener('touchstart', function(e) { swipeStartX = e.touches[0].clientX; }, { passive: true });
+    panel.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - swipeStartX;
+      if (Math.abs(dx) < 40) return;
+      clearInterval(timer);
+      var next = dx < 0
+        ? (current + 1) % getList().length
+        : (current - 1 + getList().length) % getList().length;
+      showTestimonial(next, true);
+      startTimer();
+    }, { passive: true });
   })();
   </script>
 
