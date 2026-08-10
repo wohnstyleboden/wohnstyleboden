@@ -487,7 +487,13 @@
       populateCats();
       const def = catDefs.find(d => d.cat === cat) || catDefs[0];
       document.getElementById('pageTitle').textContent = getCatLabel(def.cat || def);
-      document.getElementById('breadcrumbCat').textContent = getCatLabel(def.cat || def);
+      const bcCat = document.getElementById('breadcrumbCat');
+      bcCat.textContent = getCatLabel(def.cat || def);
+      bcCat.style.cursor = 'default';
+      bcCat.style.textDecoration = 'none';
+      bcCat.onclick = null;
+      document.getElementById('breadcrumbSep2').style.display = 'none';
+      document.getElementById('breadcrumbSub').style.display = 'none';
       updateCatDescription(cat);
       renderProducts();
     }
