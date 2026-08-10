@@ -1238,6 +1238,22 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 1px 6px rgba(0,0,0,0.35);
 }
 
+.section2-card-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.section2-card-btn:hover { background: #f0f0f0; }
+
 @media (max-width: 768px) {
   .section2-card {
     top: auto;
