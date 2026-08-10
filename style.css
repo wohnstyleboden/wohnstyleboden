@@ -1255,18 +1255,27 @@ h1, h2, h3, h4, h5, h6 {
 .section2-card-btn:hover { background: #f0f0f0; }
 
 @media (max-width: 768px) {
+  .section2-image-block {
+    height: 420px;
+  }
+  .section2-img-wrap {
+    inset: 0 24px;
+  }
   .section2-card {
-    top: auto;
-    left: auto;
-    transform: none;
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 24px;
+    right: 24px;
+    bottom: 0;
+    transform: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 24px;
     width: auto;
     max-width: none;
+    text-align: center;
   }
   .section2-card-title {
     font-size: 22px;
@@ -1750,10 +1759,35 @@ body.dark-mode .usp-principle-card p { color: #999; }
 }
 
 .footer-logo-wrap {
-  padding: 48px 24px;
+  padding: 72px 24px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 48px;
+}
+
+.footer-logo-wrap .footer-nav-logo {
+  order: 0 !important;
+}
+
+.footer-socials {
+  order: 1;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-social-link {
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s;
+}
+
+.footer-social-link:hover {
+  opacity: 0.5;
 }
 
 .footer-nav-logo {
