@@ -185,15 +185,15 @@
       <nav class="breadcrumb">
         <a href="index.html">Home</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span id="breadcrumbCat">Alle producten</span>
+        <span id="breadcrumbCat" style="cursor:default">Alle producten</span>
         <svg id="breadcrumbSep2" width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span id="breadcrumbSub" style="display:none"></span>
       </nav>
 
       <!-- Mobile back link (only shown when a subcategory is active) -->
-      <a href="#" class="mobile-back-link" id="mobileBackLink" onclick="selectCat('all'); return false;">
+      <a href="#" class="mobile-back-link" id="mobileBackLink" onclick="mobileGoBack(); return false;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span id="mobileBackLabel">Alle producten</span>
+        <span id="mobileBackLabel"></span>
       </a>
 
       <!-- Mobile filter button -->
@@ -441,6 +441,11 @@
       renderProducts();
     }
 
+    function mobileGoBack() {
+      // ga terug naar de hoofdcategorie (bijv. Laminaat), niet naar alle producten
+      drillCat(activeMainCat);
+    }
+
     function goBackCat() {
       activeMainCat = 'all';
       currentCat = 'all';
@@ -462,23 +467,35 @@
       const mainDef2 = catDefs.find(d => d.cat === activeMainCat);
       const sep2 = document.getElementById('breadcrumbSep2');
       const sub2 = document.getElementById('breadcrumbSub');
+      const bcCat = document.getElementById('breadcrumbCat');
       if (isSubType && mainDef2) {
-        document.getElementById('breadcrumbCat').textContent = mainDef2.label;
+        bcCat.textContent = mainDef2.label;
+        bcCat.style.cursor = 'pointer';
+        bcCat.style.textDecoration = 'none';
+        bcCat.style.color = '';
+        bcCat.onmouseenter = function() { bcCat.style.textDecoration = 'underline'; };
+        bcCat.onmouseleave = function() { bcCat.style.textDecoration = 'none'; };
+        bcCat.onclick = function() { drillCat(activeMainCat); };
         sep2.style.display = '';
         sub2.style.display = '';
         sub2.textContent = def.label;
       } else {
-        document.getElementById('breadcrumbCat').textContent = def.label;
+        bcCat.textContent = def.label;
+        bcCat.style.cursor = 'default';
+        bcCat.style.textDecoration = 'none';
+        bcCat.onclick = null;
         sep2.style.display = 'none';
         sub2.style.display = 'none';
       }
-      // mobile back link
+      // mobile back link: toon alleen bij subtype, met naam van hoofdcategorie
       const backLink = document.getElementById('mobileBackLink');
-      if (cat === 'all') {
-        backLink.classList.remove('visible');
-      } else {
-        document.getElementById('mobileBackLabel').textContent = 'Alle producten';
+      const isSubType2 = !catDefs.find(d => d.cat === cat) && activeMainCat !== 'all';
+      if (isSubType2) {
+        const mainLabel = catDefs.find(d => d.cat === activeMainCat)?.label || activeMainCat;
+        document.getElementById('mobileBackLabel').textContent = mainLabel;
         backLink.classList.add('visible');
+      } else {
+        backLink.classList.remove('visible');
       }
       document.querySelectorAll('.cat-link').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.cat === cat);
