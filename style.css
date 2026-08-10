@@ -1864,7 +1864,7 @@ body.dark-mode .theme-toggle-thumb { transform: translateX(18px); background: #f
 
 .contact-section {
   position: relative;
-  padding: 64px 24px 80px;
+  padding: 64px 48px 80px;
   overflow: visible;
   border-top: 1px solid #e0e0e0;
 }
@@ -2388,14 +2388,14 @@ body.dark-mode .btn-nav:hover {
   grid-template-columns: 1fr auto 1fr;
   gap: 48px;
   align-items: start;
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 0;
 }
 
 .contact-left-title {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.04em;
   color: var(--dark);
   margin-bottom: 8px;
