@@ -149,7 +149,7 @@
     .empty { text-align: center; padding: 80px 0; color: #aaa; grid-column: 1 / -1; }
 
     /* ---- Offertenlijst bar ---- */
-    .quote-bar { position: fixed; bottom: 4px; left: 50%; transform: translateX(-50%) translateY(calc(100% + 8px)); width: calc(100% - 32px); max-width: 1400px; background: #1a1a1a; color: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; z-index: 200; transition: transform 0.35s cubic-bezier(.4,0,.2,1); }
+    .quote-bar { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(calc(100% + 32px)); width: auto; max-width: calc(100% - 48px); background: #1a1a1a; color: #fff; padding: 16px 32px; display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; z-index: 200; transition: transform 0.35s cubic-bezier(.4,0,.2,1); white-space: nowrap; }
     .quote-bar.visible { transform: translateX(-50%) translateY(0); }
     .quote-bar-left { font-size: 0.9rem; }
     .quote-bar-left strong { font-weight: 600; }
