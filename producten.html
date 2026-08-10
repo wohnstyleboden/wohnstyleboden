@@ -46,6 +46,10 @@
     @media (max-width: 1100px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 768px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
     @media (max-width: 480px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+    @media (max-width: 768px) {
+      .products-grid.list-view .product-card { grid-template-columns: 90px 1fr; grid-template-rows: auto auto; }
+      .products-grid.list-view .card-btn-add { grid-column: 1 / -1; width: 100%; white-space: normal; }
+    }
 
     /* ---- Product card ---- */
     .product-card { cursor: pointer; transition: transform 0.2s; }
