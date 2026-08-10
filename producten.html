@@ -83,6 +83,14 @@
     .view-toggle-btn { background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center; color: #1a1a1a; flex-shrink: 0; }
     .view-toggle-btn:hover { opacity: 0.6; }
 
+    /* ---- Title visibility (mobile above filter, desktop inside content) ---- */
+    .mobile-only-title { display: block; }
+    .desktop-only-title { display: none; }
+    @media (min-width: 901px) {
+      .mobile-only-title { display: none !important; }
+      .desktop-only-title { display: block; }
+    }
+
     /* ---- Mobile back link ---- */
     .mobile-back-link { display: none; align-items: center; gap: 6px; font-size: 0.82rem; color: #1a1a1a; text-decoration: none; margin-bottom: 16px; font-weight: 500; }
     .mobile-back-link:hover { opacity: 0.7; }
@@ -131,7 +139,7 @@
     .filter-clear:hover { color: #1a1a1a; }
 
     /* ---- Mobile filter button + overlay ---- */
-    .mobile-filter-btn { display: none; width: 100%; padding: 12px; background: #1a1a1a; color: #fff; border: none; font-family: inherit; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; }
+    .mobile-filter-btn { display: none; width: 100%; padding: 12px; background: #1a1a1a; color: #fff; border: none; font-family: inherit; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; }
     .filter-overlay-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 499; }
     .filter-overlay-bg.open { display: block; }
     .filter-sidebar-inner { background: #fff; }
@@ -212,6 +220,13 @@
         <span id="mobileBackLabel"></span>
       </a>
 
+      <!-- Title + description: on mobile above filter btn, on desktop hidden (shown inside layout) -->
+      <div class="products-title-row mobile-only-title">
+        <h1 id="pageTitle" data-i18n="products.title">Producten</h1>
+        <span class="products-count" id="productsCount" style="display:none">0 producten</span>
+      </div>
+      <p class="cat-description mobile-only-title" id="catDescription"></p>
+
       <!-- Mobile filter button -->
       <button class="mobile-filter-btn" id="mobileFilterBtn" onclick="openFilterDrawer()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M7 12h10M11 18h2" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -279,11 +294,10 @@
         <!-- Products content -->
         <div class="products-content">
 
-          <div class="products-title-row">
-            <h1 id="pageTitle" data-i18n="products.title">Producten</h1>
-            <span class="products-count" id="productsCount" style="display:none">0 producten</span>
+          <div class="products-title-row desktop-only-title">
+            <h1 id="pageTitleDesktop"></h1>
           </div>
-          <p class="cat-description" id="catDescription"></p>
+          <p class="cat-description desktop-only-title" id="catDescriptionDesktop"></p>
 
           <div class="products-toolbar">
             <div class="toolbar-left" id="toolbarCount"></div>
@@ -365,11 +379,20 @@
       }
     };
 
+    function setPageTitle(text) {
+      const a = document.getElementById('pageTitle');
+      const b = document.getElementById('pageTitleDesktop');
+      if (a) a.textContent = text;
+      if (b) b.textContent = text;
+    }
+
     function updateCatDescription(cat) {
-      const el = document.getElementById('catDescription');
-      if (!el) return;
       const desc = catDescriptions[cat];
-      el.textContent = desc ? desc[getLang()] || '' : '';
+      const text = desc ? desc[getLang()] || '' : '';
+      const a = document.getElementById('catDescription');
+      const b = document.getElementById('catDescriptionDesktop');
+      if (a) a.textContent = text;
+      if (b) b.textContent = text;
     }
     let currentCat = _urlCat;
     let activeMainCat = _urlCat;
@@ -398,7 +421,7 @@
         populateBrands();
         initPriceSlider();
         const _initDef = catDefs.find(d => d.cat === currentCat) || catDefs[0];
-        document.getElementById('pageTitle').textContent = getCatLabel(_initDef.cat);
+        setPageTitle(getCatLabel(_initDef.cat));
         document.getElementById('breadcrumbCat').textContent = getCatLabel(_initDef.cat);
         updateCatDescription(currentCat);
         renderProducts();
@@ -503,7 +526,7 @@
       currentCat = cat;
       populateCats();
       const def = catDefs.find(d => d.cat === cat) || catDefs[0];
-      document.getElementById('pageTitle').textContent = getCatLabel(def.cat || def);
+      setPageTitle(getCatLabel(def.cat || def));
       const bcCat = document.getElementById('breadcrumbCat');
       bcCat.textContent = getCatLabel(def.cat || def);
       bcCat.style.cursor = 'default';
@@ -525,7 +548,7 @@
       activeMainCat = 'all';
       currentCat = 'all';
       populateCats();
-      document.getElementById('pageTitle').textContent = catDefs[0].label;
+      setPageTitle(catDefs[0].label);
       document.getElementById('breadcrumbCat').textContent = catDefs[0].label;
       renderProducts();
     }
@@ -535,7 +558,7 @@
       const allSubs = Object.values(subCatDefs).flatMap(s => [...(s.types||[]), ...(s.brands||[])]);
       const allSubs2 = Object.values(subCatDefs).flatMap(s => [...(s.types||[])]);
       const def = catDefs.find(d => d.cat === cat) || allSubs2.find(d => d.cat === cat) || { label: cat };
-      document.getElementById('pageTitle').textContent = def.label || getCatLabel(def.cat);
+      setPageTitle(def.label || getCatLabel(def.cat));
       updateCatDescription(activeMainCat);
 
       // breadcrumb: main cat + optional subcat
@@ -793,7 +816,7 @@
     window.onLangChange = function() {
       document.getElementById('searchInput').placeholder = t('products.search');
       const _def = catDefs.find(d => d.cat === currentCat) || catDefs[0];
-      document.getElementById('pageTitle').textContent = getCatLabel(_def.cat || _def);
+      setPageTitle(getCatLabel(_def.cat || _def));
       document.getElementById('breadcrumbCat').textContent = getCatLabel(_def.cat || _def);
       updateCatDescription(currentCat);
       renderProducts();
