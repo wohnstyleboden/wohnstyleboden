@@ -118,10 +118,10 @@
     .filter-count { color: #bbb; font-size: 0.72rem; margin-left: auto; }
     .price-slider-wrap { position: relative; height: 20px; margin: 18px 4px 6px; }
     .price-slider-track { position: absolute; top: 50%; left: 0; right: 0; height: 3px; background: #ddd; transform: translateY(-50%); border-radius: 2px; }
-    .price-slider-range { position: absolute; height: 100%; background: #7b1a2e; border-radius: 2px; }
+    .price-slider-range { position: absolute; height: 100%; background: #1a1a1a; border-radius: 2px; }
     .price-slider-wrap input[type=range] { position: absolute; width: 100%; top: 50%; transform: translateY(-50%); appearance: none; -webkit-appearance: none; background: transparent; pointer-events: none; margin: 0; padding: 0; }
-    .price-slider-wrap input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #7b1a2e; cursor: pointer; pointer-events: all; border: none; }
-    .price-slider-wrap input[type=range]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #7b1a2e; cursor: pointer; pointer-events: all; border: none; }
+    .price-slider-wrap input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #1a1a1a; cursor: pointer; pointer-events: all; border: none; }
+    .price-slider-wrap input[type=range]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #1a1a1a; cursor: pointer; pointer-events: all; border: none; }
     .price-slider-labels { display: flex; justify-content: space-between; font-size: 0.78rem; color: #555; margin-top: 6px; }
     .filter-clear { background: none; border: none; cursor: pointer; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: #aaa; text-decoration: underline; margin-top: 20px; padding: 0; font-family: inherit; display: block; }
     .filter-clear:hover { color: #1a1a1a; }
@@ -505,6 +505,7 @@
       document.getElementById('breadcrumbSep2').style.display = 'none';
       document.getElementById('breadcrumbSub').style.display = 'none';
       updateCatDescription(cat);
+      initPriceSlider();
       renderProducts();
     }
 
@@ -568,11 +569,13 @@
       document.querySelectorAll('.cat-link').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.cat === cat);
       });
+      initPriceSlider();
       renderProducts();
     }
 
     function initPriceSlider() {
-      const prices = allProducts.map(p => p.price).filter(Boolean);
+      const catProducts = allProducts.filter(p => !currentCat || currentCat === 'all' || p.category === currentCat);
+      const prices = (catProducts.length ? catProducts : allProducts).map(p => p.price).filter(Boolean);
       if (!prices.length) return;
       const lo = Math.floor(Math.min(...prices));
       const hi = Math.ceil(Math.max(...prices));
