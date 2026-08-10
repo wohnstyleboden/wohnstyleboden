@@ -531,7 +531,7 @@
       const allSubs = Object.values(subCatDefs).flatMap(s => [...(s.types||[]), ...(s.brands||[])]);
       const allSubs2 = Object.values(subCatDefs).flatMap(s => [...(s.types||[])]);
       const def = catDefs.find(d => d.cat === cat) || allSubs2.find(d => d.cat === cat) || { label: cat };
-      document.getElementById('pageTitle').textContent = getCatLabel(def.cat || def);
+      document.getElementById('pageTitle').textContent = def.label || getCatLabel(def.cat);
       updateCatDescription(activeMainCat);
 
       // breadcrumb: main cat + optional subcat
@@ -544,9 +544,9 @@
         bcCat.textContent = mainDef2.label;
         bcCat.style.cursor = 'pointer';
         bcCat.style.textDecoration = 'none';
-        bcCat.style.color = '';
-        bcCat.onmouseenter = function() { bcCat.style.textDecoration = 'underline'; };
-        bcCat.onmouseleave = function() { bcCat.style.textDecoration = 'none'; };
+        bcCat.style.color = '#888';
+        bcCat.onmouseenter = function() { bcCat.style.color = '#1a1a1a'; };
+        bcCat.onmouseleave = function() { bcCat.style.color = '#888'; };
         bcCat.onclick = function() { drillCat(activeMainCat); };
         sep2.style.display = '';
         sub2.style.display = '';
