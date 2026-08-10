@@ -235,8 +235,7 @@
 
       <div class="contact-right">
         <h2 class="contact-form-title" data-i18n="contact.form.title">Nutzen Sie unser Formular</h2>
-        <form name="contact" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
-          <input type="hidden" name="form-name" value="contact">
+        <form name="contact" method="POST" onsubmit="handleSubmit(event)">
           <div class="form-row">
             <div class="form-group">
               <label data-i18n="contact.form.firstname">Vorname</label>
@@ -395,7 +394,7 @@
     function handleSubmit(e) {
       e.preventDefault();
       var form = e.target;
-      fetch('/', { method: 'POST', body: new FormData(form) })
+      fetch('https://formspree.io/f/mqerbowl', { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
         .then(function() {
           var isEn = document.documentElement.lang === 'en';
           document.getElementById('success-title').textContent = isEn ? 'Message sent!' : 'Nachricht gesendet!';

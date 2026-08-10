@@ -73,6 +73,8 @@
     .toolbar-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
     .toolbar-right select { padding: 7px 28px 7px 10px; border: 1px solid #ddd; font-family: inherit; font-size: 0.82rem; background: #fff; color: #1a1a1a; appearance: none; -webkit-appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; }
     .toolbar-right select:focus { outline: none; border-color: #1a1a1a; }
+    .cat-description { font-size: 0.9rem; color: #555; line-height: 1.7; margin-bottom: 24px; max-width: 720px; }
+
     .view-toggle-btn { background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center; color: #1a1a1a; flex-shrink: 0; }
     .view-toggle-btn:hover { opacity: 0.6; }
 
@@ -98,10 +100,10 @@
     .products-grid.list-view .card-info { padding: 0; }
 
     /* ---- Two-column layout ---- */
-    .products-layout { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; }
+    .products-layout { display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: start; }
 
     /* ---- Sidebar ---- */
-    .filter-sidebar { border-right: 1px solid #e8e8e8; padding-right: 32px; position: sticky; top: 80px; }
+    .filter-sidebar { position: sticky; top: 80px; }
     .filter-section { margin-bottom: 0; border-bottom: 1px solid #f0f0f0; padding: 18px 0; }
     .filter-section:first-child { padding-top: 0; }
     .filter-section-hd { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
@@ -262,6 +264,7 @@
             <h1 id="pageTitle" data-i18n="products.title">Producten</h1>
             <span class="products-count" id="productsCount" style="display:none">0 producten</span>
           </div>
+          <p class="cat-description" id="catDescription"></p>
 
           <div class="products-toolbar">
             <div class="toolbar-left" id="toolbarCount"></div>
@@ -314,14 +317,58 @@
   <script>
     let allProducts = [];
     const _urlCat = new URLSearchParams(location.search).get('cat') || 'uitverkoop';
+
+    function getLang() { return (localStorage.getItem('wohnstyle_lang') || 'de') === 'en' ? 'en' : 'de'; }
+
+    const catDescriptions = {
+      uitverkoop: {
+        de: 'Entdecken Sie unsere Ausverkaufsangebote – hochwertige Bodenbeläge zu reduzierten Preisen. Begrenzte Verfügbarkeit, solange der Vorrat reicht.',
+        en: 'Discover our sale offers – premium flooring at reduced prices. Limited availability, while stocks last.'
+      },
+      laminaat: {
+        de: 'Laminatboden verbindet zeitloses Design mit robuster Langlebigkeit. Unsere Kollektion umfasst eine große Auswahl an Dekoren – von hellen Eichenstrukturen bis hin zu modernen Grautönen – für jeden Wohnstil.',
+        en: 'Laminate flooring combines timeless design with robust durability. Our collection features a wide range of decors – from light oak structures to modern grey tones – for every living style.'
+      },
+      pvc: {
+        de: 'PVC-Böden überzeugen durch ihre Wasserfestigkeit und einfache Pflege. Ideal für Küche, Bad und stark beanspruchte Bereiche – in zahlreichen Holz- und Steindekoren erhältlich.',
+        en: 'PVC floors impress with their waterproofness and easy maintenance. Ideal for kitchens, bathrooms and high-traffic areas – available in numerous wood and stone decors.'
+      },
+      visgraat: {
+        de: 'Das klassische Fischgrätmuster verleiht jedem Raum eine edle, zeitlose Eleganz. Erhältlich als Laminat, PVC oder Echtholzparkett – für einen stilvollen Auftritt.',
+        en: 'The classic herringbone pattern gives every room a noble, timeless elegance. Available as laminate, PVC or real wood parquet – for a stylish appearance.'
+      },
+      parkett: {
+        de: 'Echtholzparkett steht für natürliche Wärme und unvergleichliche Qualität. Jede Diele ist ein Unikat mit einzigartiger Maserung – nachhaltig, langlebig und wertsteigernd.',
+        en: 'Real wood parquet stands for natural warmth and unparalleled quality. Each plank is unique with its own grain – sustainable, durable and value-enhancing.'
+      },
+      zubehor: {
+        de: 'Ergänzen Sie Ihren neuen Boden mit dem passenden Zubehör: Unterböden, Sockelleisten, Übergangsprofilen und mehr – alles aus einer Hand für ein perfektes Ergebnis.',
+        en: 'Complete your new floor with matching accessories: underlays, skirting boards, transition profiles and more – everything from one source for a perfect result.'
+      }
+    };
+
+    function updateCatDescription(cat) {
+      const el = document.getElementById('catDescription');
+      if (!el) return;
+      const desc = catDescriptions[cat];
+      el.textContent = desc ? desc[getLang()] || '' : '';
+    }
     let currentCat = _urlCat;
     let activeMainCat = _urlCat;
-    const catLabels = { uitverkoop: 'Uitverkoop', laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
+    const catLabels = {
+      uitverkoop: { de: 'Ausverkauf', en: 'Sale' },
+      laminaat: 'Laminaat',
+      pvc: 'PVC-Böden',
+      visgraat: 'Fischgrätboden',
+      parkett: 'Parkett',
+      zubehor: 'Zubehör'
+    };
 
     function getCatLabel(cat) {
       const key = catLabels[cat];
-      if (key && key.includes('.')) return t(key);
-      return key || cat;
+      if (!key) return cat;
+      if (typeof key === 'object') return key[getLang()] || key.de;
+      return key;
     }
 
     // ---- Load products ----
@@ -332,8 +379,9 @@
         populateCats();
         populateBrands();
         const _initDef = catDefs.find(d => d.cat === currentCat) || catDefs[0];
-        document.getElementById('pageTitle').textContent = _initDef.label;
-        document.getElementById('breadcrumbCat').textContent = _initDef.label;
+        document.getElementById('pageTitle').textContent = getCatLabel(_initDef.cat);
+        document.getElementById('breadcrumbCat').textContent = getCatLabel(_initDef.cat);
+        updateCatDescription(currentCat);
         renderProducts();
       })
       .catch(() => {
@@ -397,7 +445,7 @@
     };
 
     const catDefs = [
-      { cat: 'uitverkoop', label: 'Uitverkoop' },
+      { cat: 'uitverkoop', label: 'Ausverkauf', labelEn: 'Sale' },
       { cat: 'laminaat', label: 'Laminaat' },
       { cat: 'pvc', label: 'PVC-Böden' },
       { cat: 'visgraat', label: 'Fischgrätboden' },
@@ -436,8 +484,9 @@
       currentCat = cat;
       populateCats();
       const def = catDefs.find(d => d.cat === cat) || catDefs[0];
-      document.getElementById('pageTitle').textContent = def.label;
-      document.getElementById('breadcrumbCat').textContent = def.label;
+      document.getElementById('pageTitle').textContent = getCatLabel(def.cat || def);
+      document.getElementById('breadcrumbCat').textContent = getCatLabel(def.cat || def);
+      updateCatDescription(cat);
       renderProducts();
     }
 
@@ -460,7 +509,8 @@
       const allSubs = Object.values(subCatDefs).flatMap(s => [...(s.types||[]), ...(s.brands||[])]);
       const allSubs2 = Object.values(subCatDefs).flatMap(s => [...(s.types||[])]);
       const def = catDefs.find(d => d.cat === cat) || allSubs2.find(d => d.cat === cat) || { label: cat };
-      document.getElementById('pageTitle').textContent = def.label;
+      document.getElementById('pageTitle').textContent = getCatLabel(def.cat || def);
+      updateCatDescription(activeMainCat);
 
       // breadcrumb: main cat + optional subcat
       const isSubType = !catDefs.find(d => d.cat === cat) && activeMainCat !== 'all';
@@ -677,6 +727,10 @@
 
     window.onLangChange = function() {
       document.getElementById('searchInput').placeholder = t('products.search');
+      const _def = catDefs.find(d => d.cat === currentCat) || catDefs[0];
+      document.getElementById('pageTitle').textContent = getCatLabel(_def.cat || _def);
+      document.getElementById('breadcrumbCat').textContent = getCatLabel(_def.cat || _def);
+      updateCatDescription(currentCat);
       renderProducts();
     };
   </script>
