@@ -390,7 +390,7 @@ const translations = {
     'gallery.coming': 'Bald verfügbar',
 
     'hero.btn': 'Angebot anfragen',
-    'hero.secondary': 'Kollektion ansehen',
+    'hero.secondary': 'Ausverkauf',
     'sticky.btn': 'Angebot anfragen',
     'mobile.cta': 'Kontakt',
     'nav.contact': 'Kontakt',
@@ -927,7 +927,7 @@ const translations = {
     'gallery.coming': 'Coming soon',
 
     'hero.btn': 'Request a quote',
-    'hero.secondary': 'View collection',
+    'hero.secondary': 'Sale',
     'sticky.btn': 'Request a quote',
     'mobile.cta': 'Contact',
     'nav.contact': 'Contact',

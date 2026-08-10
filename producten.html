@@ -185,7 +185,9 @@
       <nav class="breadcrumb">
         <a href="index.html">Home</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span id="breadcrumbCat" data-i18n="products.breadcrumb.all">Alle producten</span>
+        <span id="breadcrumbCat">Alle producten</span>
+        <svg id="breadcrumbSep2" width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:none"><path d="M9 18l6-6-6-6" stroke="#aaa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="breadcrumbSub" style="display:none"></span>
       </nav>
 
       <!-- Mobile back link (only shown when a subcategory is active) -->
@@ -311,8 +313,10 @@
   <script src="js/nav.js?v=1"></script>
   <script>
     let allProducts = [];
-    let currentCat = 'all';
-    const catLabels = { all: 'products.breadcrumb.all', laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
+    const _urlCat = new URLSearchParams(location.search).get('cat') || 'uitverkoop';
+    let currentCat = _urlCat;
+    let activeMainCat = _urlCat;
+    const catLabels = { uitverkoop: 'Uitverkoop', laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
 
     function getCatLabel(cat) {
       const key = catLabels[cat];
@@ -327,6 +331,9 @@
         allProducts = data.products || [];
         populateCats();
         populateBrands();
+        const _initDef = catDefs.find(d => d.cat === currentCat) || catDefs[0];
+        document.getElementById('pageTitle').textContent = _initDef.label;
+        document.getElementById('breadcrumbCat').textContent = _initDef.label;
         renderProducts();
       })
       .catch(() => {
@@ -334,6 +341,7 @@
       });
 
     const subCatDefs = {
+      uitverkoop: { types: [], brands: [] },
       laminaat: {
         types: [
           { cat: 'laminaat', label: 'Laminaat' },
@@ -389,15 +397,13 @@
     };
 
     const catDefs = [
-      { cat: 'all', label: 'Alle producten' },
+      { cat: 'uitverkoop', label: 'Uitverkoop' },
       { cat: 'laminaat', label: 'Laminaat' },
       { cat: 'pvc', label: 'PVC-Böden' },
       { cat: 'visgraat', label: 'Fischgrätboden' },
       { cat: 'parkett', label: 'Parkett' },
       { cat: 'zubehor', label: 'Zubehör' }
     ];
-
-    let activeMainCat = 'all';
 
     function populateCats() {
       const list = document.getElementById('catList');
@@ -406,27 +412,15 @@
       if (activeMainCat !== 'all' && subCatDefs[activeMainCat]) {
         const sub = subCatDefs[activeMainCat];
         const mainDef = catDefs.find(d => d.cat === activeMainCat);
-        hd.textContent = mainDef ? mainDef.label : 'Categorieën';
+        hd.textContent = 'Types';
 
-        let html = `<button class="cat-link cat-back" onclick="goBackCat()">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" style="margin-right:4px;flex-shrink:0"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Alle categorieën
-        </button>`;
+        let html = '';
 
         if (sub.types && sub.types.length) {
-          html += `<div class="cat-group-label">TYPES</div>`;
-          html += sub.types.map(({ cat, label }) =>
+          html += sub.types.filter(d => d.cat !== activeMainCat).map(({ cat, label }) =>
             `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="selectCat('${cat}')">${esc(label)}</button>`
           ).join('');
         }
-        if (sub.brands && sub.brands.length) {
-          html += `<div class="cat-group-label">MERKEN</div>`;
-          html += sub.brands.map(({ cat, label }) =>
-            `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="selectCat('${cat}')">${esc(label)}</button>`
-          ).join('');
-        }
-        const allLabel = 'ALLE ' + (mainDef ? mainDef.label.toUpperCase() : '');
-        html += `<button class="cat-link cat-all-link" onclick="selectCat('${activeMainCat}')">${esc(allLabel)}</button>`;
         list.innerHTML = html;
       } else {
         hd.textContent = 'Categorieën';
@@ -459,9 +453,25 @@
     function selectCat(cat) {
       currentCat = cat;
       const allSubs = Object.values(subCatDefs).flatMap(s => [...(s.types||[]), ...(s.brands||[])]);
-      const def = catDefs.find(d => d.cat === cat) || allSubs.find(d => d.cat === cat) || { label: cat };
+      const allSubs2 = Object.values(subCatDefs).flatMap(s => [...(s.types||[])]);
+      const def = catDefs.find(d => d.cat === cat) || allSubs2.find(d => d.cat === cat) || { label: cat };
       document.getElementById('pageTitle').textContent = def.label;
-      document.getElementById('breadcrumbCat').textContent = def.label;
+
+      // breadcrumb: main cat + optional subcat
+      const isSubType = !catDefs.find(d => d.cat === cat) && activeMainCat !== 'all';
+      const mainDef2 = catDefs.find(d => d.cat === activeMainCat);
+      const sep2 = document.getElementById('breadcrumbSep2');
+      const sub2 = document.getElementById('breadcrumbSub');
+      if (isSubType && mainDef2) {
+        document.getElementById('breadcrumbCat').textContent = mainDef2.label;
+        sep2.style.display = '';
+        sub2.style.display = '';
+        sub2.textContent = def.label;
+      } else {
+        document.getElementById('breadcrumbCat').textContent = def.label;
+        sep2.style.display = 'none';
+        sub2.style.display = 'none';
+      }
       // mobile back link
       const backLink = document.getElementById('mobileBackLink');
       if (cat === 'all') {
