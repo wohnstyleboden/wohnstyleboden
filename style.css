@@ -2410,7 +2410,7 @@ body.dark-mode .btn-nav:hover {
 
 .contact-options-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   border-top: 1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
 }
