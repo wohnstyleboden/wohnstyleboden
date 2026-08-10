@@ -1962,8 +1962,10 @@ body.dark-mode .contact-row-label { color: #D7AA67; }
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
-  transition: flex 0.25s ease;
+  transition: flex 0.2s ease;
   position: relative;
+  will-change: flex-basis;
+  transform: translateZ(0);
 }
 
 .gallery-panel.active {
