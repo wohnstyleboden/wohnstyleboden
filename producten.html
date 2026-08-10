@@ -67,19 +67,71 @@
     .card-btn-add:hover { background: #333; }
     .card-btn-add.added { background: #2e7d32; }
 
-    /* ---- View toggle ---- */
-    .cat-tabs-row { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e8e8e8; margin-bottom: 28px; }
-    .cat-tabs { border-bottom: none; margin-bottom: 0; }
-    .view-toggle { display: flex; gap: 4px; flex-shrink: 0; }
-    .view-btn { background: none; border: 1px solid transparent; cursor: pointer; padding: 6px 8px; color: #bbb; display: flex; align-items: center; transition: color 0.15s, border-color 0.15s; }
-    .view-btn.active { color: #1a1a1a; border-color: transparent; }
-    .view-btn:hover { color: #1a1a1a; }
+    /* ---- Toolbar (sort + view toggle) ---- */
+    .products-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; gap: 12px; flex-wrap: nowrap; }
+    .toolbar-left { font-size: 0.82rem; color: #888; white-space: nowrap; }
+    .toolbar-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .toolbar-right select { padding: 7px 28px 7px 10px; border: 1px solid #ddd; font-family: inherit; font-size: 0.82rem; background: #fff; color: #1a1a1a; appearance: none; -webkit-appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; }
+    .toolbar-right select:focus { outline: none; border-color: #1a1a1a; }
+    .view-toggle-btn { background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center; color: #1a1a1a; flex-shrink: 0; }
+    .view-toggle-btn:hover { opacity: 0.6; }
+
+    /* ---- Mobile back link ---- */
+    .mobile-back-link { display: none; align-items: center; gap: 6px; font-size: 0.82rem; color: #1a1a1a; text-decoration: none; margin-bottom: 16px; font-weight: 500; }
+    .mobile-back-link:hover { opacity: 0.7; }
+    @media (max-width: 900px) { .mobile-back-link.visible { display: flex; } }
+
+    /* ---- Category links in sidebar ---- */
+    .cat-link { display: flex; align-items: center; padding: 5px 0; font-size: 0.85rem; color: #444; cursor: pointer; background: none; border: none; font-family: inherit; text-align: left; width: 100%; transition: color 0.15s; gap: 4px; }
+    .cat-link:hover { color: #1a1a1a; }
+    .cat-link.active { color: #1a1a1a; font-weight: 600; }
+    .cat-link-count { color: #bbb; font-size: 0.75rem; }
+    .cat-back { color: #888; font-size: 0.78rem; margin-bottom: 8px; }
+    .cat-back:hover { color: #1a1a1a; }
+    .cat-group-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; color: #aaa; text-transform: uppercase; margin: 12px 0 4px; }
+    .cat-all-link { margin-top: 10px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; color: #1a6bc4; }
 
     /* ---- List view ---- */
     .products-grid.list-view { grid-template-columns: 1fr; gap: 0; }
     .products-grid.list-view .product-card { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: center; padding: 16px 0; border-bottom: 1px solid #f0f0f0; }
     .products-grid.list-view .card-img-wrap { aspect-ratio: 1; margin-bottom: 0; }
     .products-grid.list-view .card-info { padding: 0; }
+
+    /* ---- Two-column layout ---- */
+    .products-layout { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; }
+
+    /* ---- Sidebar ---- */
+    .filter-sidebar { border-right: 1px solid #e8e8e8; padding-right: 32px; position: sticky; top: 80px; }
+    .filter-section { margin-bottom: 0; border-bottom: 1px solid #f0f0f0; padding: 18px 0; }
+    .filter-section:first-child { padding-top: 0; }
+    .filter-section-hd { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+    .filter-section-hd svg { transition: transform 0.2s; flex-shrink: 0; }
+    .filter-section.collapsed .filter-section-hd svg { transform: rotate(-90deg); }
+    .filter-section.collapsed .filter-items { display: none; }
+    .filter-items { display: flex; flex-direction: column; gap: 9px; margin-top: 14px; }
+    .filter-item { display: flex; align-items: center; gap: 9px; cursor: pointer; font-size: 0.82rem; color: #444; }
+    .filter-item input[type="checkbox"] { width: 15px; height: 15px; accent-color: #1a1a1a; cursor: pointer; flex-shrink: 0; }
+    .filter-count { color: #bbb; font-size: 0.72rem; margin-left: auto; }
+    .filter-price-row { display: flex; gap: 8px; margin-top: 14px; }
+    .filter-price-row input { width: 0; flex: 1; padding: 7px 10px; border: 1px solid #ddd; font-size: 0.8rem; font-family: inherit; }
+    .filter-price-row input:focus { outline: none; border-color: #1a1a1a; }
+    .filter-clear { background: none; border: none; cursor: pointer; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: #aaa; text-decoration: underline; margin-top: 20px; padding: 0; font-family: inherit; display: block; }
+    .filter-clear:hover { color: #1a1a1a; }
+
+    /* ---- Mobile filter button + overlay ---- */
+    .mobile-filter-btn { display: none; width: 100%; padding: 12px; background: #1a1a1a; color: #fff; border: none; font-family: inherit; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; }
+    .filter-overlay-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 499; }
+    .filter-overlay-bg.open { display: block; }
+    .filter-sidebar-inner { background: #fff; }
+    .filter-drawer-close { display: none; width: 100%; padding: 14px; background: #1a1a1a; color: #fff; border: none; font-family: inherit; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; margin-top: 20px; }
+
+    @media (max-width: 900px) {
+      .products-layout { grid-template-columns: 1fr; }
+      .mobile-filter-btn { display: flex; }
+      .filter-sidebar { display: none; position: fixed; bottom: 0; left: 0; right: 0; top: auto; max-height: 80vh; overflow-y: auto; padding: 24px; border-right: none; border-top: 1px solid #e8e8e8; z-index: 500; background: #fff; }
+      .filter-sidebar.open { display: block; }
+      .filter-drawer-close { display: block; }
+    }
 
     /* ---- Empty state ---- */
     .empty { text-align: center; padding: 80px 0; color: #aaa; grid-column: 1 / -1; }
@@ -136,50 +188,118 @@
         <span id="breadcrumbCat" data-i18n="products.breadcrumb.all">Alle producten</span>
       </nav>
 
-      <div class="products-title-row">
-        <h1 id="pageTitle" data-i18n="products.title">Producten</h1>
-        <span class="products-count" id="productsCount">0 producten</span>
-      </div>
+      <!-- Mobile back link (only shown when a subcategory is active) -->
+      <a href="#" class="mobile-back-link" id="mobileBackLink" onclick="selectCat('all'); return false;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="mobileBackLabel">Alle producten</span>
+      </a>
 
-      <div class="cat-tabs-row">
-        <div class="cat-tabs" id="catTabs">
-          <button class="cat-tab active" data-cat="all" data-i18n="products.tab.all">Alle</button>
-          <button class="cat-tab" data-cat="laminaat">Laminaat</button>
-          <button class="cat-tab" data-cat="pvc">PVC-Böden</button>
-          <button class="cat-tab" data-cat="visgraat">Fischgrätboden</button>
-          <button class="cat-tab" data-cat="parkett">Parkett</button>
-          <button class="cat-tab" data-cat="zubehor">Zubehör</button>
-        </div>
-        <div class="view-toggle">
-          <button class="view-btn active" id="btnGrid" onclick="setView('grid')" aria-label="Grid view">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="9" height="9" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="2" width="9" height="9" stroke="currentColor" stroke-width="1.6"/><rect x="2" y="13" width="9" height="9" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13" width="9" height="9" stroke="currentColor" stroke-width="1.6"/></svg>
-          </button>
-          <button class="view-btn" id="btnList" onclick="setView('list')" aria-label="List view">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="2.5" rx="1" fill="currentColor"/><rect x="3" y="10.75" width="18" height="2.5" rx="1" fill="currentColor"/><rect x="3" y="17.5" width="18" height="2.5" rx="1" fill="currentColor"/></svg>
-          </button>
-        </div>
-      </div>
+      <!-- Mobile filter button -->
+      <button class="mobile-filter-btn" onclick="openFilterDrawer()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M7 12h10M11 18h2" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Filter
+      </button>
 
-      <div class="filter-row">
-        <input type="text" id="searchInput" placeholder="" oninput="renderProducts()">
-        <select id="filterSort" onchange="renderProducts()">
-          <option value="name" data-i18n="products.sort.name">Naam A-Z</option>
-          <option value="price_asc" data-i18n="products.sort.price_asc">Prijs laag-hoog</option>
-          <option value="price_desc" data-i18n="products.sort.price_desc">Prijs hoog-laag</option>
-        </select>
-        <select id="filterStock" onchange="renderProducts()">
-          <option value="" data-i18n="products.stock.all">Alle</option>
-          <option value="true" data-i18n="products.stock.in">Op voorraad</option>
-        </select>
-      </div>
+      <!-- Two-column layout -->
+      <div class="products-layout">
 
-      <div class="products-grid" id="productsGrid">
-        <div class="loading">Producten laden...</div>
-      </div>
+        <!-- Filter sidebar -->
+        <aside class="filter-sidebar" id="filterSidebar">
+          <div class="filter-sidebar-inner">
+
+            <div class="filter-section" id="sectionCat">
+              <div class="filter-section-hd" onclick="toggleSection('sectionCat')">
+                <span>Categorieën</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="filter-items" id="catList"></div>
+            </div>
+
+            <div class="filter-section" id="sectionBrand">
+              <div class="filter-section-hd" onclick="toggleSection('sectionBrand')">
+                <span>Merk</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="filter-items" id="brandList"></div>
+            </div>
+
+            <div class="filter-section" id="sectionPrice">
+              <div class="filter-section-hd" onclick="toggleSection('sectionPrice')">
+                <span>Prijs (€/m²)</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="filter-price-row">
+                <input type="number" id="priceMin" placeholder="Min" min="0" oninput="renderProducts()">
+                <input type="number" id="priceMax" placeholder="Max" min="0" oninput="renderProducts()">
+              </div>
+            </div>
+
+            <div class="filter-section" id="sectionStock">
+              <div class="filter-section-hd" onclick="toggleSection('sectionStock')">
+                <span>Beschikbaarheid</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="filter-items">
+                <label class="filter-item">
+                  <input type="checkbox" id="filterInStock" onchange="renderProducts()">
+                  <span>Alleen op voorraad</span>
+                </label>
+              </div>
+            </div>
+
+            <button class="filter-clear" onclick="clearFilters()">Filters wissen</button>
+            <button class="filter-drawer-close" onclick="closeFilterDrawer()">Resultaten tonen</button>
+
+          </div>
+        </aside>
+
+        <!-- Products content -->
+        <div class="products-content">
+
+          <div class="products-title-row">
+            <h1 id="pageTitle" data-i18n="products.title">Producten</h1>
+            <span class="products-count" id="productsCount" style="display:none">0 producten</span>
+          </div>
+
+          <div class="products-toolbar">
+            <div class="toolbar-left" id="toolbarCount"></div>
+            <div class="toolbar-right">
+              <select id="filterSort" onchange="renderProducts()">
+                <option value="popular">Populariteit</option>
+                <option value="name" data-i18n="products.sort.name">Naam A-Z</option>
+                <option value="price_asc" data-i18n="products.sort.price_asc">Prijs laag-hoog</option>
+                <option value="price_desc" data-i18n="products.sort.price_desc">Prijs hoog-laag</option>
+              </select>
+            <button class="view-toggle-btn" id="viewToggleBtn" onclick="toggleView()" aria-label="Toggle view">
+              <svg id="viewToggleIcon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.8" y="0.8" width="18.4" height="7.56667" stroke="currentColor" stroke-width="1.6"/>
+                <rect x="0.8" y="11.633" width="18.4" height="7.56667" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </button>
+            </div>
+          </div>
+
+          <div class="filter-row" style="display:none">
+            <input type="text" id="searchInput" placeholder="" oninput="renderProducts()">
+            <select id="filterSort2" onchange="renderProducts()">
+              <option value="name" data-i18n="products.sort.name">Naam A-Z</option>
+              <option value="price_asc" data-i18n="products.sort.price_asc">Prijs laag-hoog</option>
+              <option value="price_desc" data-i18n="products.sort.price_desc">Prijs hoog-laag</option>
+            </select>
+          </div>
+
+          <div class="products-grid" id="productsGrid">
+            <div class="loading">Producten laden...</div>
+          </div>
+
+        </div><!-- /products-content -->
+      </div><!-- /products-layout -->
 
     </div>
   </div>
   </div>
+
+  <div class="filter-overlay-bg" id="filterOverlay" onclick="closeFilterDrawer()"></div>
 
   <!-- Offertenlijst bar -->
   <div class="quote-bar" id="quoteBar">
@@ -205,33 +325,211 @@
       .then(r => r.json())
       .then(data => {
         allProducts = data.products || [];
+        populateCats();
+        populateBrands();
         renderProducts();
       })
       .catch(() => {
         document.getElementById('productsGrid').innerHTML = '<div class="empty">' + t('products.loading') + '</div>';
       });
 
-    // ---- Category tabs ----
-    document.querySelectorAll('.cat-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-        currentCat = this.dataset.cat;
-        document.getElementById('pageTitle').textContent = getCatLabel(currentCat);
-        document.getElementById('breadcrumbCat').textContent = getCatLabel(currentCat);
-        renderProducts();
+    const subCatDefs = {
+      laminaat: {
+        types: [
+          { cat: 'laminaat', label: 'Laminaat' },
+          { cat: 'laminaat_click', label: 'Click Laminaat' },
+          { cat: 'laminaat_xl', label: 'XL Laminaat' },
+          { cat: 'laminaat_waterproof', label: 'Waterproof Laminaat' },
+          { cat: 'laminaat_visgraat', label: 'Visgraat Laminaat' },
+        ],
+        brands: [
+          { cat: 'laminaat_quickstep', label: 'QuickStep Laminaat' },
+          { cat: 'laminaat_egger', label: 'Egger Laminaat' },
+          { cat: 'laminaat_classen', label: 'Classen' },
+        ]
+      },
+      pvc: {
+        types: [
+          { cat: 'pvc', label: 'PVC-Vloeren' },
+          { cat: 'pvc_click', label: 'Click PVC' },
+          { cat: 'pvc_lijm', label: 'Lijm PVC' },
+          { cat: 'pvc_los', label: 'Los te leggen PVC' },
+        ],
+        brands: [
+          { cat: 'pvc_quickstep', label: 'QuickStep PVC' },
+          { cat: 'pvc_egger', label: 'Egger PVC' },
+        ]
+      },
+      visgraat: {
+        types: [
+          { cat: 'visgraat', label: 'Visgraatboden' },
+          { cat: 'visgraat_laminaat', label: 'Visgraat Laminaat' },
+          { cat: 'visgraat_pvc', label: 'Visgraat PVC' },
+          { cat: 'visgraat_parkett', label: 'Visgraat Parkett' },
+        ],
+        brands: []
+      },
+      parkett: {
+        types: [
+          { cat: 'parkett', label: 'Parkett' },
+          { cat: 'parkett_massief', label: 'Massief Parkett' },
+          { cat: 'parkett_continu', label: 'Continu Parkett' },
+        ],
+        brands: []
+      },
+      zubehor: {
+        types: [
+          { cat: 'zubehor', label: 'Zubehör' },
+          { cat: 'zubehor_ondervloer', label: 'Ondervloer' },
+          { cat: 'zubehor_plinten', label: 'Plinten' },
+          { cat: 'zubehor_profielen', label: 'Profielen' },
+        ],
+        brands: []
+      }
+    };
+
+    const catDefs = [
+      { cat: 'all', label: 'Alle producten' },
+      { cat: 'laminaat', label: 'Laminaat' },
+      { cat: 'pvc', label: 'PVC-Böden' },
+      { cat: 'visgraat', label: 'Fischgrätboden' },
+      { cat: 'parkett', label: 'Parkett' },
+      { cat: 'zubehor', label: 'Zubehör' }
+    ];
+
+    let activeMainCat = 'all';
+
+    function populateCats() {
+      const list = document.getElementById('catList');
+      const hd = document.querySelector('#sectionCat .filter-section-hd span');
+
+      if (activeMainCat !== 'all' && subCatDefs[activeMainCat]) {
+        const sub = subCatDefs[activeMainCat];
+        const mainDef = catDefs.find(d => d.cat === activeMainCat);
+        hd.textContent = mainDef ? mainDef.label : 'Categorieën';
+
+        let html = `<button class="cat-link cat-back" onclick="goBackCat()">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" style="margin-right:4px;flex-shrink:0"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Alle categorieën
+        </button>`;
+
+        if (sub.types && sub.types.length) {
+          html += `<div class="cat-group-label">TYPES</div>`;
+          html += sub.types.map(({ cat, label }) =>
+            `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="selectCat('${cat}')">${esc(label)}</button>`
+          ).join('');
+        }
+        if (sub.brands && sub.brands.length) {
+          html += `<div class="cat-group-label">MERKEN</div>`;
+          html += sub.brands.map(({ cat, label }) =>
+            `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="selectCat('${cat}')">${esc(label)}</button>`
+          ).join('');
+        }
+        const allLabel = 'ALLE ' + (mainDef ? mainDef.label.toUpperCase() : '');
+        html += `<button class="cat-link cat-all-link" onclick="selectCat('${activeMainCat}')">${esc(allLabel)}</button>`;
+        list.innerHTML = html;
+      } else {
+        hd.textContent = 'Categorieën';
+        list.innerHTML = catDefs.filter(d => d.cat !== 'all').map(({ cat, label }) => {
+          const count = allProducts.filter(p => p.category === cat).length;
+          return `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="drillCat('${cat}')">${esc(label)}<span style="margin-left:auto;display:flex;align-items:center;gap:6px"><span class="cat-link-count">${count}</span><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`;
+        }).join('');
+      }
+    }
+
+    function drillCat(cat) {
+      activeMainCat = cat;
+      currentCat = cat;
+      populateCats();
+      const def = catDefs.find(d => d.cat === cat) || catDefs[0];
+      document.getElementById('pageTitle').textContent = def.label;
+      document.getElementById('breadcrumbCat').textContent = def.label;
+      renderProducts();
+    }
+
+    function goBackCat() {
+      activeMainCat = 'all';
+      currentCat = 'all';
+      populateCats();
+      document.getElementById('pageTitle').textContent = catDefs[0].label;
+      document.getElementById('breadcrumbCat').textContent = catDefs[0].label;
+      renderProducts();
+    }
+
+    function selectCat(cat) {
+      currentCat = cat;
+      const allSubs = Object.values(subCatDefs).flatMap(s => [...(s.types||[]), ...(s.brands||[])]);
+      const def = catDefs.find(d => d.cat === cat) || allSubs.find(d => d.cat === cat) || { label: cat };
+      document.getElementById('pageTitle').textContent = def.label;
+      document.getElementById('breadcrumbCat').textContent = def.label;
+      // mobile back link
+      const backLink = document.getElementById('mobileBackLink');
+      if (cat === 'all') {
+        backLink.classList.remove('visible');
+      } else {
+        document.getElementById('mobileBackLabel').textContent = 'Alle producten';
+        backLink.classList.add('visible');
+      }
+      document.querySelectorAll('.cat-link').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.cat === cat);
       });
-    });
+      renderProducts();
+    }
+
+    function populateBrands() {
+      const brands = [...new Set(allProducts.map(p => p.brand).filter(Boolean))].sort();
+      document.getElementById('brandList').innerHTML = brands.map(b => `
+        <label class="filter-item">
+          <input type="checkbox" class="brand-cb" value="${esc(b)}" onchange="renderProducts()">
+          <span>${esc(b)}</span>
+        </label>
+      `).join('');
+    }
+
+    function getSelectedBrands() {
+      return [...document.querySelectorAll('.brand-cb:checked')].map(cb => cb.value);
+    }
+
+    function toggleSection(id) {
+      document.getElementById(id).classList.toggle('collapsed');
+    }
+
+    function openFilterDrawer() {
+      document.getElementById('filterSidebar').classList.add('open');
+      document.getElementById('filterOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFilterDrawer() {
+      document.getElementById('filterSidebar').classList.remove('open');
+      document.getElementById('filterOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function clearFilters() {
+      document.querySelectorAll('.brand-cb').forEach(cb => cb.checked = false);
+      document.getElementById('priceMin').value = '';
+      document.getElementById('priceMax').value = '';
+      document.getElementById('filterInStock').checked = false;
+      renderProducts();
+    }
+
+    // Category selection handled by selectCat()
 
     // ---- Render ----
     function renderProducts() {
       const q = document.getElementById('searchInput').value.toLowerCase();
       const sort = document.getElementById('filterSort').value;
-      const stock = document.getElementById('filterStock').value;
+      const selectedBrands = getSelectedBrands();
+      const priceMin = parseFloat(document.getElementById('priceMin').value) || 0;
+      const priceMax = parseFloat(document.getElementById('priceMax').value) || Infinity;
+      const onlyInStock = document.getElementById('filterInStock').checked;
 
       let list = allProducts.filter(p => {
         if (currentCat !== 'all' && p.category !== currentCat) return false;
-        if (stock && String(p.in_stock) !== stock) return false;
+        if (onlyInStock && !p.in_stock) return false;
+        if (selectedBrands.length && !selectedBrands.includes(p.brand)) return false;
+        if (p.price < priceMin || p.price > priceMax) return false;
         if (q && !((p.name||'') + (p.brand||'') + (p.color||'')).toLowerCase().includes(q)) return false;
         return true;
       });
@@ -242,7 +540,10 @@
         return (a.name||'').localeCompare(b.name||'');
       });
 
+      const countText = list.length.toLocaleString('nl-NL') + ' resultaten';
       document.getElementById('productsCount').textContent = list.length + ' ' + t('products.count');
+      const toolbarCount = document.getElementById('toolbarCount');
+      if (toolbarCount) toolbarCount.textContent = countText;
 
       const grid = document.getElementById('productsGrid');
       if (!list.length) {
@@ -326,12 +627,17 @@
     }
 
     let currentView = 'grid';
-    function setView(v) {
-      currentView = v;
-      const grid = document.getElementById('productsGrid');
-      grid.classList.toggle('list-view', v === 'list');
-      document.getElementById('btnGrid').classList.toggle('active', v === 'grid');
-      document.getElementById('btnList').classList.toggle('active', v === 'list');
+    function toggleView() {
+      currentView = currentView === 'grid' ? 'list' : 'grid';
+      document.getElementById('productsGrid').classList.toggle('list-view', currentView === 'list');
+      // In grid mode toon het lijst-icoon (om naar lijst te gaan); in list mode toon grid-icoon
+      const icon = document.getElementById('viewToggleIcon');
+      icon.setAttribute('viewBox', '0 0 20 20');
+      icon.setAttribute('width', '20');
+      icon.setAttribute('height', '20');
+      icon.innerHTML = currentView === 'grid'
+        ? '<rect x="0.8" y="0.8" width="18.4" height="7.56667" stroke="currentColor" stroke-width="1.6"/><rect x="0.8" y="11.633" width="18.4" height="7.56667" stroke="currentColor" stroke-width="1.6"/>'
+        : '<rect x="0.8" y="0.8" width="7.56667" height="7.56667" stroke="currentColor" stroke-width="1.6"/><rect x="11.632" y="0.8" width="7.56667" height="7.56667" stroke="currentColor" stroke-width="1.6"/><rect x="11.632" y="11.633" width="7.56667" height="7.56667" stroke="currentColor" stroke-width="1.6"/><rect x="0.8" y="11.633" width="7.56667" height="7.56667" stroke="currentColor" stroke-width="1.6"/>';
     }
 
     function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
