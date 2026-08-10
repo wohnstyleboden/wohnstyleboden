@@ -143,6 +143,10 @@
       .filter-sidebar { display: none; position: fixed; bottom: 0; left: 0; right: 0; top: auto; max-height: 80vh; overflow-y: auto; padding: 24px; border-right: none; border-top: 1px solid #e8e8e8; z-index: 500; background: #fff; }
       .filter-sidebar.open { display: block; }
       .filter-drawer-close { display: block; }
+      /* Mobile toolbar: sort left, view toggle right, count hidden */
+      .products-toolbar { justify-content: space-between; }
+      .toolbar-left { display: none; }
+      .toolbar-right { width: 100%; justify-content: space-between; }
     }
 
     /* ---- Empty state ---- */
@@ -209,9 +213,9 @@
       </a>
 
       <!-- Mobile filter button -->
-      <button class="mobile-filter-btn" onclick="openFilterDrawer()">
+      <button class="mobile-filter-btn" id="mobileFilterBtn" onclick="openFilterDrawer()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M7 12h10M11 18h2" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-        Filter
+        <span id="mobileFilterLabel">Filter</span>
       </button>
 
       <!-- Two-column layout -->
@@ -678,6 +682,8 @@
 
       const countText = list.length.toLocaleString('nl-NL') + ' resultaten';
       document.getElementById('productsCount').textContent = list.length + ' ' + t('products.count');
+      const mobileFilterLabel = document.getElementById('mobileFilterLabel');
+      if (mobileFilterLabel) mobileFilterLabel.textContent = 'Filter ' + list.length.toLocaleString('nl-NL') + ' resultaten';
       const toolbarCount = document.getElementById('toolbarCount');
       if (toolbarCount) toolbarCount.textContent = countText;
 
