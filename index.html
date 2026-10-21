@@ -29,7 +29,7 @@
       <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
     </div>
     <div class="nav-center">
-      <button class="nav-text-btn nav-search-center" aria-label="Search">ZOEKEN</button>
+      <button class="nav-text-btn nav-search-center" aria-label="Search" data-i18n="nav.search">Suchen</button>
     </div>
     <div class="nav-right">
       <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
@@ -135,12 +135,12 @@
     <div class="subnav-mega" id="inspiratieMega">
       <div class="subnav-mega-promo">
         <div class="subnav-mega-promo-content">
-          <h2 class="subnav-mega-promo-title" data-i18n="mega.inspiratie.title">Inspiratie</h2>
-          <p class="subnav-mega-promo-text" data-i18n="mega.inspiratie.text">Laat u inspireren door onze projecten en stijlen. Ontdek welke vloer het beste past bij uw interieur en leefstijl.</p>
-          <a href="producten.html" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.inspiratie.btn">Bekijk alle inspiratie</a>
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.inspiratie.title">Inspiration</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.inspiratie.text">Lassen Sie sich von unseren Projekten und Stilen inspirieren. Entdecken Sie, welcher Boden am besten zu Ihrem Interieur passt.</p>
+          <a href="producten.html" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.inspiratie.btn">Alle Inspirationen ansehen</a>
         </div>
         <div class="subnav-mega-promo-img">
-          <img src="images/section-2.png.jpg" alt="Inspiratie">
+          <img src="images/section-2.png.jpg" alt="Inspiration">
         </div>
       </div>
     </div>
@@ -776,7 +776,7 @@
       var q = [];
       try { q = JSON.parse(localStorage.getItem('wohnstyle_quote') || '[]'); } catch(e) {}
       var btn = document.getElementById('navListBtn');
-      if (btn) btn.textContent = 'mijn lijst (' + q.length + ')';
+      if (btn) btn.textContent = (localStorage.getItem('lang')==='en'?'My list':'Meine Liste') + ' (' + q.length + ')';
     });
 
     // Mega dropdown factory
