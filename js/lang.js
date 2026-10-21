@@ -366,7 +366,7 @@ const translations = {
     'testimonial.role': 'Der Inhaber',
 
     'cta.text': 'Bereit für Ihren neuen Traumboden? Lassen Sie sich unverbindlich beraten und erhalten Sie Ihr persönliches Angebot.',
-    'cta.btn': 'Angebot anfragen',
+    'cta.btn': 'Kontakt',
 
     'miniusp.1': 'Premium Qualität Böden',
     'miniusp.2': 'Transparente Preise',
@@ -389,9 +389,9 @@ const translations = {
     'gallery.label2': 'Schlafzimmer — Grau Modern',
     'gallery.coming': 'Bald verfügbar',
 
-    'hero.btn': 'Angebot anfragen',
+    'hero.btn': 'Kontakt',
     'hero.secondary': 'Ausverkauf',
-    'sticky.btn': 'Angebot anfragen',
+    'sticky.btn': 'Kontakt',
     'mobile.cta': 'Kontakt',
     'nav.contact': 'Kontakt',
     'nav.mylist': 'meine Liste (0)',
@@ -505,6 +505,7 @@ const translations = {
     'products.stock.in': 'Auf Lager',
     'construction.msg': 'Diese Seite befindet sich noch im Aufbau. Bei Fragen können Sie uns kontaktieren.',
     'construction.btn': 'Kontakt',
+    'construction.home': 'Home',
     'products.title': 'Produkte',
     'products.count': 'Produkte',
     'products.empty': 'Keine Produkte gefunden.',
@@ -905,7 +906,7 @@ const translations = {
     'testimonial.role': 'The Owner',
 
     'cta.text': 'Ready for your new dream floor? Get a free, no-obligation consultation and receive your personal quote.',
-    'cta.btn': 'Request a quote',
+    'cta.btn': 'Contact',
 
     'miniusp.1': 'Premium quality floors',
     'miniusp.2': 'Transparent pricing',
@@ -928,9 +929,9 @@ const translations = {
     'gallery.label2': 'Bedroom — Modern Grey',
     'gallery.coming': 'Coming soon',
 
-    'hero.btn': 'Request a quote',
+    'hero.btn': 'Contact',
     'hero.secondary': 'Sale',
-    'sticky.btn': 'Request a quote',
+    'sticky.btn': 'Contact',
     'mobile.cta': 'Contact',
     'nav.contact': 'Contact',
     'nav.mylist': 'my list (0)',
@@ -1044,6 +1045,7 @@ const translations = {
     'products.stock.in': 'In stock',
     'construction.msg': 'This page is currently under construction. For questions, please contact us.',
     'construction.btn': 'Contact',
+    'construction.home': 'Home',
     'products.title': 'Products',
     'products.count': 'products',
     'products.empty': 'No products found.',

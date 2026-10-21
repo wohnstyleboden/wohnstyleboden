@@ -8,7 +8,7 @@
     <button class="mob-main-link" onclick="mobOpenSub('mobSubLaminaat', this)"><span data-i18n="nav.laminaat">Laminaat</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     <button class="mob-main-link" onclick="mobOpenSub('mobSubPvc', this)"><span data-i18n="nav.pvc">PVC-Böden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     <button class="mob-main-link" onclick="mobOpenSub('mobSubVisgraat', this)"><span data-i18n="nav.visgraat">Fischgrätboden</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    <a class="mob-main-link" href="#" data-i18n="nav.parkett">Parkett</a>
+    <a class="mob-main-link" href="producten.html" data-i18n="nav.parkett">Parkett</a>
     <button class="mob-main-link" onclick="mobOpenSub('mobSubZubehor', this)"><span data-i18n="nav.zubehor">Zubehör</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     <button class="mob-main-link" onclick="mobOpenSub('mobSubInspiratie', this)"><span data-i18n="nav.inspiratie">Inspiratie</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     <button class="mob-main-link" onclick="mobOpenSub('mobSubContact', this)"><span data-i18n="nav.kontakt">Contact</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -104,12 +104,12 @@
     <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav.back.inspiratie"> Inspiratie</span></button>
     <div class="mob-sub-group">
       <div class="mob-sub-group-links">
-        <a href="#" data-i18n="nav.insp.kuche">Küche</a>
-        <a href="#" data-i18n="nav.insp.flur">Flur</a>
-        <a href="#" data-i18n="nav.insp.wohnzimmer">Wohnzimmer</a>
-        <a href="#" data-i18n="nav.insp.schlafzimmer">Schlafzimmer</a>
-        <a href="#" data-i18n="nav.insp.kinderzimmer">Kinderzimmer</a>
-        <a href="#" data-i18n="nav.insp.buro">Büro</a>
+        <a href="producten.html" data-i18n="nav.insp.kuche">Küche</a>
+        <a href="producten.html" data-i18n="nav.insp.flur">Flur</a>
+        <a href="producten.html" data-i18n="nav.insp.wohnzimmer">Wohnzimmer</a>
+        <a href="producten.html" data-i18n="nav.insp.schlafzimmer">Schlafzimmer</a>
+        <a href="producten.html" data-i18n="nav.insp.kinderzimmer">Kinderzimmer</a>
+        <a href="producten.html" data-i18n="nav.insp.buro">Büro</a>
       </div>
     </div>
     </div>
@@ -122,8 +122,8 @@
       <div class="mob-sub-group-links">
         <a href="over-ons.html" data-i18n="nav.contact.uber">Über uns</a>
         <a href="contact.html" data-i18n="nav.contact.kontakt">Kontakt</a>
-        <a href="#" data-i18n="nav.contact.showroom">Showroom</a>
-        <a href="#" data-i18n="nav.contact.beratung">Beratung</a>
+        <a href="contact.html" data-i18n="nav.contact.showroom">Showroom</a>
+        <a href="contact.html" data-i18n="nav.contact.beratung">Beratung</a>
       </div>
     </div>
     </div>
