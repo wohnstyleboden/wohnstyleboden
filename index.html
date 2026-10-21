@@ -33,7 +33,7 @@
     </div>
     <div class="nav-right">
       <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
-      <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button><a href="offerte.html" class="btn-nav" id="navListBtn">mijn lijst (0)</a>
+      <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button><a href="offerte.html" class="btn-nav" id="navListBtn"><span data-i18n="nav.mylist.label">Meine Liste</span> (<span id="navListCount">0</span>)</a>
 
     </div>
     </div>
@@ -763,8 +763,8 @@
       mobUpdateLang();
       var q = [];
       try { q = JSON.parse(localStorage.getItem('wohnstyle_quote') || '[]'); } catch(e) {}
-      var btn = document.getElementById('navListBtn');
-      if (btn) btn.textContent = (localStorage.getItem('lang')==='en'?'My list':'Meine Liste') + ' (' + q.length + ')';
+      var countEl = document.getElementById('navListCount');
+      if (countEl) countEl.textContent = q.length;
     });
 
     // Mega dropdown factory
