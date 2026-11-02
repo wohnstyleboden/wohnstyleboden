@@ -29,7 +29,11 @@
       <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
     </div>
     <div class="nav-center">
-      <button class="nav-text-btn nav-search-center" aria-label="Search" data-i18n="nav.search">Suchen</button>
+      <button class="nav-text-btn nav-search-center" aria-label="Search" data-i18n="nav.search" onclick="openNavSearch()">Suchen</button>
+      <div class="nav-search-bar" id="navSearchBar">
+        <input type="text" class="nav-search-input" id="navSearchInput" placeholder="Suchen...">
+        <button class="nav-search-cancel" onclick="closeNavSearch()" data-i18n="nav.search.cancel">Abbrechen</button>
+      </div>
     </div>
     <div class="nav-right">
       <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
@@ -887,6 +891,19 @@
       </button>
     </div>
   </div>
+<script>
+function openNavSearch() {
+  document.querySelector('.nav-center').classList.add('search-open');
+  setTimeout(function() { document.getElementById('navSearchInput').focus(); }, 50);
+}
+function closeNavSearch() {
+  document.querySelector('.nav-center').classList.remove('search-open');
+  document.getElementById('navSearchInput').value = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeNavSearch();
+});
+</script>
 </body>
 </html>
 

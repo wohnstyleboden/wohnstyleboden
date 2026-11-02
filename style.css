@@ -312,6 +312,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   height: 100%;
   padding: 0;
+  position: relative;
 }
 
 .nav-center {
@@ -325,6 +326,48 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 4px;
   font-size: 0.85rem;
   letter-spacing: 0.12em;
+}
+
+/* Search bar — replaces center button, stays compact */
+.nav-search-bar {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  width: 280px;
+}
+.nav-center.search-open .nav-search-center { display: none; }
+.nav-center.search-open .nav-search-bar { display: flex; }
+.nav-search-input {
+  flex: 1;
+  border: none;
+  border-bottom: 1.5px solid #1a1a1a;
+  outline: none;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 0;
+  background: transparent;
+  font-family: inherit;
+}
+.nav-search-input::placeholder {
+  color: #aaa;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav-search-cancel {
+  background: none;
+  border: none;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #1a1a1a;
+  padding: 0;
+  white-space: nowrap;
+  font-family: inherit;
 }
 
 /* Logo + nav-links grouped left */
