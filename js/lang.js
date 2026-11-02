@@ -13,6 +13,10 @@ const translations = {
     'mobile.link4': 'Über uns',
     'mobile.cta': 'Kontakt',
     'sticky.btn': 'Kontakt aufnehmen',
+    'wa.status': 'Antwortet normalerweise innerhalb einer Stunde',
+    'wa.greeting': 'Hallo! 👋 Wie können wir Ihnen helfen?',
+    'wa.btn': 'Chat starten',
+    'wa.placeholder': 'Nachricht schreiben...',
 
     'hero.badge': 'Premium Laminat & Parkett',
     'hero.title': 'Böden, die Ihren Wohnraum zum Leben erwecken',
@@ -564,6 +568,10 @@ const translations = {
     'mobile.link4': 'About Us',
     'mobile.cta': 'Contact',
     'sticky.btn': 'Contact us',
+    'wa.status': 'Usually replies within an hour',
+    'wa.greeting': 'Hello! 👋 How can we help you?',
+    'wa.btn': 'Start chat',
+    'wa.placeholder': 'Write a message...',
 
     'hero.badge': 'Premium Laminate & Parquet',
     'hero.title': 'Style Starts at the Floor',

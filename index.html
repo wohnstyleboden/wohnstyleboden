@@ -368,11 +368,34 @@
     <a href="contact.html" data-i18n="sticky.btn">Neem contact op ↗</a>
   </div>
 
-  <a href="https://wa.me/491634797339" class="whatsapp-fab" aria-label="WhatsApp" target="_blank" rel="noopener">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20.52 3.449C18.24 1.245 15.24 0.005 12.045 0C5.463 0 0.101 5.334 0.098 11.892C0.097 13.988 0.648 16.031 1.693 17.832L0 24l6.335-1.652C8.095 23.278 10.06 23.775 12.045 23.776h.005c6.582 0 11.944-5.335 11.947-11.893.002-3.178-1.24-6.167-3.477-8.434zM12.05 21.785h-.004c-1.773 0-3.513-.474-5.033-1.37l-.361-.213-3.741.977.998-3.632-.236-.373a9.867 9.867 0 01-1.527-5.292c.002-5.45 4.45-9.882 9.905-9.882 2.646 0 5.13 1.03 6.998 2.898a9.805 9.805 0 012.895 6.979c-.002 5.451-4.45 9.908-9.894 9.908zm5.43-7.403c-.297-.149-1.758-.867-2.031-.967-.272-.099-.47-.148-.669.149-.198.297-.767.966-.94 1.164-.174.198-.347.223-.644.074-1.757-.877-2.912-1.566-4.069-3.547-.307-.527.307-.49.878-1.63.099-.198.05-.372-.025-.521-.075-.148-.668-1.611-.916-2.207-.24-.579-.486-.5-.668-.51-.173-.008-.37-.01-.568-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/>
-    </svg>
-  </a>
+  <div class="whatsapp-widget" id="whatsappWidget">
+    <div class="whatsapp-popup" id="whatsappPopup">
+      <div class="whatsapp-popup-header">
+        <div class="whatsapp-popup-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20.52 3.449C18.24 1.245 15.24 0.005 12.045 0C5.463 0 0.101 5.334 0.098 11.892C0.097 13.988 0.648 16.031 1.693 17.832L0 24l6.335-1.652C8.095 23.278 10.06 23.775 12.045 23.776h.005c6.582 0 11.944-5.335 11.947-11.893.002-3.178-1.24-6.167-3.477-8.434z" fill="white"/></svg>
+        </div>
+        <div class="whatsapp-popup-info">
+          <span class="whatsapp-popup-name">Wohnstyle Boden</span>
+          <span class="whatsapp-popup-status" data-i18n="wa.status">Antwortet normalerweise innerhalb einer Stunde</span>
+        </div>
+        <button class="whatsapp-popup-close" onclick="closeWaPopup()" aria-label="Sluiten">×</button>
+      </div>
+      <div class="whatsapp-popup-body">
+        <div class="whatsapp-popup-bubble" data-i18n="wa.greeting">Hallo! 👋 Wie können wir Ihnen helfen?</div>
+      </div>
+      <div class="whatsapp-popup-input-row">
+        <input type="text" class="whatsapp-popup-input" id="waMessageInput" data-i18n-placeholder="wa.placeholder" placeholder="Nachricht schreiben..." onkeydown="if(event.key==='Enter')sendWaMessage()">
+        <button class="whatsapp-popup-send" onclick="sendWaMessage()" aria-label="Senden">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white"/></svg>
+        </button>
+      </div>
+    </div>
+    <button class="whatsapp-fab" id="whatsappFab" onclick="toggleWaPopup()" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.52 3.449C18.24 1.245 15.24 0.005 12.045 0C5.463 0 0.101 5.334 0.098 11.892C0.097 13.988 0.648 16.031 1.693 17.832L0 24l6.335-1.652C8.095 23.278 10.06 23.775 12.045 23.776h.005c6.582 0 11.944-5.335 11.947-11.893.002-3.178-1.24-6.167-3.477-8.434zM12.05 21.785h-.004c-1.773 0-3.513-.474-5.033-1.37l-.361-.213-3.741.977.998-3.632-.236-.373a9.867 9.867 0 01-1.527-5.292c.002-5.45 4.45-9.882 9.905-9.882 2.646 0 5.13 1.03 6.998 2.898a9.805 9.805 0 012.895 6.979c-.002 5.451-4.45 9.908-9.894 9.908zm5.43-7.403c-.297-.149-1.758-.867-2.031-.967-.272-.099-.47-.148-.669.149-.198.297-.767.966-.94 1.164-.174.198-.347.223-.644.074-1.757-.877-2.912-1.566-4.069-3.547-.307-.527.307-.49.878-1.63.099-.198.05-.372-.025-.521-.075-.148-.668-1.611-.916-2.207-.24-.579-.486-.5-.668-.51-.173-.008-.37-.01-.568-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/>
+      </svg>
+    </button>
+  </div>
 
 <div class="page-wrapper">
 
@@ -892,6 +915,22 @@
     </div>
   </div>
 <script>
+function sendWaMessage() {
+  var msg = document.getElementById('waMessageInput').value.trim();
+  var url = 'https://web.whatsapp.com/send?phone=491634797339' + (msg ? '&text=' + encodeURIComponent(msg) : '');
+  window.open(url, '_blank');
+}
+function toggleWaPopup() {
+  if (window.innerWidth <= 768) {
+    window.open('https://wa.me/491634797339', '_blank');
+    return;
+  }
+  var popup = document.getElementById('whatsappPopup');
+  popup.classList.toggle('open');
+}
+function closeWaPopup() {
+  document.getElementById('whatsappPopup').classList.remove('open');
+}
 function openNavSearch() {
   document.querySelector('.nav-center').classList.add('search-open');
   setTimeout(function() { document.getElementById('navSearchInput').focus(); }, 50);
