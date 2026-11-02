@@ -3874,31 +3874,20 @@ body.nav-open .navbar-wrap {
 }
 
 /* â”€â”€ STICKY MOBILE CONTACT BTN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-/* WhatsApp widget wrapper */
-.whatsapp-widget {
+.whatsapp-fab {
   position: fixed;
   bottom: 24px;
   right: calc((100vw - 1400px) / 2 + 24px);
   z-index: 95;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
-}
-
-.whatsapp-fab {
   width: 64.8px;
   height: 64.8px;
   background: #25D366;
-  border: none;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 16px rgba(0,0,0,0.18);
   transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-  flex-shrink: 0;
 }
 
 .whatsapp-fab:hover {
@@ -4029,8 +4018,7 @@ body.nav-open .navbar-wrap {
 
 /* â”€â”€ MOBILE (max 768px) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 768px) {
-  .whatsapp-widget { right: 24px; }
-  .whatsapp-popup { display: none !important; }
+  .whatsapp-fab { right: 24px; }
 }
 
 @media (max-width: 768px) {
