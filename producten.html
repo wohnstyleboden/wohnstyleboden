@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="images/favicon-wohnstyle.svg">
-  <title>Producten � WohnStyle Boden</title>
+  <title>Produkte &ndash; WohnStyle Boden</title>
   <link rel="stylesheet" href="https://use.typekit.net/uag0nqp.css">
   <link rel="stylesheet" href="https://use.typekit.net/vha7kpr.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -244,7 +244,7 @@
 
             <div class="filter-section" id="sectionCat">
               <div class="filter-section-hd" onclick="toggleSection('sectionCat')">
-                <span>Categorie�n</span>
+                <span>Kategorien</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
               </div>
               <div class="filter-items" id="catList"></div>
@@ -260,7 +260,7 @@
 
             <div class="filter-section" id="sectionPrice">
               <div class="filter-section-hd" onclick="toggleSection('sectionPrice')">
-                <span>Prijs (�/m�)</span>
+                <span>Preis (&euro;/m&sup2;)</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
               </div>
               <div class="price-slider-wrap">
@@ -269,8 +269,8 @@
                 <input type="range" id="priceSliderMax" min="0" max="5000" value="5000" step="1" oninput="onPriceSlider()">
               </div>
               <div class="price-slider-labels">
-                <span id="priceSliderMinLabel">� 0</span>
-                <span id="priceSliderMaxLabel">� 5000</span>
+                <span id="priceSliderMinLabel">&euro; 0</span>
+                <span id="priceSliderMaxLabel">&euro; 5000</span>
               </div>
             </div>
 
@@ -356,28 +356,28 @@
 
     const catDescriptions = {
       uitverkoop: {
-        de: 'Entdecken Sie unsere Ausverkaufsangebote � hochwertige Bodenbel�ge zu reduzierten Preisen. Begrenzte Verf�gbarkeit, solange der Vorrat reicht.',
-        en: 'Discover our sale offers � premium flooring at reduced prices. Limited availability, while stocks last.'
+        de: 'Entdecken Sie unsere Ausverkaufsangebote &ndash; hochwertige Bodenbeläge zu reduzierten Preisen. Begrenzte Verfügbarkeit, solange der Vorrat reicht.',
+        en: 'Discover our sale offers &ndash; premium flooring at reduced prices. Limited availability, while stocks last.'
       },
       laminaat: {
-        de: 'Laminatboden verbindet zeitloses Design mit robuster Langlebigkeit. Unsere Kollektion umfasst eine gro�e Auswahl an Dekoren � von hellen Eichenstrukturen bis hin zu modernen Graut�nen � f�r jeden Wohnstil.',
-        en: 'Laminate flooring combines timeless design with robust durability. Our collection features a wide range of decors � from light oak structures to modern grey tones � for every living style.'
+        de: 'Laminatboden verbindet zeitloses Design mit robuster Langlebigkeit. Unsere Kollektion umfasst eine große Auswahl an Dekoren &ndash; von hellen Eichenstrukturen bis hin zu modernen Grautönen &ndash; für jeden Wohnstil.',
+        en: 'Laminate flooring combines timeless design with robust durability. Our collection features a wide range of decors &ndash; from light oak structures to modern grey tones &ndash; for every living style.'
       },
       pvc: {
-        de: 'PVC-B�den �berzeugen durch ihre Wasserfestigkeit und einfache Pflege. Ideal f�r K�che, Bad und stark beanspruchte Bereiche � in zahlreichen Holz- und Steindekoren erh�ltlich.',
-        en: 'PVC floors impress with their waterproofness and easy maintenance. Ideal for kitchens, bathrooms and high-traffic areas � available in numerous wood and stone decors.'
+        de: 'PVC-Böden überzeugen durch ihre Wasserfestigkeit und einfache Pflege. Ideal für Küche, Bad und stark beanspruchte Bereiche &ndash; in zahlreichen Holz- und Steindekoren erhältlich.',
+        en: 'PVC floors impress with their waterproofness and easy maintenance. Ideal for kitchens, bathrooms and high-traffic areas &ndash; available in numerous wood and stone decors.'
       },
       visgraat: {
-        de: 'Das klassische Fischgr�tmuster verleiht jedem Raum eine edle, zeitlose Eleganz. Erh�ltlich als Laminat, PVC oder Echtholzparkett � f�r einen stilvollen Auftritt.',
-        en: 'The classic herringbone pattern gives every room a noble, timeless elegance. Available as laminate, PVC or real wood parquet � for a stylish appearance.'
+        de: 'Das klassische Fischgrätmuster verleiht jedem Raum eine edle, zeitlose Eleganz. Erhältlich als Laminat, PVC oder Echtholzparkett &ndash; für einen stilvollen Auftritt.',
+        en: 'The classic herringbone pattern gives every room a noble, timeless elegance. Available as laminate, PVC or real wood parquet &ndash; for a stylish appearance.'
       },
       parkett: {
-        de: 'Echtholzparkett steht f�r nat�rliche W�rme und unvergleichliche Qualit�t. Jede Diele ist ein Unikat mit einzigartiger Maserung � nachhaltig, langlebig und wertsteigernd.',
-        en: 'Real wood parquet stands for natural warmth and unparalleled quality. Each plank is unique with its own grain � sustainable, durable and value-enhancing.'
+        de: 'Echtholzparkett steht für natürliche Wärme und unvergleichliche Qualität. Jede Diele ist ein Unikat mit einzigartiger Maserung &ndash; nachhaltig, langlebig und wertsteigernd.',
+        en: 'Real wood parquet stands for natural warmth and unparalleled quality. Each plank is unique with its own grain &ndash; sustainable, durable and value-enhancing.'
       },
       zubehor: {
-        de: 'Erg�nzen Sie Ihren neuen Boden mit dem passenden Zubeh�r: Unterb�den, Sockelleisten, �bergangsprofilen und mehr � alles aus einer Hand f�r ein perfektes Ergebnis.',
-        en: 'Complete your new floor with matching accessories: underlays, skirting boards, transition profiles and more � everything from one source for a perfect result.'
+        de: 'Ergänzen Sie Ihren neuen Boden mit dem passenden Zubehör: Unterböden, Sockelleisten, Übergangsprofilen und mehr &ndash; alles aus einer Hand für ein perfektes Ergebnis.',
+        en: 'Complete your new floor with matching accessories: underlays, skirting boards, transition profiles and more &ndash; everything from one source for a perfect result.'
       }
     };
 
@@ -401,10 +401,10 @@
     const catLabels = {
       uitverkoop: { de: 'Ausverkauf', en: 'Sale' },
       laminaat: 'Laminaat',
-      pvc: 'PVC-B�den',
-      visgraat: 'Fischgr�tboden',
+      pvc: 'PVC-Böden',
+      visgraat: 'Fischgrätboden',
       parkett: 'Parkett',
-      zubehor: 'Zubeh�r'
+      zubehor: 'Zubehör'
     };
 
     function getCatLabel(cat) {
@@ -479,7 +479,7 @@
       },
       zubehor: {
         types: [
-          { cat: 'zubehor', label: 'Zubeh�r' },
+          { cat: 'zubehor', label: 'Zubehör' },
           { cat: 'zubehor_ondervloer', label: 'Ondervloer' },
           { cat: 'zubehor_plinten', label: 'Plinten' },
           { cat: 'zubehor_profielen', label: 'Profielen' },
@@ -491,10 +491,10 @@
     const catDefs = [
       { cat: 'uitverkoop', label: 'Ausverkauf', labelEn: 'Sale' },
       { cat: 'laminaat', label: 'Laminaat' },
-      { cat: 'pvc', label: 'PVC-B�den' },
-      { cat: 'visgraat', label: 'Fischgr�tboden' },
+      { cat: 'pvc', label: 'PVC-Böden' },
+      { cat: 'visgraat', label: 'Fischgrätboden' },
       { cat: 'parkett', label: 'Parkett' },
-      { cat: 'zubehor', label: 'Zubeh�r' }
+      { cat: 'zubehor', label: 'Zubehör' }
     ];
 
     function populateCats() {
@@ -515,7 +515,7 @@
         }
         list.innerHTML = html;
       } else {
-        hd.textContent = 'Categorie�n';
+        hd.textContent = 'Kategorien';
         list.innerHTML = catDefs.filter(d => d.cat !== 'all').map(({ cat, label }) => {
           const count = allProducts.filter(p => p.category === cat).length;
           return `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="drillCat('${cat}')">${esc(label)}<span style="margin-left:auto;display:flex;align-items:center;gap:6px"><span class="cat-link-count">${count}</span><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`;
@@ -629,8 +629,8 @@
       const range = document.getElementById('priceSliderRange');
       range.style.left = pMin + '%';
       range.style.width = (pMax - pMin) + '%';
-      document.getElementById('priceSliderMinLabel').textContent = '� ' + Math.round(vMin);
-      document.getElementById('priceSliderMaxLabel').textContent = '� ' + Math.round(vMax);
+      document.getElementById('priceSliderMinLabel').textContent = '€ ' + Math.round(vMin);
+      document.getElementById('priceSliderMaxLabel').textContent = '€ ' + Math.round(vMax);
     }
 
     function onPriceSlider() {
@@ -740,10 +740,10 @@
                 ${hasSale ? `<span class="card-price-original">&euro; ${Number(p.price_original).toFixed(2)}</span>` : ''}
               </div>
             </div>
-            <button class="card-btn-add ${inQuote ? 'added' : ''}" onclick="event.stopPropagation(); toggleQuote('${p.id}')" aria-label="${inQuote ? (getLang()==='en'?'Added':'Hinzugef�gt') : (getLang()==='en'?'Add':'Hinzuf�gen')}">
+            <button class="card-btn-add ${inQuote ? 'added' : ''}" onclick="event.stopPropagation(); toggleQuote('${p.id}')" aria-label="${inQuote ? (getLang()==='en'?'Added':'Hinzugefügt') : (getLang()==='en'?'Add':'Hinzufügen')}">
               ${inQuote
-                ? `<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>${getLang()==='en'?'Added':'Hinzugef�gt'}</span>`
-                : `<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>${getLang()==='en'?'Add':'Hinzuf�gen'}</span>`}
+                ? `<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>${getLang()==='en'?'Added':'Hinzugefügt'}</span>`
+                : `<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>${getLang()==='en'?'Add':'Hinzufügen'}</span>`}
             </button>
           </div>
         `;
