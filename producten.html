@@ -509,9 +509,7 @@
         let html = '';
 
         if (sub.types && sub.types.length) {
-          html += sub.types.filter(d => d.cat !== activeMainCat).map((d) => { const label = d[getLang()] || d.de || d.label || d.cat; return 
-            `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="selectCat('${cat}')">${esc(label)}</button>`
-          ).join('');
+          html += sub.types.filter(d => d.cat !== activeMainCat).map((d) => { const cat = d.cat; const label = d[getLang()] || d.de || d.label || d.cat; return `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="selectCat('${cat}')">${esc(label)}</button>`; }).join('');
         }
         list.innerHTML = html;
       } else {
