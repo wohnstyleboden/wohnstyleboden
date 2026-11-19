@@ -198,7 +198,7 @@
     <div class="nav-right">
       <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
       <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button>
-      <a href="offerte.html" class="btn-nav" id="navListBtn">mijn lijst (0)</a>
+      <a href="offerte.html" class="btn-nav" id="navListBtn">Meine Liste (0)</a>
     </div>
     </div>
     </div>
@@ -726,18 +726,18 @@
           <div class="product-card" onclick="goToProduct('${p.id}')">
             <div class="card-img-wrap">
               ${p.image
-                ? `<img class="card-img" src="${p.image}" alt="${esc(p.name)}" onerror="this.parentElement.innerHTML='<div class=card-img-placeholder>Geen afbeelding</div>'">`
-                : `<div class="card-img-placeholder">Geen afbeelding</div>`}
+                ? `<img class="card-img" src="${p.image}" alt="${esc(p.name)}" onerror="this.parentElement.innerHTML='<div class=card-img-placeholder>Kein Bild</div>'">`
+                : `<div class="card-img-placeholder">Kein Bild</div>`}
               ${hasSale ? `<span class="card-badge sale">-${Math.round((1 - p.price/p.price_original)*100)}%</span>` : ''}
-              ${p.in_stock ? '' : '<span class="card-badge">Uitverkocht</span>'}
+              ${p.in_stock ? '' : '<span class="card-badge">Ausverkauft</span>'}
             </div>
             <div class="card-info">
               <div class="card-brand">${esc(p.brand||'')}</div>
               <div class="card-name">${esc(p.name)}</div>
               <div class="card-price-row">
-                <span class="card-price">� ${Number(p.price).toFixed(2)}</span>
-                <span class="card-price-unit">/m�</span>
-                ${hasSale ? `<span class="card-price-original">� ${Number(p.price_original).toFixed(2)}</span>` : ''}
+                <span class="card-price">&euro; ${Number(p.price).toFixed(2)}</span>
+                <span class="card-price-unit">/m&sup2;</span>
+                ${hasSale ? `<span class="card-price-original">&euro; ${Number(p.price_original).toFixed(2)}</span>` : ''}
               </div>
             </div>
             <button class="card-btn-add ${inQuote ? 'added' : ''}" onclick="event.stopPropagation(); toggleQuote('${p.id}')" aria-label="${inQuote ? (getLang()==='en'?'Added':'Hinzugef�gt') : (getLang()==='en'?'Add':'Hinzuf�gen')}">
@@ -787,7 +787,7 @@
     }
     function updateNavBtn() {
       const btn = document.getElementById('navListBtn');
-      if (btn) btn.textContent = 'mijn lijst (' + getQuote().length + ')';
+      if (btn) btn.textContent = 'Meine Liste (' + getQuote().length + ')';
     }
     function goToProduct(id) {
       location.href = 'product.html?id=' + id;
