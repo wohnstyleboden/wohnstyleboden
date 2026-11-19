@@ -126,7 +126,8 @@
   <script src="js/nav.js?v=1"></script>
   <script>
     const catLabels = { laminaat: {de:'Laminat',en:'Laminate'}, pvc: {de:'PVC-Böden',en:'PVC Flooring'}, visgraat: {de:'Fischgrätboden',en:'Herringbone Floor'}, parkett: {de:'Parkett',en:'Parquet'}, zubehor: {de:'Zubehör',en:'Accessories'}, uitverkoop: {de:'Ausverkauf',en:'Sale'} };
-    function getCatLabel(cat) { const k = catLabels[cat]; if (!k) return cat; return typeof k==='object' ? (k[lang]||k.de) : k; }
+    function getLang() { return localStorage.getItem('lang') || 'de'; }
+    function getCatLabel(cat) { const k = catLabels[cat]; if (!k) return cat; return typeof k==='object' ? (k[getLang()]||k.de) : k; }
     const params = new URLSearchParams(location.search);
     const productId = params.get('id');
 
@@ -143,7 +144,7 @@
     function renderProduct(p) {
       const hasSale = p.price_original && p.price_original > p.price;
       const savings = hasSale ? Math.round((1 - p.price / p.price_original) * 100) : 0;
-      const lang = localStorage.getItem('lang') || 'de';
+      const lang = getLang();
       const desc = lang === 'en' ? p.desc_en : p.desc_de;
       const inQuote = getQuote().some(q => q.id === p.id);
 
@@ -242,7 +243,7 @@
         <div class="product-wrap">
           <div class="not-found">
             <h2>${t('product.not_found')||'Produkt nicht gefunden'}</h2>
-            <p><a href="producten.html">← Zurück zu allen Produkten</a></p>
+            <p><a href="producten.html">${t('product.back_all')||'← Zurück zu allen Produkten'}</a></p>
           </div>
         </div>`;
     }

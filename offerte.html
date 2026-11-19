@@ -14,6 +14,7 @@
   <style>
     .offerte-page { padding: 40px 0 100px; }
     .offerte-wrap { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+    @media (max-width: 768px) { .offerte-wrap { padding: 0 16px; } }
 
     .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #888; margin-bottom: 40px; }
     .breadcrumb a { color: #888; text-decoration: none; }
@@ -211,10 +212,10 @@
         const sub = m2 * (p.price || 0);
         total += sub;
         const el = document.getElementById('sub-' + p.id);
-        if (el) el.textContent = sub > 0 ? '&euro; ' + sub.toFixed(2) : '-';
+        if (el) el.textContent = sub > 0 ? '€ ' + sub.toFixed(2) : '-';
       });
       const totalEl = document.getElementById('grandTotal');
-      if (totalEl) totalEl.textContent = total > 0 ? '&euro; ' + total.toFixed(2) : '-';
+      if (totalEl) totalEl.textContent = total > 0 ? '€ ' + total.toFixed(2) : '-';
     }
 
     function renderList() {
