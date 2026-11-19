@@ -1,0 +1,875 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="images/favicon-wohnstyle.svg">
+  <title>Inspiration &ndash; WohnStyle Boden</title>
+  <link rel="stylesheet" href="https://use.typekit.net/uag0nqp.css">
+  <link rel="stylesheet" href="https://use.typekit.net/vha7kpr.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=70">
+</head>
+<body>
+
+  <div class="navbar-wrap"><nav class="navbar">
+    <div class="container navbar-inner">
+    <div class="nav-left">
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M3 15H21" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M5 5L19 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M19 5L5 19" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
+    </div>
+    <div class="nav-center">
+      <button class="nav-text-btn nav-search-center" aria-label="Search" data-i18n="nav.search" onclick="openNavSearch()">Suchen</button>
+      <div class="nav-search-bar" id="navSearchBar">
+        <input type="text" class="nav-search-input" id="navSearchInput" placeholder="Suchen...">
+        <button class="nav-search-cancel" onclick="closeNavSearch()" data-i18n="nav.search.cancel">Abbrechen</button>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
+      <button class="nav-text-btn" aria-label="Language" onclick="openLangPopup()" data-i18n="lang.choose">Sprache wählen</button>
+      <a href="offerte.html" class="btn-nav" id="navListBtn" data-i18n="nav.mylist">Meine Liste (0)</a>
+    </div>
+    </div>
+    </div>
+  </nav>
+</div>
+
+  <nav class="subnav" id="subnavEl">
+    <div class="subnav-wrap">
+    <div class="subnav-inner">
+      <div class="subnav-item--dropdown" id="laminaatDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.laminaat">Laminat</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="subnav-item--dropdown" id="pvcDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.pvc">PVC-Böden</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="subnav-item--dropdown" id="visgraatDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.visgraat">Fischgrätboden</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="subnav-item--dropdown" id="parketDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.parket">Parkett</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="subnav-item--dropdown" id="zubehorDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.accessoires">Zubehör</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="subnav-item--dropdown" id="inspiratieDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.inspiratie">Inspiratie</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="subnav-item--dropdown" id="uberDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.about">Über uns</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="laminaatMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.laminaat.title">Laminat</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.laminaat.text">Von klassischer Eiche bis modernem Beton &ndash; unser Laminat &euro;berzeugt durch Qualität, Langlebigkeit und &euro;ber 200 Dekore. Für jeden Raum und jeden Stil die passende Lösung.</p>
+          <a href="producten.html?cat=laminaat" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.laminaat.btn">Alle Laminatböden ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/6855 1.png" alt="Laminat"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="pvcMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.pvc.title">PVC-Böden</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.pvc.text">Wasserfest, kratzfest und pflegeleicht &ndash; PVC-Böden sind die perfekte Wahl für Küche, Bad und stark beanspruchte Räume. Erhältlich in Klick- und Klebesystemen.</p>
+          <a href="producten.html?cat=pvc" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.pvc.btn">Alle PVC-Böden ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/2505 1.png" alt="PVC-Böden"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="visgraatMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.visgraat.title">Fischgrätboden</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.visgraat.text">Der Fischgrätboden bringt zeitlose Eleganz in jeden Raum. Ob in Laminat oder PVC &ndash; das charakteristische Muster verleiht Ihrem Boden eine edle, klassische Optik.</p>
+          <a href="producten.html?cat=visgraat" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.visgraat.btn">Alle Fischgrätböden ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/2240 1.png" alt="Fischgrätboden"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="parketMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.parket.title">Parkett</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.parket.text">Echtes Holz für echte Wohnqualität. Unser Parkett &euro;berzeugt durch natürliche Wärme, Langlebigkeit und eine einzigartige Maserung &ndash; ein Boden fürs Leben.</p>
+          <a href="producten.html?cat=parkett" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.parket.btn">Alle Parkettböden ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/1638 1.png" alt="Parkett"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="zubehorMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.zubehör.title">Zubehör</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.zubehör.text">Von Sockelleisten bis Unterlagsböden &ndash; wir führen alles, was Sie für eine perfekte Verlegung benötigen. Hochwertige Materialien, die zu Ihrem Boden passen.</p>
+          <a href="producten.html?cat=zubehor" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.zubehör.btn">Alle Zubehör ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/793 1.png" alt="Zubehör"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="inspiratieMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.inspiratie.title">Inspiratie</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.inspiratie.text">Laat u inspireren door onze projecten en stijlen. Ontdek welke vloer het beste past bij uw interieur en leefstijl.</p>
+          <a href="inspiratie.html" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.inspiratie.btn">Bekijk alle inspiratie</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/section-2.png.jpg" alt="Inspiratie"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="uberMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.uber.title">Über uns</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.uber.text">WohnStyle Boden steht seit Jahren für persönliche Beratung, faire Preise und erstklassige Qualität. Lernen Sie unser Team kennen und erfahren Sie, was uns auszeichnet.</p>
+          <a href="over-ons.html" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.uber.btn">Mehr &euro;ber uns erfahren</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/section-2.png.jpg" alt="Über uns"></div>
+      </div>
+    </div>
+
+    </div>
+  </nav>
+
+  <div class="mega-overlay" id="megaOverlay"></div>
+
+  <!-- INSPIRATION PAGE CONTENT -->
+  <div class="insp-page">
+
+    <!-- Hero -->
+    <section class="insp-hero">
+      <div class="insp-wrap">
+        <div class="insp-eyebrow" data-i18n="insp.badge">Ideen & Stile</div>
+        <h1 class="insp-h1" data-i18n="insp.title">Inspiration für jeden Raum</h1>
+        <p class="insp-lead" data-i18n="insp.sub">Lassen Sie sich von unseren Raumkonzepten und Bodenideen inspirieren. Für jeden Stil und jeden Raum die passende Lösung.</p>
+      </div>
+    </section>
+
+    <!-- Rooms -->
+    <section class="insp-section">
+      <div class="insp-wrap">
+        <h2 class="insp-section-title" data-i18n="insp.rooms.title">Nach Raum entdecken</h2>
+        <div class="insp-rooms-grid">
+
+          <a href="producten.html?cat=laminaat" class="insp-room-card insp-room--wohnzimmer">
+            <div class="insp-room-bg"></div>
+            <div class="insp-room-info">
+              <div class="insp-room-name" data-i18n="insp.room.wohnzimmer">Wohnzimmer</div>
+              <div class="insp-room-rec">Laminat · Parkett · PVC</div>
+            </div>
+          </a>
+
+          <a href="producten.html?cat=parkett" class="insp-room-card insp-room--schlafzimmer">
+            <div class="insp-room-bg"></div>
+            <div class="insp-room-info">
+              <div class="insp-room-name" data-i18n="insp.room.schlafzimmer">Schlafzimmer</div>
+              <div class="insp-room-rec">Parkett · Laminat</div>
+            </div>
+          </a>
+
+          <a href="producten.html?cat=pvc" class="insp-room-card insp-room--kueche">
+            <div class="insp-room-bg"></div>
+            <div class="insp-room-info">
+              <div class="insp-room-name" data-i18n="insp.room.kueche">Küche</div>
+              <div class="insp-room-rec">PVC · Laminat waterproof</div>
+            </div>
+          </a>
+
+          <a href="producten.html?cat=pvc_click" class="insp-room-card insp-room--flur">
+            <div class="insp-room-bg"></div>
+            <div class="insp-room-info">
+              <div class="insp-room-name" data-i18n="insp.room.flur">Flur & Eingang</div>
+              <div class="insp-room-rec">PVC · Laminat</div>
+            </div>
+          </a>
+
+          <a href="producten.html?cat=laminaat" class="insp-room-card insp-room--buero">
+            <div class="insp-room-bg"></div>
+            <div class="insp-room-info">
+              <div class="insp-room-name" data-i18n="insp.room.buero">Büro & Homeoffice</div>
+              <div class="insp-room-rec">Laminat · PVC</div>
+            </div>
+          </a>
+
+          <a href="producten.html?cat=parkett" class="insp-room-card insp-room--esszimmer">
+            <div class="insp-room-bg"></div>
+            <div class="insp-room-info">
+              <div class="insp-room-name" data-i18n="insp.room.esszimmer">Esszimmer</div>
+              <div class="insp-room-rec">Parkett · Fischgrätboden</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Styles -->
+    <section class="insp-section insp-section--dark">
+      <div class="insp-wrap">
+        <h2 class="insp-section-title insp-section-title--light" data-i18n="insp.styles.title">Nach Stil entdecken</h2>
+        <div class="insp-styles-grid">
+
+          <a href="producten.html?cat=laminaat" class="insp-style-card">
+            <div class="insp-style-pattern insp-style--modern"></div>
+            <div class="insp-style-name" data-i18n="insp.style.modern">Modern & Minimalistisch</div>
+            <div class="insp-style-rec">Grau · Beton · Hellgrau</div>
+          </a>
+
+          <a href="producten.html?cat=parkett" class="insp-style-card">
+            <div class="insp-style-pattern insp-style--klassisch"></div>
+            <div class="insp-style-name" data-i18n="insp.style.klassisch">Klassisch & Zeitlos</div>
+            <div class="insp-style-rec">Eiche · Natur · Warm</div>
+          </a>
+
+          <a href="producten.html?cat=parkett" class="insp-style-card">
+            <div class="insp-style-pattern insp-style--rustikal"></div>
+            <div class="insp-style-name" data-i18n="insp.style.rustikal">Rustikal & Natürlich</div>
+            <div class="insp-style-rec">Rustikaleiche · Dunkel</div>
+          </a>
+
+          <a href="producten.html?cat=pvc" class="insp-style-card">
+            <div class="insp-style-pattern insp-style--industrial"></div>
+            <div class="insp-style-name" data-i18n="insp.style.industrial">Industrial & Urban</div>
+            <div class="insp-style-rec">Beton · Anthrazit</div>
+          </a>
+
+          <a href="producten.html?cat=laminaat_xl" class="insp-style-card">
+            <div class="insp-style-pattern insp-style--skandinavisch"></div>
+            <div class="insp-style-name" data-i18n="insp.style.skandinavisch">Skandinavisch</div>
+            <div class="insp-style-rec">Weiß · Birke · Hell</div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips -->
+    <section class="insp-section insp-tips-section">
+      <div class="insp-wrap">
+        <h2 class="insp-section-title" data-i18n="insp.tip.title">Gestaltungstipp</h2>
+        <div class="insp-tips-grid">
+          <div class="insp-tip">
+            <div class="insp-tip-num">01</div>
+            <p data-i18n="insp.tip1">Helle Böden lassen kleine Räume optisch größer wirken.</p>
+          </div>
+          <div class="insp-tip">
+            <div class="insp-tip-num">02</div>
+            <p data-i18n="insp.tip2">Dunkle Böden schaffen Wärme und Gemütlichkeit.</p>
+          </div>
+          <div class="insp-tip">
+            <div class="insp-tip-num">03</div>
+            <p data-i18n="insp.tip3">Fischgrätmuster verleihen jedem Raum eine edle Note.</p>
+          </div>
+          <div class="insp-tip">
+            <div class="insp-tip-num">04</div>
+            <p data-i18n="insp.tip4">Breite Dielen wirken modern und großzügig.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="insp-cta">
+      <div class="insp-wrap insp-cta-inner">
+        <h2 data-i18n="about.cta.title">Gemeinsam den richtigen Boden finden?</h2>
+        <div class="insp-cta-btns">
+          <a href="producten.html" class="cta-btn" data-i18n="insp.cta">Passende Böden ansehen</a>
+          <a href="contact.html" class="cta-btn cta-btn--outline" data-i18n="construction.btn">Kontakt</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- END INSPIRATION PAGE CONTENT -->
+
+  <style>
+    .insp-page { padding-bottom: 0; }
+    .insp-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    @media (max-width: 768px) { .insp-wrap { padding: 0 24px; } }
+
+    .insp-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #888; margin-bottom: 14px; }
+    .insp-h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px; color: #1a1a1a; }
+    .insp-lead { font-size: 1.1rem; color: #555; max-width: 600px; line-height: 1.65; }
+    .insp-hero { padding: 100px 0 80px; border-bottom: 1px solid #f0f0f0; }
+
+    .insp-section { padding: 80px 0; }
+    .insp-section-title { font-size: clamp(1.3rem, 2.5vw, 1.75rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 48px; color: #1a1a1a; }
+
+    /* Rooms grid */
+    .insp-rooms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    @media (max-width: 900px) { .insp-rooms-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .insp-rooms-grid { grid-template-columns: 1fr; } }
+
+    .insp-room-card { position: relative; aspect-ratio: 4/3; overflow: hidden; display: block; text-decoration: none; cursor: pointer; }
+    .insp-room-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.5s ease; }
+    .insp-room-card:hover .insp-room-bg { transform: scale(1.04); }
+    .insp-room-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 55%); }
+    .insp-room-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 20px; z-index: 1; }
+    .insp-room-name { font-size: 1rem; font-weight: 600; color: #fff; letter-spacing: 0.02em; margin-bottom: 4px; }
+    .insp-room-rec { font-size: 0.72rem; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* Room backgrounds with neutral patterns (no real images) */
+    .insp-room--wohnzimmer .insp-room-bg { background-color: #c8b89a; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0, rgba(255,255,255,0.08) 60px, transparent 60px, transparent 120px), repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 20px); }
+    .insp-room--schlafzimmer .insp-room-bg { background-color: #a89880; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 18px); }
+    .insp-room--kueche .insp-room-bg { background-color: #9ba8a0; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 2px, transparent 2px, transparent 24px); }
+    .insp-room--flur .insp-room-bg { background-color: #b5a898; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.07) 0, rgba(255,255,255,0.07) 1px, transparent 1px, transparent 20px); }
+    .insp-room--buero .insp-room-bg { background-color: #8c9898; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.09) 0, rgba(255,255,255,0.09) 100px, transparent 100px, transparent 200px); }
+    .insp-room--esszimmer .insp-room-bg { background-color: #a09070; background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 24px); }
+
+    /* Styles */
+    .insp-section--dark { background: #1a1a1a; }
+    .insp-section-title--light { color: #fff; }
+    .insp-styles-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+    @media (max-width: 1024px) { .insp-styles-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px) { .insp-styles-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .insp-style-card { display: block; text-decoration: none; cursor: pointer; }
+    .insp-style-pattern { height: 200px; transition: transform 0.3s; }
+    .insp-style-card:hover .insp-style-pattern { transform: scale(1.02); }
+    .insp-style-name { font-size: 0.85rem; font-weight: 600; color: #fff; padding: 14px 0 4px; }
+    .insp-style-rec { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; text-transform: uppercase; }
+
+    .insp-style--modern { background: #d0d0d0; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.3) 0, rgba(255,255,255,0.3) 2px, transparent 2px, transparent 32px), repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 20px); }
+    .insp-style--klassisch { background: #c4a876; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 1px, transparent 1px, transparent 20px); }
+    .insp-style--rustikal { background: #8b6b4a; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0, rgba(255,255,255,0.08) 80px, transparent 80px, transparent 160px), repeating-linear-gradient(0deg, rgba(0,0,0,0.08) 0, rgba(0,0,0,0.08) 1px, transparent 1px, transparent 24px); }
+    .insp-style--industrial { background: #5a5a5a; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 20px), repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 20px); }
+    .insp-style--skandinavisch { background: #e8e0d4; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.4) 0, rgba(255,255,255,0.4) 2px, transparent 2px, transparent 60px); }
+
+    /* Tips */
+    .insp-tips-section { background: #fafafa; }
+    .insp-tips-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    @media (max-width: 1024px) { .insp-tips-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .insp-tips-grid { grid-template-columns: 1fr; } }
+    .insp-tip { padding: 32px; background: #fff; }
+    .insp-tip-num { font-size: 2rem; font-weight: 700; color: #e8e8e8; margin-bottom: 12px; }
+    .insp-tip p { font-size: 0.9rem; color: #555; line-height: 1.65; }
+
+    /* CTA */
+    .insp-cta { padding: 80px 0; text-align: center; }
+    .insp-cta h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 32px; color: #1a1a1a; }
+    .insp-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .cta-btn { display: inline-block; padding: 14px 32px; background: #1a1a1a; color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.15s; }
+    .cta-btn:hover { background: #333; }
+    .cta-btn--outline { background: transparent; color: #1a1a1a; border: 1.5px solid #1a1a1a; }
+    .cta-btn--outline:hover { background: #1a1a1a; color: #fff; }
+  </style>
+<footer class="footer">
+    <div class="footer-logo-wrap">
+      <a href="index.html" class="nav-logo footer-nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
+      <div class="footer-socials">
+        <a href="#" class="footer-social-link" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 511 511.9" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="m510.949219 150.5c-1.199219-27.199219-5.597657-45.898438-11.898438-62.101562-6.5-17.199219-16.5-32.597657-29.601562-45.398438-12.800781-13-28.300781-23.101562-45.300781-29.5-16.296876-6.300781-34.898438-10.699219-62.097657-11.898438-27.402343-1.300781-36.101562-1.601562-105.601562-1.601562s-78.199219.300781-105.5 1.5c-27.199219 1.199219-45.898438 5.601562-62.097657 11.898438-17.203124 6.5-32.601562 16.5-45.402343 29.601562-13 12.800781-23.097657 28.300781-29.5 45.300781-6.300781 16.300781-10.699219 34.898438-11.898438 62.097657-1.300781 27.402343-1.601562 36.101562-1.601562 105.601562s.300781 78.199219 1.5 105.5c1.199219 27.199219 5.601562 45.898438 11.902343 62.101562 6.5 17.199219 16.597657 32.597657 29.597657 45.398438 12.800781 13 28.300781 23.101562 45.300781 29.5 16.300781 6.300781 34.898438 10.699219 62.101562 11.898438 27.296876 1.203124 36 1.5 105.5 1.5s78.199219-.296876 105.5-1.5c27.199219-1.199219 45.898438-5.597657 62.097657-11.898438 34.402343-13.300781 61.601562-40.5 74.902343-74.898438 6.296876-16.300781 10.699219-34.902343 11.898438-62.101562 1.199219-27.300781 1.5-36 1.5-105.5s-.101562-78.199219-1.300781-105.5zm-46.097657 209c-1.101562 25-5.300781 38.5-8.800781 47.5-8.601562 22.300781-26.300781 40-48.601562 48.601562-9 3.5-22.597657 7.699219-47.5 8.796876-27 1.203124-35.097657 1.5-103.398438 1.5s-76.5-.296876-103.402343-1.5c-25-1.097657-38.5-5.296876-47.5-8.796876-11.097657-4.101562-21.199219-10.601562-29.398438-19.101562-8.5-8.300781-15-18.300781-19.101562-29.398438-3.5-9-7.699219-22.601562-8.796876-47.5-1.203124-27-1.5-35.101562-1.5-103.402343s.296876-76.5 1.5-103.398438c1.097657-25 5.296876-38.5 8.796876-47.5 4.101562-11.101562 10.601562-21.199219 19.203124-29.402343 8.296876-8.5 18.296876-15 29.398438-19.097657 9-3.5 22.601562-7.699219 47.5-8.800781 27-1.199219 35.101562-1.5 103.398438-1.5 68.402343 0 76.5.300781 103.402343 1.5 25 1.101562 38.5 5.300781 47.5 8.800781 11.097657 4.097657 21.199219 10.597657 29.398438 19.097657 8.5 8.300781 15 18.300781 19.101562 29.402343 3.5 9 7.699219 22.597657 8.800781 47.5 1.199219 27 1.5 35.097657 1.5 103.398438s-.300781 76.300781-1.5 103.300781zm0 0"/>
+            <path d="m256.449219 124.5c-72.597657 0-131.5 58.898438-131.5 131.5s58.902343 131.5 131.5 131.5c72.601562 0 131.5-58.898438 131.5-131.5s-58.898438-131.5-131.5-131.5zm0 216.800781c-47.097657 0-85.300781-38.199219-85.300781-85.300781s38.203124-85.300781 85.300781-85.300781c47.101562 0 85.300781 38.199219 85.300781 85.300781s-38.199219 85.300781-85.300781 85.300781zm0 0"/>
+            <path d="m423.851562 119.300781c0 16.953125-13.746093 30.699219-30.703124 30.699219-16.953126 0-30.699219-13.746094-30.699219-30.699219 0-16.957031 13.746093-30.699219 30.699219-30.699219 16.957031 0 30.703124 13.742188 30.703124 30.699219zm0 0"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- end page-wrapper -->
+
+  <!-- SUCCESS MODAL -->
+  <div id="success-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:9999; align-items:center; justify-content:center; padding:24px;">
+    <div style="background:white; border-radius:8px; padding:36px 32px; max-width:380px; width:100%; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+      <button onclick="closeSuccessModal()" style="position:absolute; top:16px; right:16px; background:none; border:none; cursor:pointer; color:#888;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      <p id="success-title" style="margin:0 0 8px; font-family:'anth',Georgia,serif; font-size:22px; font-weight:700; color:#111;">Nachricht gesendet!</p>
+      <p id="success-sub" style="margin:0 0 24px; font-size:15px; color:#555; line-height:1.6;">Wir melden uns so schnell wie m&ouml;glich bei Ihnen.</p>
+      <button onclick="closeSuccessModal()" id="success-btn" style="width:100%; height:48px; background:#111; color:white; border:none; border-radius:4px; font-family:'anth',Georgia,serif; font-size:15px; font-weight:700; cursor:pointer;">Verstanden</button>
+    </div>
+  </div>
+
+  <script src="js/lang.js"></script>
+  <script src="js/nav.js?v=1"></script>
+  <script>
+    // Mega dropdown factory
+    function initMegaDrop(dropId, megaId) {
+      const drop = document.getElementById(dropId);
+      const mega = document.getElementById(megaId);
+      if (!drop || !mega) return;
+      let timer;
+      function setTop() {
+        const subnav = document.getElementById('subnavEl');
+        if (subnav) mega.style.top = subnav.getBoundingClientRect().bottom + 'px';
+      }
+      const overlay = document.getElementById('megaOverlay');
+      function open() { clearTimeout(timer); setTop(); drop.classList.add('open'); mega.classList.add('open'); if (overlay) overlay.style.display = 'block'; }
+      function close() { timer = setTimeout(function() { drop.classList.remove('open'); mega.classList.remove('open'); if (!document.querySelector('.subnav-mega.open')) { if (overlay) overlay.style.display = 'none'; } }, 120); }
+      drop.addEventListener('mouseenter', open);
+      drop.addEventListener('mouseleave', close);
+      mega.addEventListener('mouseenter', open);
+      mega.addEventListener('mouseleave', close);
+      drop.querySelector('.subnav-drop-trigger').addEventListener('click', function(e) {
+        e.preventDefault();
+        drop.classList.contains('open') ? close() : open();
+      });
+      document.addEventListener('click', function(e) {
+        if (!drop.contains(e.target) && !mega.contains(e.target)) close();
+      });
+    }
+    initMegaDrop('laminaatDrop', 'laminaatMega');
+    initMegaDrop('pvcDrop', 'pvcMega');
+    initMegaDrop('visgraatDrop', 'visgraatMega');
+    initMegaDrop('parketDrop', 'parketMega');
+    initMegaDrop('zubehorDrop', 'zubehorMega');
+    initMegaDrop('inspiratieDrop', 'inspiratieMega');
+    initMegaDrop('uberDrop', 'uberMega');
+
+    function toggleTheme() {
+      const isDark = document.body.classList.toggle('dark-mode');
+      const lang = localStorage.getItem('lang') || 'de';
+      const lbl = document.getElementById('theme-label');
+      if (lbl) lbl.textContent = isDark ? (lang==='en'?'Light mode':'Light-Modus') : (lang==='en'?'Dark mode':'Dark-Modus');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    (function() {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    })();
+
+    // Sticky mobile button
+    const stickyBtn = document.querySelector('.mobile-sticky-btn');
+    const heroSection = document.querySelector('.contact-hero');
+    if (stickyBtn && heroSection) {
+      const heroObserver = new IntersectionObserver(
+        ([entry]) => stickyBtn.classList.toggle('visible', !entry.isIntersecting),
+        { threshold: 0 }
+      );
+      heroObserver.observe(heroSection);
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      fetch('https://formspree.io/f/mqerbowl', { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function() {
+          var isEn = document.documentElement.lang === 'en';
+          document.getElementById('success-title').textContent = isEn ? 'Message sent!' : 'Nachricht gesendet!';
+          document.getElementById('success-sub').textContent = isEn ? 'We will get back to you as soon as possible.' : 'Wir melden uns so schnell wie m&ouml;glich bei Ihnen.';
+          document.getElementById('success-btn').textContent = isEn ? 'Got it' : 'Verstanden';
+          form.reset();
+          document.getElementById('success-overlay').style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }).catch(function() {
+          document.getElementById('success-overlay').style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+    }
+    function closeSuccessModal() {
+      document.getElementById('success-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    function toggleSubjectSelect() {
+      document.getElementById('subjectSelect').classList.toggle('open');
+    }
+    function pickSubject(opt) {
+      var sel = opt.closest('.custom-select');
+      sel.querySelector('.select-display').textContent = opt.querySelector('span').textContent;
+      sel.querySelector('.custom-select-trigger').classList.add('has-value');
+      document.getElementById('subjectHidden').value = opt.dataset.value;
+      sel.querySelectorAll('.custom-select-option').forEach(function(o) { o.classList.remove('selected'); });
+      opt.classList.add('selected');
+      sel.classList.remove('open');
+    }
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('.custom-select.open').forEach(function(s) {
+        if (!s.contains(e.target)) s.classList.remove('open');
+      });
+    });
+    function openLangPopup() { document.getElementById('langPopup').classList.add('open'); }
+    function closeLangPopup() { document.getElementById('langPopup').classList.remove('open'); }
+  </script>
+
+  <div class="lang-popup-overlay" id="langPopup" onclick="closeLangPopup()">
+    <div class="lang-popup" onclick="event.stopPropagation()">
+      <p class="lang-popup-title" data-i18n="lang.choose">Kies uw taal</p>
+      <button class="lang-popup-option" onclick="setLang('de'); closeLangPopup()">
+        <svg class="lang-flag-svg" viewBox="0 0 752 752" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
+        <span>Deutsch</span>
+        <span class="lang-popup-arrow">&#8594;</span>
+      </button>
+      <button class="lang-popup-option" onclick="setLang('en'); closeLangPopup()">
+        <svg class="lang-flag-svg" viewBox="12 12 24 24"><defs><clipPath id="popup-en-clip"><rect width="23" height="23" fill="white" transform="translate(12.5 12.5)"/></clipPath></defs><g clip-path="url(#popup-en-clip)"><mask id="popup-en-m0" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m0)"><path d="M6.61597 11.062H41.3839V36.9096H6.61597V11.062Z" fill="#00247D"/></g><mask id="popup-en-m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m1)"><path d="M37.4917 36.9095L23.9999 26.8755L10.4985 36.9095H6.61597V34.0128L20.1128 23.9858L6.61597 13.9452V11.062H10.4986L23.9999 21.0959L37.492 11.062H41.3839V13.9447L27.8871 23.9858L41.3839 34.0122V36.9095H37.4917Z" fill="white"/></g><mask id="popup-en-m2" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m2)"><path d="M9.20282 36.9095H6.61597L22.7138 24.8697L6.61597 12.9886V11.062L22.7544 22.9852L38.7924 11.062H41.3839L25.2416 22.9886L41.3839 34.983V36.9095L25.3453 24.9121L9.20282 36.9095Z" fill="#CF142B"/></g><mask id="popup-en-m3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m3)"><path d="M27.1558 37.6849H20.8443V27.1414H5.06555V20.8299H20.8443V10.5449H27.1558V20.8299H42.9346V27.1414H27.1558V37.6849Z" fill="white"/></g><mask id="popup-en-m4" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m4)"><path d="M25.8935 37.6849H22.1066V25.8792H5.06555V22.0923H22.1066V10.5449H25.8935V22.0923H42.9346V25.8792H25.8935V37.6849Z" fill="#CF142B"/></g></g></svg>
+        <span>English</span>
+        <span class="lang-popup-arrow">&#8594;</span>
+      </button>
+    </div>
+  </div>
+<script>
+function openNavSearch() {
+  document.querySelector('.nav-center').classList.add('search-open');
+  setTimeout(function() { document.getElementById('navSearchInput').focus(); }, 50);
+}
+function closeNavSearch() {
+  document.querySelector('.nav-center').classList.remove('search-open');
+  document.getElementById('navSearchInput').value = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeNavSearch();
+});
+</script>
+</body>
+</html>>Inspiratie</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="subnav-item--dropdown" id="uberDrop">
+        <a href="#" class="subnav-drop-trigger"><span data-i18n="subnav.about">Über uns</span><svg class="sub-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="laminaatMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.laminaat.title">Laminat</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.laminaat.text">Von klassischer Eiche bis modernem Beton &ndash; unser Laminat &euro;berzeugt durch Qualität, Langlebigkeit und &euro;ber 200 Dekore. Für jeden Raum und jeden Stil die passende Lösung.</p>
+          <a href="producten.html?cat=laminaat" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.laminaat.btn">Alle Laminatböden ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/6855 1.png" alt="Laminat"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="pvcMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.pvc.title">PVC-Böden</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.pvc.text">Wasserfest, kratzfest und pflegeleicht &ndash; PVC-Böden sind die perfekte Wahl für Küche, Bad und stark beanspruchte Räume. Erhältlich in Klick- und Klebesystemen.</p>
+          <a href="producten.html?cat=pvc" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.pvc.btn">Alle PVC-Böden ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/2505 1.png" alt="PVC-Böden"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="visgraatMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.visgraat.title">Fischgrätboden</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.visgraat.text">Der Fischgrätboden bringt zeitlose Eleganz in jeden Raum. Ob in Laminat oder PVC &ndash; das charakteristische Muster verleiht Ihrem Boden eine edle, klassische Optik.</p>
+          <a href="producten.html?cat=visgraat" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.visgraat.btn">Alle Fischgrätböden ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/2240 1.png" alt="Fischgrätboden"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="parketMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.parket.title">Parkett</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.parket.text">Echtes Holz für echte Wohnqualität. Unser Parkett &euro;berzeugt durch natürliche Wärme, Langlebigkeit und eine einzigartige Maserung &ndash; ein Boden fürs Leben.</p>
+          <a href="producten.html?cat=parkett" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.parket.btn">Alle Parkettböden ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/1638 1.png" alt="Parkett"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="zubehorMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.zubehör.title">Zubehör</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.zubehör.text">Von Sockelleisten bis Unterlagsböden &ndash; wir führen alles, was Sie für eine perfekte Verlegung benötigen. Hochwertige Materialien, die zu Ihrem Boden passen.</p>
+          <a href="producten.html?cat=zubehor" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.zubehör.btn">Alle Zubehör ansehen</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/793 1.png" alt="Zubehör"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="inspiratieMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.inspiratie.title">Inspiratie</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.inspiratie.text">Laat u inspireren door onze projecten en stijlen. Ontdek welke vloer het beste past bij uw interieur en leefstijl.</p>
+          <a href="inspiratie.html" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.inspiratie.btn">Bekijk alle inspiratie</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/section-2.png.jpg" alt="Inspiratie"></div>
+      </div>
+    </div>
+
+    <div class="subnav-mega" id="uberMega">
+      <div class="subnav-mega-promo">
+        <div class="subnav-mega-promo-content">
+          <h2 class="subnav-mega-promo-title" data-i18n="mega.uber.title">Über uns</h2>
+          <p class="subnav-mega-promo-text" data-i18n="mega.uber.text">WohnStyle Boden steht seit Jahren für persönliche Beratung, faire Preise und erstklassige Qualität. Lernen Sie unser Team kennen und erfahren Sie, was uns auszeichnet.</p>
+          <a href="over-ons.html" class="btn-nav subnav-mega-promo-btn" data-i18n="mega.uber.btn">Mehr &euro;ber uns erfahren</a>
+        </div>
+        <div class="subnav-mega-promo-img"><img src="images/section-2.png.jpg" alt="Über uns"></div>
+      </div>
+    </div>
+
+    </div>
+  </nav>
+
+  <div class="mega-overlay" id="megaOverlay"></div>
+
+
+  <a href="https://wa.me/491634797339" class="whatsapp-fab" aria-label="WhatsApp" target="_blank" rel="noopener">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.52 3.449C18.24 1.245 15.24 0.005 12.045 0C5.463 0 0.101 5.334 0.098 11.892C0.097 13.988 0.648 16.031 1.693 17.832L0 24l6.335-1.652C8.095 23.278 10.06 23.775 12.045 23.776h.005c6.582 0 11.944-5.335 11.947-11.893.002-3.178-1.24-6.167-3.477-8.434zM12.05 21.785h-.004c-1.773 0-3.513-.474-5.033-1.37l-.361-.213-3.741.977.998-3.632-.236-.373a9.867 9.867 0 01-1.527-5.292c.002-5.45 4.45-9.882 9.905-9.882 2.646 0 5.13 1.03 6.998 2.898a9.805 9.805 0 012.895 6.979c-.002 5.451-4.45 9.908-9.894 9.908zm5.43-7.403c-.297-.149-1.758-.867-2.031-.967-.272-.099-.47-.148-.669.149-.198.297-.767.966-.94 1.164-.174.198-.347.223-.644.074-1.757-.877-2.912-1.566-4.069-3.547-.307-.527.307-.49.878-1.63.099-.198.05-.372-.025-.521-.075-.148-.668-1.611-.916-2.207-.24-.579-.486-.5-.668-.51-.173-.008-.37-.01-.568-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/>
+    </svg>
+  </a>
+
+<div class="page-wrapper">
+
+  <section class="contact-hero">
+    <div class="contact-hero-inner">
+      <span class="svc-badge svc-badge--blue"><span data-i18n="contact.badge">Kontakt</span></span>
+      <h1 class="hero-anth-title contact-hero-title" data-i18n="contact.title">Kontakt aufnehmen</h1>
+      <p class="svc-desc" data-i18n="contact.sub">Kontaktieren Sie uns gerne per E-Mail oder nutzen Sie das Kontaktformular. Wir helfen Ihnen gerne weiter.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-grid">
+
+      <div class="contact-left">
+        <h2 class="contact-left-title" data-i18n="contact.info.title">Unsere Kontaktdaten</h2>
+        <div class="contact-options-grid">
+          <div class="contact-option-block">
+            <span class="contact-option-num">01</span>
+            <strong class="contact-option-title" data-i18n="contact.label.email">E-Mail</strong>
+            <span class="contact-option-val">info@wohnstyle.de</span>
+          </div>
+          <div class="contact-option-block">
+            <span class="contact-option-num">02</span>
+            <strong class="contact-option-title" data-i18n="contact.label.phone">Telefon</strong>
+            <span class="contact-option-val"><a href="tel:+4915112345678" style="color:inherit;text-decoration:none;">+49 151 12345678</a></span>
+          </div>
+          <div class="contact-option-block">
+            <span class="contact-option-num">03</span>
+            <strong class="contact-option-title" data-i18n="contact.label.address">Standort</strong>
+            <span class="contact-option-val">Bahnhofstra&szlig;e 33<br>31655 Stadthagen</span>
+          </div>
+          <div class="contact-option-block">
+            <span class="contact-option-num">04</span>
+            <strong class="contact-option-title" data-i18n="contact.hours.days">Öffnungszeiten</strong>
+            <span class="contact-option-val">Mo &ndash; Fr<br>08:00 &ndash; 18:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-divider"><span data-i18n="contact.divider">oder</span></div>
+
+      <div class="contact-right">
+        <h2 class="contact-form-title" data-i18n="contact.form.title">Nutzen Sie unser Formular</h2>
+        <form name="contact" method="POST" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="contact.form.firstname">Vorname</label>
+              <input type="text" name="vorname" placeholder="Max...">
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.lastname">Nachname</label>
+              <input type="text" name="nachname" placeholder="Mustermann...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="contact.form.email">E-Mail</label>
+            <input type="email" name="email" placeholder="max@mail.de...">
+          </div>
+          <div class="form-group">
+            <label data-i18n="contact.form.subject">Betreff</label>
+            <div class="custom-select" id="subjectSelect">
+              <button type="button" class="custom-select-trigger" onclick="toggleSubjectSelect()">
+                <span class="select-display" data-i18n="contact.ph.subject">Betreff auswählen...</span>
+                <svg class="select-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#868686" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <ul class="custom-select-menu">
+                <li class="custom-select-option" data-value="laminat" onclick="pickSubject(this)"><span>Laminat</span></li>
+                <li class="custom-select-option" data-value="parkett" onclick="pickSubject(this)"><span>Parkettt</span></li>
+                <li class="custom-select-option" data-value="vinyl" onclick="pickSubject(this)"><span>Vinyl</span></li>
+                <li class="custom-select-option" data-value="sonstiges" onclick="pickSubject(this)"><span data-i18n="contact.opt.anders">Sonstiges</span></li>
+              </ul>
+              <input type="hidden" name="subject" id="subjectHidden">
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="contact.form.message">Nachricht</label>
+            <textarea name="nachricht" placeholder="Schreiben Sie Ihre Nachricht..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-i18n="contact.form.submit">Nachricht senden</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="footer-logo-wrap">
+      <a href="index.html" class="nav-logo footer-nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
+      <div class="footer-socials">
+        <a href="#" class="footer-social-link" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 511 511.9" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="m510.949219 150.5c-1.199219-27.199219-5.597657-45.898438-11.898438-62.101562-6.5-17.199219-16.5-32.597657-29.601562-45.398438-12.800781-13-28.300781-23.101562-45.300781-29.5-16.296876-6.300781-34.898438-10.699219-62.097657-11.898438-27.402343-1.300781-36.101562-1.601562-105.601562-1.601562s-78.199219.300781-105.5 1.5c-27.199219 1.199219-45.898438 5.601562-62.097657 11.898438-17.203124 6.5-32.601562 16.5-45.402343 29.601562-13 12.800781-23.097657 28.300781-29.5 45.300781-6.300781 16.300781-10.699219 34.898438-11.898438 62.097657-1.300781 27.402343-1.601562 36.101562-1.601562 105.601562s.300781 78.199219 1.5 105.5c1.199219 27.199219 5.601562 45.898438 11.902343 62.101562 6.5 17.199219 16.597657 32.597657 29.597657 45.398438 12.800781 13 28.300781 23.101562 45.300781 29.5 16.300781 6.300781 34.898438 10.699219 62.101562 11.898438 27.296876 1.203124 36 1.5 105.5 1.5s78.199219-.296876 105.5-1.5c27.199219-1.199219 45.898438-5.597657 62.097657-11.898438 34.402343-13.300781 61.601562-40.5 74.902343-74.898438 6.296876-16.300781 10.699219-34.902343 11.898438-62.101562 1.199219-27.300781 1.5-36 1.5-105.5s-.101562-78.199219-1.300781-105.5zm-46.097657 209c-1.101562 25-5.300781 38.5-8.800781 47.5-8.601562 22.300781-26.300781 40-48.601562 48.601562-9 3.5-22.597657 7.699219-47.5 8.796876-27 1.203124-35.097657 1.5-103.398438 1.5s-76.5-.296876-103.402343-1.5c-25-1.097657-38.5-5.296876-47.5-8.796876-11.097657-4.101562-21.199219-10.601562-29.398438-19.101562-8.5-8.300781-15-18.300781-19.101562-29.398438-3.5-9-7.699219-22.601562-8.796876-47.5-1.203124-27-1.5-35.101562-1.5-103.402343s.296876-76.5 1.5-103.398438c1.097657-25 5.296876-38.5 8.796876-47.5 4.101562-11.101562 10.601562-21.199219 19.203124-29.402343 8.296876-8.5 18.296876-15 29.398438-19.097657 9-3.5 22.601562-7.699219 47.5-8.800781 27-1.199219 35.101562-1.5 103.398438-1.5 68.402343 0 76.5.300781 103.402343 1.5 25 1.101562 38.5 5.300781 47.5 8.800781 11.097657 4.097657 21.199219 10.597657 29.398438 19.097657 8.5 8.300781 15 18.300781 19.101562 29.402343 3.5 9 7.699219 22.597657 8.800781 47.5 1.199219 27 1.5 35.097657 1.5 103.398438s-.300781 76.300781-1.5 103.300781zm0 0"/>
+            <path d="m256.449219 124.5c-72.597657 0-131.5 58.898438-131.5 131.5s58.902343 131.5 131.5 131.5c72.601562 0 131.5-58.898438 131.5-131.5s-58.898438-131.5-131.5-131.5zm0 216.800781c-47.097657 0-85.300781-38.199219-85.300781-85.300781s38.203124-85.300781 85.300781-85.300781c47.101562 0 85.300781 38.199219 85.300781 85.300781s-38.199219 85.300781-85.300781 85.300781zm0 0"/>
+            <path d="m423.851562 119.300781c0 16.953125-13.746093 30.699219-30.703124 30.699219-16.953126 0-30.699219-13.746094-30.699219-30.699219 0-16.957031 13.746093-30.699219 30.699219-30.699219 16.957031 0 30.703124 13.742188 30.703124 30.699219zm0 0"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- end page-wrapper -->
+
+  <!-- SUCCESS MODAL -->
+  <div id="success-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:9999; align-items:center; justify-content:center; padding:24px;">
+    <div style="background:white; border-radius:8px; padding:36px 32px; max-width:380px; width:100%; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+      <button onclick="closeSuccessModal()" style="position:absolute; top:16px; right:16px; background:none; border:none; cursor:pointer; color:#888;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      <p id="success-title" style="margin:0 0 8px; font-family:'anth',Georgia,serif; font-size:22px; font-weight:700; color:#111;">Nachricht gesendet!</p>
+      <p id="success-sub" style="margin:0 0 24px; font-size:15px; color:#555; line-height:1.6;">Wir melden uns so schnell wie m&ouml;glich bei Ihnen.</p>
+      <button onclick="closeSuccessModal()" id="success-btn" style="width:100%; height:48px; background:#111; color:white; border:none; border-radius:4px; font-family:'anth',Georgia,serif; font-size:15px; font-weight:700; cursor:pointer;">Verstanden</button>
+    </div>
+  </div>
+
+  <script src="js/lang.js"></script>
+  <script src="js/nav.js?v=1"></script>
+  <script>
+    // Mega dropdown factory
+    function initMegaDrop(dropId, megaId) {
+      const drop = document.getElementById(dropId);
+      const mega = document.getElementById(megaId);
+      if (!drop || !mega) return;
+      let timer;
+      function setTop() {
+        const subnav = document.getElementById('subnavEl');
+        if (subnav) mega.style.top = subnav.getBoundingClientRect().bottom + 'px';
+      }
+      const overlay = document.getElementById('megaOverlay');
+      function open() { clearTimeout(timer); setTop(); drop.classList.add('open'); mega.classList.add('open'); if (overlay) overlay.style.display = 'block'; }
+      function close() { timer = setTimeout(function() { drop.classList.remove('open'); mega.classList.remove('open'); if (!document.querySelector('.subnav-mega.open')) { if (overlay) overlay.style.display = 'none'; } }, 120); }
+      drop.addEventListener('mouseenter', open);
+      drop.addEventListener('mouseleave', close);
+      mega.addEventListener('mouseenter', open);
+      mega.addEventListener('mouseleave', close);
+      drop.querySelector('.subnav-drop-trigger').addEventListener('click', function(e) {
+        e.preventDefault();
+        drop.classList.contains('open') ? close() : open();
+      });
+      document.addEventListener('click', function(e) {
+        if (!drop.contains(e.target) && !mega.contains(e.target)) close();
+      });
+    }
+    initMegaDrop('laminaatDrop', 'laminaatMega');
+    initMegaDrop('pvcDrop', 'pvcMega');
+    initMegaDrop('visgraatDrop', 'visgraatMega');
+    initMegaDrop('parketDrop', 'parketMega');
+    initMegaDrop('zubehorDrop', 'zubehorMega');
+    initMegaDrop('inspiratieDrop', 'inspiratieMega');
+    initMegaDrop('uberDrop', 'uberMega');
+
+    function toggleTheme() {
+      const isDark = document.body.classList.toggle('dark-mode');
+      const lang = localStorage.getItem('lang') || 'de';
+      const lbl = document.getElementById('theme-label');
+      if (lbl) lbl.textContent = isDark ? (lang==='en'?'Light mode':'Light-Modus') : (lang==='en'?'Dark mode':'Dark-Modus');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    (function() {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    })();
+
+    // Sticky mobile button
+    const stickyBtn = document.querySelector('.mobile-sticky-btn');
+    const heroSection = document.querySelector('.contact-hero');
+    if (stickyBtn && heroSection) {
+      const heroObserver = new IntersectionObserver(
+        ([entry]) => stickyBtn.classList.toggle('visible', !entry.isIntersecting),
+        { threshold: 0 }
+      );
+      heroObserver.observe(heroSection);
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      fetch('https://formspree.io/f/mqerbowl', { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function() {
+          var isEn = document.documentElement.lang === 'en';
+          document.getElementById('success-title').textContent = isEn ? 'Message sent!' : 'Nachricht gesendet!';
+          document.getElementById('success-sub').textContent = isEn ? 'We will get back to you as soon as possible.' : 'Wir melden uns so schnell wie m&ouml;glich bei Ihnen.';
+          document.getElementById('success-btn').textContent = isEn ? 'Got it' : 'Verstanden';
+          form.reset();
+          document.getElementById('success-overlay').style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }).catch(function() {
+          document.getElementById('success-overlay').style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+    }
+    function closeSuccessModal() {
+      document.getElementById('success-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    function toggleSubjectSelect() {
+      document.getElementById('subjectSelect').classList.toggle('open');
+    }
+    function pickSubject(opt) {
+      var sel = opt.closest('.custom-select');
+      sel.querySelector('.select-display').textContent = opt.querySelector('span').textContent;
+      sel.querySelector('.custom-select-trigger').classList.add('has-value');
+      document.getElementById('subjectHidden').value = opt.dataset.value;
+      sel.querySelectorAll('.custom-select-option').forEach(function(o) { o.classList.remove('selected'); });
+      opt.classList.add('selected');
+      sel.classList.remove('open');
+    }
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('.custom-select.open').forEach(function(s) {
+        if (!s.contains(e.target)) s.classList.remove('open');
+      });
+    });
+    function openLangPopup() { document.getElementById('langPopup').classList.add('open'); }
+    function closeLangPopup() { document.getElementById('langPopup').classList.remove('open'); }
+  </script>
+
+  <div class="lang-popup-overlay" id="langPopup" onclick="closeLangPopup()">
+    <div class="lang-popup" onclick="event.stopPropagation()">
+      <p class="lang-popup-title" data-i18n="lang.choose">Kies uw taal</p>
+      <button class="lang-popup-option" onclick="setLang('de'); closeLangPopup()">
+        <svg class="lang-flag-svg" viewBox="0 0 752 752" fill="none"><path d="M724.515 235.207H27.21C82.8915 97.3045 218.016 0 375.862 0C533.708 0 668.834 97.3045 724.515 235.207Z" fill="black"/><path d="M751.724 375.862C751.724 425.595 742.068 473.072 724.515 516.517H27.2095C9.656 473.072 0 425.595 0 375.862C0 326.129 9.6565 278.652 27.2095 235.206H724.515C742.068 278.652 751.724 326.129 751.724 375.862Z" fill="#DC0000"/><path d="M724.515 516.518C668.834 654.42 533.708 751.724 375.862 751.724C218.016 751.724 82.8915 654.42 27.21 516.518H724.515Z" fill="#FFCE00"/></svg>
+        <span>Deutsch</span>
+        <span class="lang-popup-arrow">&#8594;</span>
+      </button>
+      <button class="lang-popup-option" onclick="setLang('en'); closeLangPopup()">
+        <svg class="lang-flag-svg" viewBox="12 12 24 24"><defs><clipPath id="popup-en-clip"><rect width="23" height="23" fill="white" transform="translate(12.5 12.5)"/></clipPath></defs><g clip-path="url(#popup-en-clip)"><mask id="popup-en-m0" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m0)"><path d="M6.61597 11.062H41.3839V36.9096H6.61597V11.062Z" fill="#00247D"/></g><mask id="popup-en-m1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m1)"><path d="M37.4917 36.9095L23.9999 26.8755L10.4985 36.9095H6.61597V34.0128L20.1128 23.9858L6.61597 13.9452V11.062H10.4986L23.9999 21.0959L37.492 11.062H41.3839V13.9447L27.8871 23.9858L41.3839 34.0122V36.9095H37.4917Z" fill="white"/></g><mask id="popup-en-m2" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m2)"><path d="M9.20282 36.9095H6.61597L22.7138 24.8697L6.61597 12.9886V11.062L22.7544 22.9852L38.7924 11.062H41.3839L25.2416 22.9886L41.3839 34.983V36.9095L25.3453 24.9121L9.20282 36.9095Z" fill="#CF142B"/></g><mask id="popup-en-m3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m3)"><path d="M27.1558 37.6849H20.8443V27.1414H5.06555V20.8299H20.8443V10.5449H27.1558V20.8299H42.9346V27.1414H27.1558V37.6849Z" fill="white"/></g><mask id="popup-en-m4" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="24" height="24"><path d="M24 35.5C30.3513 35.5 35.5 30.3513 35.5 24C35.5 17.6487 30.3513 12.5 24 12.5C17.6487 12.5 12.5 17.6487 12.5 24C12.5 30.3513 17.6487 35.5 24 35.5Z" fill="white"/></mask><g mask="url(#popup-en-m4)"><path d="M25.8935 37.6849H22.1066V25.8792H5.06555V22.0923H22.1066V10.5449H25.8935V22.0923H42.9346V25.8792H25.8935V37.6849Z" fill="#CF142B"/></g></g></svg>
+        <span>English</span>
+        <span class="lang-popup-arrow">&#8594;</span>
+      </button>
+    </div>
+  </div>
+<script>
+function openNavSearch() {
+  document.querySelector('.nav-center').classList.add('search-open');
+  setTimeout(function() { document.getElementById('navSearchInput').focus(); }, 50);
+}
+function closeNavSearch() {
+  document.querySelector('.nav-center').classList.remove('search-open');
+  document.getElementById('navSearchInput').value = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeNavSearch();
+});
+</script>
+
+</body>
+</html>

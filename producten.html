@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=69">
+  <link rel="stylesheet" href="style.css?v=70">
   <style>
     /* ---- Page layout ---- */
     .products-page { padding: 40px 0 80px; }
@@ -193,11 +193,11 @@
       <a href="index.html" class="nav-logo"><span class="logo-text">WohnStyle</span><span class="logo-sub">Boden</span></a>
     </div>
     <div class="nav-center">
-      <button class="nav-text-btn nav-search-center" aria-label="Search">ZOEKEN</button>
+      <button class="nav-text-btn nav-search-center" aria-label="Search" data-i18n="nav.search">Suchen</button>
     </div>
     <div class="nav-right">
       <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
-      <button class="nav-text-btn" aria-label="Taal kiezen" onclick="openLangPopup()">LANGUAGE</button>
+      <button class="nav-text-btn" aria-label="Language" onclick="openLangPopup()" data-i18n="lang.choose">Sprache wählen</button>
       <a href="offerte.html" class="btn-nav" id="navListBtn">Meine Liste (0)</a>
     </div>
     </div>
@@ -244,7 +244,7 @@
 
             <div class="filter-section" id="sectionCat">
               <div class="filter-section-hd" onclick="toggleSection('sectionCat')">
-                <span>Kategorien</span>
+                <span data-i18n="filter.category">Kategorien</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
               </div>
               <div class="filter-items" id="catList"></div>
@@ -252,7 +252,7 @@
 
             <div class="filter-section" id="sectionBrand">
               <div class="filter-section-hd" onclick="toggleSection('sectionBrand')">
-                <span>Merk</span>
+                <span data-i18n="filter.brand">Marke</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
               </div>
               <div class="filter-items" id="brandList"></div>
@@ -260,7 +260,7 @@
 
             <div class="filter-section" id="sectionPrice">
               <div class="filter-section-hd" onclick="toggleSection('sectionPrice')">
-                <span>Preis (&euro;/m&sup2;)</span>
+                <span data-i18n="filter.price">Preis (&euro;/m&sup2;)</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
               </div>
               <div class="price-slider-wrap">
@@ -276,19 +276,19 @@
 
             <div class="filter-section" id="sectionStock">
               <div class="filter-section-hd" onclick="toggleSection('sectionStock')">
-                <span>Beschikbaarheid</span>
+                <span data-i18n="filter.stock">Verfügbarkeit</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/></svg>
               </div>
               <div class="filter-items">
                 <label class="filter-item">
                   <input type="checkbox" id="filterInStock" onchange="renderProducts()">
-                  <span>Alleen op voorraad</span>
+                  <span data-i18n="filter.instock">Nur auf Lager</span>
                 </label>
               </div>
             </div>
 
-            <button class="filter-clear" onclick="clearFilters()">Filters wissen</button>
-            <button class="filter-drawer-close" onclick="closeFilterDrawer()">Resultaten tonen</button>
+            <button class="filter-clear" onclick="clearFilters()" data-i18n="filter.clear">Filter zurücksetzen</button>
+            <button class="filter-drawer-close" onclick="closeFilterDrawer()" data-i18n="filter.show_results">Ergebnisse anzeigen</button>
 
           </div>
         </aside>
@@ -305,10 +305,10 @@
             <div class="toolbar-left" id="toolbarCount"></div>
             <div class="toolbar-right">
               <select id="filterSort" onchange="renderProducts()">
-                <option value="popular">Populariteit</option>
-                <option value="name" data-i18n="products.sort.name">Naam A-Z</option>
-                <option value="price_asc" data-i18n="products.sort.price_asc">Prijs laag-hoog</option>
-                <option value="price_desc" data-i18n="products.sort.price_desc">Prijs hoog-laag</option>
+                <option value="popular" data-i18n="products.sort.popular">Beliebtheit</option>
+                <option value="name" data-i18n="products.sort.name">Name A-Z</option>
+                <option value="price_asc" data-i18n="products.sort.price_asc">Preis aufsteigend</option>
+                <option value="price_desc" data-i18n="products.sort.price_desc">Preis absteigend</option>
               </select>
             <button class="view-toggle-btn" id="viewToggleBtn" onclick="toggleView()" aria-label="Toggle view">
               <svg id="viewToggleIcon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -322,14 +322,14 @@
           <div class="filter-row" style="display:none">
             <input type="text" id="searchInput" placeholder="" oninput="renderProducts()">
             <select id="filterSort2" onchange="renderProducts()">
-              <option value="name" data-i18n="products.sort.name">Naam A-Z</option>
-              <option value="price_asc" data-i18n="products.sort.price_asc">Prijs laag-hoog</option>
-              <option value="price_desc" data-i18n="products.sort.price_desc">Prijs hoog-laag</option>
+              <option value="name" data-i18n="products.sort.name">Name A-Z</option>
+              <option value="price_asc" data-i18n="products.sort.price_asc">Preis aufsteigend</option>
+              <option value="price_desc" data-i18n="products.sort.price_desc">Preis absteigend</option>
             </select>
           </div>
 
           <div class="products-grid" id="productsGrid">
-            <div class="loading">Producten laden...</div>
+            <div class="loading" data-i18n="products.loading">Produkte laden...</div>
           </div>
 
         </div><!-- /products-content -->
@@ -343,16 +343,16 @@
 
   <!-- Offertenlijst bar -->
   <div class="quote-bar" id="quoteBar">
-    <div class="quote-bar-left"><strong id="quoteCount">0</strong> product(en) in je lijst</div>
+    <div class="quote-bar-left"><strong id="quoteCount">0</strong> <span id="quoteBarLabel" data-i18n="list.items">Produkt(e) in Ihrer Liste</span></div>
   </div>
 
-  <script src="js/lang.js?v=70"></script>
+  <script src="js/lang.js?v=71"></script>
   <script src="js/nav.js?v=1"></script>
   <script>
     let allProducts = [];
     const _urlCat = new URLSearchParams(location.search).get('cat') || 'all';
 
-    function getLang() { return (localStorage.getItem('wohnstyle_lang') || 'de') === 'en' ? 'en' : 'de'; }
+    function getLang() { return localStorage.getItem('lang') || 'de'; }
 
     const catDescriptions = {
       uitverkoop: {
@@ -400,11 +400,11 @@
     let activeMainCat = _urlCat;
     const catLabels = {
       uitverkoop: { de: 'Ausverkauf', en: 'Sale' },
-      laminaat: 'Laminaat',
-      pvc: 'PVC-Böden',
-      visgraat: 'Fischgrätboden',
-      parkett: 'Parkett',
-      zubehor: 'Zubehör'
+      laminaat: { de: 'Laminat', en: 'Laminate' },
+      pvc: { de: 'PVC-Böden', en: 'PVC Flooring' },
+      visgraat: { de: 'Fischgrätboden', en: 'Herringbone Floor' },
+      parkett: { de: 'Parkett', en: 'Parquet' },
+      zubehor: { de: 'Zubehör', en: 'Accessories' }
     };
 
     function getCatLabel(cat) {
@@ -436,24 +436,24 @@
       uitverkoop: { types: [], brands: [] },
       laminaat: {
         types: [
-          { cat: 'laminaat', label: 'Laminaat' },
-          { cat: 'laminaat_click', label: 'Click Laminaat' },
-          { cat: 'laminaat_xl', label: 'XL Laminaat' },
-          { cat: 'laminaat_waterproof', label: 'Waterproof Laminaat' },
-          { cat: 'laminaat_visgraat', label: 'Visgraat Laminaat' },
+          { cat: 'laminaat', de: 'Laminat', en: 'Laminate' },
+          { cat: 'laminaat_click', de: 'Klick-Laminat', en: 'Click Laminate' },
+          { cat: 'laminaat_xl', de: 'XL Laminat', en: 'XL Laminate' },
+          { cat: 'laminaat_waterproof', de: 'Wasserfestes Laminat', en: 'Waterproof Laminate' },
+          { cat: 'laminaat_visgraat', de: 'Fischgrät-Laminat', en: 'Herringbone Laminate' },
         ],
         brands: [
-          { cat: 'laminaat_quickstep', label: 'QuickStep Laminaat' },
-          { cat: 'laminaat_egger', label: 'Egger Laminaat' },
+          { cat: 'laminaat_quickstep', de: 'QuickStep Laminat', en: 'QuickStep Laminate' },
+          { cat: 'laminaat_egger', de: 'Egger Laminat', en: 'Egger Laminate' },
           { cat: 'laminaat_classen', label: 'Classen' },
         ]
       },
       pvc: {
         types: [
-          { cat: 'pvc', label: 'PVC-Vloeren' },
+          { cat: 'pvc', de: 'PVC-Böden', en: 'PVC Flooring' },
           { cat: 'pvc_click', label: 'Click PVC' },
-          { cat: 'pvc_lijm', label: 'Lijm PVC' },
-          { cat: 'pvc_los', label: 'Los te leggen PVC' },
+          { cat: 'pvc_lijm', de: 'Klebe-PVC', en: 'Glue PVC' },
+          { cat: 'pvc_los', de: 'Loses PVC', en: 'Loose Lay PVC' },
         ],
         brands: [
           { cat: 'pvc_quickstep', label: 'QuickStep PVC' },
@@ -462,39 +462,39 @@
       },
       visgraat: {
         types: [
-          { cat: 'visgraat', label: 'Visgraatboden' },
-          { cat: 'visgraat_laminaat', label: 'Visgraat Laminaat' },
-          { cat: 'visgraat_pvc', label: 'Visgraat PVC' },
-          { cat: 'visgraat_parkett', label: 'Visgraat Parkett' },
+          { cat: 'visgraat', de: 'Fischgrätboden', en: 'Herringbone Floor' },
+          { cat: 'visgraat_laminaat', de: 'Fischgrät-Laminat', en: 'Herringbone Laminate' },
+          { cat: 'visgraat_pvc', de: 'Fischgrät-PVC', en: 'Herringbone PVC' },
+          { cat: 'visgraat_parkett', de: 'Fischgrät-Parkett', en: 'Herringbone Parquet' },
         ],
         brands: []
       },
       parkett: {
         types: [
-          { cat: 'parkett', label: 'Parkett' },
-          { cat: 'parkett_massief', label: 'Massief Parkett' },
-          { cat: 'parkett_continu', label: 'Continu Parkett' },
+          { cat: 'parkett', de: 'Parkett', en: 'Parquet' },
+          { cat: 'parkett_massief', de: 'Massivparkett', en: 'Solid Parquet' },
+          { cat: 'parkett_continu', de: 'Fertigparkett', en: 'Engineered Parquet' },
         ],
         brands: []
       },
       zubehor: {
         types: [
-          { cat: 'zubehor', label: 'Zubehör' },
-          { cat: 'zubehor_ondervloer', label: 'Ondervloer' },
-          { cat: 'zubehor_plinten', label: 'Plinten' },
-          { cat: 'zubehor_profielen', label: 'Profielen' },
+          { cat: 'zubehor', de: 'Zubehör', en: 'Accessories' },
+          { cat: 'zubehor_ondervloer', de: 'Unterlagsboden', en: 'Underlay' },
+          { cat: 'zubehor_plinten', de: 'Sockelleisten', en: 'Skirting Boards' },
+          { cat: 'zubehor_profielen', de: 'Übergangsprofilen', en: 'Transition Profiles' },
         ],
         brands: []
       }
     };
 
     const catDefs = [
-      { cat: 'uitverkoop', label: 'Ausverkauf', labelEn: 'Sale' },
-      { cat: 'laminaat', label: 'Laminaat' },
-      { cat: 'pvc', label: 'PVC-Böden' },
-      { cat: 'visgraat', label: 'Fischgrätboden' },
-      { cat: 'parkett', label: 'Parkett' },
-      { cat: 'zubehor', label: 'Zubehör' }
+      { cat: 'uitverkoop', de: 'Ausverkauf', en: 'Sale' },
+      { cat: 'laminaat', de: 'Laminat', en: 'Laminate' },
+      { cat: 'pvc', de: 'PVC-Böden', en: 'PVC Flooring' },
+      { cat: 'visgraat', de: 'Fischgrätboden', en: 'Herringbone Floor' },
+      { cat: 'parkett', de: 'Parkett', en: 'Parquet' },
+      { cat: 'zubehor', de: 'Zubehör', en: 'Accessories' }
     ];
 
     function populateCats() {
@@ -504,19 +504,19 @@
       if (activeMainCat !== 'all' && subCatDefs[activeMainCat]) {
         const sub = subCatDefs[activeMainCat];
         const mainDef = catDefs.find(d => d.cat === activeMainCat);
-        hd.textContent = 'Types';
+        hd.textContent = getLang()==='en' ? 'Types' : 'Typen';
 
         let html = '';
 
         if (sub.types && sub.types.length) {
-          html += sub.types.filter(d => d.cat !== activeMainCat).map(({ cat, label }) =>
+          html += sub.types.filter(d => d.cat !== activeMainCat).map((d) => { const label = d[getLang()] || d.de || d.label || d.cat; return 
             `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="selectCat('${cat}')">${esc(label)}</button>`
           ).join('');
         }
         list.innerHTML = html;
       } else {
-        hd.textContent = 'Kategorien';
-        list.innerHTML = catDefs.filter(d => d.cat !== 'all').map(({ cat, label }) => {
+        hd.textContent = getLang()==='en' ? 'Categories' : 'Kategorien';
+        list.innerHTML = catDefs.filter(d => d.cat !== 'all').map((d) => { const cat = d.cat; const label = d[getLang()] || d.de || d.cat;
           const count = allProducts.filter(p => p.category === cat).length;
           return `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="drillCat('${cat}')">${esc(label)}<span style="margin-left:auto;display:flex;align-items:center;gap:6px"><span class="cat-link-count">${count}</span><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`;
         }).join('');
@@ -550,8 +550,8 @@
       activeMainCat = 'all';
       currentCat = 'all';
       populateCats();
-      setPageTitle(catDefs[0].label);
-      document.getElementById('breadcrumbCat').textContent = catDefs[0].label;
+      setPageTitle(catDefs[0][getLang()] || catDefs[0].de);
+      document.getElementById('breadcrumbCat').textContent = catDefs[0][getLang()] || catDefs[0].de;
       renderProducts();
     }
 
@@ -559,8 +559,8 @@
       currentCat = cat;
       const allSubs = Object.values(subCatDefs).flatMap(s => [...(s.types||[]), ...(s.brands||[])]);
       const allSubs2 = Object.values(subCatDefs).flatMap(s => [...(s.types||[])]);
-      const def = catDefs.find(d => d.cat === cat) || allSubs2.find(d => d.cat === cat) || { label: cat };
-      setPageTitle(def.label || getCatLabel(def.cat));
+      const def = catDefs.find(d => d.cat === cat) || allSubs2.find(d => d.cat === cat) || { de: cat, en: cat };
+      setPageTitle(def[getLang()] || def.de || getCatLabel(def.cat));
       updateCatDescription(activeMainCat);
 
       // breadcrumb: main cat + optional subcat
@@ -570,7 +570,7 @@
       const sub2 = document.getElementById('breadcrumbSub');
       const bcCat = document.getElementById('breadcrumbCat');
       if (isSubType && mainDef2) {
-        bcCat.textContent = mainDef2.label;
+        bcCat.textContent = mainDef2[getLang()] || mainDef2.de;
         bcCat.style.cursor = 'pointer';
         bcCat.style.textDecoration = 'none';
         bcCat.style.color = '#888';
@@ -579,9 +579,9 @@
         bcCat.onclick = function() { drillCat(activeMainCat); };
         sep2.style.display = '';
         sub2.style.display = '';
-        sub2.textContent = def.label;
+        sub2.textContent = def[getLang()] || def.de;
       } else {
-        bcCat.textContent = def.label;
+        bcCat.textContent = def[getLang()] || def.de;
         bcCat.style.cursor = 'default';
         bcCat.style.textDecoration = 'none';
         bcCat.onclick = null;
@@ -592,7 +592,7 @@
       const backLink = document.getElementById('mobileBackLink');
       const isSubType2 = !catDefs.find(d => d.cat === cat) && activeMainCat !== 'all';
       if (isSubType2) {
-        const mainLabel = catDefs.find(d => d.cat === activeMainCat)?.label || activeMainCat;
+        const mainLabel = (catDefs.find(d => d.cat === activeMainCat) || {})[getLang()] || activeMainCat;
         document.getElementById('mobileBackLabel').textContent = mainLabel;
         backLink.classList.add('visible');
       } else {
@@ -705,10 +705,10 @@
         return (a.name||'').localeCompare(b.name||'');
       });
 
-      const countText = list.length.toLocaleString('nl-NL') + ' resultaten';
+      const countText = list.length.toLocaleString('de-DE') + ' ' + t('products.count');
       document.getElementById('productsCount').textContent = list.length + ' ' + t('products.count');
       const mobileFilterLabel = document.getElementById('mobileFilterLabel');
-      if (mobileFilterLabel) mobileFilterLabel.textContent = 'Filter ' + list.length.toLocaleString('nl-NL') + ' resultaten';
+      if (mobileFilterLabel) mobileFilterLabel.textContent = 'Filter ' + list.length.toLocaleString('de-DE') + ' ' + t('products.count');
       const toolbarCount = document.getElementById('toolbarCount');
       if (toolbarCount) toolbarCount.textContent = countText;
 
@@ -726,10 +726,10 @@
           <div class="product-card" onclick="goToProduct('${p.id}')">
             <div class="card-img-wrap">
               ${p.image
-                ? `<img class="card-img" src="${p.image}" alt="${esc(p.name)}" onerror="this.parentElement.innerHTML='<div class=card-img-placeholder>Kein Bild</div>'">`
-                : `<div class="card-img-placeholder">Kein Bild</div>`}
+                ? `<img class="card-img" src="${p.image}" alt="${esc(p.name)}" onerror="this.parentElement.innerHTML='<div class=card-img-placeholder>'+(getLang()==='en'?'No image':'Kein Bild')+'</div>'">`
+                : `<div class="card-img-placeholder">${getLang()==='en'?'No image':'Kein Bild'}</div>`}
               ${hasSale ? `<span class="card-badge sale">-${Math.round((1 - p.price/p.price_original)*100)}%</span>` : ''}
-              ${p.in_stock ? '' : '<span class="card-badge">Ausverkauft</span>'}
+              ${p.in_stock ? '' : `<span class="card-badge">${getLang()==='en'?'Sold out':'Ausverkauft'}</span>`}
             </div>
             <div class="card-info">
               <div class="card-brand">${esc(p.brand||'')}</div>
@@ -777,6 +777,7 @@
       const q = getQuote();
       const bar = document.getElementById('quoteBar');
       document.getElementById('quoteCount').textContent = q.length;
+      const lbl = document.getElementById('quoteBarLabel'); if (lbl) lbl.textContent = t('list.items') || (getLang()==='en' ? 'product(s) in your list' : 'Produkt(e) in Ihrer Liste');
       if (q.length > 0 && autoHide) {
         bar.classList.add('visible');
         clearTimeout(quoteBarTimer);
@@ -787,7 +788,7 @@
     }
     function updateNavBtn() {
       const btn = document.getElementById('navListBtn');
-      if (btn) btn.textContent = 'Meine Liste (' + getQuote().length + ')';
+      if (btn) btn.textContent = (t('nav.mylist.label')||'Meine Liste') + ' (' + getQuote().length + ')';
     }
     function goToProduct(id) {
       location.href = 'product.html?id=' + id;
@@ -821,7 +822,9 @@
       setPageTitle(getCatLabel(_def.cat || _def));
       document.getElementById('breadcrumbCat').textContent = getCatLabel(_def.cat || _def);
       updateCatDescription(currentCat);
+      populateCats();
       renderProducts();
+      updateQuoteBar();
     };
   </script>
   <footer class="footer">
