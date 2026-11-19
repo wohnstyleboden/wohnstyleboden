@@ -350,7 +350,7 @@
   <script src="js/nav.js?v=1"></script>
   <script>
     let allProducts = [];
-    const _urlCat = new URLSearchParams(location.search).get('cat') || 'uitverkoop';
+    const _urlCat = new URLSearchParams(location.search).get('cat') || 'all';
 
     function getLang() { return (localStorage.getItem('wohnstyle_lang') || 'de') === 'en' ? 'en' : 'de'; }
 
