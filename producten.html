@@ -117,7 +117,7 @@
     .products-layout { display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: start; }
 
     /* ---- Sidebar ---- */
-    .filter-sidebar { position: sticky; top: 80px; }
+    .filter-sidebar { position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
     .filter-section { margin-bottom: 0; border-bottom: 1px solid #f0f0f0; padding: 18px 0; }
     .filter-section:first-child { padding-top: 0; }
     .filter-section-hd { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
