@@ -20,7 +20,7 @@
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 48px;
+  padding: 0 24px;
 }
 
 .container.navbar-inner {
@@ -1415,7 +1415,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 80px;
   z-index: 90;
   background: transparent;
-  padding: 0 48px;
+  padding: 0 24px;
 }
 
 .services-sticky-header .container {
@@ -1498,7 +1498,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 24px;
 }
 
 .service-label {
@@ -4257,6 +4257,7 @@ body.nav-open .navbar-wrap {
   body { padding-bottom: 80px; }
 
 }
+
 
 
 
