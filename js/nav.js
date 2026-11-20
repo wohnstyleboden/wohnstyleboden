@@ -26,17 +26,30 @@
     <div class="mob-sub-group"><span class="mob-sub-group-label" data-i18n="nav.label.sorten">Sorten</span>
       <div class="mob-sub-group-links">
         <a href="producten.html?cat=laminaat" data-i18n="nav.laminaat.laminat">Laminat</a>
-        <a href="producten.html?cat=laminaat_click" data-i18n="nav.laminaat.klick">Klick-Laminat</a>
-        <a href="producten.html?cat=laminaat_xl" data-i18n="nav.laminaat.xl">XL Laminat</a>
-        <a href="producten.html?cat=laminaat_waterproof" data-i18n="nav.laminaat.wasserfest">Wasserfestes Laminat</a>
-        <a href="producten.html?cat=laminaat_visgraat" data-i18n="nav.laminaat.fischgrat">Fischgrät-Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;tag=klick" data-i18n="nav.laminaat.klick">Klick-Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;tag=xl" data-i18n="nav.laminaat.xl">XL Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;tag=xxl" data-i18n="nav.laminaat.xxl">XXL Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;tag=wasser" data-i18n="nav.laminaat.wasserfest">Wasserfestes Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;tag=fliesen" data-i18n="nav.laminaat.fliesen">Fliesen-Laminat</a>
+        <a href="producten.html?cat=visgraat&amp;tag=laminat" data-i18n="nav.laminaat.fischgrat">Fischgrät-Laminat</a>
+      </div>
+    </div>
+    <div class="mob-sub-group"><span class="mob-sub-group-label" data-i18n="nav.label.stile">Stile</span>
+      <div class="mob-sub-group-links">
+        <a href="producten.html?cat=laminaat&amp;tag=braun" data-i18n="nav.laminaat.braun">Braunes Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;tag=weiss" data-i18n="nav.laminaat.weiss">Weißes Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;tag=grau" data-i18n="nav.laminaat.grau">Graues Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;tag=eiche" data-i18n="nav.laminaat.eiche">Eichen-Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;tag=schwarz" data-i18n="nav.laminaat.schwarz">Schwarzes Laminat</a>
       </div>
     </div>
     <div class="mob-sub-group"><span class="mob-sub-group-label" data-i18n="nav.label.marken">Marken</span>
       <div class="mob-sub-group-links">
-        <a href="producten.html?cat=laminaat" data-i18n="nav.laminaat.quickstep">Quickstep Laminat</a>
-        <a href="producten.html?cat=laminaat" data-i18n="nav.laminaat.egger">Egger Laminat</a>
-        <a href="producten.html?cat=laminaat" data-i18n="nav.laminaat.classen">Classen</a>
+        <a href="producten.html?cat=laminaat&amp;brand=quick-step" data-i18n="nav.laminaat.quickstep">Quickstep Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;brand=egger" data-i18n="nav.laminaat.egger">Egger Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;brand=classen" data-i18n="nav.laminaat.classen">Classen</a>
+        <a href="producten.html?cat=laminaat&amp;brand=kronoswiss" data-i18n="nav.laminaat.kronoswiss">Kronoswiss Laminat</a>
+        <a href="producten.html?cat=laminaat&amp;brand=beautifloor" data-i18n="nav.laminaat.beautifloor">Beautifloor Laminat</a>
       </div>
     </div>
     <a href="producten.html?cat=laminaat" class="mob-sub-cta" data-i18n="nav.laminaat.alle">Alle laminaat</a>
@@ -49,16 +62,28 @@
     <div class="mob-sub-group"><span class="mob-sub-group-label" data-i18n="nav.label.sorten">Sorten</span>
       <div class="mob-sub-group-links">
         <a href="producten.html?cat=pvc" data-i18n="nav.pvc.pvc">PVC-Böden</a>
-        <a href="producten.html?cat=pvc_visgraat" data-i18n="nav.pvc.fischgrat">Fischgrät PVC</a>
-        <a href="producten.html?cat=pvc_click" data-i18n="nav.pvc.klick">Klick PVC</a>
-        <a href="producten.html?cat=pvc_klebe" data-i18n="nav.pvc.klebe">Klebe PVC</a>
+        <a href="producten.html?cat=visgraat&amp;tag=pvc" data-i18n="nav.pvc.fischgrat">Fischgrät PVC</a>
+        <a href="producten.html?cat=pvc&amp;tag=klick" data-i18n="nav.pvc.klick">Klick PVC</a>
+        <a href="producten.html?cat=pvc&amp;tag=klebe" data-i18n="nav.pvc.klebe">Klebe PVC</a>
+        <a href="producten.html?cat=pvc&amp;tag=fliesen" data-i18n="nav.pvc.fliesen">PVC-Fliesen</a>
+      </div>
+    </div>
+    <div class="mob-sub-group"><span class="mob-sub-group-label" data-i18n="nav.label.stile">Stile</span>
+      <div class="mob-sub-group-links">
+        <a href="producten.html?cat=pvc&amp;tag=weiss" data-i18n="nav.pvc.weiss">Weißer PVC</a>
+        <a href="producten.html?cat=pvc&amp;tag=schwarz" data-i18n="nav.pvc.schwarz">Schwarzer PVC</a>
+        <a href="producten.html?cat=pvc&amp;tag=braun" data-i18n="nav.pvc.braun">Brauner PVC</a>
+        <a href="producten.html?cat=pvc&amp;tag=beton" data-i18n="nav.pvc.beton">Beton-Optik PVC</a>
+        <a href="producten.html?cat=pvc&amp;tag=eiche" data-i18n="nav.pvc.eiche">Helle Eiche PVC</a>
       </div>
     </div>
     <div class="mob-sub-group"><span class="mob-sub-group-label" data-i18n="nav.label.marken">Marken</span>
       <div class="mob-sub-group-links">
-        <a href="producten.html?cat=pvc" data-i18n="nav.pvc.moduleo">Moduleo PVC</a>
-        <a href="producten.html?cat=pvc" data-i18n="nav.pvc.mflor">mFLOR PVC</a>
-        <a href="producten.html?cat=pvc" data-i18n="nav.pvc.quickstep">Quick-Step PVC</a>
+        <a href="producten.html?cat=pvc&amp;brand=moduleo" data-i18n="nav.pvc.moduleo">Moduleo PVC</a>
+        <a href="producten.html?cat=pvc&amp;brand=mflor" data-i18n="nav.pvc.mflor">mFLOR PVC</a>
+        <a href="producten.html?cat=pvc&amp;brand=quick-step" data-i18n="nav.pvc.quickstep">Quick-Step PVC</a>
+        <a href="producten.html?cat=pvc&amp;brand=vtwonen" data-i18n="nav.pvc.vtwonen">Vtwonen PVC</a>
+        <a href="producten.html?cat=pvc&amp;brand=belakos" data-i18n="nav.pvc.belakos">Belakos PVC</a>
       </div>
     </div>
     </div>
@@ -69,17 +94,26 @@
     <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav.back.visgraat"> Fischgrätboden</span></button>
     <div class="mob-sub-group"><span class="mob-sub-group-label" data-i18n="nav.label.sorten">Sorten</span>
       <div class="mob-sub-group-links">
-        <a href="producten.html?cat=visgraat" data-i18n="nav.visgraat.laminat">Fischgrät Laminat</a>
-        <a href="producten.html?cat=visgraat" data-i18n="nav.visgraat.pvc">Fischgrät PVC</a>
-        <a href="producten.html?cat=visgraat" data-i18n="nav.visgraat.klick">Klick-PVC Fischgrät</a>
-        <a href="producten.html?cat=visgraat" data-i18n="nav.visgraat.parkett">Fischgrät Parkett</a>
+        <a href="producten.html?cat=visgraat&amp;tag=laminat" data-i18n="nav.visgraat.laminat">Fischgrät Laminat</a>
+        <a href="producten.html?cat=visgraat&amp;tag=pvc" data-i18n="nav.visgraat.pvc">Fischgrät PVC</a>
+        <a href="producten.html?cat=visgraat&amp;tag=klick" data-i18n="nav.visgraat.klick">Klick-PVC Fischgrät</a>
+        <a href="producten.html?cat=visgraat&amp;tag=klebe" data-i18n="nav.visgraat.klebe">Klebe-PVC Fischgrät</a>
+        <a href="producten.html?cat=visgraat&amp;tag=parkett" data-i18n="nav.visgraat.parkett">Fischgrät Parkett</a>
+      </div>
+    </div>
+    <div class="mob-sub-group"><span class="mob-sub-group-label" data-i18n="nav.label.stile">Stile</span>
+      <div class="mob-sub-group-links">
+        <a href="producten.html?cat=visgraat&amp;tag=grau" data-i18n="nav.visgraat.grau">Grauer Fischgrät</a>
+        <a href="producten.html?cat=visgraat&amp;tag=eiche" data-i18n="nav.visgraat.eiche">Eichen Fischgrät</a>
+        <a href="producten.html?cat=visgraat&amp;tag=dunkel" data-i18n="nav.visgraat.dunkel">Dunkler Fischgrät</a>
       </div>
     </div>
     <div class="mob-sub-group"><span class="mob-sub-group-label" data-i18n="nav.label.marken">Marken</span>
       <div class="mob-sub-group-links">
-        <a href="producten.html?cat=visgraat" data-i18n="nav.visgraat.egger">Egger Fischgrät</a>
-        <a href="producten.html?cat=visgraat" data-i18n="nav.visgraat.belakos">Belakos Fischgrät</a>
-        <a href="producten.html?cat=visgraat" data-i18n="nav.visgraat.mflor">mFLOR Fischgrät</a>
+        <a href="producten.html?cat=visgraat&amp;brand=egger" data-i18n="nav.visgraat.egger">Egger Fischgrät</a>
+        <a href="producten.html?cat=visgraat&amp;brand=belakos" data-i18n="nav.visgraat.belakos">Belakos Fischgrät</a>
+        <a href="producten.html?cat=visgraat&amp;brand=floorlife" data-i18n="nav.visgraat.floorlife">Floorlife Fischgrät</a>
+        <a href="producten.html?cat=visgraat&amp;brand=mflor" data-i18n="nav.visgraat.mflor">mFLOR Fischgrät</a>
       </div>
     </div>
     </div>
@@ -104,12 +138,12 @@
     <button class="mob-back-btn" onclick="mobGoBack()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav.back.inspiratie"> Inspiratie</span></button>
     <div class="mob-sub-group">
       <div class="mob-sub-group-links">
-        <a href="producten.html" data-i18n="nav.insp.kuche">Küche</a>
-        <a href="producten.html" data-i18n="nav.insp.flur">Flur</a>
-        <a href="producten.html" data-i18n="nav.insp.wohnzimmer">Wohnzimmer</a>
-        <a href="producten.html" data-i18n="nav.insp.schlafzimmer">Schlafzimmer</a>
-        <a href="producten.html" data-i18n="nav.insp.kinderzimmer">Kinderzimmer</a>
-        <a href="producten.html" data-i18n="nav.insp.buro">Büro</a>
+        <a href="inspiratie-kueche.html" data-i18n="nav.insp.kuche">Küche</a>
+        <a href="inspiratie-flur.html" data-i18n="nav.insp.flur">Flur</a>
+        <a href="inspiratie-wohnzimmer.html" data-i18n="nav.insp.wohnzimmer">Wohnzimmer</a>
+        <a href="inspiratie-schlafzimmer.html" data-i18n="nav.insp.schlafzimmer">Schlafzimmer</a>
+        <a href="inspiratie-kinderzimmer.html" data-i18n="nav.insp.kinderzimmer">Kinderzimmer</a>
+        <a href="inspiratie-buero.html" data-i18n="nav.insp.buro">Büro</a>
       </div>
     </div>
     </div>

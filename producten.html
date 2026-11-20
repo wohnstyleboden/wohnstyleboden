@@ -350,7 +350,10 @@
   <script src="js/nav.js?v=1"></script>
   <script>
     let allProducts = [];
-    const _urlCat = new URLSearchParams(location.search).get('cat') || 'all';
+    const _urlParams = new URLSearchParams(location.search);
+    const _urlCat = _urlParams.get('cat') || 'all';
+    const _urlTag = (_urlParams.get('tag') || '').toLowerCase().trim();
+    const _urlBrand = (_urlParams.get('brand') || '').toLowerCase().trim();
 
     function getLang() { return localStorage.getItem('lang') || 'de'; }
 
@@ -421,6 +424,11 @@
         allProducts = data.products || [];
         populateCats();
         populateBrands();
+        if (_urlBrand) {
+          document.querySelectorAll('.brand-cb').forEach(cb => {
+            if (cb.value.toLowerCase().includes(_urlBrand)) cb.checked = true;
+          });
+        }
         initPriceSlider();
         const _initDef = catDefs.find(d => d.cat === currentCat) || catDefs[0];
         setPageTitle(getCatLabel(_initDef.cat));
@@ -694,6 +702,7 @@
         if (selectedBrands.length && !selectedBrands.includes(p.brand)) return false;
         if (p.price < priceMin || p.price > priceMax) return false;
         if (q && !((p.name||'') + (p.brand||'') + (p.color||'')).toLowerCase().includes(q)) return false;
+        if (_urlTag && !((p.name||'') + (p.brand||'') + (p.color||'') + (p.desc_de||'') + (p.desc_en||'')).toLowerCase().includes(_urlTag)) return false;
         return true;
       });
 
