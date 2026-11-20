@@ -12,6 +12,8 @@
   .admin-header { background: #1a1a1a; color: #fff; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
   .admin-header h1 { font-size: 1.1rem; font-weight: 500; letter-spacing: 0.05em; }
   .admin-header .status { font-size: 0.8rem; color: #aaa; }
+  .btn-token-reset { font-size: 0.75rem; color: #aaa; background: none; border: 1px solid #444; padding: 4px 10px; cursor: pointer; margin-left: 12px; }
+  .btn-token-reset:hover { border-color: #fff; color: #fff; }
 
   /* Token bar */
   #tokenBar { background: #fff3cd; border-bottom: 1px solid #ffc107; padding: 12px 32px; display: flex; align-items: center; gap: 12px; }
@@ -100,6 +102,7 @@
 <div class="admin-header">
   <h1>WohnStyle &mdash; Productbeheer</h1>
   <span class="status" id="headerStatus">Niet verbonden</span>
+  <button class="btn-token-reset" onclick="resetToken()">Token wijzigen</button>
 </div>
 
 <div id="tokenBar">
@@ -285,6 +288,13 @@ function saveToken() {
 
 function getToken() {
   return localStorage.getItem('gh_token');
+}
+
+function resetToken() {
+  localStorage.removeItem('gh_token');
+  document.getElementById('tokenInput').value = '';
+  document.getElementById('tokenBar').classList.remove('hidden');
+  document.getElementById('headerStatus').textContent = 'Niet verbonden';
 }
 
 // ---- Init ----
