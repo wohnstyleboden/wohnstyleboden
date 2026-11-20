@@ -177,7 +177,7 @@
                   : `<div class="img-main-placeholder">${t('product.no_image')||'Kein Bild'}</div>`}
               </div>
               ${(function() {
-                const imgs = (p.images || p.image || '').split(' ').filter(Boolean);
+                const imgs = Array.isArray(p.images) ? p.images : (p.images || p.image || '').toString().split(' ').filter(Boolean);
                 if (!imgs.length) return '';
                 return `<div class="img-thumbs">${imgs.map((url, i) =>
                   `<div class="img-thumb${i===0?' active':''}" onclick="switchImg(this,'${url}')"><img src="${url}" alt="" onerror="this.style.display='none'"></div>`
