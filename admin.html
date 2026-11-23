@@ -174,7 +174,7 @@
   .panel__empty { padding: 48px 24px; text-align: center; color: var(--text-muted); font-size: var(--fs-sm); }
 
   /* ---- Tabs ---- */
-  .tabs { display: flex; gap: 2px; background: var(--bg-hover); border-radius: var(--r-sm); padding: 3px; overflow-x: auto; scrollbar-width: none; flex-shrink: 0; }
+  .tabs { display: flex; gap: 2px; background: var(--bg-hover); border-radius: var(--r-sm); padding: 3px; overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab { padding: 5px 13px; font-size: var(--fs-sm); border-radius: calc(var(--r-sm) - 1px); color: var(--text-muted); font-weight: 500; transition: background var(--dur), color var(--dur), box-shadow var(--dur); white-space: nowrap; flex-shrink: 0; }
   .tab:hover { color: var(--text-strong); }
@@ -331,8 +331,7 @@
     .field-row { grid-template-columns: 1fr; }
     .field-row > .field + .field { margin-top: 16px; }
     .photo-grid { grid-template-columns: repeat(2, 1fr); }
-    .tabs { gap: 0; }
-    .tab { padding: 5px 10px; font-size: var(--fs-xs); }
+    .tab { padding: 5px 9px; font-size: var(--fs-xs); }
     .lock-box { padding: 32px 24px; }
   }
 </style>
