@@ -148,12 +148,18 @@
   .prod-list .prod + .prod { border-top: 1px solid var(--border); }
   .prod { display: flex; align-items: center; gap: 14px; padding: 10px 16px; cursor: pointer; transition: background var(--dur) var(--ease); }
   .prod:hover { background: var(--bg-hover); }
-  .prod__handle { display: grid; place-items: center; flex: 0 0 auto; color: var(--border-strong); }
-  .prod:hover .prod__handle { color: var(--text-muted); }
+  .prod__handle { display: none; }
   .prod__thumb { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: var(--r-sm); background: var(--bg-hover); overflow: hidden; color: var(--text-muted); }
   .prod__thumb img { width: 100%; height: 100%; object-fit: cover; }
-  .prod__name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-md); color: var(--text-strong); }
-  .prod .badge { margin-left: auto; }
+  .prod__name { flex: 0 0 28%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-md); color: var(--text-strong); }
+  .prod__meta { flex: 0 0 14%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); }
+  .prod__tags { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+  .prod .badge { margin-left: auto; flex-shrink: 0; }
+  @media (max-width: 768px) {
+    .prod__meta { display: none; }
+    .prod__tags { display: none; }
+    .prod__name { flex: 1; }
+  }
 
   /* ---- Badges ---- */
   .badge { display: inline-flex; align-items: center; padding: 3px 9px; font-size: var(--fs-xs); font-weight: 500; border-radius: var(--r-full); white-space: nowrap; }
@@ -351,12 +357,6 @@
         <div class="main-header" style="margin-bottom:24px;">
           <h2>Products</h2>
           <button class="btn-primary" onclick="openAddView()">+ Product toevoegen</button>
-        </div>
-        <div class="stats-grid" style="margin-bottom:24px;">
-          <div class="stat-card"><div class="num" id="statTotal2">0</div><div class="label-stat">Producten totaal</div></div>
-          <div class="stat-card"><div class="num" id="statActive2">0</div><div class="label-stat">Op voorraad</div></div>
-          <div class="stat-card"><div class="num" id="statTags2">0</div><div class="label-stat">Unieke tags</div></div>
-          <div class="stat-card"><div class="num" id="statBrands2">0</div><div class="label-stat">Merken</div></div>
         </div>
 
         <div class="panel">
@@ -732,6 +732,9 @@ function renderProductList() {
       <span class="prod__handle">${dragIcon}</span>
       <span class="prod__thumb">${p.image ? `<img src="${esc(p.image)}" alt="" onerror="this.style.display='none'">` : imgIcon}</span>
       <span class="prod__name">${esc(p.name)}</span>
+      <span class="prod__meta">${esc(p.brand||'–')}</span>
+      <span class="prod__meta">${esc(p.thickness||'–')}</span>
+      <span class="prod__tags">${(Array.isArray(p.tags)?p.tags:[p.category]).map(t=>`<span class="tag-badge">${esc(t)}</span>`).join('')}</span>
       <span class="badge ${p.in_stock ? 'badge-green' : 'badge-red'}">${p.in_stock ? 'Op voorraad' : 'Niet op voorraad'}</span>
     </li>
   `).join('');
