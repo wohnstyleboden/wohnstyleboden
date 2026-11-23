@@ -175,7 +175,7 @@
   <div class="search-overlay__inner">
     <div class="search-overlay__bar">
       <svg class="search-overlay__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.35-4.35"/></svg>
-      <input class="search-overlay__input" id="searchOverlayInput" type="search" placeholder="Suchen…" autocomplete="off" oninput="searchOverlayInput(this.value)">
+      <input class="search-overlay__input" id="searchOverlayInput" type="search" placeholder="Suchen…" data-i18n-ph="nav.search.placeholder" autocomplete="off" oninput="searchOverlayInput(this.value)">
     </div>
     <div class="search-overlay__results" id="searchOverlayResults"></div>
   </div>
@@ -341,7 +341,9 @@
     }).slice(0, 8);
 
     if (!matches.length) {
-      results.innerHTML = '<div class="search-res-empty">Keine Ergebnisse gefunden / No results found</div>';
+      var lang = localStorage.getItem('lang') || 'de';
+      var noRes = lang === 'en' ? 'No results found' : 'Keine Ergebnisse gefunden';
+      results.innerHTML = '<div class="search-res-empty">' + noRes + '</div>';
       return;
     }
     results.innerHTML = matches.map(function(p) {
