@@ -147,9 +147,21 @@
   /* ---- Panel ---- */
   .panel { border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg-surface); overflow: hidden; }
   .panel__head { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
-  .panel__search-btn { display: flex; align-items: center; justify-content: center; gap: 6px; height: 34px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--r-full); margin-left: auto; color: var(--text-muted); background: var(--bg-hover); font-size: var(--fs-xs); font-weight: 500; transition: border-color var(--dur), background var(--dur), color var(--dur); white-space: nowrap; }
-  .panel__search-btn:hover { border-color: var(--border-strong); background: var(--bg-active); color: var(--text-strong); }
-  .panel__search-btn svg { flex-shrink: 0; }
+  .panel__search-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: var(--r-sm); flex-shrink: 0; color: var(--text-muted); background: var(--bg-surface); transition: border-color var(--dur), background var(--dur), color var(--dur); }
+  .panel__search-btn:hover { border-color: var(--border-strong); background: var(--bg-hover); color: var(--text-strong); }
+
+  /* ---- Column header row ---- */
+  .prod-col-head { display: flex; align-items: center; gap: 14px; padding: 7px 16px; border-bottom: 1px solid var(--border); background: var(--bg-hover); }
+  .prod-col-head span { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .prod-col-head .col-thumb { width: 44px; flex: 0 0 44px; }
+  .prod-col-head .col-name { flex: 0 0 28%; }
+  .prod-col-head .col-meta { flex: 0 0 14%; }
+  .prod-col-head .col-tags { flex: 1; }
+  @media (max-width: 768px) {
+    .prod-col-head .col-meta { display: none; }
+    .prod-col-head .col-tags { display: none; }
+    .prod-col-head .col-name { flex: 1; }
+  }
   .panel__search-row { display: none; padding: 10px 14px; border-bottom: 1px solid var(--border); gap: 10px; align-items: center; }
   .panel__search-row.open { display: flex; }
   .panel__search-row input { flex: 1; height: 34px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); background: var(--bg-surface); color: var(--text-strong); }
@@ -450,6 +462,13 @@
               <option value="newest">Nieuwste eerst</option>
             </select>
             <button class="btn-close-search" onclick="togglePanelSearch()">&times;</button>
+          </div>
+          <div class="prod-col-head">
+            <span class="col-thumb"></span>
+            <span class="col-name">Product</span>
+            <span class="col-meta">Merk</span>
+            <span class="col-meta">Dikte</span>
+            <span class="col-tags">Tags</span>
           </div>
           <ul class="prod-list" id="prodList"></ul>
           <div class="panel__empty" id="prodEmpty" style="display:none">Geen producten gevonden.</div>
