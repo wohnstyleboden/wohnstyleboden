@@ -154,7 +154,13 @@
 
   /* ---- Shopify filter bar ---- */
   .sf-filter-bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--border); background: var(--bg-surface); }
-  .sf-tab-select { height: 32px; padding: 0 20px 0 8px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); font-weight: 500; background: var(--bg-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 5px center; color: var(--text-strong); flex-shrink: 0; -webkit-appearance: none; appearance: none; cursor: pointer; }
+  .sf-tab-select { display: inline-flex; align-items: center; gap: 3px; height: 32px; padding: 0 8px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); font-weight: 500; background: var(--bg-surface); color: var(--text-strong); flex-shrink: 0; cursor: pointer; white-space: nowrap; user-select: none; }
+  .sf-tab-select:hover { background: var(--bg-hover); }
+  .sf-tab-dropdown { display: none; position: absolute; top: calc(100% + 4px); left: 0; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--r-sm); box-shadow: 0 4px 12px rgba(0,0,0,.1); z-index: 200; min-width: 130px; padding: 4px 0; }
+  .sf-tab-dropdown.open { display: block; }
+  .sf-tab-opt { padding: 7px 14px; font-size: var(--fs-sm); color: var(--text); cursor: pointer; white-space: nowrap; }
+  .sf-tab-opt:hover { background: var(--bg-hover); }
+  .sf-tab-opt.active { font-weight: 600; color: var(--text-strong); }
   .sf-filter-search { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; height: 32px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--bg-surface); }
   .sf-filter-search svg { flex-shrink: 0; color: var(--text-muted); }
   .sf-filter-search input { flex: 1; border: none; outline: none; font: inherit; font-size: var(--fs-sm); background: transparent; color: var(--text-strong); }
@@ -431,15 +437,19 @@
 
         <div class="panel">
           <div class="sf-filter-bar">
-            <div class="sf-filter-left">
-              <select id="filterTab" onchange="switchTabFromSelect(this)" class="sf-tab-select">
-                <option value="all">Alle</option>
-                <option value="laminat">Laminat</option>
-                <option value="pvc">PVC</option>
-                <option value="fischgrat">Fischgrät</option>
-                <option value="parkett">Parkett</option>
-                <option value="zubehor">Zubehör</option>
-              </select>
+            <div class="sf-filter-left" style="position:relative">
+              <div class="sf-tab-select" id="sfTabBtn" onclick="toggleSfTab(event)">
+                <span id="sfTabLabel">Alle</span>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+              </div>
+              <div class="sf-tab-dropdown" id="sfTabDropdown">
+                <div class="sf-tab-opt active" onclick="setSfTab('all','Alle',this)">Alle</div>
+                <div class="sf-tab-opt" onclick="setSfTab('laminat','Laminat',this)">Laminat</div>
+                <div class="sf-tab-opt" onclick="setSfTab('pvc','PVC',this)">PVC</div>
+                <div class="sf-tab-opt" onclick="setSfTab('fischgrat','Fischgrät',this)">Fischgrät</div>
+                <div class="sf-tab-opt" onclick="setSfTab('parkett','Parkett',this)">Parkett</div>
+                <div class="sf-tab-opt" onclick="setSfTab('zubehor','Zubehör',this)">Zubehör</div>
+              </div>
             </div>
             <div class="sf-filter-search">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.35-4.35"/></svg>
@@ -778,6 +788,23 @@ function switchTabFromSelect(sel) {
   currentView = sel.value;
   renderProductList();
 }
+
+function toggleSfTab(e) {
+  e.stopPropagation();
+  document.getElementById('sfTabDropdown').classList.toggle('open');
+}
+function setSfTab(view, label, el) {
+  currentView = view;
+  document.getElementById('sfTabLabel').textContent = label;
+  document.querySelectorAll('.sf-tab-opt').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('sfTabDropdown').classList.remove('open');
+  renderProductList();
+}
+document.addEventListener('click', function() {
+  const d = document.getElementById('sfTabDropdown');
+  if (d) d.classList.remove('open');
+});
 
 // ---- Panel search toggle ----
 function togglePanelSearch() {
