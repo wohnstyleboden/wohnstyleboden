@@ -539,7 +539,9 @@
       } else {
         hd.textContent = getLang()==='en' ? 'Categories' : 'Kategorien';
         list.innerHTML = catDefs.filter(d => d.cat !== 'all').map((d) => { const cat = d.cat; const label = d[getLang()] || d.de || d.cat;
-          const count = allProducts.filter(p => p.category === cat).length;
+          const count = cat === 'uitverkoop'
+            ? allProducts.filter(p => p.price_original && p.price_original > p.price).length
+            : allProducts.filter(p => p.category === cat).length;
           return `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="drillCat('${cat}')">${esc(label)}<span style="margin-left:auto;display:flex;align-items:center;gap:6px"><span class="cat-link-count">${count}</span><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`;
         }).join('');
       }
@@ -716,6 +718,7 @@
       const activeTag = currentTag || _urlTag; // sidebar tag takes precedence over URL tag
       let list = allProducts.filter(p => {
         // Category filter
+        if (currentCat === 'uitverkoop') return !!(p.price_original && p.price_original > p.price);
         if (currentCat !== 'all' && p.category !== currentCat) return false;
         // Tag filter: match via tags array (fast), fall back to text search
         if (activeTag) {

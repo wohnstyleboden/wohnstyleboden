@@ -496,6 +496,16 @@
                 <span class="infield"><span class="infield__unit">€</span><input class="input" type="number" id="fPrice" step="0.01" min="0" placeholder="12.99"></span>
               </div>
               <div class="field">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+                  <label class="label" for="fPriceOriginal" style="margin-bottom:0">Afgeprijsd van</label>
+                  <button type="button" id="btnAddSale" onclick="toggleSaleField()" style="font-size:var(--fs-xs);color:var(--accent);border:1px solid var(--border);border-radius:var(--r-sm);padding:2px 8px;transition:background var(--dur)">+ toevoegen</button>
+                </div>
+                <span class="infield" id="saleFieldWrap" style="display:none"><span class="infield__unit">€</span><input class="input" type="number" id="fPriceOriginal" step="0.01" min="0" placeholder="was 19.99"></span>
+                <span id="saleFieldEmpty" style="font-size:var(--fs-xs);color:var(--text-muted)">Geen actie</span>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
                 <label class="label" for="fThickness">Dikte</label>
                 <input class="input" type="text" id="fThickness" placeholder="bijv. 8mm">
               </div>
@@ -779,6 +789,17 @@ function openEditView(id) {
   document.getElementById('fCategory').value = p.category || 'laminaat';
   document.getElementById('fBrand').value = p.brand || '';
   document.getElementById('fPrice').value = p.price || '';
+  if (p.price_original) {
+    document.getElementById('fPriceOriginal').value = p.price_original;
+    document.getElementById('saleFieldWrap').style.display = '';
+    document.getElementById('saleFieldEmpty').style.display = 'none';
+    document.getElementById('btnAddSale').textContent = '× verwijderen';
+  } else {
+    document.getElementById('fPriceOriginal').value = '';
+    document.getElementById('saleFieldWrap').style.display = 'none';
+    document.getElementById('saleFieldEmpty').style.display = '';
+    document.getElementById('btnAddSale').textContent = '+ toevoegen';
+  }
   document.getElementById('fThickness').value = p.thickness || '';
   document.getElementById('fWearClass').value = p.wear_class || '';
   document.getElementById('fColor').value = p.color || '';
@@ -812,6 +833,25 @@ function closeEditView() {
   document.getElementById('viewProductEdit').style.display = 'none';
   document.getElementById('viewProductList').style.display = '';
   renderProductList();
+}
+
+// ---- Sale field toggle ----
+function toggleSaleField() {
+  const wrap = document.getElementById('saleFieldWrap');
+  const empty = document.getElementById('saleFieldEmpty');
+  const btn = document.getElementById('btnAddSale');
+  const visible = wrap.style.display !== 'none';
+  if (visible) {
+    wrap.style.display = 'none';
+    empty.style.display = '';
+    btn.textContent = '+ toevoegen';
+    document.getElementById('fPriceOriginal').value = '';
+  } else {
+    wrap.style.display = '';
+    empty.style.display = 'none';
+    btn.textContent = '× verwijderen';
+    document.getElementById('fPriceOriginal').focus();
+  }
 }
 
 // ---- Language tabs ----
@@ -858,6 +898,7 @@ async function saveProduct() {
     category: document.getElementById('fCategory').value,
     brand: document.getElementById('fBrand').value.trim(),
     price: parseFloat(price),
+    price_original: parseFloat(document.getElementById('fPriceOriginal').value) || null,
     thickness: document.getElementById('fThickness').value.trim(),
     wear_class: document.getElementById('fWearClass').value,
     color: document.getElementById('fColor').value.trim(),
@@ -1001,7 +1042,7 @@ async function uploadImageToGitHub(file) {
 
 // ---- Clear form ----
 function clearForm() {
-  ['fName','fNameEn','fBrand','fPrice','fThickness','fColor','fSku','fDescDe','fDescEn','fImgUrl'].forEach(id => {
+  ['fName','fNameEn','fBrand','fPrice','fPriceOriginal','fThickness','fColor','fSku','fDescDe','fDescEn','fImgUrl'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
@@ -1010,6 +1051,9 @@ function clearForm() {
   document.getElementById('peStatus').value = 'true';
   document.getElementById('peStatusMobile').value = 'true';
   clearMainImg();
+  document.getElementById('saleFieldWrap').style.display = 'none';
+  document.getElementById('saleFieldEmpty').style.display = '';
+  document.getElementById('btnAddSale').textContent = '+ toevoegen';
   document.querySelectorAll('.lang-btn').forEach((b,i) => { b.classList.toggle('active', i === 0); });
   document.getElementById('langDe').style.display = '';
   document.getElementById('langEn').style.display = 'none';
