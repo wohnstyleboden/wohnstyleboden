@@ -879,7 +879,14 @@ function openEditView(id) {
   const p = products.find(x => x.id === id);
   if (!p) return;
   editingId = id;
-  extraImages = Array.isArray(p.extra_images) ? [...p.extra_images] : [];
+  // extra_images (new format) or images[1+] (legacy format)
+  if (Array.isArray(p.extra_images) && p.extra_images.length) {
+    extraImages = [...p.extra_images];
+  } else if (Array.isArray(p.images) && p.images.length > 1) {
+    extraImages = p.images.slice(1);
+  } else {
+    extraImages = [];
+  }
   document.getElementById('editTitle').textContent = p.name || 'Product bewerken';
   document.getElementById('editDeleteBtn').style.display = '';
   document.getElementById('fName').value = p.name || '';
@@ -998,6 +1005,7 @@ async function saveProduct() {
     desc_de: document.getElementById('fDescDe').value.trim(),
     desc_en: document.getElementById('fDescEn').value.trim(),
     image: imagePath,
+    images: imagePath ? [imagePath, ...extraImages] : [...extraImages],
     extra_images: [...extraImages],
     _added: editingId ? (products.find(x=>x.id===editingId)||{})._added || Date.now() : Date.now()
   };
