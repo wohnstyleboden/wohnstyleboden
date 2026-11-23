@@ -168,10 +168,10 @@
   .prod-col-head span { font-size: var(--fs-xs); font-weight: 500; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 4px; }
   .prod-col-head .col-cb { width: 32px; flex: 0 0 32px; padding: 0; }
   .prod-col-head .col-thumb { width: 44px; flex: 0 0 44px; }
-  .prod-col-head .col-name { flex: 1; min-width: 0; }
+  .prod-col-head .col-name { flex: 2; min-width: 0; }
   .prod-col-head .col-brand { flex: 0 0 130px; }
   .prod-col-head .col-inv { flex: 0 0 70px; }
-  .prod-col-head .col-tags { flex: 1; }
+  .prod-col-head .col-tags { flex: 0 0 80px; text-align: right; justify-content: flex-end; }
   @media (max-width: 768px) {
     .sf-status-select { display: none; }
   }
@@ -203,10 +203,15 @@
   .prod__cb input { width: 14px; height: 14px; }
   .prod__thumb { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: var(--r-sm); background: var(--bg-hover); overflow: hidden; color: var(--text-muted); margin-right: 10px; }
   .prod__thumb img { width: 100%; height: 100%; object-fit: cover; }
-  .prod__name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-strong); padding: 0 4px; }
+  .prod__name { flex: 2; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-strong); padding: 0 4px; }
   .prod__brand { flex: 0 0 130px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); padding: 0 4px; }
   .prod__inv { flex: 0 0 70px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); padding: 0 4px; }
-  .prod__tags { flex: 1; min-width: 0; display: flex; flex-wrap: nowrap; gap: 4px; overflow: hidden; padding: 0 4px; }
+  .prod__tags { flex: 0 0 80px; display: flex; align-items: center; justify-content: flex-end; padding: 0 4px; position: relative; }
+  .tags-count { display: inline-flex; align-items: center; gap: 3px; font-size: var(--fs-sm); color: var(--text-muted); cursor: default; padding: 2px 6px; border-radius: var(--r-sm); }
+  .tags-count svg { opacity: 0; transition: opacity .15s; }
+  .prod__tags:hover .tags-count svg { opacity: 1; }
+  .tags-dropdown { display: none; position: absolute; top: calc(100% + 4px); right: 0; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--r-sm); box-shadow: 0 4px 12px rgba(0,0,0,.1); padding: 6px; z-index: 100; min-width: 140px; display: flex; flex-wrap: wrap; gap: 4px; }
+  .prod__tags:hover .tags-dropdown { display: flex; }
 
   /* ---- Badges ---- */
   .badge { display: inline-flex; align-items: center; padding: 3px 9px; font-size: var(--fs-xs); font-weight: 500; border-radius: var(--r-full); white-space: nowrap; }
@@ -449,7 +454,7 @@
               <span class="col-name">Product</span>
               <span class="col-brand">Merk</span>
               <span class="col-inv">Dikte</span>
-              <span class="col-tags">Tags</span>
+              <span class="col-tags" style="text-align:right">Tags</span>
             </div>
             <ul class="prod-list" id="prodList"></ul>
           </div>
@@ -842,7 +847,7 @@ function renderProductList() {
       <span class="prod__name">${esc(p.name)}</span>
       <span class="prod__brand">${esc(p.brand||'–')}</span>
       <span class="prod__inv">${esc(p.thickness||'–')}</span>
-      <span class="prod__tags">${(Array.isArray(p.tags)?p.tags:[p.category]).filter(Boolean).map(t=>`<span class="tag-badge">${esc(t)}</span>`).join('')}</span>
+      <span class="prod__tags" onclick="event.stopPropagation()">${(()=>{const tgs=(Array.isArray(p.tags)?p.tags:[p.category]).filter(Boolean);if(!tgs.length)return`<span class="tags-count">–</span>`;return`<span class="tags-count">${tgs.length}<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span><div class="tags-dropdown">${tgs.map(t=>`<span class="tag-badge">${esc(t)}</span>`).join('')}</div>`;})()}</span>
     </li>`;
   }).join('');
 }
