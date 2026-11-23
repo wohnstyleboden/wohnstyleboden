@@ -707,7 +707,7 @@ async function loadProducts() {
     );
     if (!rawRes.ok) throw new Error('Fout bij raw laden: ' + rawRes.status);
     const json = await rawRes.json();
-    products = json.products || [];
+    products = fixProductsEncoding(json.products || []);
     document.getElementById('headerStatus').textContent = 'Verbonden · ' + products.length + ' producten';
     updateCounts();
     renderProductList();
@@ -1196,6 +1196,21 @@ function parseCSVLine(line) {
   }
   result.push(current);
   return result.map(v => v.replace(/^"|"$/g, ''));
+}
+
+// ---- Fix double-encoded UTF-8 (Ã¤ → ä etc.) ----
+function fixEnc(str) {
+  if (typeof str !== 'string') return str;
+  try { return decodeURIComponent(escape(str)); } catch(e) { return str; }
+}
+function fixProductsEncoding(list) {
+  const fields = ['name','name_en','brand','color','thickness','desc_de','desc_en','sku','wear_class'];
+  return list.map(p => {
+    const fixed = { ...p };
+    fields.forEach(f => { if (fixed[f]) fixed[f] = fixEnc(fixed[f]); });
+    if (Array.isArray(fixed.tags)) fixed.tags = fixed.tags.map(fixEnc);
+    return fixed;
+  });
 }
 
 // ---- Helpers ----
