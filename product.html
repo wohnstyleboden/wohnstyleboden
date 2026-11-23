@@ -103,7 +103,7 @@
     <div class="nav-right">
       <button class="nav-text-btn" aria-label="Showroom">SHOWROOM</button>
       <button class="nav-text-btn" onclick="openLangPopup()" data-i18n="lang.choose">Sprache wählen</button>
-      <a href="offerte.html" class="btn-nav" id="navListBtn" data-i18n="nav.mylist">Meine Liste (0)</a>
+      <a href="offerte.html" class="btn-nav" id="navListBtn" data-i18n="nav.mylist">Meine Liste | 0 |</a>
     </div>
     </div>
   </nav></div>
@@ -281,7 +281,7 @@
     }
     function updateNavBtn() {
       const btn = document.getElementById('navListBtn');
-      if (btn) btn.textContent = (t('nav.mylist.label')||'Meine Liste') + ' (' + getQuote().length + ')';
+      if (btn) btn.textContent = (t('nav.mylist.label')||'Meine Liste') + ' | ' + getQuote().length + ' |';
     }
     function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
     function t(key) { const lang = localStorage.getItem('lang')||'de'; return (translations[lang]&&translations[lang][key])||key; }
