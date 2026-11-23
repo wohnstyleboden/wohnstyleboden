@@ -269,9 +269,10 @@
   /* ---- Mobile ---- */
   @media (max-width: 768px) {
     .burger-btn { display: flex; }
-    .topbar { padding: 0 12px; gap: 4px; }
+    .topbar { padding: 0 10px; gap: 6px; }
     .topbar-status, .btn-token-reset, .topbar-brand { display: none; }
-    .topbar-search { margin: 0 6px; max-width: none; }
+    .topbar-search { margin: 0; flex: 1; max-width: none; }
+    .topbar-search input { border-radius: var(--r-sm); background: var(--bg-hover); }
     #tokenBar { padding: 10px 16px; }
     #tokenBar input { max-width: 100%; width: 100%; }
     .sidebar {
