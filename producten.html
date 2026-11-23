@@ -357,6 +357,7 @@
     const _urlCat = _urlParams.get('cat') || 'all';
     const _urlTag = (_urlParams.get('tag') || '').toLowerCase().trim();
     const _urlBrand = (_urlParams.get('brand') || '').toLowerCase().trim();
+    let currentTag = _urlTag; // tracks active sidebar tag filter
 
     function getLang() { return localStorage.getItem('lang') || 'de'; }
 
@@ -443,57 +444,65 @@
         document.getElementById('productsGrid').innerHTML = '<div class="empty">' + t('products.loading') + '</div>';
       });
 
+    // key = unique id, cat = base category, tag = tag filter (null = no tag)
     const subCatDefs = {
       uitverkoop: { types: [], brands: [] },
       laminaat: {
         types: [
-          { cat: 'laminaat', de: 'Laminat', en: 'Laminate' },
-          { cat: 'laminaat_click', de: 'Klick-Laminat', en: 'Click Laminate' },
-          { cat: 'laminaat_xl', de: 'XL Laminat', en: 'XL Laminate' },
-          { cat: 'laminaat_waterproof', de: 'Wasserfestes Laminat', en: 'Waterproof Laminate' },
-          { cat: 'laminaat_visgraat', de: 'Fischgrät-Laminat', en: 'Herringbone Laminate' },
+          { key: 'laminaat', cat: 'laminaat', tag: null, de: 'Laminat', en: 'Laminate' },
+          { key: 'laminaat_click', cat: 'laminaat', tag: 'klick', de: 'Klick-Laminat', en: 'Click Laminate' },
+          { key: 'laminaat_xl', cat: 'laminaat', tag: 'xl', de: 'XL Laminat', en: 'XL Laminate' },
+          { key: 'laminaat_waterproof', cat: 'laminaat', tag: 'wasser', de: 'Wasserfestes Laminat', en: 'Waterproof Laminate' },
+          { key: 'laminaat_fliesen', cat: 'laminaat', tag: 'fliesen', de: 'Fliesen-Laminat', en: 'Tile Laminate' },
+          { key: 'laminaat_visgraat', cat: 'visgraat', tag: 'laminat', de: 'Fischgrät-Laminat', en: 'Herringbone Laminate' },
         ],
         brands: [
-          { cat: 'laminaat_quickstep', de: 'QuickStep Laminat', en: 'QuickStep Laminate' },
-          { cat: 'laminaat_egger', de: 'Egger Laminat', en: 'Egger Laminate' },
-          { cat: 'laminaat_classen', label: 'Classen' },
+          { key: 'laminaat_quickstep', cat: 'laminaat', tag: null, brand: 'quick-step', de: 'QuickStep Laminat', en: 'QuickStep Laminate' },
+          { key: 'laminaat_egger', cat: 'laminaat', tag: null, brand: 'egger', de: 'Egger Laminat', en: 'Egger Laminate' },
+          { key: 'laminaat_classen', cat: 'laminaat', tag: null, brand: 'classen', label: 'Classen' },
         ]
       },
       pvc: {
         types: [
-          { cat: 'pvc', de: 'PVC-Böden', en: 'PVC Flooring' },
-          { cat: 'pvc_click', label: 'Click PVC' },
-          { cat: 'pvc_lijm', de: 'Klebe-PVC', en: 'Glue PVC' },
-          { cat: 'pvc_los', de: 'Loses PVC', en: 'Loose Lay PVC' },
+          { key: 'pvc', cat: 'pvc', tag: null, de: 'PVC-Böden', en: 'PVC Flooring' },
+          { key: 'pvc_click', cat: 'pvc', tag: 'klick', de: 'Klick-PVC', en: 'Click PVC' },
+          { key: 'pvc_lijm', cat: 'pvc', tag: 'klebe', de: 'Klebe-PVC', en: 'Glue PVC' },
+          { key: 'pvc_visgraat', cat: 'visgraat', tag: 'pvc', de: 'Fischgrät-PVC', en: 'Herringbone PVC' },
         ],
         brands: [
-          { cat: 'pvc_quickstep', label: 'QuickStep PVC' },
-          { cat: 'pvc_egger', label: 'Egger PVC' },
+          { key: 'pvc_moduleo', cat: 'pvc', tag: null, brand: 'moduleo', label: 'Moduleo' },
+          { key: 'pvc_mflor', cat: 'pvc', tag: null, brand: 'mflor', label: 'mFLOR' },
+          { key: 'pvc_quickstep', cat: 'pvc', tag: null, brand: 'quick-step', de: 'QuickStep PVC', en: 'QuickStep PVC' },
+          { key: 'pvc_belakos', cat: 'pvc', tag: null, brand: 'belakos', label: 'Belakos' },
         ]
       },
       visgraat: {
         types: [
-          { cat: 'visgraat', de: 'Fischgrätboden', en: 'Herringbone Floor' },
-          { cat: 'visgraat_laminaat', de: 'Fischgrät-Laminat', en: 'Herringbone Laminate' },
-          { cat: 'visgraat_pvc', de: 'Fischgrät-PVC', en: 'Herringbone PVC' },
-          { cat: 'visgraat_parkett', de: 'Fischgrät-Parkett', en: 'Herringbone Parquet' },
+          { key: 'visgraat', cat: 'visgraat', tag: null, de: 'Fischgrätboden', en: 'Herringbone Floor' },
+          { key: 'visgraat_laminaat', cat: 'visgraat', tag: 'laminat', de: 'Fischgrät-Laminat', en: 'Herringbone Laminate' },
+          { key: 'visgraat_pvc_click', cat: 'visgraat', tag: 'klick', de: 'Klick-PVC Fischgrät', en: 'Click-PVC Herringbone' },
+          { key: 'visgraat_pvc_klebe', cat: 'visgraat', tag: 'klebe', de: 'Klebe-PVC Fischgrät', en: 'Glue-PVC Herringbone' },
+          { key: 'visgraat_parkett', cat: 'visgraat', tag: 'parkett', de: 'Fischgrät-Parkett', en: 'Herringbone Parquet' },
         ],
-        brands: []
+        brands: [
+          { key: 'visgraat_egger', cat: 'visgraat', tag: null, brand: 'egger', label: 'Egger' },
+          { key: 'visgraat_belakos', cat: 'visgraat', tag: null, brand: 'belakos', label: 'Belakos' },
+          { key: 'visgraat_floorlife', cat: 'visgraat', tag: null, brand: 'floorlife', label: 'Floorlife' },
+          { key: 'visgraat_mflor', cat: 'visgraat', tag: null, brand: 'mflor', label: 'mFLOR' },
+        ]
       },
       parkett: {
         types: [
-          { cat: 'parkett', de: 'Parkett', en: 'Parquet' },
-          { cat: 'parkett_massief', de: 'Massivparkett', en: 'Solid Parquet' },
-          { cat: 'parkett_continu', de: 'Fertigparkett', en: 'Engineered Parquet' },
+          { key: 'parkett', cat: 'parkett', tag: null, de: 'Parkett', en: 'Parquet' },
         ],
         brands: []
       },
       zubehor: {
         types: [
-          { cat: 'zubehor', de: 'Zubehör', en: 'Accessories' },
-          { cat: 'zubehor_ondervloer', de: 'Unterlagsboden', en: 'Underlay' },
-          { cat: 'zubehor_plinten', de: 'Sockelleisten', en: 'Skirting Boards' },
-          { cat: 'zubehor_profielen', de: 'Übergangsprofilen', en: 'Transition Profiles' },
+          { key: 'zubehor', cat: 'zubehor', tag: null, de: 'Zubehör', en: 'Accessories' },
+          { key: 'zubehor_unterlage', cat: 'zubehor', tag: 'unterlage', de: 'Unterlagsboden', en: 'Underlay' },
+          { key: 'zubehor_treppe', cat: 'zubehor', tag: 'treppe', de: 'Treppenrenovierung', en: 'Stair Renovation' },
+          { key: 'zubehor_sockel', cat: 'zubehor', tag: 'sockel', de: 'Sockelleisten', en: 'Skirting Boards' },
         ],
         brands: []
       }
@@ -520,7 +529,11 @@
         let html = '';
 
         if (sub.types && sub.types.length) {
-          html += sub.types.filter(d => d.cat !== activeMainCat).map((d) => { const cat = d.cat; const label = d[getLang()] || d.de || d.label || d.cat; return `<button class="cat-link ${currentCat === cat ? 'active' : ''}" data-cat="${cat}" onclick="selectCat('${cat}')">${esc(label)}</button>`; }).join('');
+          html += sub.types.filter(d => d.key !== activeMainCat).map((d) => {
+            const label = d[getLang()] || d.de || d.label || d.key;
+            const isActive = currentCat === d.cat && currentTag === (d.tag || '');
+            return `<button class="cat-link ${isActive ? 'active' : ''}" data-cat="${d.key}" onclick="selectCat('${d.key}')">${esc(label)}</button>`;
+          }).join('');
         }
         list.innerHTML = html;
       } else {
@@ -564,11 +577,12 @@
       renderProducts();
     }
 
-    function selectCat(cat) {
-      currentCat = cat;
+    function selectCat(key) {
       const allSubs = Object.values(subCatDefs).flatMap(s => [...(s.types||[]), ...(s.brands||[])]);
-      const allSubs2 = Object.values(subCatDefs).flatMap(s => [...(s.types||[])]);
-      const def = catDefs.find(d => d.cat === cat) || allSubs2.find(d => d.cat === cat) || { de: cat, en: cat };
+      const def = allSubs.find(d => d.key === key) || catDefs.find(d => d.cat === key) || { cat: key, tag: null, de: key, en: key };
+      currentCat = def.cat || key;
+      currentTag = def.tag || '';
+      const cat = currentCat; // keep below code compatible
       setPageTitle(def[getLang()] || def.de || getCatLabel(def.cat));
       updateCatDescription(activeMainCat);
 
@@ -699,13 +713,14 @@
       const priceMax = parseFloat(document.getElementById('priceSliderMax').value) || Infinity;
       const onlyInStock = document.getElementById('filterInStock').checked;
 
+      const activeTag = currentTag || _urlTag; // sidebar tag takes precedence over URL tag
       let list = allProducts.filter(p => {
-        // Category filter (only when cat= param set)
+        // Category filter
         if (currentCat !== 'all' && p.category !== currentCat) return false;
         // Tag filter: match via tags array (fast), fall back to text search
-        if (_urlTag) {
-          const hasTag = Array.isArray(p.tags) ? p.tags.includes(_urlTag) :
-            ((p.name||'') + (p.brand||'') + (p.color||'') + (p.desc_de||'') + (p.desc_en||'')).toLowerCase().includes(_urlTag);
+        if (activeTag) {
+          const hasTag = Array.isArray(p.tags) ? p.tags.includes(activeTag) :
+            ((p.name||'') + (p.brand||'') + (p.color||'') + (p.desc_de||'') + (p.desc_en||'')).toLowerCase().includes(activeTag);
           if (!hasTag) return false;
         }
         if (onlyInStock && !p.in_stock) return false;
