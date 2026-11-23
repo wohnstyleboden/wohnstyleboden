@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="images/favicon-wohnstyle.svg">
-  <title>Produkte &ndash; WohnStyle Boden</title>
+  <title>Produkte – WohnStyle Boden</title>
   <link rel="stylesheet" href="https://use.typekit.net/uag0nqp.css">
   <link rel="stylesheet" href="https://use.typekit.net/vha7kpr.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,7 +52,8 @@
     }
 
     /* ---- Product card ---- */
-    .product-card { cursor: pointer; transition: transform 0.2s; }
+    .product-card { cursor: pointer; transition: transform 0.2s; min-width: 0; overflow: hidden; }
+    .card-img-wrap { width: 100%; }
     .product-card:hover { transform: translateY(-2px); }
     .product-card:hover .card-img { opacity: 0.9; }
     .card-img-wrap { position: relative; aspect-ratio: 1; overflow: hidden; background: #f5f5f5; margin-bottom: 14px; }
@@ -363,28 +364,28 @@
 
     const catDescriptions = {
       uitverkoop: {
-        de: 'Entdecken Sie unsere Ausverkaufsangebote &ndash; hochwertige Bodenbeläge zu reduzierten Preisen. Begrenzte Verfügbarkeit, solange der Vorrat reicht.',
-        en: 'Discover our sale offers &ndash; premium flooring at reduced prices. Limited availability, while stocks last.'
+        de: 'Entdecken Sie unsere Ausverkaufsangebote – hochwertige Bodenbeläge zu reduzierten Preisen. Begrenzte Verfügbarkeit, solange der Vorrat reicht.',
+        en: 'Discover our sale offers – premium flooring at reduced prices. Limited availability, while stocks last.'
       },
       laminaat: {
-        de: 'Laminatboden verbindet zeitloses Design mit robuster Langlebigkeit. Unsere Kollektion umfasst eine große Auswahl an Dekoren &ndash; von hellen Eichenstrukturen bis hin zu modernen Grautönen &ndash; für jeden Wohnstil.',
-        en: 'Laminate flooring combines timeless design with robust durability. Our collection features a wide range of decors &ndash; from light oak structures to modern grey tones &ndash; for every living style.'
+        de: 'Laminatboden verbindet zeitloses Design mit robuster Langlebigkeit. Unsere Kollektion umfasst eine große Auswahl an Dekoren – von hellen Eichenstrukturen bis hin zu modernen Grautönen – für jeden Wohnstil.',
+        en: 'Laminate flooring combines timeless design with robust durability. Our collection features a wide range of decors – from light oak structures to modern grey tones – for every living style.'
       },
       pvc: {
-        de: 'PVC-Böden überzeugen durch ihre Wasserfestigkeit und einfache Pflege. Ideal für Küche, Bad und stark beanspruchte Bereiche &ndash; in zahlreichen Holz- und Steindekoren erhältlich.',
-        en: 'PVC floors impress with their waterproofness and easy maintenance. Ideal for kitchens, bathrooms and high-traffic areas &ndash; available in numerous wood and stone decors.'
+        de: 'PVC-Böden überzeugen durch ihre Wasserfestigkeit und einfache Pflege. Ideal für Küche, Bad und stark beanspruchte Bereiche – in zahlreichen Holz- und Steindekoren erhältlich.',
+        en: 'PVC floors impress with their waterproofness and easy maintenance. Ideal for kitchens, bathrooms and high-traffic areas – available in numerous wood and stone decors.'
       },
       visgraat: {
-        de: 'Das klassische Fischgrätmuster verleiht jedem Raum eine edle, zeitlose Eleganz. Erhältlich als Laminat, PVC oder Echtholzparkett &ndash; für einen stilvollen Auftritt.',
-        en: 'The classic herringbone pattern gives every room a noble, timeless elegance. Available as laminate, PVC or real wood parquet &ndash; for a stylish appearance.'
+        de: 'Das klassische Fischgrätmuster verleiht jedem Raum eine edle, zeitlose Eleganz. Erhältlich als Laminat, PVC oder Echtholzparkett – für einen stilvollen Auftritt.',
+        en: 'The classic herringbone pattern gives every room a noble, timeless elegance. Available as laminate, PVC or real wood parquet – for a stylish appearance.'
       },
       parkett: {
-        de: 'Echtholzparkett steht für natürliche Wärme und unvergleichliche Qualität. Jede Diele ist ein Unikat mit einzigartiger Maserung &ndash; nachhaltig, langlebig und wertsteigernd.',
-        en: 'Real wood parquet stands for natural warmth and unparalleled quality. Each plank is unique with its own grain &ndash; sustainable, durable and value-enhancing.'
+        de: 'Echtholzparkett steht für natürliche Wärme und unvergleichliche Qualität. Jede Diele ist ein Unikat mit einzigartiger Maserung – nachhaltig, langlebig und wertsteigernd.',
+        en: 'Real wood parquet stands for natural warmth and unparalleled quality. Each plank is unique with its own grain – sustainable, durable and value-enhancing.'
       },
       zubehor: {
-        de: 'Ergänzen Sie Ihren neuen Boden mit dem passenden Zubehör: Unterböden, Sockelleisten, Übergangsprofilen und mehr &ndash; alles aus einer Hand für ein perfektes Ergebnis.',
-        en: 'Complete your new floor with matching accessories: underlays, skirting boards, transition profiles and more &ndash; everything from one source for a perfect result.'
+        de: 'Ergänzen Sie Ihren neuen Boden mit dem passenden Zubehör: Unterböden, Sockelleisten, Übergangsprofilen und mehr – alles aus einer Hand für ein perfektes Ergebnis.',
+        en: 'Complete your new floor with matching accessories: underlays, skirting boards, transition profiles and more – everything from one source for a perfect result.'
       }
     };
 
