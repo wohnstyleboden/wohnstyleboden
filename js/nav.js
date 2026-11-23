@@ -214,13 +214,13 @@
     style.textContent = SEARCH_CSS;
     document.head.appendChild(style);
 
-    // Inject nav after navbar-wrap
+    // Inject nav after navbar-wrap (only if mobileMenu not already in HTML)
     var navbarWrap = document.querySelector('.navbar-wrap');
     if (navbarWrap && !document.getElementById('mobileMenu')) {
       navbarWrap.insertAdjacentHTML('afterend', NAV_HTML);
     }
 
-    // Inject search overlay
+    // Always inject search overlay
     if (!document.getElementById('searchOverlay')) {
       document.body.insertAdjacentHTML('beforeend', SEARCH_HTML);
     }
