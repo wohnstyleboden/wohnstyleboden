@@ -169,13 +169,13 @@
   .prod-col-head .col-cb { width: 32px; flex: 0 0 32px; padding: 0; }
   .prod-col-head .col-thumb { width: 44px; flex: 0 0 44px; }
   .prod-col-head .col-name { flex: 1; min-width: 0; }
-  .prod-col-head .col-status { flex: 0 0 100px; }
-  .prod-col-head .col-inv { flex: 0 0 110px; }
-  .prod-col-head .col-cat { flex: 0 0 130px; }
+  .prod-col-head .col-brand { flex: 0 0 130px; }
+  .prod-col-head .col-inv { flex: 0 0 70px; }
+  .prod-col-head .col-tags { flex: 1; }
   @media (max-width: 768px) {
-    .prod-col-head .col-cat { display: none; }
-    .prod-col-head .col-inv { flex: 0 0 90px; }
-    .prod-col-head .col-status { flex: 0 0 80px; }
+    .prod-col-head .col-brand { display: none; }
+    .prod-col-head .col-tags { display: none; }
+    .prod-col-head .col-name { flex: 1; }
     .sf-status-select { display: none; }
   }
   .panel__search-row { display: none; flex-direction: column; padding: 10px 14px; border-bottom: 1px solid var(--border); gap: 8px; background: var(--bg-surface); }
@@ -207,13 +207,13 @@
   .prod__thumb { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: var(--r-sm); background: var(--bg-hover); overflow: hidden; color: var(--text-muted); margin-right: 10px; }
   .prod__thumb img { width: 100%; height: 100%; object-fit: cover; }
   .prod__name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-strong); padding: 0 4px; }
-  .prod__status { flex: 0 0 100px; padding: 0 4px; }
-  .prod__inv { flex: 0 0 110px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); padding: 0 4px; }
-  .prod__cat { flex: 0 0 130px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); padding: 0 4px; }
+  .prod__brand { flex: 0 0 130px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); padding: 0 4px; }
+  .prod__inv { flex: 0 0 70px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); padding: 0 4px; }
+  .prod__tags { flex: 1; min-width: 0; display: flex; flex-wrap: nowrap; gap: 4px; overflow: hidden; padding: 0 4px; }
   @media (max-width: 768px) {
-    .prod__cat { display: none; }
-    .prod__inv { flex: 0 0 90px; }
-    .prod__status { flex: 0 0 80px; }
+    .prod__brand { display: none; }
+    .prod__tags { display: none; }
+    .prod__name { flex: 1; }
   }
 
   /* ---- Badges ---- */
@@ -451,7 +451,9 @@
               <span class="col-cb"><input type="checkbox" style="width:14px;height:14px;"></span>
               <span class="col-thumb"></span>
               <span class="col-name">Product</span>
-              <span class="col-inv">Voorraad</span>
+              <span class="col-brand">Merk</span>
+              <span class="col-inv">Dikte</span>
+              <span class="col-tags">Tags</span>
             </div>
             <ul class="prod-list" id="prodList"></ul>
           </div>
@@ -861,7 +863,9 @@ function renderProductList() {
       <span class="prod__cb"><input type="checkbox" onclick="event.stopPropagation()"></span>
       <span class="prod__thumb">${p.image ? `<img src="${esc(p.image)}" alt="" onerror="this.style.display='none'">` : imgIcon}</span>
       <span class="prod__name">${esc(p.name)}</span>
-      <span class="prod__inv">${p.in_stock ? (p.thickness ? esc(p.thickness) : 'Op voorraad') : '0 op voorraad'}</span>
+      <span class="prod__brand">${esc(p.brand||'–')}</span>
+      <span class="prod__inv">${esc(p.thickness||'–')}</span>
+      <span class="prod__tags">${(Array.isArray(p.tags)?p.tags:[p.category]).filter(Boolean).map(t=>`<span class="tag-badge">${esc(t)}</span>`).join('')}</span>
     </li>`;
   }).join('');
 }
