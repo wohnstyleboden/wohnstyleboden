@@ -161,9 +161,9 @@
   <aside class="sidebar">
     <div class="sidebar-section">Producten</div>
     <button class="sidebar-item active" onclick="showView('all')">Alle producten <span class="count" id="countAll">0</span></button>
-    <button class="sidebar-item" onclick="showView('laminaat')">Laminaat <span class="count" id="countLaminaat">0</span></button>
+    <button class="sidebar-item" onclick="showView('laminat')">Laminat <span class="count" id="countLaminat">0</span></button>
     <button class="sidebar-item" onclick="showView('pvc')">PVC-Böden <span class="count" id="countPvc">0</span></button>
-    <button class="sidebar-item" onclick="showView('visgraat')">Fischgrätboden <span class="count" id="countVisgraat">0</span></button>
+    <button class="sidebar-item" onclick="showView('fischgrat')">Fischgrätboden <span class="count" id="countFischgrat">0</span></button>
     <button class="sidebar-item" onclick="showView('parkett')">Parkett <span class="count" id="countParkett">0</span></button>
     <button class="sidebar-item" onclick="showView('zubehor')">Zubehör <span class="count" id="countZubehor">0</span></button>
     <div class="sidebar-section">Acties</div>
@@ -409,7 +409,7 @@ function showView(view) {
   currentView = view;
   document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
   event.currentTarget.classList.add('active');
-  const titles = { all: 'Alle producten', laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
+  const titles = { all: 'Alle producten', laminat: 'Laminat', pvc: 'PVC-Böden', fischgrat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
   document.getElementById('viewTitle').textContent = titles[view] || view;
   renderTable();
 }
@@ -419,7 +419,7 @@ function getFilteredProducts() {
   const stock = document.getElementById('filterInStock').value;
   const sort = document.getElementById('filterSort').value;
   let list = products.filter(p => {
-    if (currentView !== 'all' && p.category !== currentView) return false;
+    if (currentView !== 'all' && !(Array.isArray(p.tags) ? p.tags.includes(currentView) : (p.category === currentView))) return false;
     if (stock !== '' && String(p.in_stock) !== stock) return false;
     if (q && !((p.name||'').toLowerCase().includes(q) || (p.brand||'').toLowerCase().includes(q) || (p.sku||'').toLowerCase().includes(q))) return false;
     return true;
@@ -465,8 +465,9 @@ function renderTable() {
 
 function updateCounts() {
   document.getElementById('countAll').textContent = products.length;
-  ['laminaat','pvc','visgraat','parkett','zubehor'].forEach(c => {
-    document.getElementById('count' + c.charAt(0).toUpperCase() + c.slice(1)).textContent = products.filter(p => p.category === c).length;
+  const tagCounts = { laminat: 'Laminat', pvc: 'Pvc', fischgrat: 'Fischgrat', parkett: 'Parkett', zubehor: 'Zubehor' };
+  Object.entries(tagCounts).forEach(([tag, id]) => {
+    document.getElementById('count' + id).textContent = products.filter(p => Array.isArray(p.tags) ? p.tags.includes(tag) : p.category === tag).length;
   });
   document.getElementById('statTotal').textContent = products.length;
   document.getElementById('statActive').textContent = products.filter(p => p.in_stock).length;
