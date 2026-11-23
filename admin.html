@@ -269,14 +269,18 @@
   .link-btn { font-size: var(--fs-sm); color: var(--text-muted); text-decoration: underline; cursor: pointer; background: none; border: none; padding: 0; }
   .link-btn:hover { color: var(--text-strong); }
 
-  /* ---- Photo grid ---- */
-  .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
-  .photo-slot { aspect-ratio: 1; border-radius: var(--r-sm); background: var(--bg-hover); border: 1.5px dashed var(--border); display: grid; place-items: center; cursor: pointer; overflow: hidden; transition: border-color var(--dur), background var(--dur); }
-  .photo-slot:hover { border-color: var(--accent); background: #f0f0f0; }
-  .photo-slot img { width: 100%; height: 100%; object-fit: cover; }
-  .photo-slot--add { color: var(--text-muted); font-size: 20px; font-weight: 300; }
-  .photo-slot--filled { position: relative; border-style: solid; border-color: var(--border); }
-  .photo-slot--filled .photo-remove { position: absolute; top: 4px; right: 4px; width: 20px; height: 20px; background: rgba(18,22,28,.6); color: #fff; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 12px; line-height: 1; }
+  /* ---- Media grid (edit product) ---- */
+  .media-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; }
+  .media-slot { aspect-ratio: 1; border-radius: var(--r-sm); background: var(--bg-hover); border: 1.5px solid var(--border); display: grid; place-items: center; cursor: pointer; overflow: hidden; position: relative; transition: border-color var(--dur); }
+  .media-slot:hover { border-color: var(--border-strong); }
+  .media-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .media-slot--add { border-style: dashed; color: var(--text-muted); font-size: 22px; font-weight: 300; }
+  .media-slot--add:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+  .media-slot--main::after { content: 'Hoofd'; position: absolute; bottom: 0; left: 0; right: 0; font-size: 10px; font-weight: 600; text-align: center; background: rgba(0,0,0,.45); color: #fff; padding: 3px 0; }
+  .media-slot .photo-remove { position: absolute; top: 4px; right: 4px; width: 20px; height: 20px; background: rgba(18,22,28,.6); color: #fff; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 12px; line-height: 1; }
+  .media-slot:hover .photo-remove { display: flex; }
+  /* ---- Photo grid (legacy, kept for compatibility) ---- */
+  .photo-grid { display: none; }
   .photo-slot--filled:hover .photo-remove { display: flex; }
 
   /* ---- Formfoot ---- */
@@ -484,22 +488,11 @@
             <h2 class="card__title">Productinformatie</h2>
 
             <div class="field" style="margin-top:14px">
-              <span class="label">Hoofdafbeelding</span>
-              <div class="drop" id="mainImgDrop" onclick="document.getElementById('mainImgFile').click()">
-                <input type="file" id="mainImgFile" accept="image/*" onchange="previewMainImage(event)">
-                <div id="mainImgEmpty">
-                  <svg width="32" height="32" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--text-muted)"><rect x="2.9" y="3.9" width="14.2" height="12.2" rx="2.2"/><circle cx="7.5" cy="8.1" r="1.3"/><path d="M3.5 13.8 7.3 10.5l2.9 2.5 2.5-2.1 3.8 3.2"/></svg>
-                  <p class="drop__hint">PNG, JPG of WebP, max 5 MB</p>
-                </div>
-                <div id="mainImgFilled" style="display:none" class="drop__filled">
-                  <img id="mainImgPreview" alt="">
-                  <div class="drop__actions">
-                    <button class="link-btn" onclick="event.stopPropagation();document.getElementById('mainImgFile').click()">Vervangen</button>
-                    <button class="link-btn" onclick="event.stopPropagation();clearMainImg()">Verwijderen</button>
-                  </div>
-                </div>
-              </div>
-              <input type="text" id="fImgUrl" class="input" placeholder="Of URL: images/products/foto.jpg" oninput="previewImageUrl(this.value)" style="margin-top:8px">
+              <span class="label">Media</span>
+              <div class="media-grid" id="mediaGrid"></div>
+              <input type="file" id="mainImgFile" accept="image/*" style="display:none" onchange="previewMainImage(event)">
+              <input type="file" id="extraImgFileMedia" accept="image/*" style="display:none" onchange="addExtraPhotoMedia(event)">
+              <input type="text" id="fImgUrl" class="input" placeholder="Hoofdafbeelding URL: images/products/foto.jpg" oninput="previewImageUrl(this.value)" style="margin-top:8px">
             </div>
 
             <div class="field" style="margin-top:16px">
@@ -592,15 +585,6 @@
             </div>
           </div>
 
-          <!-- Extra foto's -->
-          <div class="card">
-            <div class="card__headrow">
-              <h2 class="card__title">Extra foto's</h2>
-            </div>
-            <p class="hint" style="margin-top:4px">Tot 4 extra afbeeldingen naast de hoofdafbeelding</p>
-            <div class="photo-grid" id="photoGrid"></div>
-            <input type="file" id="extraImgFile" accept="image/*" style="display:none" onchange="addExtraPhoto(event)">
-          </div>
 
           <div class="formfoot">
             <button class="btn-ghost" onclick="closeEditView()">Annuleren</button>
@@ -654,6 +638,7 @@ let currentView = 'all';
 let editingId = null;
 let currentFileSha = null;
 let extraImages = [];
+let mainImgSrc = '';
 
 // ---- Password ----
 const ADMIN_PASSWORD = 'wohn24';
@@ -880,6 +865,7 @@ function updateCounts() {
 function openAddView() {
   editingId = null;
   extraImages = [];
+  mainImgSrc = '';
   document.getElementById('editTitle').textContent = 'Nieuw product';
   document.getElementById('editDeleteBtn').style.display = 'none';
   clearForm();
@@ -921,14 +907,7 @@ function openEditView(id) {
   document.getElementById('fImgUrl').value = p.image || '';
   document.getElementById('peStatus').value = String(p.in_stock !== false);
   document.getElementById('peStatusMobile').value = String(p.in_stock !== false);
-  if (p.image) {
-    document.getElementById('mainImgEmpty').style.display = 'none';
-    document.getElementById('mainImgFilled').style.display = '';
-    document.getElementById('mainImgPreview').src = p.image;
-  } else {
-    document.getElementById('mainImgEmpty').style.display = '';
-    document.getElementById('mainImgFilled').style.display = 'none';
-  }
+  mainImgSrc = p.image || '';
   renderPhotoGrid();
   // Reset to DE lang tab
   switchLang('de', document.querySelector('.lang-btn.active') || document.querySelector('.lang-btn'));
@@ -1061,52 +1040,59 @@ function previewMainImage(event) {
   if (!file) return;
   const reader = new FileReader();
   reader.onload = e => {
-    document.getElementById('mainImgEmpty').style.display = 'none';
-    document.getElementById('mainImgFilled').style.display = '';
-    document.getElementById('mainImgPreview').src = e.target.result;
+    mainImgSrc = e.target.result;
     document.getElementById('fImgUrl').value = 'images/products/' + file.name;
+    renderPhotoGrid();
   };
   reader.readAsDataURL(file);
 }
 
 function clearMainImg() {
+  mainImgSrc = '';
   document.getElementById('mainImgFile').value = '';
   document.getElementById('fImgUrl').value = '';
-  document.getElementById('mainImgEmpty').style.display = '';
-  document.getElementById('mainImgFilled').style.display = 'none';
-  document.getElementById('mainImgPreview').src = '';
+  renderPhotoGrid();
 }
 
 function previewImageUrl(url) {
   if (!url) { clearMainImg(); return; }
-  document.getElementById('mainImgEmpty').style.display = 'none';
-  document.getElementById('mainImgFilled').style.display = '';
-  document.getElementById('mainImgPreview').src = url;
-  document.getElementById('mainImgPreview').onerror = function() {
-    this.onerror = null;
-    clearMainImg();
-  };
+  mainImgSrc = url;
+  renderPhotoGrid();
+  // Test if image loads — reset on error via a temporary img
+  const tester = new Image();
+  tester.onerror = function() { mainImgSrc = ''; renderPhotoGrid(); };
+  tester.src = url;
 }
 
-// ---- Extra photos ----
+// ---- Media grid (main + extra images) ----
 function renderPhotoGrid() {
-  const grid = document.getElementById('photoGrid');
+  const grid = document.getElementById('mediaGrid');
   if (!grid) return;
   let html = '';
+  // Main image slot
+  if (mainImgSrc) {
+    html += `<div class="media-slot media-slot--main" onclick="document.getElementById('mainImgFile').click()">
+      <img src="${esc(mainImgSrc)}" alt="">
+      <span class="photo-remove" onclick="event.stopPropagation();clearMainImg()">&times;</span>
+    </div>`;
+  } else {
+    html += `<div class="media-slot media-slot--add" onclick="document.getElementById('mainImgFile').click()">+</div>`;
+  }
+  // Extra image slots
   for (let i = 0; i < 4; i++) {
     if (extraImages[i]) {
-      html += `<div class="photo-slot photo-slot--filled" onclick="removeExtraPhoto(${i})">
+      html += `<div class="media-slot" onclick="removeExtraPhoto(${i})">
         <img src="${esc(extraImages[i])}" alt="">
         <span class="photo-remove">&times;</span>
       </div>`;
     } else {
-      html += `<div class="photo-slot photo-slot--add" onclick="document.getElementById('extraImgFile').dataset.slot='${i}';document.getElementById('extraImgFile').click()">+</div>`;
+      html += `<div class="media-slot media-slot--add" onclick="document.getElementById('extraImgFileMedia').dataset.slot='${i}';document.getElementById('extraImgFileMedia').click()">+</div>`;
     }
   }
   grid.innerHTML = html;
 }
 
-function addExtraPhoto(event) {
+function addExtraPhotoMedia(event) {
   const file = event.target.files[0];
   if (!file) return;
   const slot = parseInt(event.target.dataset.slot || '0');
