@@ -51,6 +51,7 @@
   .badge { display: inline-block; padding: 3px 8px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
   .badge-green { background: #e8f5e9; color: #2e7d32; }
   .badge-red { background: #ffebee; color: #c62828; }
+  .tag-badge { display: inline-block; padding: 2px 7px; font-size: 0.68rem; background: #f0f0f0; color: #555; margin: 2px 2px 2px 0; }
   .actions { display: flex; gap: 8px; }
 
   /* Search/filter bar */
@@ -207,7 +208,7 @@
           <th>Afbeelding</th>
           <th>Naam</th>
           <th>Merk</th>
-          <th>Categorie</th>
+          <th>Tags</th>
           <th>Dikte</th>
           <th>Prijs/m²</th>
           <th>Status</th>
@@ -451,7 +452,7 @@ function renderTable() {
       <td>${p.image ? `<img class="product-img" src="${p.image}" alt="" onerror="this.style.display='none'">` : `<div class="product-img-placeholder">–</div>`}</td>
       <td><strong>${esc(p.name)}</strong>${p.sku ? `<br><span style="color:#aaa;font-size:0.75rem">${esc(p.sku)}</span>` : ''}</td>
       <td>${esc(p.brand||'–')}</td>
-      <td>${catLabels[p.category]||p.category}</td>
+      <td>${(Array.isArray(p.tags) ? p.tags : [p.category]).map(t => `<span class="tag-badge">${esc(t)}</span>`).join('')}</td>
       <td>${esc(p.thickness||'–')}</td>
       <td>${p.price ? '€ ' + Number(p.price).toFixed(2) : '–'}</td>
       <td><span class="badge ${p.in_stock ? 'badge-green' : 'badge-red'}">${p.in_stock ? 'Op voorraad' : 'Niet op voorraad'}</span></td>
