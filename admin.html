@@ -153,12 +153,30 @@
   .panel__search-btn:hover { border-color: var(--border-strong); background: var(--bg-hover); color: var(--text-strong); }
 
   /* ---- Shopify filter bar ---- */
-  .sf-filter-bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--border); background: var(--bg-surface); }
-  .sf-tab-select { height: 32px; padding: 0 8px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); font-weight: 500; background: var(--bg-surface); color: var(--text-strong); flex-shrink: 0; }
-  .sf-filter-search { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; height: 32px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--bg-surface); }
+  .sf-filter-bar { display: flex; align-items: center; gap: 0; padding: 10px 12px; border-bottom: 1px solid var(--border); background: var(--bg-surface); }
+  /* Custom "All" button */
+  .sf-all-btn { display: inline-flex; align-items: center; gap: 3px; height: 32px; padding: 0 10px; border: 1px solid var(--border); border-right: none; border-radius: var(--r-sm) 0 0 var(--r-sm); font: inherit; font-size: var(--fs-sm); font-weight: 500; background: var(--bg-surface); color: var(--text-strong); flex-shrink: 0; cursor: pointer; white-space: nowrap; position: relative; }
+  .sf-all-btn:hover { background: var(--bg-hover); }
+  .sf-all-btn svg { color: var(--text-muted); }
+  .sf-all-dropdown { display: none; position: absolute; top: calc(100% + 4px); left: 0; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--r-sm); box-shadow: 0 4px 12px rgba(0,0,0,.1); z-index: 200; min-width: 140px; padding: 4px 0; }
+  .sf-all-btn.open .sf-all-dropdown { display: block; }
+  .sf-all-opt { display: block; width: 100%; padding: 7px 14px; text-align: left; font: inherit; font-size: var(--fs-sm); color: var(--text); background: none; cursor: pointer; white-space: nowrap; }
+  .sf-all-opt:hover { background: var(--bg-hover); }
+  .sf-all-opt.active { font-weight: 600; color: var(--text-strong); }
+  /* Search wrapper */
+  .sf-filter-search { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; height: 32px; padding: 0 10px; border: 1px solid var(--border); border-radius: 0 var(--r-sm) var(--r-sm) 0; background: var(--bg-surface); position: relative; }
   .sf-filter-search svg { flex-shrink: 0; color: var(--text-muted); }
-  .sf-filter-search input { flex: 1; border: none; outline: none; font: inherit; font-size: var(--fs-sm); background: transparent; color: var(--text-strong); }
+  .sf-filter-search input { flex: 1; border: none; outline: none; font: inherit; font-size: var(--fs-sm); background: transparent; color: var(--text-strong); min-width: 0; }
   .sf-filter-search input::placeholder { color: var(--text-muted); }
+  /* Filter suggestion dropdown */
+  .sf-suggest { display: none; position: absolute; top: calc(100% + 4px); left: 0; min-width: 200px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--r-sm); box-shadow: 0 4px 12px rgba(0,0,0,.1); z-index: 200; padding: 4px 0; }
+  .sf-suggest.visible { display: block; }
+  .sf-suggest-item { display: flex; align-items: center; gap: 10px; padding: 7px 14px; font-size: var(--fs-sm); color: var(--text); cursor: pointer; white-space: nowrap; }
+  .sf-suggest-item:hover { background: var(--bg-hover); color: var(--text-strong); }
+  .sf-suggest-item span { color: var(--text-muted); font-size: var(--fs-xs); }
+  /* Active filter chips in search bar */
+  .sf-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; background: var(--accent-soft); color: var(--accent); border-radius: var(--r-full); font-size: var(--fs-xs); font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  .sf-chip button { background: none; color: inherit; font-size: 13px; line-height: 1; padding: 0; }
   .sf-status-select { height: 32px; padding: 0 8px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); background: var(--bg-surface); color: var(--text); flex-shrink: 0; }
   .sf-col-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--bg-surface); color: var(--text-muted); flex-shrink: 0; transition: background var(--dur); }
   .sf-col-btn:hover { background: var(--bg-hover); color: var(--text-strong); }
@@ -353,7 +371,7 @@
     .tab { padding: 5px 10px; font-size: var(--fs-xs); }
     .lock-box { padding: 32px 24px; }
     /* Prevent iOS zoom on focus — all inputs must be >= 16px */
-    input, select, textarea, .input, .sf-filter-search input, .sf-tab-select { font-size: 16px !important; }
+    input, select, textarea, .input, .sf-filter-search input { font-size: 16px !important; }
   }
 </style>
 </head>
@@ -431,19 +449,27 @@
 
         <div class="panel">
           <div class="sf-filter-bar">
-            <div class="sf-filter-left">
-              <select id="filterTab" onchange="switchTabFromSelect(this)" class="sf-tab-select">
-                <option value="all">Alle</option>
-                <option value="laminat">Laminat</option>
-                <option value="pvc">PVC</option>
-                <option value="fischgrat">Fischgrät</option>
-                <option value="parkett">Parkett</option>
-                <option value="zubehor">Zubehör</option>
-              </select>
-            </div>
-            <div class="sf-filter-search">
+            <button class="sf-all-btn" id="sfAllBtn" onclick="toggleAllDropdown(event)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M8 6h13M8 12h9M8 18h5"/><path d="M3 6l1 1-1 1M3 12l1 1-1 1M3 18l1 1-1 1"/></svg>
+              <span id="sfAllLabel">All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+              <div class="sf-all-dropdown" id="sfAllDropdown">
+                <button class="sf-all-opt active" onclick="setTabFilter('all','All',this)">All</button>
+                <button class="sf-all-opt" onclick="setTabFilter('laminat','Laminat',this)">Laminat</button>
+                <button class="sf-all-opt" onclick="setTabFilter('pvc','PVC',this)">PVC</button>
+                <button class="sf-all-opt" onclick="setTabFilter('fischgrat','Fischgrät',this)">Fischgrät</button>
+                <button class="sf-all-opt" onclick="setTabFilter('parkett','Parkett',this)">Parkett</button>
+                <button class="sf-all-opt" onclick="setTabFilter('zubehor','Zubehör',this)">Zubehör</button>
+              </div>
+            </button>
+            <div class="sf-filter-search" id="sfSearchWrap">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.35-4.35"/></svg>
-              <input type="search" id="searchInput" placeholder="Search and filter" oninput="renderProductList()">
+              <input type="search" id="searchInput" placeholder="Search and filter" oninput="onSearchInput()" onfocus="showSuggest()" onblur="hideSuggest()">
+              <div class="sf-suggest" id="sfSuggest">
+                <div class="sf-suggest-item" onmousedown="applyFilter('brand')">Merk <span>Brand</span></div>
+                <div class="sf-suggest-item" onmousedown="applyFilter('tags')">Tags</div>
+                <div class="sf-suggest-item" onmousedown="applyFilter('thickness')">Dikte <span>Thickness</span></div>
+              </div>
             </div>
             <select id="filterInStock" style="display:none" onchange="renderProductList()"></select>
           </div>
@@ -779,6 +805,66 @@ function switchTabFromSelect(sel) {
   renderProductList();
 }
 
+// ---- Custom "All" dropdown ----
+let activeFilters = {}; // { brand: 'value', tags: 'value', thickness: 'value' }
+
+function toggleAllDropdown(e) {
+  e.stopPropagation();
+  const btn = document.getElementById('sfAllBtn');
+  btn.classList.toggle('open');
+}
+
+function setTabFilter(view, label, el) {
+  currentView = view;
+  document.getElementById('sfAllLabel').textContent = label;
+  document.querySelectorAll('.sf-all-opt').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('sfAllBtn').classList.remove('open');
+  renderProductList();
+}
+
+document.addEventListener('click', function(e) {
+  const btn = document.getElementById('sfAllBtn');
+  if (btn && !btn.contains(e.target)) btn.classList.remove('open');
+  const sug = document.getElementById('sfSuggest');
+  if (sug && !sug.contains(e.target) && e.target.id !== 'searchInput') sug.classList.remove('visible');
+});
+
+// ---- Search & filter suggestions ----
+function onSearchInput() {
+  const q = document.getElementById('searchInput').value;
+  showSuggest(q.length > 0);
+  renderProductList();
+}
+
+function showSuggest(force) {
+  const sug = document.getElementById('sfSuggest');
+  if (!sug) return;
+  if (force === false) { sug.classList.remove('visible'); return; }
+  sug.classList.add('visible');
+}
+
+function hideSuggest() {
+  setTimeout(() => {
+    const sug = document.getElementById('sfSuggest');
+    if (sug) sug.classList.remove('visible');
+  }, 150);
+}
+
+function applyFilter(field) {
+  const input = document.getElementById('searchInput');
+  const labels = { brand: 'Merk', tags: 'Tags', thickness: 'Dikte' };
+  input.value = '';
+  input.placeholder = labels[field] + ' is…';
+  input.dataset.filterField = field;
+  input.focus();
+  document.getElementById('sfSuggest').classList.remove('visible');
+  input.oninput = function() {
+    activeFilters[field] = this.value.trim().toLowerCase();
+    renderProductList();
+  };
+}
+
 // ---- Panel search toggle ----
 function togglePanelSearch() {
   const row = document.getElementById('panelSearchRow');
@@ -806,10 +892,19 @@ function getFilteredProducts() {
   const q = topQ || panelQ;
   const stock = document.getElementById('filterInStock') ? document.getElementById('filterInStock').value : '';
   const sort = document.getElementById('filterSort') ? document.getElementById('filterSort').value : 'name';
+  const field = document.getElementById('searchInput') ? document.getElementById('searchInput').dataset.filterField : null;
   let list = products.filter(p => {
     if (currentView !== 'all' && !(Array.isArray(p.tags) ? p.tags.includes(currentView) : (p.category === currentView))) return false;
     if (stock !== '' && String(p.in_stock) !== stock) return false;
-    if (q && !((p.name||'').toLowerCase().includes(q) || (p.brand||'').toLowerCase().includes(q) || (p.sku||'').toLowerCase().includes(q))) return false;
+    // Active field filter (from suggestion dropdown)
+    if (field && activeFilters[field]) {
+      const v = activeFilters[field];
+      if (field === 'brand' && !(p.brand||'').toLowerCase().includes(v)) return false;
+      if (field === 'tags' && !(Array.isArray(p.tags)?p.tags:[p.category]).some(t=>(t||'').toLowerCase().includes(v))) return false;
+      if (field === 'thickness' && !(p.thickness||'').toLowerCase().includes(v)) return false;
+    } else if (q && !field) {
+      if (!((p.name||'').toLowerCase().includes(q) || (p.brand||'').toLowerCase().includes(q) || (p.sku||'').toLowerCase().includes(q))) return false;
+    }
     return true;
   });
   list.sort((a, b) => {
