@@ -151,8 +151,8 @@
   .panel__search-btn:hover { border-color: var(--border-strong); background: var(--bg-hover); color: var(--text-strong); }
 
   /* ---- Column header row ---- */
-  .prod-col-head { display: flex; align-items: center; gap: 14px; padding: 7px 16px; border-bottom: 1px solid var(--border); background: var(--bg-hover); }
-  .prod-col-head span { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .prod-col-head { display: flex; align-items: center; gap: 14px; padding: 8px 16px; border-bottom: 1px solid var(--border); background: var(--bg-surface); }
+  .prod-col-head span { font-size: var(--fs-sm); font-weight: 400; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .prod-col-head .col-thumb { width: 44px; flex: 0 0 44px; }
   .prod-col-head .col-name { flex: 0 0 28%; }
   .prod-col-head .col-meta { flex: 0 0 14%; }
@@ -162,21 +162,23 @@
     .prod-col-head .col-tags { display: none; }
     .prod-col-head .col-name { flex: 1; }
   }
-  .panel__search-row { display: none; padding: 10px 14px; border-bottom: 1px solid var(--border); gap: 10px; align-items: center; }
+  .panel__search-row { display: none; flex-direction: column; padding: 10px 14px; border-bottom: 1px solid var(--border); gap: 8px; background: var(--bg-surface); }
   .panel__search-row.open { display: flex; }
-  .panel__search-row input { flex: 1; height: 34px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); background: var(--bg-surface); color: var(--text-strong); }
-  .panel__search-row input:focus { outline: none; border-color: var(--border-strong); }
-  .panel__search-row select { height: 34px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); background: var(--bg-surface); }
-  .panel__search-row .btn-close-search { font-size: 1.1rem; color: var(--text-muted); padding: 4px 8px; border-radius: var(--r-sm); }
-  .panel__search-row .btn-close-search:hover { background: var(--bg-hover); color: var(--text-strong); }
+  .panel__search-row-top { display: flex; align-items: center; gap: 10px; }
+  .panel__search-row input { flex: 1; height: 34px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); background: var(--bg-hover); color: var(--text-strong); }
+  .panel__search-row input:focus { outline: none; border-color: var(--border-strong); background: var(--bg-surface); }
+  .panel__search-row-filters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .panel__search-row select { height: 30px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--r-full); font: inherit; font-size: var(--fs-xs); background: var(--bg-surface); color: var(--text); }
+  .panel__search-row .btn-close-search { font-size: var(--fs-sm); font-weight: 500; color: var(--text-muted); padding: 4px 6px; border-radius: var(--r-sm); flex-shrink: 0; }
+  .panel__search-row .btn-close-search:hover { color: var(--text-strong); }
   .panel__empty { padding: 48px 24px; text-align: center; color: var(--text-muted); font-size: var(--fs-sm); }
 
   /* ---- Tabs ---- */
-  .tabs { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+  .tabs { display: flex; gap: 2px; background: var(--bg-hover); border-radius: var(--r-sm); padding: 3px; overflow-x: auto; scrollbar-width: none; flex-shrink: 0; }
   .tabs::-webkit-scrollbar { display: none; }
-  .tab { padding: 5px 12px; font-size: var(--fs-sm); border-radius: var(--r-sm); color: var(--text-muted); font-weight: 500; transition: background var(--dur), color var(--dur); white-space: nowrap; flex-shrink: 0; }
+  .tab { padding: 5px 13px; font-size: var(--fs-sm); border-radius: calc(var(--r-sm) - 1px); color: var(--text-muted); font-weight: 500; transition: background var(--dur), color var(--dur), box-shadow var(--dur); white-space: nowrap; flex-shrink: 0; }
   .tab:hover { color: var(--text-strong); }
-  .tab.is-active { background: var(--bg-hover); color: var(--text-strong); }
+  .tab.is-active { background: var(--bg-surface); color: var(--text-strong); box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 0 0 1px var(--border); }
 
   /* ---- Prod rows ---- */
   .prod-list { list-style: none; }
@@ -292,11 +294,31 @@
     #tokenBar input { max-width: 100%; width: 100%; }
     .sidebar {
       position: fixed; top: 0; left: 0; height: 100vh; z-index: 300;
+      width: 82%; max-width: 300px;
       transform: translateX(-100%); transition: transform 220ms var(--ease);
       box-shadow: var(--shadow-md);
     }
     .sidebar-overlay { z-index: 299; }
     .sidebar.open { transform: translateX(0); }
+    .sidebar-logo { display: none; }
+    .nav-section { display: none; }
+    .nav-item {
+      padding: 14px 20px;
+      margin: 2px 10px;
+      font-size: var(--fs-md);
+      border-radius: var(--r-md);
+      width: calc(100% - 20px);
+    }
+    .nav-item svg { width: 20px; height: 20px; flex: 0 0 20px; opacity: 1; }
+    .nav-action {
+      padding: 14px 20px;
+      margin: 2px 10px;
+      font-size: var(--fs-md);
+      border-radius: var(--r-md);
+      width: calc(100% - 20px);
+    }
+    .nav-action svg { width: 20px; height: 20px; }
+    .sidebar-divider:first-of-type { display: none; }
     .app { height: auto; min-height: 100vh; padding-top: var(--topbar-h); overflow-x: hidden; }
     .admin-body { overflow: visible; }
     .main { padding: 16px; overflow-y: visible; height: auto; overflow-x: hidden; }
@@ -335,8 +357,9 @@
 
 <header class="topbar">
   <div class="topbar-left">
-    <button class="burger-btn" onclick="toggleSidebar()" aria-label="Menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <button class="burger-btn" id="burgerBtn" onclick="toggleSidebar()" aria-label="Menu">
+      <svg id="burgerIconOpen" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg id="burgerIconClose" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
     <span class="topbar-brand">WohnStyle Boden</span>
   </div>
@@ -449,19 +472,23 @@
             </button>
           </div>
           <div class="panel__search-row" id="panelSearchRow">
-            <input type="search" id="searchInput" placeholder="Zoeken op naam, merk, SKU..." oninput="renderProductList()">
-            <select id="filterInStock" onchange="renderProductList()">
-              <option value="">Alle statussen</option>
-              <option value="true">Op voorraad</option>
-              <option value="false">Niet op voorraad</option>
-            </select>
-            <select id="filterSort" onchange="renderProductList()">
-              <option value="name">Naam A-Z</option>
-              <option value="price_asc">Prijs laag-hoog</option>
-              <option value="price_desc">Prijs hoog-laag</option>
-              <option value="newest">Nieuwste eerst</option>
-            </select>
-            <button class="btn-close-search" onclick="togglePanelSearch()">&times;</button>
+            <div class="panel__search-row-top">
+              <input type="search" id="searchInput" placeholder="Zoeken op naam, merk, SKU..." oninput="renderProductList()">
+              <button class="btn-close-search" onclick="togglePanelSearch()">Cancel</button>
+            </div>
+            <div class="panel__search-row-filters">
+              <select id="filterInStock" onchange="renderProductList()">
+                <option value="">Alle statussen</option>
+                <option value="true">Op voorraad</option>
+                <option value="false">Niet op voorraad</option>
+              </select>
+              <select id="filterSort" onchange="renderProductList()">
+                <option value="name">Naam A-Z</option>
+                <option value="price_asc">Prijs laag-hoog</option>
+                <option value="price_desc">Prijs hoog-laag</option>
+                <option value="newest">Nieuwste eerst</option>
+              </select>
+            </div>
           </div>
           <div class="prod-col-head">
             <span class="col-thumb"></span>
@@ -773,6 +800,8 @@ function toggleSidebar() {
   const ov = document.getElementById('sidebarOverlay');
   const open = sb.classList.toggle('open');
   ov.classList.toggle('open', open);
+  document.getElementById('burgerIconOpen').style.display = open ? 'none' : '';
+  document.getElementById('burgerIconClose').style.display = open ? '' : 'none';
 }
 
 // ---- Page navigation ----
