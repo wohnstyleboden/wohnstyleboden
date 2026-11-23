@@ -166,11 +166,56 @@
   <div id="mobNavImg" class="mob-nav-img"><img id="mobNavImgEl" src="" alt=""></div>
 </div>`;
 
+  // ---- Search overlay HTML ----
+  var SEARCH_HTML = `
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true">
+  <button class="search-overlay__close" onclick="closeNavSearch()" aria-label="Close">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="search-overlay__inner">
+    <div class="search-overlay__bar">
+      <svg class="search-overlay__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.35-4.35"/></svg>
+      <input class="search-overlay__input" id="searchOverlayInput" type="search" placeholder="Suchen…" autocomplete="off" oninput="searchOverlayInput(this.value)">
+    </div>
+    <div class="search-overlay__results" id="searchOverlayResults"></div>
+  </div>
+</div>`;
+
+  // ---- Search overlay CSS ----
+  var SEARCH_CSS = `
+.search-overlay{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;align-items:center;opacity:0;pointer-events:none;transition:opacity .2s ease;}
+.search-overlay.open{opacity:1;pointer-events:all;}
+.search-overlay__close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:#333;padding:8px;border-radius:50%;transition:background .15s;}
+.search-overlay__close:hover{background:#f3f3f3;}
+.search-overlay__inner{width:100%;max-width:640px;padding:80px 24px 32px;}
+.search-overlay__bar{display:flex;align-items:center;gap:12px;border-bottom:2px solid #000;padding-bottom:12px;}
+.search-overlay__icon{flex-shrink:0;color:#555;}
+.search-overlay__input{flex:1;border:none;outline:none;font-size:22px;font-family:inherit;color:#111;background:transparent;}
+.search-overlay__input::placeholder{color:#aaa;}
+.search-overlay__results{margin-top:24px;display:flex;flex-direction:column;gap:4px;}
+.search-res-item{display:flex;align-items:center;gap:14px;padding:10px 4px;text-decoration:none;color:#111;border-radius:6px;transition:background .1s;}
+.search-res-item:hover{background:#f5f5f5;}
+.search-res-item img{width:44px;height:44px;object-fit:cover;border-radius:4px;border:1px solid #eee;flex-shrink:0;}
+.search-res-item__name{font-size:14px;font-weight:500;}
+.search-res-item__brand{font-size:12px;color:#888;margin-top:2px;}
+.search-res-empty{font-size:14px;color:#888;padding:10px 4px;}
+@media(max-width:600px){.search-overlay__input{font-size:18px;}.search-overlay__inner{padding-top:64px;}}`;
+
   document.addEventListener('DOMContentLoaded', function() {
+    // Inject search CSS
+    var style = document.createElement('style');
+    style.textContent = SEARCH_CSS;
+    document.head.appendChild(style);
+
     // Inject nav after navbar-wrap
     var navbarWrap = document.querySelector('.navbar-wrap');
     if (navbarWrap && !document.getElementById('mobileMenu')) {
       navbarWrap.insertAdjacentHTML('afterend', NAV_HTML);
+    }
+
+    // Inject search overlay
+    if (!document.getElementById('searchOverlay')) {
+      document.body.insertAdjacentHTML('beforeend', SEARCH_HTML);
     }
 
     // Overlay
@@ -262,5 +307,68 @@
     if (de) de.classList.toggle('active', lang === 'de');
     if (en) en.classList.toggle('active', lang === 'en');
   };
+
+  // ---- Full-page search overlay ----
+  window.openNavSearch = function() {
+    var el = document.getElementById('searchOverlay');
+    if (!el) return;
+    el.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      var inp = document.getElementById('searchOverlayInput');
+      if (inp) { inp.value = ''; inp.focus(); }
+      document.getElementById('searchOverlayResults').innerHTML = '';
+    }, 50);
+  };
+
+  window.closeNavSearch = function() {
+    var el = document.getElementById('searchOverlay');
+    if (!el) return;
+    el.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  window.searchOverlayInput = function(q) {
+    var results = document.getElementById('searchOverlayResults');
+    if (!results) return;
+    q = (q || '').trim().toLowerCase();
+    if (!q) { results.innerHTML = ''; return; }
+
+    var products = window._navProducts || [];
+    var matches = products.filter(function(p) {
+      return (p.name||'').toLowerCase().includes(q) || (p.brand||'').toLowerCase().includes(q);
+    }).slice(0, 8);
+
+    if (!matches.length) {
+      results.innerHTML = '<div class="search-res-empty">Keine Ergebnisse gefunden / No results found</div>';
+      return;
+    }
+    results.innerHTML = matches.map(function(p) {
+      var img = p.image ? '<img src="' + p.image + '" alt="" onerror="this.style.display=\'none\'">' : '';
+      return '<a class="search-res-item" href="product.html?id=' + encodeURIComponent(p.id) + '">'
+        + img
+        + '<div><div class="search-res-item__name">' + p.name + '</div>'
+        + (p.brand ? '<div class="search-res-item__brand">' + p.brand + '</div>' : '')
+        + '</div></a>';
+    }).join('');
+  };
+
+  // Load products for search (once)
+  if (!window._navProducts) {
+    fetch('https://raw.githubusercontent.com/wohnstyleboden/wohnstyleboden/main/products.json')
+      .then(function(r) { return r.json(); })
+      .then(function(d) { window._navProducts = Array.isArray(d) ? d : (d.products || []); })
+      .catch(function() {});
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') window.closeNavSearch();
+  });
+
+  // Open search on any search button click (delegated)
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.nav-search-center');
+    if (btn) { e.preventDefault(); window.openNavSearch(); }
+  });
 
 })();

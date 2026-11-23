@@ -957,19 +957,6 @@
       </button>
     </div>
   </div>
-<script>
-function openNavSearch() {
-  document.querySelector('.nav-center').classList.add('search-open');
-  setTimeout(function() { document.getElementById('navSearchInput').focus(); }, 50);
-}
-function closeNavSearch() {
-  document.querySelector('.nav-center').classList.remove('search-open');
-  document.getElementById('navSearchInput').value = '';
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeNavSearch();
-});
-</script>
 </body>
 </html>
 
