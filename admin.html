@@ -167,19 +167,37 @@
   #toast { position: fixed; bottom: 20px; right: 20px; background: var(--text-strong); color: #fff; padding: 10px 18px; font-size: var(--fs-sm); border-radius: var(--r-sm); z-index: 9999; display: none; box-shadow: var(--shadow-md); }
   #toast.error { background: var(--danger); }
 
+  /* ---- Tab bar ---- */
+  .tab-bar { display: flex; gap: 2px; margin-bottom: 16px; background: var(--bg-hover); border-radius: var(--r-sm); padding: 3px; width: fit-content; }
+  .tab-btn { padding: 5px 14px; font-size: var(--fs-sm); border-radius: 6px; color: var(--text-muted); transition: background var(--dur), color var(--dur); font-weight: 500; }
+  .tab-btn:hover { color: var(--text-strong); }
+  .tab-btn.active { background: var(--bg-surface); color: var(--text-strong); box-shadow: var(--shadow-sm); }
+
+  /* ---- Burger ---- */
+  .burger-btn { display: none; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--r-sm); color: var(--text); transition: background var(--dur); }
+  .burger-btn:hover { background: var(--bg-hover); }
+  .burger-btn svg { width: 20px; height: 20px; }
+
+  /* ---- Sidebar overlay ---- */
+  .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(18,22,28,.35); z-index: 99; }
+
+  /* ---- Clickable rows ---- */
+  .product-table tbody tr { cursor: pointer; }
+
   /* ---- Mobile ---- */
   @media (max-width: 768px) {
+    .burger-btn { display: flex; }
     .topbar { padding: 0 16px; }
     #tokenBar { padding: 10px 16px; }
     #tokenBar input { max-width: 100%; width: 100%; }
-    .admin-body { flex-direction: column; }
-    .sidebar { width: 100%; flex: none; flex-direction: row; overflow-x: auto; overflow-y: hidden; padding: 0; border-right: none; border-bottom: 1px solid var(--border); scrollbar-width: none; }
-    .sidebar::-webkit-scrollbar { display: none; }
-    .sidebar-logo, .nav-section, .sidebar-divider { display: none; }
-    .nav-item, .nav-action { width: auto; margin: 0; border-radius: 0; padding: 14px 16px; border-bottom: 2px solid transparent; white-space: nowrap; flex-shrink: 0; }
-    .nav-item.active { background: none; border-bottom-color: var(--accent); }
-    .nav-item svg, .nav-action svg { display: none; }
-    .nav-item .nav-count { display: none; }
+    .admin-body { position: relative; }
+    .sidebar {
+      position: fixed; top: 0; left: 0; height: 100vh; z-index: 100;
+      transform: translateX(-100%); transition: transform 220ms ease;
+      box-shadow: var(--shadow-md);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-overlay.open { display: block; }
     .main { padding: 16px; overflow-y: visible; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
     .stat-card { padding: 14px; }
@@ -198,7 +216,6 @@
     .product-table td:nth-child(2) { font-weight: 600; color: var(--text-strong); }
     .product-table td:nth-child(3) { color: var(--text-muted); font-size: var(--fs-xs); }
     .product-table td:nth-child(4), .product-table td:nth-child(5) { color: var(--text-muted); font-size: var(--fs-xs); }
-    .product-table td:nth-child(8) { grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px; }
     .product-img, .product-img-placeholder { width: 50px; height: 50px; }
     .modal { border-radius: 0; max-height: 100vh; height: 100%; }
     .form-grid { grid-template-columns: 1fr; }
@@ -210,7 +227,12 @@
 <div class="app">
 
 <header class="topbar">
-  <span class="topbar-brand">WohnStyle Boden</span>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="burger-btn" onclick="toggleSidebar()" aria-label="Menu">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+    <span class="topbar-brand">WohnStyle Boden</span>
+  </div>
   <div class="topbar-right">
     <span class="topbar-status" id="headerStatus">Niet verbonden</span>
     <button class="btn-token-reset" onclick="resetToken()">Token wijzigen</button>
@@ -224,8 +246,9 @@
   <a href="https://github.com/settings/tokens/new?scopes=repo&description=WohnStyle+Admin" target="_blank">Token aanmaken →</a>
 </div>
 
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 <div class="admin-body">
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
       <div class="sidebar-logo-icon">
         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -235,16 +258,16 @@
 
     <div class="nav-section">Menu</div>
     <button class="nav-item" onclick="showPage('dashboard', this)">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <svg viewBox="0 0 20 20"><path d="M10.7886 2.79298C10.5668 2.60839 10.2963 2.5 10.0044 2.5C9.71251 2.5 9.44201 2.60839 9.2202 2.79298L2 8.95303L3.8993 7.33456C3.53632 7.63665 3.32031 8.12867 3.32031 8.65351V15.8871C3.32031 16.7779 3.93105 17.5 4.68441 17.5H8V14.2742C8 13.3834 9.25103 12.6613 10.0044 12.6613C10.7578 12.6613 12 13.3834 12 14.2742V17.5H15.3244C16.0778 17.5 16.6885 16.7779 16.6885 15.8871V8.65351C16.6885 8.12867 16.4725 7.63665 16.1095 7.33456L18 8.95303L10.7886 2.79298Z"/></svg>
       Dashboard
     </button>
     <button class="nav-item active" onclick="showPage('products', this)">
-      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M5.4 8.4h13.2l-1 11a1.6 1.6 0 0 1-1.6 1.45H8a1.6 1.6 0 0 1-1.6-1.45zM8.9 8.4V6.6a3.1 3.1 0 0 1 6.2 0v1.8"/></svg>
       Products
       <span class="nav-count" id="countAll">0</span>
     </button>
     <button class="nav-item" onclick="showPage('customers', this)">
-      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      <svg viewBox="0 0 20 20"><circle cx="10" cy="6" r="3.5"/><path d="M2.9 17c0-3.4 3.2-6.1 7.1-6.1s7.1 2.7 7.1 6.1"/></svg>
       Customers
     </button>
 
@@ -291,6 +314,15 @@
         <button class="btn-primary" onclick="openAddModal()">+ Product toevoegen</button>
       </div>
 
+      <div class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('all', this)">Alle</button>
+        <button class="tab-btn" onclick="switchTab('laminat', this)">Laminat</button>
+        <button class="tab-btn" onclick="switchTab('pvc', this)">PVC</button>
+        <button class="tab-btn" onclick="switchTab('fischgrat', this)">Fischgrät</button>
+        <button class="tab-btn" onclick="switchTab('parkett', this)">Parkett</button>
+        <button class="tab-btn" onclick="switchTab('zubehor', this)">Zubehör</button>
+      </div>
+
       <div class="filter-bar">
         <input type="text" id="searchInput" placeholder="Zoeken op naam, merk..." oninput="renderTable()">
         <select id="filterInStock" onchange="renderTable()">
@@ -317,7 +349,6 @@
               <th>Dikte</th>
               <th>Prijs/m²</th>
               <th>Status</th>
-              <th>Acties</th>
             </tr>
           </thead>
           <tbody id="tableBody"></tbody>
@@ -419,6 +450,7 @@
       </div>
     </div>
     <div class="modal-footer">
+      <button class="btn-danger" id="btnDeleteModal" onclick="deleteCurrentProduct()" style="display:none;margin-right:auto">Verwijder</button>
       <button class="btn-secondary" onclick="closeModal()">Annuleren</button>
       <button class="btn-primary" onclick="saveProduct()">Product opslaan</button>
     </div>
@@ -530,11 +562,25 @@ function showPage(page, btn) {
   if (btn) btn.classList.add('active');
 }
 
+// ---- Sidebar toggle (mobile) ----
+function toggleSidebar() {
+  const sb = document.getElementById('sidebar');
+  const ov = document.getElementById('sidebarOverlay');
+  const open = sb.classList.toggle('open');
+  ov.classList.toggle('open', open);
+}
+
+// ---- Tab bar ----
+function switchTab(view, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentView = view;
+  renderTable();
+}
+
 // ---- Views (product filter) ----
 function showView(view) {
   currentView = view;
-  const titles = { all: 'Alle producten', laminat: 'Laminat', pvc: 'PVC-Böden', fischgrat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
-  document.getElementById('viewTitle').textContent = titles[view] || view;
   renderTable();
 }
 
@@ -569,9 +615,8 @@ function renderTable() {
   }
   empty.style.display = 'none';
   document.getElementById('productTable').style.display = '';
-  const catLabels = { laminaat: 'Laminaat', pvc: 'PVC-Böden', visgraat: 'Fischgrätboden', parkett: 'Parkett', zubehor: 'Zubehör' };
   tbody.innerHTML = list.map(p => `
-    <tr>
+    <tr onclick="openEditModal('${esc(p.id)}')">
       <td>${p.image ? `<img class="product-img" src="${p.image}" alt="" onerror="this.style.display='none'">` : `<div class="product-img-placeholder">–</div>`}</td>
       <td><strong>${esc(p.name)}</strong>${p.sku ? `<br><span style="color:#aaa;font-size:0.75rem">${esc(p.sku)}</span>` : ''}</td>
       <td>${esc(p.brand||'–')}</td>
@@ -579,10 +624,6 @@ function renderTable() {
       <td>${esc(p.thickness||'–')}</td>
       <td>${p.price ? '€ ' + Number(p.price).toFixed(2) : '–'}</td>
       <td><span class="badge ${p.in_stock ? 'badge-green' : 'badge-red'}">${p.in_stock ? 'Op voorraad' : 'Niet op voorraad'}</span></td>
-      <td><div class="actions">
-        <button class="btn-secondary" onclick="openEditModal('${p.id}')">Bewerk</button>
-        <button class="btn-danger" onclick="deleteProduct('${p.id}')">Verwijder</button>
-      </div></td>
     </tr>
   `).join('');
 }
@@ -604,6 +645,7 @@ function updateCounts() {
 function openAddModal() {
   editingId = null;
   document.getElementById('modalTitle').textContent = 'Product toevoegen';
+  document.getElementById('btnDeleteModal').style.display = 'none';
   clearForm();
   document.getElementById('modalOverlay').classList.add('open');
 }
@@ -627,6 +669,7 @@ function openEditModal(id) {
   document.getElementById('fImgUrl').value = p.image || '';
   const prev = document.getElementById('imgPreview');
   if (p.image) { prev.innerHTML = `<img src="${p.image}" alt="">`; } else { prev.innerHTML = '<span>Klik om afbeelding te uploaden</span>'; }
+  document.getElementById('btnDeleteModal').style.display = '';
   document.getElementById('modalOverlay').classList.add('open');
 }
 
@@ -737,6 +780,12 @@ function deleteProduct(id) {
   updateCounts();
   renderTable();
   showToast('Product verwijderd.');
+}
+
+function deleteCurrentProduct() {
+  if (!editingId) return;
+  deleteProduct(editingId);
+  closeModal();
 }
 
 // ---- Image preview ----
