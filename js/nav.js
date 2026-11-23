@@ -170,7 +170,7 @@
   var SEARCH_HTML = `
 <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true">
   <button class="search-overlay__close" onclick="closeNavSearch()" aria-label="Close">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
   </button>
   <div class="search-overlay__inner">
     <div class="search-overlay__bar">
@@ -185,7 +185,7 @@
   var SEARCH_CSS = `
 .search-overlay{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;align-items:center;opacity:0;pointer-events:none;transition:opacity .2s ease;}
 .search-overlay.open{opacity:1;pointer-events:all;}
-.search-overlay__close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:#333;padding:8px;border-radius:50%;transition:background .15s;}
+.search-overlay__close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:#444;padding:8px;border-radius:50%;transition:background .15s;}
 .search-overlay__close:hover{background:#f3f3f3;}
 .search-overlay__inner{width:100%;max-width:640px;padding:80px 24px 32px;}
 .search-overlay__bar{display:flex;align-items:center;gap:12px;border-bottom:2px solid #000;padding-bottom:12px;}
