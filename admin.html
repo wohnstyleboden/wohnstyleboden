@@ -146,6 +146,8 @@
 
   /* ---- Panel ---- */
   .panel { border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg-surface); overflow: hidden; }
+  .prod-scroll-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .prod-col-head, .prod { min-width: 480px; }
   .panel__head { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
   .panel__search-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: var(--r-sm); flex-shrink: 0; color: var(--text-muted); background: var(--bg-surface); transition: border-color var(--dur), background var(--dur), color var(--dur); }
   .panel__search-btn:hover { border-color: var(--border-strong); background: var(--bg-hover); color: var(--text-strong); }
@@ -444,15 +446,15 @@
             </div>
             <select id="filterInStock" style="display:none" onchange="renderProductList()"></select>
           </div>
-          <div class="prod-col-head">
-            <span class="col-cb"><input type="checkbox" style="width:14px;height:14px;"></span>
-            <span class="col-thumb"></span>
-            <span class="col-name">Product</span>
-            <span class="col-status">Status</span>
-            <span class="col-inv">Voorraad</span>
-            <span class="col-cat">Categorie</span>
+          <div class="prod-scroll-wrap">
+            <div class="prod-col-head">
+              <span class="col-cb"><input type="checkbox" style="width:14px;height:14px;"></span>
+              <span class="col-thumb"></span>
+              <span class="col-name">Product</span>
+              <span class="col-inv">Voorraad</span>
+            </div>
+            <ul class="prod-list" id="prodList"></ul>
           </div>
-          <ul class="prod-list" id="prodList"></ul>
           <div class="panel__empty" id="prodEmpty" style="display:none">Geen producten gevonden.</div>
         </div>
       </div>
@@ -859,9 +861,7 @@ function renderProductList() {
       <span class="prod__cb"><input type="checkbox" onclick="event.stopPropagation()"></span>
       <span class="prod__thumb">${p.image ? `<img src="${esc(p.image)}" alt="" onerror="this.style.display='none'">` : imgIcon}</span>
       <span class="prod__name">${esc(p.name)}</span>
-      <span class="prod__status">${statusBadge}</span>
       <span class="prod__inv">${p.in_stock ? (p.thickness ? esc(p.thickness) : 'Op voorraad') : '0 op voorraad'}</span>
-      <span class="prod__cat">${esc(cat)}</span>
     </li>`;
   }).join('');
 }
