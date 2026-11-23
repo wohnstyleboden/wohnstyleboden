@@ -464,7 +464,6 @@
               <span class="col-name">Product</span>
               <span class="col-brand">Merk</span>
               <span class="col-inv">Dikte</span>
-              <span class="col-tags" style="text-align:right">Tags</span>
             </div>
             <ul class="prod-list" id="prodList"></ul>
           </div>
@@ -874,7 +873,6 @@ function renderProductList() {
       <span class="prod__name">${esc(p.name)}</span>
       <span class="prod__brand">${esc(p.brand||'–')}</span>
       <span class="prod__inv">${esc(p.thickness||'–')}</span>
-      <span class="prod__tags" onclick="event.stopPropagation()">${(()=>{const tgs=(Array.isArray(p.tags)?p.tags:[p.category]).filter(Boolean);if(!tgs.length)return`<span class="tags-count">–</span>`;return`<span class="tags-count">${tgs.length}<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span><div class="tags-dropdown">${tgs.map(t=>`<span class="tag-badge">${esc(t)}</span>`).join('')}</div>`;})()}</span>
     </li>`;
   }).join('');
 }
