@@ -199,7 +199,7 @@
 .search-overlay__input{flex:1;border:none;outline:none;font-size:16px;font-family:inherit;color:#111;background:transparent;}
 .search-overlay__input::placeholder{color:#aaa;}
 .search-overlay__input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;width:14px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E") no-repeat center;cursor:pointer;opacity:1;}
-.search-overlay__results{margin-top:24px;display:flex;flex-direction:column;gap:4px;}
+.search-overlay__results{margin-top:24px;display:flex;flex-direction:column;gap:4px;overflow-y:auto;max-height:calc(100vh - 220px);}
 .search-res-item{display:flex;align-items:center;gap:14px;padding:10px 4px;text-decoration:none;color:#111;border-radius:6px;transition:background .1s;}
 .search-res-item:hover{background:#f5f5f5;}
 .search-res-item img{width:44px;height:44px;object-fit:cover;border-radius:4px;border:1px solid #eee;flex-shrink:0;}
@@ -344,7 +344,7 @@
     var products = window._navProducts || [];
     var matches = products.filter(function(p) {
       return (p.name||'').toLowerCase().includes(q) || (p.brand||'').toLowerCase().includes(q);
-    }).slice(0, 8);
+    });
 
     if (!matches.length) {
       var lang = localStorage.getItem('lang') || 'de';

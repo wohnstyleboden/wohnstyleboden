@@ -3520,11 +3520,14 @@ body.nav-open .navbar-wrap {
   overflow: hidden;
   padding: 48px 24px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   transition: transform 0.28s ease;
 }
 .mob-panel-scroll {
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #1a1a1a #fff;
