@@ -150,17 +150,31 @@
   .panel__search-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: var(--r-sm); flex-shrink: 0; color: var(--text-muted); background: var(--bg-surface); transition: border-color var(--dur), background var(--dur), color var(--dur); }
   .panel__search-btn:hover { border-color: var(--border-strong); background: var(--bg-hover); color: var(--text-strong); }
 
+  /* ---- Shopify filter bar ---- */
+  .sf-filter-bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--border); background: var(--bg-surface); }
+  .sf-tab-select { height: 32px; padding: 0 8px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); font-weight: 500; background: var(--bg-surface); color: var(--text-strong); flex-shrink: 0; }
+  .sf-filter-search { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; height: 32px; padding: 0 10px; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--bg-surface); }
+  .sf-filter-search svg { flex-shrink: 0; color: var(--text-muted); }
+  .sf-filter-search input { flex: 1; border: none; outline: none; font: inherit; font-size: var(--fs-sm); background: transparent; color: var(--text-strong); }
+  .sf-filter-search input::placeholder { color: var(--text-muted); }
+  .sf-status-select { height: 32px; padding: 0 8px; border: 1px solid var(--border); border-radius: var(--r-sm); font: inherit; font-size: var(--fs-sm); background: var(--bg-surface); color: var(--text); flex-shrink: 0; }
+  .sf-col-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: var(--r-sm); background: var(--bg-surface); color: var(--text-muted); flex-shrink: 0; transition: background var(--dur); }
+  .sf-col-btn:hover { background: var(--bg-hover); color: var(--text-strong); }
+
   /* ---- Column header row ---- */
-  .prod-col-head { display: flex; align-items: center; gap: 14px; padding: 8px 16px; border-bottom: 1px solid var(--border); background: var(--bg-surface); }
-  .prod-col-head span { font-size: var(--fs-sm); font-weight: 400; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .prod-col-head { display: flex; align-items: center; gap: 0; padding: 8px 12px; border-bottom: 1px solid var(--border); background: var(--bg-hover); }
+  .prod-col-head span { font-size: var(--fs-xs); font-weight: 500; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 4px; }
+  .prod-col-head .col-cb { width: 32px; flex: 0 0 32px; padding: 0; }
   .prod-col-head .col-thumb { width: 44px; flex: 0 0 44px; }
-  .prod-col-head .col-name { flex: 0 0 28%; }
-  .prod-col-head .col-meta { flex: 0 0 14%; }
-  .prod-col-head .col-tags { flex: 1; }
+  .prod-col-head .col-name { flex: 1; min-width: 0; }
+  .prod-col-head .col-status { flex: 0 0 100px; }
+  .prod-col-head .col-inv { flex: 0 0 110px; }
+  .prod-col-head .col-cat { flex: 0 0 130px; }
   @media (max-width: 768px) {
-    .prod-col-head .col-meta { display: none; }
-    .prod-col-head .col-tags { display: none; }
-    .prod-col-head .col-name { flex: 1; }
+    .prod-col-head .col-cat { display: none; }
+    .prod-col-head .col-inv { flex: 0 0 90px; }
+    .prod-col-head .col-status { flex: 0 0 80px; }
+    .sf-status-select { display: none; }
   }
   .panel__search-row { display: none; flex-direction: column; padding: 10px 14px; border-bottom: 1px solid var(--border); gap: 8px; background: var(--bg-surface); }
   .panel__search-row.open { display: flex; }
@@ -183,19 +197,21 @@
   /* ---- Prod rows ---- */
   .prod-list { list-style: none; }
   .prod-list .prod + .prod { border-top: 1px solid var(--border); }
-  .prod { display: flex; align-items: center; gap: 14px; padding: 10px 16px; cursor: pointer; transition: background var(--dur) var(--ease); }
+  .prod { display: flex; align-items: center; gap: 0; padding: 10px 12px; cursor: pointer; transition: background var(--dur) var(--ease); }
   .prod:hover { background: var(--bg-hover); }
   .prod__handle { display: none; }
-  .prod__thumb { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: var(--r-sm); background: var(--bg-hover); overflow: hidden; color: var(--text-muted); }
+  .prod__cb { width: 32px; flex: 0 0 32px; display: flex; align-items: center; }
+  .prod__cb input { width: 14px; height: 14px; }
+  .prod__thumb { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: var(--r-sm); background: var(--bg-hover); overflow: hidden; color: var(--text-muted); margin-right: 10px; }
   .prod__thumb img { width: 100%; height: 100%; object-fit: cover; }
-  .prod__name { flex: 0 0 28%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-md); color: var(--text-strong); }
-  .prod__meta { flex: 0 0 14%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); }
-  .prod__tags { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 4px; }
-  .prod .badge { margin-left: auto; flex-shrink: 0; }
+  .prod__name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-strong); padding: 0 4px; }
+  .prod__status { flex: 0 0 100px; padding: 0 4px; }
+  .prod__inv { flex: 0 0 110px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); padding: 0 4px; }
+  .prod__cat { flex: 0 0 130px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); color: var(--text-muted); padding: 0 4px; }
   @media (max-width: 768px) {
-    .prod__meta { display: none; }
-    .prod__tags { display: none; }
-    .prod__name { flex: 1; }
+    .prod__cat { display: none; }
+    .prod__inv { flex: 0 0 90px; }
+    .prod__status { flex: 0 0 80px; }
   }
 
   /* ---- Badges ---- */
@@ -362,12 +378,6 @@
     </button>
     <span class="topbar-brand">WohnStyle Boden</span>
   </div>
-  <div class="topbar-search">
-    <span class="topbar-search-icon">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.35-4.35"/></svg>
-    </span>
-    <input type="search" id="topbarSearch" placeholder="Search" oninput="renderProductList()">
-  </div>
   <div class="topbar-right">
     <span class="topbar-status" id="headerStatus">Niet verbonden</span>
     <button class="btn-token-reset" onclick="resetToken()">Token wijzigen</button>
@@ -377,12 +387,6 @@
   </div>
 </header>
 
-<div id="tokenBar">
-  <span style="font-weight:500;">GitHub Token vereist:</span>
-  <input type="password" id="tokenInput" placeholder="github_pat_...">
-  <button class="btn-save" onclick="saveToken()">Opslaan</button>
-  <a href="https://github.com/settings/tokens/new?scopes=repo&description=WohnStyle+Admin" target="_blank">Token aanmaken →</a>
-</div>
 
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
@@ -425,6 +429,12 @@
       Importeer CSV
     </button>
     <input type="file" id="csvFileInput" accept=".csv" style="display:none" onchange="importCSV(event)">
+
+    <div class="sidebar-divider"></div>
+    <button class="nav-item" onclick="showPage('settings', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Settings
+    </button>
   </aside>
 
   <main class="main" id="mainContent">
@@ -447,54 +457,44 @@
       <div id="viewProductList">
         <div class="main-header" style="margin-bottom:24px;">
           <h2>Products</h2>
-          <button class="btn-primary" onclick="openAddView()">+ Product toevoegen</button>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="btn-secondary" onclick="exportCSV()">Export</button>
+            <button class="btn-primary" onclick="openAddView()">+ Product toevoegen</button>
+          </div>
         </div>
 
         <div class="panel">
-          <div class="panel__head">
-            <div class="tabs" id="panelTabs">
-              <button class="tab is-active" onclick="switchTab('all',this)">Alle</button>
-              <button class="tab" onclick="switchTab('laminat',this)">Laminat</button>
-              <button class="tab" onclick="switchTab('pvc',this)">PVC</button>
-              <button class="tab" onclick="switchTab('fischgrat',this)">Fischgrät</button>
-              <button class="tab" onclick="switchTab('parkett',this)">Parkett</button>
-              <button class="tab" onclick="switchTab('zubehor',this)">Zubehör</button>
+          <div class="sf-filter-bar">
+            <div class="sf-filter-left">
+              <select id="filterTab" onchange="switchTabFromSelect(this)" class="sf-tab-select">
+                <option value="all">Alle</option>
+                <option value="laminat">Laminat</option>
+                <option value="pvc">PVC</option>
+                <option value="fischgrat">Fischgrät</option>
+                <option value="parkett">Parkett</option>
+                <option value="zubehor">Zubehör</option>
+              </select>
             </div>
-            <button class="panel__search-btn" onclick="togglePanelSearch()" aria-label="Zoeken en filteren">
-              <svg width="18" height="10" viewBox="0 0 31 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-                <circle cx="6" cy="6" r="5.2"/>
-                <path d="M11 11.8 12.1 10.7" stroke-width="1.6"/>
-                <line x1="18" y1="1" x2="30" y2="1"/>
-                <line x1="20.3" y1="6.1" x2="27.7" y2="6.1"/>
-                <line x1="22.6" y1="11" x2="25.4" y2="11"/>
-              </svg>
+            <div class="sf-filter-search">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.35-4.35"/></svg>
+              <input type="search" id="searchInput" placeholder="Search and filter" oninput="renderProductList()">
+            </div>
+            <select id="filterInStock" onchange="renderProductList()" class="sf-status-select">
+              <option value="">All status</option>
+              <option value="true">Op voorraad</option>
+              <option value="false">Niet op voorraad</option>
+            </select>
+            <button class="sf-col-btn" title="Columns">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
             </button>
           </div>
-          <div class="panel__search-row" id="panelSearchRow">
-            <div class="panel__search-row-top">
-              <input type="search" id="searchInput" placeholder="Zoeken op naam, merk, SKU..." oninput="renderProductList()">
-              <button class="btn-close-search" onclick="togglePanelSearch()">Cancel</button>
-            </div>
-            <div class="panel__search-row-filters">
-              <select id="filterInStock" onchange="renderProductList()">
-                <option value="">Alle statussen</option>
-                <option value="true">Op voorraad</option>
-                <option value="false">Niet op voorraad</option>
-              </select>
-              <select id="filterSort" onchange="renderProductList()">
-                <option value="name">Naam A-Z</option>
-                <option value="price_asc">Prijs laag-hoog</option>
-                <option value="price_desc">Prijs hoog-laag</option>
-                <option value="newest">Nieuwste eerst</option>
-              </select>
-            </div>
-          </div>
           <div class="prod-col-head">
+            <span class="col-cb"><input type="checkbox" style="width:14px;height:14px;"></span>
             <span class="col-thumb"></span>
             <span class="col-name">Product</span>
-            <span class="col-meta">Merk</span>
-            <span class="col-meta">Dikte</span>
-            <span class="col-tags">Tags</span>
+            <span class="col-status">Status</span>
+            <span class="col-inv">Voorraad</span>
+            <span class="col-cat">Categorie</span>
           </div>
           <ul class="prod-list" id="prodList"></ul>
           <div class="panel__empty" id="prodEmpty" style="display:none">Geen producten gevonden.</div>
@@ -666,6 +666,24 @@
       <div class="empty-state"><p>Klantenbeheer komt binnenkort.</p></div>
     </div>
 
+    <!-- ===== Settings page ===== -->
+    <div id="pageSettings" style="display:none">
+      <div class="main-header" style="margin-bottom:24px;"><h2>Settings</h2></div>
+      <div class="card card--smal" style="max-width:520px;">
+        <div class="card-section-title">GitHub Token</div>
+        <p style="font-size:var(--fs-sm);color:var(--text-muted);margin-bottom:16px;">De admin gebruikt een GitHub Personal Access Token om producten op te slaan. Genereer een token met <code>repo</code> rechten.</p>
+        <div class="field">
+          <label class="label">Token</label>
+          <input type="password" id="settingsTokenInput" class="input" placeholder="github_pat_..." autocomplete="off">
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px;align-items:center;">
+          <button class="btn-primary" onclick="saveSettingsToken()">Opslaan</button>
+          <a href="https://github.com/settings/tokens/new?scopes=repo&description=WohnStyle+Admin" target="_blank" style="font-size:var(--fs-sm);color:var(--text-muted);">Token aanmaken →</a>
+        </div>
+        <div id="settingsTokenStatus" style="margin-top:12px;font-size:var(--fs-sm);color:var(--success);display:none;">Token opgeslagen.</div>
+      </div>
+    </div>
+
   </main>
 </div>
 
@@ -694,7 +712,7 @@ function checkPassword() {
     localStorage.setItem('admin_auth', '1');
     document.getElementById('lockScreen').style.display = 'none';
     document.getElementById('appShell').style.display = '';
-    if (getToken()) { document.getElementById('tokenBar').classList.add('hidden'); loadProducts(); }
+    if (getToken()) { loadProducts(); }
     renderPhotoGrid();
   } else {
     document.getElementById('lockError').textContent = 'Onjuist wachtwoord';
@@ -712,22 +730,12 @@ function logout() {
 }
 
 // ---- Token ----
-function saveToken() {
-  const t = document.getElementById('tokenInput').value.trim();
-  if (!t) return;
-  localStorage.setItem('gh_token', t);
-  document.getElementById('tokenBar').classList.add('hidden');
-  loadProducts();
-}
-
 function getToken() {
   return localStorage.getItem('gh_token');
 }
 
 function resetToken() {
   localStorage.removeItem('gh_token');
-  document.getElementById('tokenInput').value = '';
-  document.getElementById('tokenBar').classList.remove('hidden');
   document.getElementById('headerStatus').textContent = 'Niet verbonden';
 }
 
@@ -736,7 +744,7 @@ window.addEventListener('DOMContentLoaded', function() {
   if (localStorage.getItem('admin_auth') === '1') {
     document.getElementById('lockScreen').style.display = 'none';
     document.getElementById('appShell').style.display = '';
-    if (getToken()) { document.getElementById('tokenBar').classList.add('hidden'); loadProducts(); }
+    if (getToken()) { loadProducts(); }
     renderPhotoGrid();
   }
 });
@@ -805,13 +813,32 @@ function toggleSidebar() {
 
 // ---- Page navigation ----
 function showPage(page, btn) {
-  ['pageDashboard','pageProducts','pageCustomers'].forEach(id => {
+  ['pageDashboard','pageProducts','pageCustomers','pageSettings'].forEach(id => {
     document.getElementById(id).style.display = 'none';
   });
   document.getElementById('page' + page.charAt(0).toUpperCase() + page.slice(1)).style.display = '';
   document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
   if (page === 'products') closeEditView();
+  if (page === 'settings') {
+    const t = getToken();
+    if (t) document.getElementById('settingsTokenInput').value = t;
+  }
+}
+
+function saveSettingsToken() {
+  const val = document.getElementById('settingsTokenInput').value.trim();
+  if (!val) return;
+  localStorage.setItem('gh_token', val);
+  const st = document.getElementById('settingsTokenStatus');
+  st.style.display = '';
+  setTimeout(() => { st.style.display = 'none'; }, 2500);
+  loadProducts();
+}
+
+function switchTabFromSelect(sel) {
+  currentView = sel.value;
+  renderProductList();
 }
 
 // ---- Panel search toggle ----
@@ -870,16 +897,21 @@ function renderProductList() {
   empty.style.display = 'none';
   const dragIcon = `<svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" stroke="none"><circle cx="7.6" cy="5" r="1.15"/><circle cx="12.4" cy="5" r="1.15"/><circle cx="7.6" cy="10" r="1.15"/><circle cx="12.4" cy="10" r="1.15"/><circle cx="7.6" cy="15" r="1.15"/><circle cx="12.4" cy="15" r="1.15"/></svg>`;
   const imgIcon = `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.9" y="3.9" width="14.2" height="12.2" rx="2.2"/><circle cx="7.5" cy="8.1" r="1.3"/><path d="M3.5 13.8 7.3 10.5l2.9 2.5 2.5-2.1 3.8 3.2"/></svg>`;
-  prodList.innerHTML = list.map(p => `
+  prodList.innerHTML = list.map(p => {
+    const statusBadge = p.in_stock
+      ? `<span class="badge badge-green">Op voorraad</span>`
+      : `<span class="badge badge-red">Niet op voorraad</span>`;
+    const cat = Array.isArray(p.tags) && p.tags.length ? p.tags[0] : (p.category || '–');
+    return `
     <li class="prod" onclick="openEditView('${esc(p.id)}')">
-      <span class="prod__handle">${dragIcon}</span>
+      <span class="prod__cb"><input type="checkbox" onclick="event.stopPropagation()"></span>
       <span class="prod__thumb">${p.image ? `<img src="${esc(p.image)}" alt="" onerror="this.style.display='none'">` : imgIcon}</span>
       <span class="prod__name">${esc(p.name)}</span>
-      <span class="prod__meta">${esc(p.brand||'–')}</span>
-      <span class="prod__meta">${esc(p.thickness||'–')}</span>
-      <span class="prod__tags">${(Array.isArray(p.tags)?p.tags:[p.category]).map(t=>`<span class="tag-badge">${esc(t)}</span>`).join('')}</span>
-    </li>
-  `).join('');
+      <span class="prod__status">${statusBadge}</span>
+      <span class="prod__inv">${p.in_stock ? (p.thickness ? esc(p.thickness) : 'Op voorraad') : '0 op voorraad'}</span>
+      <span class="prod__cat">${esc(cat)}</span>
+    </li>`;
+  }).join('');
 }
 
 // ---- Update counts ----
