@@ -165,6 +165,7 @@
   .badge { display: inline-flex; align-items: center; padding: 3px 9px; font-size: var(--fs-xs); font-weight: 500; border-radius: var(--r-full); white-space: nowrap; }
   .badge-green { background: var(--success-soft); color: var(--success); }
   .badge-red { background: var(--danger-soft); color: var(--danger); }
+  .tag-badge { display: inline-flex; align-items: center; padding: 3px 9px; font-size: var(--fs-xs); font-weight: 500; border-radius: var(--r-full); white-space: nowrap; background: var(--bg-hover); color: var(--text); border: 1px solid var(--border); }
 
   /* ---- Edit view page head ---- */
   .edit-page-head { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
@@ -745,7 +746,6 @@ function renderProductList() {
       <span class="prod__meta">${esc(p.brand||'–')}</span>
       <span class="prod__meta">${esc(p.thickness||'–')}</span>
       <span class="prod__tags">${(Array.isArray(p.tags)?p.tags:[p.category]).map(t=>`<span class="tag-badge">${esc(t)}</span>`).join('')}</span>
-      <span class="badge ${p.in_stock ? 'badge-green' : 'badge-red'}">${p.in_stock ? 'Op voorraad' : 'Niet op voorraad'}</span>
     </li>
   `).join('');
 }
